@@ -16,6 +16,12 @@ body {
   margin: 0 auto;
 }
 
+.photo {
+  position:absolute; 
+  top:20px; 
+  left:160px;
+}
+
 section {
   display: block;
   margin: 0 0 20px 0;
@@ -58,7 +64,7 @@ header h1 {
 }
 
 header h1:before {
-  content: "./ ";
+  /*content: "./ ";*/
   font-size: 24px;
 }
 

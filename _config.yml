@@ -1,0 +1,25 @@
+# Site settings
+title: Coldmooon's Blog
+header-img: img/home-bg.jpg
+email: xxx@xxx.com
+copyright_name: 
+description: ""
+baseurl: ""
+url: "http://coldmooon.github.io"
+# twitter_username: SBootstrap
+github_username:  coldmooon
+# facebook_username:  IronSummitMedia
+email_username:  coldmon@qq.com
+
+# Build settings
+markdown: kramdown 
+# highlighter: pygments
+highlighter: rouge
+permalink: pretty
+paginate: 20
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+
+gems: [jekyll-paginate, jekyll-feed]
+
+# kramdown:
+#   input: GFM
