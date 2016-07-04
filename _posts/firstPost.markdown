@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout:     default
 title:      "从零安装 Caffe (Ubuntu 14.04)"
 subtitle:   "Install Caffe in Ubuntu 14.04 from Scratch"
 date:       2015-08-03 23:16:00
