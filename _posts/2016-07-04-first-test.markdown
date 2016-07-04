@@ -7,5 +7,5 @@ author:     "attitudechunfeng"
 header-img: "img/home-bg.jpg"
 ---
 
-## First line
-# second line
+# First line
+## second line
