@@ -2,7 +2,7 @@
 layout:     post
 title:      "This is my first Blog"
 subtitle:   "just for test"
-date:       2016-07-04
+date:       2016-07-04 12:00:00
 author:     "attitudechunfeng"
 header-img: "img/home-bg.jpg"
 ---
