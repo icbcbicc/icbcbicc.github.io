@@ -3,7 +3,7 @@
     "title": "Clean Blog",
     "version": "1.0.0",
     "homepage": "http://startbootstrap.com",
-    "author": "attitudechunfeng",
+    "author": "Start Bootstrap",
     "license": "MIT",
     "devDependencies": {
         "grunt": "~0.4.5",
