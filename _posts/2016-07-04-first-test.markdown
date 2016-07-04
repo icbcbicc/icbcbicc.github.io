@@ -2,8 +2,8 @@
 layout:     post
 title:      "This is my first Blog"
 subtitle:   "just for test"
-date:       2016-07-04 11:00:00
-author:     "attitudechunfeng"
+date:       2016-07-04
+author:     "Start Bootstrap"
 header-img: "img/home-bg.jpg"
 ---
 
