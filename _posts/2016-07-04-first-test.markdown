@@ -3,7 +3,7 @@ layout:     post
 title:      "This is my first Blog"
 subtitle:   "just for test"
 date:       2016-07-04
-author:     "attitudechunfeng"
+author:     "Start Bootstrap"
 header-img: "img/home-bg.jpg"
 ---
 
