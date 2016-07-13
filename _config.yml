@@ -1,23 +1,23 @@
 # Site settings
-title: attitudechunfeng's Blog
+title: icbcbicc's Blog
 header-img: img/home-bg.jpg
-email: attitudechunfeng@hotmail.com
-copyright_name: attitudechunfeng's Blog
+email: icbcbicc@gmail.com
+copyright_name: icbcbicc's Blog
 description: "Write your site description here. It will be used as your sites meta description as well!"
 baseurl: ""
-url: "http://attitudechunfeng.github.io"
+url: "http://icbcbicc.github.io"
 #twitter_username: 
-github_username:  attitudechunfeng
+github_username:  icbcbicc
 #facebook_username:  IronSummitMedia
-email_username:  attitudechunfeng@hotmail.com
-
+email_username:  icbcbicc@hotmail.com
+port: 4001
 # Google Analytics
 # To enable google analytics, uncomment below line with a valid Google Tracking ID
 # google_tracking_id:
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
+highlighter: Pygments
 permalink: pretty
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]

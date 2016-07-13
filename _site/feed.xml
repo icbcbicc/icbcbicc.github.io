@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-07-13T19:51:52+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Learning Spatiotemporal Features with 3D CNN</title><link href="http://icbcbicc.github.io/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/" rel="alternate" type="text/html" title="Learning Spatiotemporal Features with 3D CNN" /><published>2016-07-13T00:00:00+08:00</published><updated>2016-07-13T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/13/Learning Spatiotemporal Features with 3D CNN</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/">&lt;h1 id=&quot;learning-spatiotemporal-features-with-3d-cnn&quot;&gt;Learning Spatiotemporal Features with 3D CNN&lt;/h1&gt;
+&lt;p&gt;July 10, 2016 12:56 PM&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;1. Introduction&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;3 × 3 × 3 convolution kernel for all layers to work best.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;related-work&quot;&gt;2. Related Work&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Takes full video frames as inputs&lt;/li&gt;
+  &lt;li&gt;Doesn’t rely on any preprocessing&lt;/li&gt;
+  &lt;li&gt;3D convolutions and 3D pooling&lt;/li&gt;
+  &lt;li&gt;Gradually pooling space and time information and building deeper networks achieves best result&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;learning-features-with-3d-convnets&quot;&gt;3. Learning Features with 3D ConvNets&lt;/h2&gt;
+&lt;p&gt;#### 3D convolution and pooling
+- 2D convolution (lose temporal information)
+- 2D convolution on mutiple frames (lose temporal information)
+- 3D convolution (preserves temporal information)
+- Small receptive fields of 3×3 conv kernels with deeper architectures yield best result&lt;/p&gt;
+
+&lt;h4 id=&quot;common-network-settings-ucf101-data-set&quot;&gt;Common network settings: UCF101 data set&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;All frames are resized to 128×171&lt;/li&gt;
+  &lt;li&gt;Split into non-overlapped 16-frame clips&lt;/li&gt;
+  &lt;li&gt;Input dimentions: 3×16×128×171 (channels,length in number of frames,height,iwdth)&lt;/li&gt;
+  &lt;li&gt;5 conv layers and 5 pooling layers&lt;/li&gt;
+  &lt;li&gt;2 fully-connected layers and a softmax loss layer&lt;/li&gt;
+  &lt;li&gt;All convolution kernels have a kernel temporal depth&lt;/li&gt;
+  &lt;li&gt;Mini-batches: 30 clips&lt;/li&gt;
+  &lt;li&gt;Learning rate is divided by 10 after every 4 epochs&lt;/li&gt;
+  &lt;li&gt;Training is stopped after 16 epochs&lt;/li&gt;
+  &lt;li&gt;Not to merge the temporal signal too early&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;varying-network-architectures&quot;&gt;Varying network architectures&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Only vary kernal temporal depth d of the convolution layers&lt;/li&gt;
+  &lt;li&gt;depth=1 :2D&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Different kernal temporal depth
+&lt;img src=&quot;./1.jpg&quot; alt=&quot;kernal temporal depth&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;homogeneous setting with convolution kernals of depth = 3 is the best option&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;spatiotemporal-feature-learning&quot;&gt;Spatiotemporal feature learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;C3D architecture
+&lt;img src=&quot;./2.jpg&quot; alt=&quot;C3D architecture&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;All 3D conv layers: 3×3×3 with stride 1×1×1&lt;/li&gt;
+  &lt;li&gt;All 3D pooling layers: 2×2×2 with stride 2×2×2 except for pool-1 (both kernel size and stride: 1×2×2)&lt;/li&gt;
+  &lt;li&gt;Deconvolution method to visualize the features
+&lt;a href=&quot;http://link.springer.com/content/pdf/10.1007%2F978-3-319-10590-1_53.pdf&quot;&gt;M. Zeiler and R. Fergus. Visualizing and understanding convolutional networks. In ECCV, 2014. 5, 6, 9&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>icbcbicc</name></author><category term="machine learning" /><category term="deep learning" /><category term="CNN" /><category term="caffe" /><summary>Learning Spatiotemporal Features with 3D CNN
+July 10, 2016 12:56 PM</summary></entry><entry><title>This is my first Blog</title><link href="http://icbcbicc.github.io/2016/07/04/first-test/" rel="alternate" type="text/html" title="This is my first Blog" /><published>2016-07-04T00:00:00+08:00</published><updated>2016-07-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/04/first-test</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/04/first-test/">&lt;h1 id=&quot;first-line&quot;&gt;First line&lt;/h1&gt;
+
+&lt;h3 id=&quot;second-line&quot;&gt;Second line&lt;/h3&gt;</content><author><name>icbcbicc</name></author><summary>First line</summary></entry></feed>

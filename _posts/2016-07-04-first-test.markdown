@@ -1,11 +1,12 @@
 ---
 layout:     post
 title:      "This is my first Blog"
-subtitle:   "just for test"
+subtitle:   "For Test"
 date:       2016-07-04
-author:     "attitudechunfeng"
+author:     "icbcbicc"
 header-img: "img/home-bg.jpg"
 ---
 
 # First line
-## second line
+
+### Second line
