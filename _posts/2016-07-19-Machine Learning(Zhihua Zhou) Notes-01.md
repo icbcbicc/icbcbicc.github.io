@@ -1,14 +1,14 @@
 ---
 layout:     post
-title:      "周志华《机器学习》笔记-01"
-subtitle:   读书笔记"
+title:      "Machine Learning(Zhihua Zhou) Notes-01"
+subtitle:   "读书笔记"
 date:       2016-07-19
 author:     "icbcbicc"
 header-img: "img/home-bg.jpg"
 tags: ["machine learning"]
 ---
 
-# 周志华《机器学习》笔记-01
+# Machine Learning(Zhihua Zhou) Notes-01
 July 19, 2016 00:44 AM
 
 
