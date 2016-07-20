@@ -5,6 +5,7 @@ email: icbcbicc@gmail.com
 copyright_name: icbcbicc's Blog
 description: "Write your site description here. It will be used as your sites meta description as well!"
 baseurl: ""
+encoding: utf-8
 url: "http://icbcbicc.github.io"
 #twitter_username: 
 github_username:  icbcbicc

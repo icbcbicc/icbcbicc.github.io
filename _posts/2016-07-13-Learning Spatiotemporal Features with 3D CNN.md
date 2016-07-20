@@ -4,7 +4,7 @@ title:      "Learning Spatiotemporal Features with 3D CNN"
 subtitle:   "论文笔记"
 date:       2016-07-13
 author:     "icbcbicc"
-header-img: "img/home-bg.jpg"
+header-img: "img/post-bg-01.jpg"
 tags: ["machine learning","deep learning","CNN","caffe"]
 ---
 
