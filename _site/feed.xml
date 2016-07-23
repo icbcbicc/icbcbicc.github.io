@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-07-20T15:30:59+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Machine_Learning_Zhihua_Zhou_Notes_01</title><link href="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/" rel="alternate" type="text/html" title="Machine_Learning_Zhihua_Zhou_Notes_01" /><published>2016-07-20T00:00:00+08:00</published><updated>2016-07-20T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/">&lt;h1 id=&quot;machinelearningzhihuazhounotes-01&quot;&gt;Machine_Learning_Zhihua_Zhou_Notes-01&lt;/h1&gt;</content><author><name>icbcbicc</name></author><category term="machine learning" /><summary></summary></entry><entry><title>Learning Spatiotemporal Features with 3D CNN</title><link href="http://icbcbicc.github.io/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/" rel="alternate" type="text/html" title="Learning Spatiotemporal Features with 3D CNN" /><published>2016-07-13T00:00:00+08:00</published><updated>2016-07-13T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/13/Learning Spatiotemporal Features with 3D CNN</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/">&lt;h1 id=&quot;learning-spatiotemporal-features-with-3d-cnn&quot;&gt;Learning Spatiotemporal Features with 3D CNN&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-07-24T01:28:34+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>C++ Primer Note 1</title><link href="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/" rel="alternate" type="text/html" title="C++ Primer Note 1" /><published>2016-07-22T00:00:00+08:00</published><updated>2016-07-22T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/22/cprimer_note_1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/">&lt;h2 id=&quot;c-primer-4th-edition-notes&quot;&gt;C++ Primer 4th Edition Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;chapter-1&quot;&gt;chapter 1&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;返回值必须是&lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;类型&lt;/li&gt;
+  &lt;li&gt;返回值0表示&lt;code class=&quot;highlighter-rouge&quot;&gt;main&lt;/code&gt;函数成功执行完毕，非0返回值的含义由各个OS自行定义&lt;/li&gt;
+  &lt;li&gt;编译
+    &lt;ul&gt;
+      &lt;li&gt;Linux: &lt;code class=&quot;highlighter-rouge&quot;&gt;g++ a.cpp -o a&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Windows: &lt;code class=&quot;highlighter-rouge&quot;&gt;cl -GX a.cpp&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;C++后缀与具体编译器有关：&lt;code class=&quot;highlighter-rouge&quot;&gt;.cc .ccx .cpp .cp .c&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;查看main的返回值
+    &lt;ul&gt;
+      &lt;li&gt;Linux: &lt;code class=&quot;highlighter-rouge&quot;&gt;echo $?&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Windows: &lt;code class=&quot;highlighter-rouge&quot;&gt;echo %ERRORLEVEL%&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;iostream
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cin&lt;/code&gt;: 标准输入&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cout&lt;/code&gt;: 标准输出&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cerr, clog&lt;/code&gt;: 标准错误&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include&amp;lt;iostream&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Enter 2 nums:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;std:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;&amp;lt;&lt;/code&gt;: 输出操作符，返回左操作数&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&amp;gt;&lt;/code&gt;: 输入操作符，返回左操作数&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;endl&lt;/code&gt;: 操纵符，可以换行并且flush缓冲区&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;std::cin &amp;gt;&amp;gt; v1 &amp;gt;&amp;gt; v2;&lt;/code&gt;
+  可以转换为&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;std:cout &amp;lt;&amp;lt; v1+v2 &amp;lt;&amp;lt; std::endl;&lt;/code&gt;
+可以转换为&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;读入未知数目的输入&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    	&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   
+	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;输入文件结束符
+    &lt;ul&gt;
+      &lt;li&gt;Linux: &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+D&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Windows: &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+Z&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;注释对&lt;code class=&quot;highlighter-rouge&quot;&gt;/* */&lt;/code&gt;不能嵌套&lt;/li&gt;
+  &lt;li&gt;在&lt;code class=&quot;highlighter-rouge&quot;&gt;for(int count = 0;count&amp;lt;10;count++)&lt;/code&gt;循环中的&lt;code class=&quot;highlighter-rouge&quot;&gt;count&lt;/code&gt;在循环外不可访问(推荐使用，防止意外访问)&lt;/li&gt;
+&lt;/ul&gt;</content><category term="C++" /><summary>C++ Primer 4th Edition Notes</summary></entry><entry><title>Machine Learning (Zhihua Zhou) Notes 01</title><link href="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/" rel="alternate" type="text/html" title="Machine Learning (Zhihua Zhou) Notes 01" /><published>2016-07-20T00:00:00+08:00</published><updated>2016-07-20T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/">&lt;h1 id=&quot;machinelearningzhihuazhounotes-01&quot;&gt;Machine_Learning_Zhihua_Zhou_Notes-01&lt;/h1&gt;</content><author><name>icbcbicc</name></author><category term="machine learning" /><summary></summary></entry><entry><title>Learning Spatiotemporal Features with 3D CNN</title><link href="http://icbcbicc.github.io/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/" rel="alternate" type="text/html" title="Learning Spatiotemporal Features with 3D CNN" /><published>2016-07-13T00:00:00+08:00</published><updated>2016-07-13T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/13/Learning Spatiotemporal Features with 3D CNN</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/">&lt;h1 id=&quot;learning-spatiotemporal-features-with-3d-cnn&quot;&gt;Learning Spatiotemporal Features with 3D CNN&lt;/h1&gt;
 &lt;p&gt;July 10, 2016 12:56 PM&lt;/p&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;1. Introduction&lt;/h2&gt;

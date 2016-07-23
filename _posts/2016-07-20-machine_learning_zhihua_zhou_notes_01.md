@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Machine_Learning_Zhihua_Zhou_Notes_01"
+title: "Machine Learning (Zhihua Zhou) Notes 01"
 description: ""
 category: 
 author:     "icbcbicc"

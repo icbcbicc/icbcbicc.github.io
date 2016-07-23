@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Write your site description here. It will be used as your sites meta description as well!">
 
-    <title>Learning Spatiotemporal Features with 3D CNN - icbcbicc's Blog</title>
+    <title>C++ Primer Note 1 - icbcbicc's Blog</title>
 
-    <link rel="canonical" href="http://icbcbicc.github.io/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/">
+    <link rel="canonical" href="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -88,16 +88,16 @@
 
 
     <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-01.jpg')">
+<header class="intro-header" style="background-image: url('/img/contact-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Learning Spatiotemporal Features with 3D CNN</h1>
+                    <h1>C++ Primer Note 1</h1>
                     
-                    <h2 class="subheading">论文笔记</h2>
+                    <h2 class="subheading">读书笔记</h2>
                     
-                    <span class="meta">Posted by icbcbicc on July 13, 2016</span>
+                    <span class="meta">Posted by icbcbicc's Blog on July 22, 2016</span>
                 </div>
             </div>
         </div>
@@ -110,66 +110,87 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<h1 id="learning-spatiotemporal-features-with-3d-cnn">Learning Spatiotemporal Features with 3D CNN</h1>
-<p>July 10, 2016 12:56 PM</p>
+				<h2 id="c-primer-4th-edition-notes">C++ Primer 4th Edition Notes</h2>
 
-<h2 id="introduction">1. Introduction</h2>
+<h3 id="chapter-1">chapter 1</h3>
+
 <ul>
-  <li>3 × 3 × 3 convolution kernel for all layers to work best.</li>
-</ul>
-
-<h2 id="related-work">2. Related Work</h2>
-<ul>
-  <li>Takes full video frames as inputs</li>
-  <li>Doesn’t rely on any preprocessing</li>
-  <li>3D convolutions and 3D pooling</li>
-  <li>Gradually pooling space and time information and building deeper networks achieves best result</li>
-</ul>
-
-<h2 id="learning-features-with-3d-convnets">3. Learning Features with 3D ConvNets</h2>
-<p>#### 3D convolution and pooling
-- 2D convolution (lose temporal information)
-- 2D convolution on mutiple frames (lose temporal information)
-- 3D convolution (preserves temporal information)
-- Small receptive fields of 3×3 conv kernels with deeper architectures yield best result</p>
-
-<h4 id="common-network-settings-ucf101-data-set">Common network settings: UCF101 data set</h4>
-<ul>
-  <li>All frames are resized to 128×171</li>
-  <li>Split into non-overlapped 16-frame clips</li>
-  <li>Input dimentions: 3×16×128×171 (channels,length in number of frames,height,iwdth)</li>
-  <li>5 conv layers and 5 pooling layers</li>
-  <li>2 fully-connected layers and a softmax loss layer</li>
-  <li>All convolution kernels have a kernel temporal depth</li>
-  <li>Mini-batches: 30 clips</li>
-  <li>Learning rate is divided by 10 after every 4 epochs</li>
-  <li>Training is stopped after 16 epochs</li>
-  <li>Not to merge the temporal signal too early</li>
-</ul>
-
-<h4 id="varying-network-architectures">Varying network architectures</h4>
-<ul>
-  <li>Only vary kernal temporal depth d of the convolution layers</li>
-  <li>depth=1 :2D</li>
-  <li>
-    <p>Different kernal temporal depth
-<img src="./1.jpg" alt="kernal temporal depth" /></p>
+  <li>返回值必须是<code class="highlighter-rouge">int</code>类型</li>
+  <li>返回值0表示<code class="highlighter-rouge">main</code>函数成功执行完毕，非0返回值的含义由各个OS自行定义</li>
+  <li>编译
+    <ul>
+      <li>Linux: <code class="highlighter-rouge">g++ a.cpp -o a</code></li>
+      <li>Windows: <code class="highlighter-rouge">cl -GX a.cpp</code></li>
+    </ul>
   </li>
-  <li>homogeneous setting with convolution kernals of depth = 3 is the best option</li>
-</ul>
-
-<h4 id="spatiotemporal-feature-learning">Spatiotemporal feature learning</h4>
-<ul>
-  <li>
-    <p>C3D architecture
-<img src="./2.jpg" alt="C3D architecture" /></p>
+  <li>C++后缀与具体编译器有关：<code class="highlighter-rouge">.cc .ccx .cpp .cp .c</code></li>
+  <li>查看main的返回值
+    <ul>
+      <li>Linux: <code class="highlighter-rouge">echo $?</code></li>
+      <li>Windows: <code class="highlighter-rouge">echo %ERRORLEVEL%</code></li>
+    </ul>
   </li>
-  <li>All 3D conv layers: 3×3×3 with stride 1×1×1</li>
-  <li>All 3D pooling layers: 2×2×2 with stride 2×2×2 except for pool-1 (both kernel size and stride: 1×2×2)</li>
-  <li>Deconvolution method to visualize the features
-<a href="http://link.springer.com/content/pdf/10.1007%2F978-3-319-10590-1_53.pdf">M. Zeiler and R. Fergus. Visualizing and understanding convolutional networks. In ECCV, 2014. 5, 6, 9</a></li>
+  <li>iostream
+    <ul>
+      <li><code class="highlighter-rouge">cin</code>: 标准输入</li>
+      <li><code class="highlighter-rouge">cout</code>: 标准输出</li>
+      <li><code class="highlighter-rouge">cerr, clog</code>: 标准错误</li>
+    </ul>
+  </li>
 </ul>
 
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include&lt;iostream&gt;
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter 2 nums:"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">v1</span> <span class="o">&gt;&gt;</span> <span class="n">v2</span><span class="p">;</span>
+    <span class="nl">std:</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v1</span><span class="o">+</span><span class="n">v2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<ul>
+  <li><code class="highlighter-rouge">&lt;&lt;</code>: 输出操作符，返回左操作数</li>
+  <li><code class="highlighter-rouge">&gt;&gt;</code>: 输入操作符，返回左操作数</li>
+  <li><code class="highlighter-rouge">endl</code>: 操纵符，可以换行并且flush缓冲区</li>
+  <li><code class="highlighter-rouge">std::cin &gt;&gt; v1 &gt;&gt; v2;</code>
+  可以转换为</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++">    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">v1</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">v2</span><span class="p">;</span>
+	</code></pre></figure>
+
+<ul>
+  <li><code class="highlighter-rouge">std:cout &lt;&lt; v1+v2 &lt;&lt; std::endl;</code>
+可以转换为</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++">    <span class="n">std</span><span class="o">::</span><span class="n">count</span> <span class="o">&lt;&lt;</span> <span class="n">v1</span><span class="o">+</span><span class="n">v2</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    </code></pre></figure>
+
+<ul>
+  <li>读入未知数目的输入</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++">    <span class="kt">int</span> <span class="n">value</span><span class="p">,</span><span class="n">sum</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+    	<span class="n">sum</span> <span class="o">+=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>   
+	</code></pre></figure>
+
+<ul>
+  <li>输入文件结束符
+    <ul>
+      <li>Linux: <code class="highlighter-rouge">ctrl+D</code></li>
+      <li>Windows: <code class="highlighter-rouge">ctrl+Z</code></li>
+    </ul>
+  </li>
+  <li>注释对<code class="highlighter-rouge">/* */</code>不能嵌套</li>
+  <li>在<code class="highlighter-rouge">for(int count = 0;count&lt;10;count++)</code>循环中的<code class="highlighter-rouge">count</code>在循环外不可访问(推荐使用，防止意外访问)</li>
+</ul>
 
 
                 <hr>
@@ -177,13 +198,9 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2016/07/04/first-test/" data-toggle="tooltip" data-placement="top" title="This is my first Blog">&larr; Previous Post</a>
+                        <a href="/2016/07/20/machine_learning_zhihua_zhou_notes_01/" data-toggle="tooltip" data-placement="top" title="Machine Learning (Zhihua Zhou) Notes 01">&larr; Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2016/07/20/machine_learning_zhihua_zhou_notes_01/" data-toggle="tooltip" data-placement="top" title="Machine Learning (Zhihua Zhou) Notes 01">Next Post &rarr;</a>
-                    </li>
                     
                 </ul>
 
