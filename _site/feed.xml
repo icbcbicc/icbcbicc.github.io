@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-07-24T01:28:34+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>C++ Primer Note 1</title><link href="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/" rel="alternate" type="text/html" title="C++ Primer Note 1" /><published>2016-07-22T00:00:00+08:00</published><updated>2016-07-22T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/22/cprimer_note_1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/">&lt;h2 id=&quot;c-primer-4th-edition-notes&quot;&gt;C++ Primer 4th Edition Notes&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-07-24T22:13:16+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>C++ Primer Note 1</title><link href="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/" rel="alternate" type="text/html" title="C++ Primer Note 1" /><published>2016-07-22T00:00:00+08:00</published><updated>2016-07-22T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/22/cprimer_note_1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/">&lt;h2 id=&quot;c-primer-4th-edition-notes-chapter-1--2&quot;&gt;C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2&lt;/h2&gt;
 
 &lt;h3 id=&quot;chapter-1&quot;&gt;chapter 1&lt;/h3&gt;
 
@@ -78,7 +78,132 @@
   &lt;/li&gt;
   &lt;li&gt;注释对&lt;code class=&quot;highlighter-rouge&quot;&gt;/* */&lt;/code&gt;不能嵌套&lt;/li&gt;
   &lt;li&gt;在&lt;code class=&quot;highlighter-rouge&quot;&gt;for(int count = 0;count&amp;lt;10;count++)&lt;/code&gt;循环中的&lt;code class=&quot;highlighter-rouge&quot;&gt;count&lt;/code&gt;在循环外不可访问(推荐使用，防止意外访问)&lt;/li&gt;
-&lt;/ul&gt;</content><category term="C++" /><summary>C++ Primer 4th Edition Notes</summary></entry><entry><title>Machine Learning (Zhihua Zhou) Notes 01</title><link href="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/" rel="alternate" type="text/html" title="Machine Learning (Zhihua Zhou) Notes 01" /><published>2016-07-20T00:00:00+08:00</published><updated>2016-07-20T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/">&lt;h1 id=&quot;machinelearningzhihuazhounotes-01&quot;&gt;Machine_Learning_Zhihua_Zhou_Notes-01&lt;/h1&gt;</content><author><name>icbcbicc</name></author><category term="machine learning" /><summary></summary></entry><entry><title>Learning Spatiotemporal Features with 3D CNN</title><link href="http://icbcbicc.github.io/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/" rel="alternate" type="text/html" title="Learning Spatiotemporal Features with 3D CNN" /><published>2016-07-13T00:00:00+08:00</published><updated>2016-07-13T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/13/Learning Spatiotemporal Features with 3D CNN</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/">&lt;h1 id=&quot;learning-spatiotemporal-features-with-3d-cnn&quot;&gt;Learning Spatiotemporal Features with 3D CNN&lt;/h1&gt;
+  &lt;li&gt;use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt; &amp;gt;&lt;/code&gt; to include standard lib, use &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot; &quot;&lt;/code&gt; top include non-standard lib (personal lib)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;chapter-2&quot;&gt;chapter 2&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2 kinds of character
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;char&lt;/code&gt;: 8 bits&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wchar_t&lt;/code&gt;: 16 bits&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Do not use &lt;code class=&quot;highlighter-rouge&quot;&gt;char&lt;/code&gt; as a computational type, it may results in some problems&lt;/li&gt;
+  &lt;li&gt;In many circumstances, &lt;code class=&quot;highlighter-rouge&quot;&gt;double&lt;/code&gt; runs much more faster than &lt;code class=&quot;highlighter-rouge&quot;&gt;float&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Usually, &lt;code class=&quot;highlighter-rouge&quot;&gt;long double&lt;/code&gt; is too time-consuming and not neccessary&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;short&lt;/code&gt; may leads to some wrap around false&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;long&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;short&lt;/code&gt; represent &lt;code class=&quot;highlighter-rouge&quot;&gt;signed *&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;unsigned int&lt;/code&gt; can be simply spelled as &lt;code class=&quot;highlighter-rouge&quot;&gt;unsigned&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;All characters , including all unprintable characters, can be represented as &lt;code class=&quot;highlighter-rouge&quot;&gt;\obbb&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;\xddd&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;bbb&lt;/code&gt; are 3 octal numbers and &lt;code class=&quot;highlighter-rouge&quot;&gt;ddd&lt;/code&gt; are 3 hexadecimal numbers.&lt;/li&gt;
+  &lt;li&gt;Every string in C++ will be added with an null character(&lt;code class=&quot;highlighter-rouge&quot;&gt;\0&lt;/code&gt;) at the end of the string. For example, &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;A&quot;&lt;/code&gt; includes an &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;A&#39;&lt;/code&gt; and a &lt;code class=&quot;highlighter-rouge&quot;&gt;\0&lt;/code&gt;, but &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;A&#39;&lt;/code&gt; only contains a &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;A&#39;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;wide char: &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;L&#39;&#39;A&#39;&lt;/code&gt;, wide string: &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;L&#39;&quot;A&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Concatenate strings(they shoulde be the same kind of string): &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;A&quot; &quot;B&quot;&lt;/code&gt;. Join wide string and normal string may causes problpems(Undefinded operation)&lt;/li&gt;
+  &lt;li&gt;Use &lt;code class=&quot;highlighter-rouge&quot;&gt;\&lt;/code&gt; to split one line into two, but there is no need doing this if you wanna separate a string into more sub-strings. For example:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;s&quot;&gt;&quot;asd&quot;&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&quot;zxc&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;same&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;with&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&quot;asd \
+zxc&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;All characters(including space or tabs) after the &lt;code class=&quot;highlighter-rouge&quot;&gt;\&lt;/code&gt; in the folowing line will be treated as part of the string, so the indent after &lt;code class=&quot;highlighter-rouge&quot;&gt;\&lt;/code&gt; may be incorrect&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;初始化:
+    &lt;ul&gt;
+      &lt;li&gt;复制初始化 &lt;code class=&quot;highlighter-rouge&quot;&gt;int val = 1024;&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;直接初始化 &lt;code class=&quot;highlighter-rouge&quot;&gt;int val(1024);&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;这两种初始化方法差别微妙，但是直接初始化语法更加灵活并且高效&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;对内置类型来说，两种初始化几乎没有差别&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;对类型对象来说，有些初始化只能用直接初始化完成。有多个初始化式时不能使用复制初始化（即直接初始化需要多个参数时无法用复制初始化）。
+例如：&lt;code class=&quot;highlighter-rouge&quot;&gt;std::string a(4,&#39;9&#39;);&lt;/code&gt; : &lt;code class=&quot;highlighter-rouge&quot;&gt;a = “9999”&lt;/code&gt;
+        &lt;ul&gt;
+          &lt;li&gt;在函数体外定义的内置类型会自动初始化为0，在函数内定义的内置函数不初始化&lt;/li&gt;
+          &lt;li&gt;未初始化的变量事实上都有一个值&lt;/li&gt;
+          &lt;li&gt;对于没有提供默认构造函数的类，必须在定义的时候显示地提供初始化式&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;声明与定义
+    &lt;ul&gt;
+      &lt;li&gt;定义：分配空间，指定初始值。一个程序中，一个变量有且只有一个定义（赋值可有多个）&lt;/li&gt;
+      &lt;li&gt;声明：向程序表明变量的类型和名字，变量可声明多次。&lt;/li&gt;
+      &lt;li&gt;定义属于声明，但声明不总是定义 
+  例如：&lt;code class=&quot;highlighter-rouge&quot;&gt;extern&lt;/code&gt;关键字可用于声明而不定义（也可用于声明并且定义），只有&lt;code class=&quot;highlighter-rouge&quot;&gt;extern&lt;/code&gt;位于函数外部时，才能含有初始化式（声明并且定义）&lt;/li&gt;
+      &lt;li&gt;在多个文件中使用的变量都需要有与定义分离的声明。一个文件含有定义，使用这个变量的其他文件则包含声明&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;限定符：定义常量。因为常量定义后无法修改，因此定义时必须初始化&lt;/li&gt;
+      &lt;li&gt;非&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;变量默认为&lt;code class=&quot;highlighter-rouge&quot;&gt;extern&lt;/code&gt;，但要使&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;变量能在其他文件中访问，必须显示指定其为&lt;code class=&quot;highlighter-rouge&quot;&gt;extern const&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;引用
+    &lt;ul&gt;
+      &lt;li&gt;引用是复合类型，是指用其他类型定义的类型。&lt;/li&gt;
+      &lt;li&gt;不能定义引用类型的引用&lt;/li&gt;
+      &lt;li&gt;引用必须用与该引用 相关联类型的对象（不能是常数） 来初始化（&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;引用除外）&lt;/li&gt;
+      &lt;li&gt;引用只是一个别名，对引用的所有操作都是作用在该引用绑定的对象上&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;引用：可以读取但无法修改，可以绑定其他类型的对象（值可能会发生变化）或者常量&lt;/li&gt;
+      &lt;li&gt;将&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;对象绑定到非&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;引用是非法的&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;typedef&lt;/code&gt;定义类型的同义词
+  -例如： &lt;code class=&quot;highlighter-rouge&quot;&gt;typedef int exam_score&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;exam_score&lt;/code&gt;就可以当做&lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;使用&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;枚举(&lt;code class=&quot;highlighter-rouge&quot;&gt;enumeration&lt;/code&gt;)
+    &lt;ul&gt;
+      &lt;li&gt;关键字: &lt;code class=&quot;highlighter-rouge&quot;&gt;enum&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;例如：&lt;code class=&quot;highlighter-rouge&quot;&gt;enum modes {input,output,append}&lt;/code&gt;。&lt;code class=&quot;highlighter-rouge&quot;&gt;modes&lt;/code&gt;式枚举类型名称。默认第一个枚举成员&lt;code class=&quot;highlighter-rouge&quot;&gt;input&lt;/code&gt;的值为1，后面每个枚举成员的值比前面一个大1。&lt;/li&gt;
+      &lt;li&gt;可以定义枚举成员的初值，例如&lt;code class=&quot;highlighter-rouge&quot;&gt;enum modes {input=2,output,append}&lt;/code&gt;，其后每个成员依次加1&lt;/li&gt;
+      &lt;li&gt;枚举成员的值可以不唯一。但都是常量，无法修改&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;enum&lt;/code&gt;定义了一个新的类型，可以定义和初始化其中的枚举成员&lt;br /&gt;
+  例如： &lt;code class=&quot;highlighter-rouge&quot;&gt;modes delete = append&lt;/code&gt;&lt;br /&gt;
+  但只能用枚举成员或者同一枚举类型的其他对象来初始化，不能使用常数&lt;br /&gt;
+  例如： &lt;code class=&quot;highlighter-rouge&quot;&gt;modes delete = 3&lt;/code&gt;是错误的&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;与&lt;code class=&quot;highlighter-rouge&quot;&gt;struct&lt;/code&gt;唯一区别在于默认访问级别
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;：每一个成员都默认为&lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;struct&lt;/code&gt;：每一个成员都默认为&lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;头文件一般包含
+    &lt;ul&gt;
+      &lt;li&gt;类的定义&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;extern&lt;/code&gt;变量的声明&lt;/li&gt;
+      &lt;li&gt;函数的声明&lt;/li&gt;
+      &lt;li&gt;由常量初始化的&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;变量&lt;/li&gt;
+      &lt;li&gt;例如：&lt;code class=&quot;highlighter-rouge&quot;&gt;extern int a = 10;&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;double b;&lt;/code&gt;都属于定义，不应该出现在头文件中（头文件包含在多个源文件中，直接定义容易产生多重定义错误）&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;编译时将&lt;code class=&quot;highlighter-rouge&quot;&gt;#include&amp;lt;头文件&amp;gt;&lt;/code&gt;替换为头文件的内容，因此头文件内的变量声明不用&lt;code class=&quot;highlighter-rouge&quot;&gt;extern&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;设计头文件时应该保证多次包含同一头文件不会引起多次定义，可以通过使用 头文件保护符 让头文件安全&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;预处理器变量
+    &lt;ul&gt;
+      &lt;li&gt;通常全部大写，在程序中必须唯一&lt;/li&gt;
+      &lt;li&gt;使用类名来命名预处理器变量可以避免预处理器变量重名&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#define&lt;/code&gt;用于指定一个名字为预处理器变量&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#ifndef&lt;/code&gt;用于检测指定的预处理器变量是否未定义，如果未定义，则处理其后所有指令直到&lt;code class=&quot;highlighter-rouge&quot;&gt;#endif&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#define&lt;/code&gt;写在&lt;code class=&quot;highlighter-rouge&quot;&gt;#ifndef&lt;/code&gt;与&lt;code class=&quot;highlighter-rouge&quot;&gt;#endif&lt;/code&gt;之间即可保证头文件不被多次包含
+&lt;br /&gt;例如：&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#ifndef TAG
+#define TAG
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#endif&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>icbcbicc</name></author><category term="C++" /><summary>C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2</summary></entry><entry><title>Machine Learning (Zhihua Zhou) Notes 01</title><link href="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/" rel="alternate" type="text/html" title="Machine Learning (Zhihua Zhou) Notes 01" /><published>2016-07-20T00:00:00+08:00</published><updated>2016-07-20T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/">&lt;h1 id=&quot;machinelearningzhihuazhounotes-01&quot;&gt;Machine_Learning_Zhihua_Zhou_Notes-01&lt;/h1&gt;</content><author><name>icbcbicc</name></author><category term="machine learning" /><summary></summary></entry><entry><title>Learning Spatiotemporal Features with 3D CNN</title><link href="http://icbcbicc.github.io/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/" rel="alternate" type="text/html" title="Learning Spatiotemporal Features with 3D CNN" /><published>2016-07-13T00:00:00+08:00</published><updated>2016-07-13T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/13/Learning Spatiotemporal Features with 3D CNN</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/">&lt;h1 id=&quot;learning-spatiotemporal-features-with-3d-cnn&quot;&gt;Learning Spatiotemporal Features with 3D CNN&lt;/h1&gt;
 &lt;p&gt;July 10, 2016 12:56 PM&lt;/p&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;1. Introduction&lt;/h2&gt;
