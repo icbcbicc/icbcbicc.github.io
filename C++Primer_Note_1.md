@@ -56,6 +56,7 @@ int main()
 		- Windows: `ctrl+Z`
 - 注释对`/* */`不能嵌套
 - 在`for(int count = 0;count<10;count++)`循环中的`count`在循环外不可访问(推荐使用，防止意外访问)
+
 -  use `< >` to include standard lib, use `" "` top include non-standard lib (personal lib)
 
 ### chapter 2

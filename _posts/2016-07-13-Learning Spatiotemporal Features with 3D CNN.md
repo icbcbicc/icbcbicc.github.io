@@ -43,13 +43,13 @@ July 10, 2016 12:56 PM
 - Only vary kernal temporal depth d of the convolution layers
 - depth=1 :2D
 - Different kernal temporal depth
-![kernal temporal depth](/img/1.jpg)
+![kernal temporal depth](1.jpg)
 
 - homogeneous setting with convolution kernals of depth = 3 is the best option
 
 #### Spatiotemporal feature learning
 - C3D architecture
-![C3D architecture](/img/2.jpg)
+![C3D architecture](2.jpg)
 
 - All 3D conv layers: 3×3×3 with stride 1×1×1
 - All 3D pooling layers: 2×2×2 with stride 2×2×2 except for pool-1 (both kernel size and stride: 1×2×2)
