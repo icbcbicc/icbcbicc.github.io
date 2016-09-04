@@ -21,6 +21,7 @@ July 10, 2016 12:56 PM
 - Gradually pooling space and time information and building deeper networks achieves best result
 
 ## 3. Learning Features with 3D ConvNets
+
 #### 3D convolution and pooling
 - 2D convolution (lose temporal information)
 - 2D convolution on mutiple frames (lose temporal information)
@@ -43,13 +44,13 @@ July 10, 2016 12:56 PM
 - Only vary kernal temporal depth d of the convolution layers
 - depth=1 :2D
 - Different kernal temporal depth
-![kernal temporal depth](1.png)
+![kernal temporal depth](../img/1.png)
 
 - homogeneous setting with convolution kernals of depth = 3 is the best option
 
 #### Spatiotemporal feature learning
 - C3D architecture
-![C3D architecture](2.png)
+![C3D architecture](../img/2.png)
 
 - All 3D conv layers: 3×3×3 with stride 1×1×1
 - All 3D pooling layers: 2×2×2 with stride 2×2×2 except for pool-1 (both kernel size and stride: 1×2×2)
