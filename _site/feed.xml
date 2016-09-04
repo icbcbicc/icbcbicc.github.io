@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-07-24T22:31:23+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>C++ Primer Note 1</title><link href="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/" rel="alternate" type="text/html" title="C++ Primer Note 1" /><published>2016-07-22T00:00:00+08:00</published><updated>2016-07-22T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/22/cprimer_note_1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/">&lt;h2 id=&quot;c-primer-4th-edition-notes-chapter-1--2&quot;&gt;C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-04T17:12:44+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Abnormal Event Detection at 150 FPS in MATLAB</title><link href="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/" rel="alternate" type="text/html" title="Abnormal Event Detection at 150 FPS in MATLAB" /><published>2016-09-04T00:00:00+08:00</published><updated>2016-09-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/04/Abnormal Event Detection at 150 FPS in MATLAB</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/">&lt;h1 id=&quot;abnormal-event-detection-at-150-fps-in-matlab&quot;&gt;Abnormal Event Detection at 150 FPS in MATLAB&lt;/h1&gt;</content><author><name>icbcbicc</name></author><summary>Abnormal Event Detection at 150 FPS in MATLAB</summary></entry><entry><title>C++ Primer Note 1</title><link href="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/" rel="alternate" type="text/html" title="C++ Primer Note 1" /><published>2016-07-22T00:00:00+08:00</published><updated>2016-07-22T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/22/cprimer_note_1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/">&lt;h2 id=&quot;c-primer-4th-edition-notes-chapter-1--2&quot;&gt;C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2&lt;/h2&gt;
 
 &lt;h3 id=&quot;chapter-1&quot;&gt;chapter 1&lt;/h3&gt;
 
@@ -220,11 +220,14 @@ zxc&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;learning-features-with-3d-convnets&quot;&gt;3. Learning Features with 3D ConvNets&lt;/h2&gt;
-&lt;p&gt;#### 3D convolution and pooling
-- 2D convolution (lose temporal information)
-- 2D convolution on mutiple frames (lose temporal information)
-- 3D convolution (preserves temporal information)
-- Small receptive fields of 3×3 conv kernels with deeper architectures yield best result&lt;/p&gt;
+
+&lt;h4 id=&quot;d-convolution-and-pooling&quot;&gt;3D convolution and pooling&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;2D convolution (lose temporal information)&lt;/li&gt;
+  &lt;li&gt;2D convolution on mutiple frames (lose temporal information)&lt;/li&gt;
+  &lt;li&gt;3D convolution (preserves temporal information)&lt;/li&gt;
+  &lt;li&gt;Small receptive fields of 3×3 conv kernels with deeper architectures yield best result&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h4 id=&quot;common-network-settings-ucf101-data-set&quot;&gt;Common network settings: UCF101 data set&lt;/h4&gt;
 &lt;ul&gt;
@@ -246,7 +249,7 @@ zxc&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;li&gt;depth=1 :2D&lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Different kernal temporal depth
-&lt;img src=&quot;1.png&quot; alt=&quot;kernal temporal depth&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/img/1.JPG&quot; alt=&quot;kernal temporal depth&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;homogeneous setting with convolution kernals of depth = 3 is the best option&lt;/li&gt;
 &lt;/ul&gt;
@@ -255,7 +258,7 @@ zxc&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;C3D architecture
-&lt;img src=&quot;2.png&quot; alt=&quot;C3D architecture&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/img/2.JPG&quot; alt=&quot;C3D architecture&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;All 3D conv layers: 3×3×3 with stride 1×1×1&lt;/li&gt;
   &lt;li&gt;All 3D pooling layers: 2×2×2 with stride 2×2×2 except for pool-1 (both kernel size and stride: 1×2×2)&lt;/li&gt;

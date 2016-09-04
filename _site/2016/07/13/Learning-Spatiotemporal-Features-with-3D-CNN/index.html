@@ -127,11 +127,14 @@
 </ul>
 
 <h2 id="learning-features-with-3d-convnets">3. Learning Features with 3D ConvNets</h2>
-<p>#### 3D convolution and pooling
-- 2D convolution (lose temporal information)
-- 2D convolution on mutiple frames (lose temporal information)
-- 3D convolution (preserves temporal information)
-- Small receptive fields of 3×3 conv kernels with deeper architectures yield best result</p>
+
+<h4 id="d-convolution-and-pooling">3D convolution and pooling</h4>
+<ul>
+  <li>2D convolution (lose temporal information)</li>
+  <li>2D convolution on mutiple frames (lose temporal information)</li>
+  <li>3D convolution (preserves temporal information)</li>
+  <li>Small receptive fields of 3×3 conv kernels with deeper architectures yield best result</li>
+</ul>
 
 <h4 id="common-network-settings-ucf101-data-set">Common network settings: UCF101 data set</h4>
 <ul>
@@ -153,7 +156,7 @@
   <li>depth=1 :2D</li>
   <li>
     <p>Different kernal temporal depth
-<img src="1.png" alt="kernal temporal depth" /></p>
+<img src="/img/1.JPG" alt="kernal temporal depth" /></p>
   </li>
   <li>homogeneous setting with convolution kernals of depth = 3 is the best option</li>
 </ul>
@@ -162,7 +165,7 @@
 <ul>
   <li>
     <p>C3D architecture
-<img src="2.png" alt="C3D architecture" /></p>
+<img src="/img/2.JPG" alt="C3D architecture" /></p>
   </li>
   <li>All 3D conv layers: 3×3×3 with stride 1×1×1</li>
   <li>All 3D pooling layers: 2×2×2 with stride 2×2×2 except for pool-1 (both kernel size and stride: 1×2×2)</li>
