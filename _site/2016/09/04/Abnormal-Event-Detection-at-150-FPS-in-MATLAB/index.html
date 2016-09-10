@@ -103,7 +103,6 @@
         </div>
     </div>
 </header>
-
 <!-- Post Content -->
 <article>
     <div class="container">
@@ -111,6 +110,260 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
 				<h1 id="abnormal-event-detection-at-150-fps-in-matlab">Abnormal Event Detection at 150 FPS in MATLAB</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<h4 id="difficulties-in-detecting-abnormal-events-based-on-surveillance-videos">Difficulties in detecting abnormal events based on surveillance videos</h4>
+
+<ul>
+  <li>Hard to list all possible negative samples</li>
+</ul>
+
+<h4 id="traditional-method">Traditional method</h4>
+
+<ul>
+  <li>
+    <p>Normal patterns are learned from training</p>
+  </li>
+  <li>
+    <p>And then the patterns are used to detect events deviated from this representation</p>
+  </li>
+</ul>
+
+<h4 id="other-methods">Other methods</h4>
+
+<ul>
+  <li>
+    <p>Trajectories extracted from object-of-interest are used as normal patterns</p>
+  </li>
+  <li>
+    <p>Learn normal low-level video feature distributions(exponential, multivariate Gaussian mixture, clustering)</p>
+  </li>
+  <li>
+    <p>Graph model normal event representations which use co-occurrence patterns</p>
+  </li>
+  <li>
+    <p>sparsity-based model(not fast enough for realtime processing due to the inherently intensive computation to build sparse representation)</p>
+  </li>
+</ul>
+
+<h2 id="sparsity-based-abnormality-detection">Sparsity Based Abnormality Detection</h2>
+
+<ul>
+  <li>
+    <p><strong><em>Sparsity:  A general constraint to model normal event patterns as a linear combination of a set of basis atoms</em></strong></p>
+  </li>
+  <li>
+    <p><strong><em>Computationally expensive</em></strong></p>
+
+    <script type="math/tex; mode=display">min\|x-D\beta\|^2_2 \qquad s.t. \qquad \|\beta\|_0 \le s</script>
+
+    <p>$ \beta $ : parse coefficients</p>
+
+    <p>$|x-D\beta|^2_2 $ :data fitting term</p>
+
+    <p>$|\beta|_0$ : sparsity regulization term</p>
+
+    <p>$s$ : parameter to control sparsity</p>
+
+    <ul>
+      <li>abnormal pattern : large error result from $|x-D\beta|^2_2$</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong><em>Efficiency problem</em></strong></p>
+
+    <p>Adopting $min|x-D\beta|^2_2$ is time-consuming :</p>
+
+    <ul>
+      <li>
+        <p><strong>ﬁnd the suitable basis vectors</strong> (with scale $s$) from the dictionary (with scale $q$) to represent testing data $x$)</p>
+      </li>
+      <li>
+        <p>Search space is large <strong>( $(^q_s)$ different combinations )</strong></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong><em>Our contribution</em></strong></p>
+    <ul>
+      <li>
+        <p>Instead of coding sparsity by ﬁnding an $s$ basis combination from $D$ in $min|x-D\beta|^2_2$, we code it directly <strong>as a set of possible combinations of basis vectors</strong></p>
+      </li>
+      <li>
+        <p>We only need to ﬁnd the most suitable combination by evaluating <strong>the small-scale least square error</strong></p>
+      </li>
+    </ul>
+
+    <p><img src="/img/3.JPG" alt="Our testing architecture" /></p>
+
+    <ul>
+      <li>
+        <p>Freely selecting $s$ basis vectors from a total of $q$ vectors, the reconstructed structure could deviate from input due to the <strong>large freedom</strong>. However, in our method, <strong>each combination ﬁnds its corresponding input data</strong></p>
+      </li>
+      <li>
+        <p>It reaches 140∼150 FPS using a desktop with 3.4GHz CPU and 8G memory in MATLAB 2012.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="methods">Methods</h2>
+
+<h4 id="learning-combinations-on-training-data">Learning Combinations on Training Data</h4>
+
+<ul>
+  <li><strong><em>Preprocess</em></strong>
+    <ul>
+      <li>
+        <p>Resize each frame into different scales as “<a href="http://101.110.118.63/www3.ntu.edu.sg/home/jsyuan/index_files/papers/Cong-Yuan-CVPR11.pdf">Sparse Reconstruction Cost for Abnormal Event Detection</a>”</p>
+      </li>
+      <li>
+        <p>Uniformly partition each layer to a set of non-overlapping patches. All patches have the same size</p>
+      </li>
+      <li>
+        <p>Corresponding regions in 5 continuous frames are stacked together to form a spatial-temporal cube.</p>
+      </li>
+      <li>
+        <p><img src="/img/4.JPG" alt="Resize" /></p>
+      </li>
+    </ul>
+
+    <p>This pyramid involves <strong>local information</strong> in ﬁne-scale layers and more <strong>global structures</strong> in small-resolution ones.</p>
+
+    <ul>
+      <li>
+        <p>With the spatial-temporal cubes, we compute <strong>3D gradient features</strong> on each of them following “<a href="https://www.cs.drexel.edu/~kon/publication/LKratz_CVPR09.pdf">Anomaly Detection in Extremely Crowded Scenes Using Spatio-Temporal Motion Pattern Models</a>”</p>
+      </li>
+      <li>
+        <p>Features are processed separately according to their spatial coordinates. <strong>Only features at the same spatial location in the video frames are used together</strong> for training and testing.</p>
+      </li>
+    </ul>
+  </li>
+  <li><strong><em>Learning Combinations on Training Data</em></strong>
+    <ul>
+      <li>
+        <p><strong>Reconstruction Error</strong>
+ <script type="math/tex">t=min_{s,\gamma,\beta}\sum_{j=1}^n\sum_{i=1}^K\gamma_j^i\|x_j-S_i\beta_j^i\|_2^2 \quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}</script></p>
+      </li>
+      <li>
+        <p>Each $\gamma_j^i$ indicates whether or not the $i^{th}%$ combination $S_i$ is chosen for data $x_j$ and <strong>only one combination is selected</strong></p>
+      </li>
+      <li>
+        <p><strong>$K$ must be small enough</strong> based on redundant surveillance video information because <strong>a very large $K$ could possibly make the reconstruction error $t$ always close to zero</strong>, even for abnormal events</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong><em>Optimization for Training</em></strong></p>
+
+    <ul>
+      <li>
+        <p><strong>Problem : ** **Reducing $K$ could increase reconstruction errors $t$</strong>. And it is not optimal to ﬁx $K$ as well,as content may vary among videos</p>
+      </li>
+      <li>
+        <p><strong>Solution : **  A maximum representation strategy. It **automatically ﬁnds $K$ while not wildly increasing the reconstruction error $t$</strong>. In fact, error $t$ for each training feature is upper bounded in our method</p>
+      </li>
+      <li>
+        <p><strong>Updated function</strong>
+   <script type="math/tex">t_j=\sum_{i=1}^K\gamma_j^i \{ \|x_j-S_i\beta_j^i \|_2^2 -\lambda \} \le 0,\quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}</script></p>
+      </li>
+      <li>
+        <p>$\lambda ： $  <strong>Reconstruction error upper bound</strong> uniformly for all elements in $S$. If $t_j$ is smaller than $\lambda$, the coding result is with good quality</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong><em>Algorithm</em></strong></p>
+
+    <ul>
+      <li>
+        <p><strong>In each pass, we update only one combination</strong>, making it represent as many training data as possible</p>
+      </li>
+      <li>
+        <p>This process can <strong>quickly ﬁnd the dominating combinations encoding important and most common features</strong></p>
+      </li>
+      <li>
+        <p>Remaining training cube features that cannot be well represented by this combination are <strong>sent to the next round to gather residual maximum commonness</strong></p>
+      </li>
+      <li>
+        <p>This process <strong>ends until all training data are computed and bounded</strong></p>
+      </li>
+      <li>
+        <p>The size of combination $K$ reﬂects how informative the training data are</p>
+      </li>
+      <li>
+        <p>In each pass, we <strong>solve the equation above by interatively update ${S_s^i,\beta}$ and $\lambda$</strong></p>
+        <ol>
+          <li><strong>Update ${S_s^i,\beta}$</strong> :</li>
+        </ol>
+
+        <script type="math/tex; mode=display">L(\beta,S_i)=\sum_{j \in \Omega_c}\gamma_j^i \{ \|x_j-S_i\beta_j^i \|_2^2 \}</script>
+
+        <script type="math/tex; mode=display">\beta_j^i=(S_i^TS_i)^{-1}S_i^Tx_j</script>
+
+        <p>(Optimize $\beta$ while ﬁxing $S_i$ for all $\gamma_j^i \neq 0$)</p>
+
+        <script type="math/tex; mode=display">S_i=\prod[S_i-\delta_t\bigtriangledown_{S_i}L(\beta,S_i)]</script>
+
+        <p>( Using <strong>block-coordinate descent</strong>( <a href="http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf">Online learning for matrix factorization and sparse coding</a> and set $\delta = 1E-4$)</p>
+
+        <ol>
+          <li>** Update $\gamma$ ** :</li>
+        </ol>
+
+        <script type="math/tex; mode=display">% <![CDATA[
+\gamma_j^i = \left\{
+  \begin{aligned}
+  1 \quad & if \quad \|x_j-S_i\beta_j^i \|_2^2 < \lambda ; \\
+  0 \quad & otherwise ;\\
+  \end{aligned}
+  \right . %]]></script>
+      </li>
+    </ul>
+
+    <p><img src="/img/5.JPG" alt="Algorithm 1" /></p>
+
+    <p><strong>The algorithm is controlled by $\lambda$, Reducing it could lead to a larger $K$</strong></p>
+  </li>
+  <li>
+    <p><strong><em>Testing</em></strong></p>
+
+    <ul>
+      <li>
+        <p>With the learned sparse combinations $S = {S_1, …, S_K}$, in the testing phase with new data $x$, we checki f there exists a combination in $S$ ﬁtting the $\lambda$. It can be quickly achieved by checking the least square error for each $S_i$
+  <script type="math/tex">$min_{\beta^i}\|x_j-S_i\beta_j^i \|_2^2 \quad \forall i= 1, ..., K</script>$</p>
+      </li>
+      <li>
+        <p>**optimal solution : **</p>
+      </li>
+    </ul>
+
+    <script type="math/tex; mode=display">\hat{\beta^i}=(S_i^TS_i)^{-1}S_i^Tx</script>
+
+    <ul>
+      <li>**Reconstruction error in $S_i$ : **
+  <script type="math/tex">\|x_j-S_i\beta_j^i \|_2^2 = \|((S_i^TS_i)^{-1}S_i^T-I_p)x\|_2^2=\|R_ix\|_2^2</script></li>
+    </ul>
+
+    <p><img src="/img/6.JPG" alt="Algorithm 2" /></p>
+
+    <ul>
+      <li>
+        <p>It is noted that the ﬁrst a few dominating combinations represent the largest number of normal event features.</p>
+      </li>
+      <li>
+        <p>Easy to parallel to achieve $O(1)$ complexity</p>
+      </li>
+      <li>
+        <p>Average combination checking ratio $= \frac{The\  number\ of\ combinations\ checked}{The\ total\ number\ K}$</p>
+      </li>
+    </ul>
+  </li>
+  <li><strong><em>Relation to Subspace Clustering</em></strong></li>
+</ul>
+
+<h2 id="experiments">Experiments</h2>
 
 
                 <hr>
@@ -184,6 +437,20 @@
 <!-- Custom Theme JavaScript -->
 <script src="/js/clean-blog.min.js "></script>
 
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<!-- mathjax config similar to math.stackexchange --> 
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+    jax: ["input/TeX", "output/HTML-CSS"], 
+    tex2jax: { 
+        inlineMath: [ ['$', '$'] ], 
+        displayMath: [ ['$$', '$$']], 
+        processEscapes: true, 
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }, 
+    messageStyle: "none", 
+    "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] } 
+}); 
+</script>
 
     
 

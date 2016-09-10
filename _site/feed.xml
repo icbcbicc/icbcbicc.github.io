@@ -1,4 +1,258 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-04T17:12:44+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Abnormal Event Detection at 150 FPS in MATLAB</title><link href="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/" rel="alternate" type="text/html" title="Abnormal Event Detection at 150 FPS in MATLAB" /><published>2016-09-04T00:00:00+08:00</published><updated>2016-09-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/04/Abnormal Event Detection at 150 FPS in MATLAB</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/">&lt;h1 id=&quot;abnormal-event-detection-at-150-fps-in-matlab&quot;&gt;Abnormal Event Detection at 150 FPS in MATLAB&lt;/h1&gt;</content><author><name>icbcbicc</name></author><summary>Abnormal Event Detection at 150 FPS in MATLAB</summary></entry><entry><title>C++ Primer Note 1</title><link href="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/" rel="alternate" type="text/html" title="C++ Primer Note 1" /><published>2016-07-22T00:00:00+08:00</published><updated>2016-07-22T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/22/cprimer_note_1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/">&lt;h2 id=&quot;c-primer-4th-edition-notes-chapter-1--2&quot;&gt;C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-10T22:52:49+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Abnormal Event Detection at 150 FPS in MATLAB</title><link href="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/" rel="alternate" type="text/html" title="Abnormal Event Detection at 150 FPS in MATLAB" /><published>2016-09-04T00:00:00+08:00</published><updated>2016-09-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/04/Abnormal Event Detection at 150 FPS in MATLAB</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/">&lt;h1 id=&quot;abnormal-event-detection-at-150-fps-in-matlab&quot;&gt;Abnormal Event Detection at 150 FPS in MATLAB&lt;/h1&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;h4 id=&quot;difficulties-in-detecting-abnormal-events-based-on-surveillance-videos&quot;&gt;Difficulties in detecting abnormal events based on surveillance videos&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Hard to list all possible negative samples&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;traditional-method&quot;&gt;Traditional method&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Normal patterns are learned from training&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;And then the patterns are used to detect events deviated from this representation&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;other-methods&quot;&gt;Other methods&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Trajectories extracted from object-of-interest are used as normal patterns&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Learn normal low-level video feature distributions(exponential, multivariate Gaussian mixture, clustering)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Graph model normal event representations which use co-occurrence patterns&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;sparsity-based model(not fast enough for realtime processing due to the inherently intensive computation to build sparse representation)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;sparsity-based-abnormality-detection&quot;&gt;Sparsity Based Abnormality Detection&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Sparsity:  A general constraint to model normal event patterns as a linear combination of a set of basis atoms&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Computationally expensive&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;min\|x-D\beta\|^2_2 \qquad s.t. \qquad \|\beta\|_0 \le s&lt;/script&gt;
+
+    &lt;p&gt;$ \beta $ : parse coefficients&lt;/p&gt;
+
+    &lt;p&gt;$|x-D\beta|^2_2 $ :data fitting term&lt;/p&gt;
+
+    &lt;p&gt;$|\beta|_0$ : sparsity regulization term&lt;/p&gt;
+
+    &lt;p&gt;$s$ : parameter to control sparsity&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;abnormal pattern : large error result from $|x-D\beta|^2_2$&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Efficiency problem&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Adopting $min|x-D\beta|^2_2$ is time-consuming :&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;ﬁnd the suitable basis vectors&lt;/strong&gt; (with scale $s$) from the dictionary (with scale $q$) to represent testing data $x$)&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Search space is large &lt;strong&gt;( $(^q_s)$ different combinations )&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Our contribution&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Instead of coding sparsity by ﬁnding an $s$ basis combination from $D$ in $min|x-D\beta|^2_2$, we code it directly &lt;strong&gt;as a set of possible combinations of basis vectors&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;We only need to ﬁnd the most suitable combination by evaluating &lt;strong&gt;the small-scale least square error&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/img/3.JPG&quot; alt=&quot;Our testing architecture&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Freely selecting $s$ basis vectors from a total of $q$ vectors, the reconstructed structure could deviate from input due to the &lt;strong&gt;large freedom&lt;/strong&gt;. However, in our method, &lt;strong&gt;each combination ﬁnds its corresponding input data&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;It reaches 140∼150 FPS using a desktop with 3.4GHz CPU and 8G memory in MATLAB 2012.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;methods&quot;&gt;Methods&lt;/h2&gt;
+
+&lt;h4 id=&quot;learning-combinations-on-training-data&quot;&gt;Learning Combinations on Training Data&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Preprocess&lt;/em&gt;&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Resize each frame into different scales as “&lt;a href=&quot;http://101.110.118.63/www3.ntu.edu.sg/home/jsyuan/index_files/papers/Cong-Yuan-CVPR11.pdf&quot;&gt;Sparse Reconstruction Cost for Abnormal Event Detection&lt;/a&gt;”&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Uniformly partition each layer to a set of non-overlapping patches. All patches have the same size&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Corresponding regions in 5 continuous frames are stacked together to form a spatial-temporal cube.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;img src=&quot;/img/4.JPG&quot; alt=&quot;Resize&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;This pyramid involves &lt;strong&gt;local information&lt;/strong&gt; in ﬁne-scale layers and more &lt;strong&gt;global structures&lt;/strong&gt; in small-resolution ones.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;With the spatial-temporal cubes, we compute &lt;strong&gt;3D gradient features&lt;/strong&gt; on each of them following “&lt;a href=&quot;https://www.cs.drexel.edu/~kon/publication/LKratz_CVPR09.pdf&quot;&gt;Anomaly Detection in Extremely Crowded Scenes Using Spatio-Temporal Motion Pattern Models&lt;/a&gt;”&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Features are processed separately according to their spatial coordinates. &lt;strong&gt;Only features at the same spatial location in the video frames are used together&lt;/strong&gt; for training and testing.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Learning Combinations on Training Data&lt;/em&gt;&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Reconstruction Error&lt;/strong&gt;
+ &lt;script type=&quot;math/tex&quot;&gt;t=min_{s,\gamma,\beta}\sum_{j=1}^n\sum_{i=1}^K\gamma_j^i\|x_j-S_i\beta_j^i\|_2^2 \quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}&lt;/script&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Each $\gamma_j^i$ indicates whether or not the $i^{th}%$ combination $S_i$ is chosen for data $x_j$ and &lt;strong&gt;only one combination is selected&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;$K$ must be small enough&lt;/strong&gt; based on redundant surveillance video information because &lt;strong&gt;a very large $K$ could possibly make the reconstruction error $t$ always close to zero&lt;/strong&gt;, even for abnormal events&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Optimization for Training&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Problem : ** **Reducing $K$ could increase reconstruction errors $t$&lt;/strong&gt;. And it is not optimal to ﬁx $K$ as well,as content may vary among videos&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Solution : **  A maximum representation strategy. It **automatically ﬁnds $K$ while not wildly increasing the reconstruction error $t$&lt;/strong&gt;. In fact, error $t$ for each training feature is upper bounded in our method&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Updated function&lt;/strong&gt;
+   &lt;script type=&quot;math/tex&quot;&gt;t_j=\sum_{i=1}^K\gamma_j^i \{ \|x_j-S_i\beta_j^i \|_2^2 -\lambda \} \le 0,\quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}&lt;/script&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;$\lambda ： $  &lt;strong&gt;Reconstruction error upper bound&lt;/strong&gt; uniformly for all elements in $S$. If $t_j$ is smaller than $\lambda$, the coding result is with good quality&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Algorithm&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;In each pass, we update only one combination&lt;/strong&gt;, making it represent as many training data as possible&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;This process can &lt;strong&gt;quickly ﬁnd the dominating combinations encoding important and most common features&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Remaining training cube features that cannot be well represented by this combination are &lt;strong&gt;sent to the next round to gather residual maximum commonness&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;This process &lt;strong&gt;ends until all training data are computed and bounded&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;The size of combination $K$ reﬂects how informative the training data are&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;In each pass, we &lt;strong&gt;solve the equation above by interatively update ${S_s^i,\beta}$ and $\lambda$&lt;/strong&gt;&lt;/p&gt;
+        &lt;ol&gt;
+          &lt;li&gt;&lt;strong&gt;Update ${S_s^i,\beta}$&lt;/strong&gt; :&lt;/li&gt;
+        &lt;/ol&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;L(\beta,S_i)=\sum_{j \in \Omega_c}\gamma_j^i \{ \|x_j-S_i\beta_j^i \|_2^2 \}&lt;/script&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;\beta_j^i=(S_i^TS_i)^{-1}S_i^Tx_j&lt;/script&gt;
+
+        &lt;p&gt;(Optimize $\beta$ while ﬁxing $S_i$ for all $\gamma_j^i \neq 0$)&lt;/p&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;S_i=\prod[S_i-\delta_t\bigtriangledown_{S_i}L(\beta,S_i)]&lt;/script&gt;
+
+        &lt;p&gt;( Using &lt;strong&gt;block-coordinate descent&lt;/strong&gt;( &lt;a href=&quot;http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf&quot;&gt;Online learning for matrix factorization and sparse coding&lt;/a&gt; and set $\delta = 1E-4$)&lt;/p&gt;
+
+        &lt;ol&gt;
+          &lt;li&gt;** Update $\gamma$ ** :&lt;/li&gt;
+        &lt;/ol&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\gamma_j^i = \left\{
+  \begin{aligned}
+  1 \quad &amp; if \quad \|x_j-S_i\beta_j^i \|_2^2 &lt; \lambda ; \\
+  0 \quad &amp; otherwise ;\\
+  \end{aligned}
+  \right . %]]&gt;&lt;/script&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/img/5.JPG&quot; alt=&quot;Algorithm 1&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;The algorithm is controlled by $\lambda$, Reducing it could lead to a larger $K$&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Testing&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;With the learned sparse combinations $S = {S_1, …, S_K}$, in the testing phase with new data $x$, we checki f there exists a combination in $S$ ﬁtting the $\lambda$. It can be quickly achieved by checking the least square error for each $S_i$
+  &lt;script type=&quot;math/tex&quot;&gt;$min_{\beta^i}\|x_j-S_i\beta_j^i \|_2^2 \quad \forall i= 1, ..., K&lt;/script&gt;$&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;**optimal solution : **&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{\beta^i}=(S_i^TS_i)^{-1}S_i^Tx&lt;/script&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;**Reconstruction error in $S_i$ : **
+  &lt;script type=&quot;math/tex&quot;&gt;\|x_j-S_i\beta_j^i \|_2^2 = \|((S_i^TS_i)^{-1}S_i^T-I_p)x\|_2^2=\|R_ix\|_2^2&lt;/script&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/img/6.JPG&quot; alt=&quot;Algorithm 2&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;It is noted that the ﬁrst a few dominating combinations represent the largest number of normal event features.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Easy to parallel to achieve $O(1)$ complexity&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Average combination checking ratio $= \frac{The\  number\ of\ combinations\ checked}{The\ total\ number\ K}$&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Relation to Subspace Clustering&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;</content><author><name>icbcbicc</name></author><summary>Abnormal Event Detection at 150 FPS in MATLAB</summary></entry><entry><title>C++ Primer Note 1</title><link href="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/" rel="alternate" type="text/html" title="C++ Primer Note 1" /><published>2016-07-22T00:00:00+08:00</published><updated>2016-07-22T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/22/cprimer_note_1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/">&lt;h2 id=&quot;c-primer-4th-edition-notes-chapter-1--2&quot;&gt;C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2&lt;/h2&gt;
 
 &lt;h3 id=&quot;chapter-1&quot;&gt;chapter 1&lt;/h3&gt;
 

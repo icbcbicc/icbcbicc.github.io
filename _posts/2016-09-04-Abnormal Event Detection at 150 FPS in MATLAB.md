@@ -15,7 +15,7 @@ tags: []
 
 #### Difficulties in detecting abnormal events based on surveillance videos
 
-- Hard to list all possible negative samples
+- Hard to list all possible negative samples  
 
 #### Traditional method
 
@@ -35,25 +35,27 @@ tags: []
 
 ## Sparsity Based Abnormality Detection
 
-- ***Sparsity*:  A general constraint to model normal event patterns as a linear combination of a set of basis atoms**
+- ***Sparsity:  A general constraint to model normal event patterns as a linear combination of a set of basis atoms***
 
 - ***Computationally expensive***
-$$min\|x-D\beta\|^2_2 \qquad s.t. \qquad \|\beta\|_0 \le s$$
 
-	$\beta$ : parse coefficients
+	$$ min\|x-D\beta\|^2_2 \qquad s.t. \qquad \|\beta\|_0 \le s $$
 
-	$\|x-D\beta\|^2_2 $ :data fitting term
+	$ \beta $ : parse coefficients  
 
-	$\|\beta\|_0$ : sparsity regulization term
+	$\|x-D\beta\|^2_2 $ :data fitting term  
 
-	$s$ : parameter to control sparsity
+	$\|\beta\|_0$ : sparsity regulization term  
+
+	$s$ : parameter to control sparsity  
 
 	- abnormal pattern : large error result from $\|x-D\beta\|^2_2$
 
 
 - ***Efficiency problem***
 
-	Adopting $min\|x-D\beta\|^2_2$ is time-consuming :
+	Adopting $min\|x-D\beta\|^2_2$ is time-consuming :  
+
     - **ﬁnd the suitable basis vectors** (with scale $s$) from the dictionary (with scale $q$) to represent testing data $x$)
 
 	- Search space is large **( $(^q_s)$ different combinations )**
@@ -88,7 +90,7 @@ $$min\|x-D\beta\|^2_2 \qquad s.t. \qquad \|\beta\|_0 \le s$$
 
 	- Features are processed separately according to their spatial coordinates. **Only features at the same spatial location in the video frames are used together** for training and testing.
 
-- *** Learning Combinations on Training Data***
+- ***Learning Combinations on Training Data***
 	- **Reconstruction Error**
  $$t=min_{s,\gamma,\beta}\sum_{j=1}^n\sum_{i=1}^K\gamma_j^i\|x_j-S_i\beta_j^i\|_2^2 \quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}$$
 
@@ -96,7 +98,7 @@ $$min\|x-D\beta\|^2_2 \qquad s.t. \qquad \|\beta\|_0 \le s$$
 
 	- **$K$ must be small enough** based on redundant surveillance video information because **a very large $K$ could possibly make the reconstruction error $t$ always close to zero**, even for abnormal events
 
-- *** Optimization for Training ***
+- ***Optimization for Training***
 
 	- **Problem : ** **Reducing $K$ could increase reconstruction errors $t$**. And it is not optimal to ﬁx $K$ as well,as content may vary among videos
 
@@ -107,7 +109,7 @@ $$min\|x-D\beta\|^2_2 \qquad s.t. \qquad \|\beta\|_0 \le s$$
 
 	- $\lambda ： $  **Reconstruction error upper bound** uniformly for all elements in $S$. If $t_j$ is smaller than $\lambda$, the coding result is with good quality
 
-- *** Algorithm ***
+- ***Algorithm***
 
 	- **In each pass, we update only one combination**, making it represent as many training data as possible
 
@@ -122,9 +124,9 @@ $$min\|x-D\beta\|^2_2 \qquad s.t. \qquad \|\beta\|_0 \le s$$
 	- In each pass, we **solve the equation above by interatively update $\{S_s^i,\beta\}$ and $\lambda$**
 		1. **Update $\{S_s^i,\beta\}$** :
 
-		$$L(\beta,S_i)=\sum_{j \in \Omega_c}\gamma_j^i \{ \|x_j-S_i\beta_j^i \|_2^2 \}$$
+		$$L(\beta,S_i)=\sum_{j \in \Omega_c}\gamma_j^i \{ \|x_j-S_i\beta_j^i \|_2^2 \}$$  
 
-		$$\beta_j^i=(S_i^TS_i)^{-1}S_i^Tx_j$$
+		$$\beta_j^i=(S_i^TS_i)^{-1}S_i^Tx_j$$  
 
 		(Optimize $\beta$ while ﬁxing $S_i$ for all $\gamma_j^i \neq 0$)
 
@@ -134,27 +136,28 @@ $$min\|x-D\beta\|^2_2 \qquad s.t. \qquad \|\beta\|_0 \le s$$
 
 		2. ** Update $\gamma$ ** :
 
-		$$$\gamma_j^i = \left\{
+		$$\gamma_j^i = \left\{
 		\begin{aligned}
 		1 \quad & if \quad \|x_j-S_i\beta_j^i \|_2^2 < \lambda ; \\
 		0 \quad & otherwise ;\\
 		\end{aligned}
-		\right .$$$
+		\right .$$
 
 	![Algorithm 1](/img/5.JPG)
 
     **The algorithm is controlled by $\lambda$, Reducing it could lead to a larger $K$**
 
-- *** Testing ***
+- ***Testing***
 
 	- With the learned sparse combinations $S = \{S_1, ..., S_K\}$, in the testing phase with new data $x$, we checki f there exists a combination in $S$ ﬁtting the $\lambda$. It can be quickly achieved by checking the least square error for each $S_i$
 	$$$min_{\beta^i}\|x_j-S_i\beta_j^i \|_2^2 \quad \forall i= 1, ..., K$$$
 
-	- **optimal solution : **
-	$$$\hat{\beta^i}=(S_i^TS_i)^{-1}S_i^Tx$$$
+	- **optimal solution : **  
+
+	$$\hat{\beta^i}=(S_i^TS_i)^{-1}S_i^Tx$$
 
 	- **Reconstruction error in $S_i$ : **
-	$$$\|x_j-S_i\beta_j^i \|_2^2 = \|((S_i^TS_i)^{-1}S_i^T-I_p)x\|_2^2=\|R_ix\|_2^2$$$
+	$$\|x_j-S_i\beta_j^i \|_2^2 = \|((S_i^TS_i)^{-1}S_i^T-I_p)x\|_2^2=\|R_ix\|_2^2$$
 
 	![Algorithm 2](/img/6.JPG)
 
@@ -164,6 +167,6 @@ $$min\|x-D\beta\|^2_2 \qquad s.t. \qquad \|\beta\|_0 \le s$$
 
 	- Average combination checking ratio $= \frac{The\  number\ of\ combinations\ checked}{The\ total\ number\ K}$
 
-- *** Relation to Subspace Clustering ***
+- ***Relation to Subspace Clustering***
 
 ## Experiments
