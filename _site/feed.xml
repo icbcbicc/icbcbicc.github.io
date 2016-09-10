@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-10T23:08:36+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Abnormal Event Detection at 150 FPS in MATLAB</title><link href="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/" rel="alternate" type="text/html" title="Abnormal Event Detection at 150 FPS in MATLAB" /><published>2016-09-04T00:00:00+08:00</published><updated>2016-09-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/04/Abnormal Event Detection at 150 FPS in MATLAB</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/">&lt;h1 id=&quot;abnormal-event-detection-at-150-fps-in-matlab&quot;&gt;Abnormal Event Detection at 150 FPS in MATLAB&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-10T23:15:36+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Abnormal Event Detection at 150 FPS in MATLAB</title><link href="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/" rel="alternate" type="text/html" title="Abnormal Event Detection at 150 FPS in MATLAB" /><published>2016-09-04T00:00:00+08:00</published><updated>2016-09-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/04/Abnormal Event Detection at 150 FPS in MATLAB</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/">&lt;h1 id=&quot;abnormal-event-detection-at-150-fps-in-matlab&quot;&gt;Abnormal Event Detection at 150 FPS in MATLAB&lt;/h1&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
@@ -49,9 +49,9 @@
 
     &lt;p&gt;$ \beta $ : parse coefficients&lt;/p&gt;
 
-    &lt;p&gt;$|x-D\beta|^2_2 $ :data fitting term&lt;/p&gt;
+    &lt;p&gt;$ |x-D\beta |^2_2 $ :data fitting term&lt;/p&gt;
 
-    &lt;p&gt;$|\beta|_0$ : sparsity regulization term&lt;/p&gt;
+    &lt;p&gt;$ |\beta |_0$ : sparsity regulization term&lt;/p&gt;
 
     &lt;p&gt;$s$ : parameter to control sparsity&lt;/p&gt;
 
@@ -219,21 +219,22 @@
     &lt;p&gt;&lt;strong&gt;&lt;em&gt;Testing&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;With the learned sparse combinations $S = {S_1, …, S_K}$, in the testing phase with new data $x$, we checki f there exists a combination in $S$ ﬁtting the $\lambda$. It can be quickly achieved by checking the least square error for each $S_i$
-  &lt;script type=&quot;math/tex&quot;&gt;$min_{\beta^i}\|x_j-S_i\beta_j^i \|_2^2 \quad \forall i= 1, ..., K&lt;/script&gt;$&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;**optimal solution : **&lt;/p&gt;
-      &lt;/li&gt;
+      &lt;li&gt;With the learned sparse combinations $S = {S_1, …, S_K}$, in the testing phase with new data $x$, we checki f there exists a combination in $S$ ﬁtting the $\lambda$. It can be quickly achieved by checking the least square error for each $S_i$&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;min_{\beta^i}\|x_j-S_i\beta_j^i \|_2^2 \quad \forall i= 1, ..., K&lt;/script&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;optimal solution :&lt;/strong&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{\beta^i}=(S_i^TS_i)^{-1}S_i^Tx&lt;/script&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;**Reconstruction error in $S_i$ : **
-  &lt;script type=&quot;math/tex&quot;&gt;\|x_j-S_i\beta_j^i \|_2^2 = \|((S_i^TS_i)^{-1}S_i^T-I_p)x\|_2^2=\|R_ix\|_2^2&lt;/script&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Reconstruction error in $S_i$ :&lt;/strong&gt;&lt;/li&gt;
     &lt;/ul&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\|x_j-S_i\beta_j^i \|_2^2 = \|((S_i^TS_i)^{-1}S_i^T-I_p)x\|_2^2=\|R_ix\|_2^2&lt;/script&gt;
 
     &lt;p&gt;&lt;img src=&quot;/img/6.JPG&quot; alt=&quot;Algorithm 2&quot; /&gt;&lt;/p&gt;
 

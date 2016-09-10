@@ -41,13 +41,13 @@ tags: []
 
 	$$ min\|x-D\beta\|^2_2 \qquad s.t. \qquad \|\beta\|_0 \le s $$
 
-	$ \beta $ : parse coefficients  
+	 $\beta$ : parse coefficients  
 
-	$\|x-D\beta\|^2_2 $ :data fitting term  
+	 $\|x-D\beta\|^2_2 $ :data fitting term  
 
-	$\|\beta\|_0$ : sparsity regulization term  
+	 $\|\beta\|_0$ : sparsity regulization term  
 
-	$s$ : parameter to control sparsity  
+	 $s$ : parameter to control sparsity  
 
 	- abnormal pattern : large error result from $\|x-D\beta\|^2_2$
 
@@ -149,14 +149,16 @@ tags: []
 
 - ***Testing***
 
-	- With the learned sparse combinations $S = \{S_1, ..., S_K\}$, in the testing phase with new data $x$, we checki f there exists a combination in $S$ ﬁtting the $\lambda$. It can be quickly achieved by checking the least square error for each $S_i$
-	$$$min_{\beta^i}\|x_j-S_i\beta_j^i \|_2^2 \quad \forall i= 1, ..., K$$$
+	- With the learned sparse combinations $S = \{S_1, ..., S_K\}$, in the testing phase with new data $x$, we checki f there exists a combination in $S$ ﬁtting the $\lambda$. It can be quickly achieved by checking the least square error for each $S_i$   
+	
+	$$min_{\beta^i}\|x_j-S_i\beta_j^i \|_2^2 \quad \forall i= 1, ..., K$$
 
-	- **optimal solution : **  
+	- **optimal solution :**  
 
 	$$\hat{\beta^i}=(S_i^TS_i)^{-1}S_i^Tx$$
 
-	- **Reconstruction error in $S_i$ : **
+	- **Reconstruction error in $S_i$ :**
+
 	$$\|x_j-S_i\beta_j^i \|_2^2 = \|((S_i^TS_i)^{-1}S_i^T-I_p)x\|_2^2=\|R_ix\|_2^2$$
 
 	![Algorithm 2](/img/6.JPG)

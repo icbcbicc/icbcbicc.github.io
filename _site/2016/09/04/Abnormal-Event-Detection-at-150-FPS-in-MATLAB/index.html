@@ -37,6 +37,37 @@
 
 </head>
 
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 <body>
 
@@ -160,9 +191,9 @@
 
     <p>$ \beta $ : parse coefficients</p>
 
-    <p>$|x-D\beta|^2_2 $ :data fitting term</p>
+    <p>$ |x-D\beta |^2_2 $ :data fitting term</p>
 
-    <p>$|\beta|_0$ : sparsity regulization term</p>
+    <p>$ |\beta |_0$ : sparsity regulization term</p>
 
     <p>$s$ : parameter to control sparsity</p>
 
@@ -330,21 +361,22 @@
     <p><strong><em>Testing</em></strong></p>
 
     <ul>
-      <li>
-        <p>With the learned sparse combinations $S = {S_1, …, S_K}$, in the testing phase with new data $x$, we checki f there exists a combination in $S$ ﬁtting the $\lambda$. It can be quickly achieved by checking the least square error for each $S_i$
-  <script type="math/tex">$min_{\beta^i}\|x_j-S_i\beta_j^i \|_2^2 \quad \forall i= 1, ..., K</script>$</p>
-      </li>
-      <li>
-        <p>**optimal solution : **</p>
-      </li>
+      <li>With the learned sparse combinations $S = {S_1, …, S_K}$, in the testing phase with new data $x$, we checki f there exists a combination in $S$ ﬁtting the $\lambda$. It can be quickly achieved by checking the least square error for each $S_i$</li>
+    </ul>
+
+    <script type="math/tex; mode=display">min_{\beta^i}\|x_j-S_i\beta_j^i \|_2^2 \quad \forall i= 1, ..., K</script>
+
+    <ul>
+      <li><strong>optimal solution :</strong></li>
     </ul>
 
     <script type="math/tex; mode=display">\hat{\beta^i}=(S_i^TS_i)^{-1}S_i^Tx</script>
 
     <ul>
-      <li>**Reconstruction error in $S_i$ : **
-  <script type="math/tex">\|x_j-S_i\beta_j^i \|_2^2 = \|((S_i^TS_i)^{-1}S_i^T-I_p)x\|_2^2=\|R_ix\|_2^2</script></li>
+      <li><strong>Reconstruction error in $S_i$ :</strong></li>
     </ul>
+
+    <script type="math/tex; mode=display">\|x_j-S_i\beta_j^i \|_2^2 = \|((S_i^TS_i)^{-1}S_i^T-I_p)x\|_2^2=\|R_ix\|_2^2</script>
 
     <p><img src="/img/6.JPG" alt="Algorithm 2" /></p>
 
@@ -436,38 +468,6 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="/js/clean-blog.min.js "></script>
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript"
-   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
     
 
