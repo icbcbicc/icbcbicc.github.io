@@ -17,6 +17,7 @@ port: 4001
 # google_tracking_id:
 
 # Build settings
+mathjax: true
 markdown: kramdown
 kramdown:
   input: GFM
