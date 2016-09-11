@@ -10,6 +10,7 @@ tags: []
 ---
 
 # Abnormal Event Detection at 150 FPS in MATLAB
+[PDF](http://www.cv-foundation.org/openaccess/content_iccv_2013/papers/Lu_Abnormal_Event_Detection_2013_ICCV_paper.pdf)
 
 ## Introduction
 
@@ -134,7 +135,7 @@ tags: []
 
 		( Using **block-coordinate descent**( [Online learning for matrix factorization and sparse coding](http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf) and set $\delta = 1E-4$)
 
-		2. ** Update $\gamma$ ** :
+		2. **Update $\gamma$** :
 
 		$$\gamma_j^i = \left\{
 		\begin{aligned}
@@ -172,3 +173,36 @@ tags: []
 - ***Relation to Subspace Clustering***
 
 ## Experiments
+
+#### System Settings
+
+- **Resize each frame to 3 scales**: $20\*20, 30\*40, 120\*160$ pixels respectively 
+
+- Uniformly **partition each layer to a set of non-overlapping 10×10 patches** (totaly 208 sub-regions for each frame $\frac{20\*30+30\*40+120\*160}{10\*10}=208$ )
+
+	![Patches in 3 scales, each region corresponds to a K](/img/7.JPG)  
+
+- Corresponding sub-regions in 5 continuous frames are stacked together to form a spatial temporal cube with resolution $10\*10\*5$
+
+- **Compute 3D gradient features** on each cube and concatenate them into a 1500-dimension feature vector
+
+- Reduce the feature vector to 100 dimensions via **PCA**
+
+- **Normalize** the reduced feature vector to make it mean 0 and variance 1
+
+- For each frame, we compute an **abnormal indicator $V$** by summing the number of cubes in each scale with weights  
+
+	$$V=\sum_{i=1}^n 2^{n-i}v_i$$  
+
+	$v_i$ : the number of abnormal cubes in scale $i$, the top scale is with index $1$ while the bottom one is with $n$.
+
+#### Verification of Sparse Combinations
+
+- Each video contains 208 regions and each region correspond to a cube and there are 6000-12000 features in each sube
+
+- The features are used to **verify the combination model**. The number of combinations for each region is $K$  
+
+	![The distribution of K in 31200 regions from 150 videos](/img/8.JPG)
+	The mean of $K$ is 9.75 and variance is 10.62, indicating 10 combinations are generally enough in our model
+
+- 

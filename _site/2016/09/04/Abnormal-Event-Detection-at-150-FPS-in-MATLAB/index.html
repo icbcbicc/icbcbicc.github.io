@@ -141,6 +141,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
 				<h1 id="abnormal-event-detection-at-150-fps-in-matlab">Abnormal Event Detection at 150 FPS in MATLAB</h1>
+<p><a href="http://www.cv-foundation.org/openaccess/content_iccv_2013/papers/Lu_Abnormal_Event_Detection_2013_ICCV_paper.pdf">PDF</a></p>
 
 <h2 id="introduction">Introduction</h2>
 
@@ -340,7 +341,7 @@
         <p>( Using <strong>block-coordinate descent</strong>( <a href="http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf">Online learning for matrix factorization and sparse coding</a> and set $\delta = 1E-4$)</p>
 
         <ol>
-          <li>** Update $\gamma$ ** :</li>
+          <li><strong>Update $\gamma$</strong> :</li>
         </ol>
 
         <script type="math/tex; mode=display">% <![CDATA[
@@ -396,6 +397,54 @@
 </ul>
 
 <h2 id="experiments">Experiments</h2>
+
+<h4 id="system-settings">System Settings</h4>
+
+<ul>
+  <li>
+    <p><strong>Resize each frame to 3 scales</strong>: $20*20, 30*40, 120*160$ pixels respectively</p>
+  </li>
+  <li>
+    <p>Uniformly <strong>partition each layer to a set of non-overlapping 10×10 patches</strong> (totaly 208 sub-regions for each frame $\frac{20*30+30*40+120*160}{10*10}=208$ )</p>
+
+    <p><img src="/img/7.JPG" alt="Patches in 3 scales, each region corresponds to a K" /></p>
+  </li>
+  <li>
+    <p>Corresponding sub-regions in 5 continuous frames are stacked together to form a spatial temporal cube with resolution $10*10*5$</p>
+  </li>
+  <li>
+    <p><strong>Compute 3D gradient features</strong> on each cube and concatenate them into a 1500-dimension feature vector</p>
+  </li>
+  <li>
+    <p>Reduce the feature vector to 100 dimensions via <strong>PCA</strong></p>
+  </li>
+  <li>
+    <p><strong>Normalize</strong> the reduced feature vector to make it mean 0 and variance 1</p>
+  </li>
+  <li>
+    <p>For each frame, we compute an <strong>abnormal indicator $V$</strong> by summing the number of cubes in each scale with weights</p>
+
+    <script type="math/tex; mode=display">V=\sum_{i=1}^n 2^{n-i}v_i</script>
+
+    <p>$v_i$ : the number of abnormal cubes in scale $i$, the top scale is with index $1$ while the bottom one is with $n$.</p>
+  </li>
+</ul>
+
+<h4 id="verification-of-sparse-combinations">Verification of Sparse Combinations</h4>
+
+<ul>
+  <li>
+    <p>Each video contains 208 regions and each region correspond to a cube and there are 6000-12000 features in each sube</p>
+  </li>
+  <li>
+    <p>The features are used to <strong>verify the combination model</strong>. The number of combinations for each region is $K$</p>
+
+    <p><img src="/img/8.JPG" alt="The distribution of K in 31200 regions from 150 videos" />
+  The mean of $K$ is 9.75 and variance is 10.62, indicating 10 combinations are generally enough in our model</p>
+  </li>
+  <li></li>
+</ul>
+
 
 
                 <hr>

@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-10T23:26:07+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Abnormal Event Detection at 150 FPS in MATLAB</title><link href="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/" rel="alternate" type="text/html" title="Abnormal Event Detection at 150 FPS in MATLAB" /><published>2016-09-04T00:00:00+08:00</published><updated>2016-09-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/04/Abnormal Event Detection at 150 FPS in MATLAB</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/">&lt;h1 id=&quot;abnormal-event-detection-at-150-fps-in-matlab&quot;&gt;Abnormal Event Detection at 150 FPS in MATLAB&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-11T14:20:58+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Abnormal Event Detection at 150 FPS in MATLAB</title><link href="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/" rel="alternate" type="text/html" title="Abnormal Event Detection at 150 FPS in MATLAB" /><published>2016-09-04T00:00:00+08:00</published><updated>2016-09-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/04/Abnormal Event Detection at 150 FPS in MATLAB</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/">&lt;h1 id=&quot;abnormal-event-detection-at-150-fps-in-matlab&quot;&gt;Abnormal Event Detection at 150 FPS in MATLAB&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.cv-foundation.org/openaccess/content_iccv_2013/papers/Lu_Abnormal_Event_Detection_2013_ICCV_paper.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
@@ -198,7 +199,7 @@
         &lt;p&gt;( Using &lt;strong&gt;block-coordinate descent&lt;/strong&gt;( &lt;a href=&quot;http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf&quot;&gt;Online learning for matrix factorization and sparse coding&lt;/a&gt; and set $\delta = 1E-4$)&lt;/p&gt;
 
         &lt;ol&gt;
-          &lt;li&gt;** Update $\gamma$ ** :&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;Update $\gamma$&lt;/strong&gt; :&lt;/li&gt;
         &lt;/ol&gt;
 
         &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
@@ -253,7 +254,55 @@
   &lt;li&gt;&lt;strong&gt;&lt;em&gt;Relation to Subspace Clustering&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;</content><author><name>icbcbicc</name></author><summary>Abnormal Event Detection at 150 FPS in MATLAB</summary></entry><entry><title>C++ Primer Note 1</title><link href="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/" rel="alternate" type="text/html" title="C++ Primer Note 1" /><published>2016-07-22T00:00:00+08:00</published><updated>2016-07-22T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/22/cprimer_note_1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/">&lt;h2 id=&quot;c-primer-4th-edition-notes-chapter-1--2&quot;&gt;C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2&lt;/h2&gt;
+&lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;
+
+&lt;h4 id=&quot;system-settings&quot;&gt;System Settings&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Resize each frame to 3 scales&lt;/strong&gt;: $20*20, 30*40, 120*160$ pixels respectively&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Uniformly &lt;strong&gt;partition each layer to a set of non-overlapping 10×10 patches&lt;/strong&gt; (totaly 208 sub-regions for each frame $\frac{20*30+30*40+120*160}{10*10}=208$ )&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/img/7.JPG&quot; alt=&quot;Patches in 3 scales, each region corresponds to a K&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Corresponding sub-regions in 5 continuous frames are stacked together to form a spatial temporal cube with resolution $10*10*5$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Compute 3D gradient features&lt;/strong&gt; on each cube and concatenate them into a 1500-dimension feature vector&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Reduce the feature vector to 100 dimensions via &lt;strong&gt;PCA&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Normalize&lt;/strong&gt; the reduced feature vector to make it mean 0 and variance 1&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For each frame, we compute an &lt;strong&gt;abnormal indicator $V$&lt;/strong&gt; by summing the number of cubes in each scale with weights&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;V=\sum_{i=1}^n 2^{n-i}v_i&lt;/script&gt;
+
+    &lt;p&gt;$v_i$ : the number of abnormal cubes in scale $i$, the top scale is with index $1$ while the bottom one is with $n$.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;verification-of-sparse-combinations&quot;&gt;Verification of Sparse Combinations&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Each video contains 208 regions and each region correspond to a cube and there are 6000-12000 features in each sube&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The features are used to &lt;strong&gt;verify the combination model&lt;/strong&gt;. The number of combinations for each region is $K$&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/img/8.JPG&quot; alt=&quot;The distribution of K in 31200 regions from 150 videos&quot; /&gt;
+  The mean of $K$ is 9.75 and variance is 10.62, indicating 10 combinations are generally enough in our model&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Abnormal Event Detection at 150 FPS in MATLAB
+PDF</summary></entry><entry><title>C++ Primer Note 1</title><link href="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/" rel="alternate" type="text/html" title="C++ Primer Note 1" /><published>2016-07-22T00:00:00+08:00</published><updated>2016-07-22T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/22/cprimer_note_1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/">&lt;h2 id=&quot;c-primer-4th-edition-notes-chapter-1--2&quot;&gt;C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2&lt;/h2&gt;
 
 &lt;h3 id=&quot;chapter-1&quot;&gt;chapter 1&lt;/h3&gt;
 
