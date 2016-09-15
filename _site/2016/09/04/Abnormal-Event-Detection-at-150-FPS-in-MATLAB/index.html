@@ -199,17 +199,17 @@
     <p>$s$ : parameter to control sparsity</p>
 
     <ul>
-      <li>abnormal pattern : large error result from $|x-D\beta|^2_2$</li>
+      <li><strong><em><font color="#9932CC">abnormal pattern</font></em></strong>: large error result from $|x-D\beta|^2_2$</li>
     </ul>
   </li>
   <li>
-    <p><strong><em>Efficiency problem</em></strong></p>
+    <p><strong><em><font color="#9932CC">Efficiency problem</font></em></strong></p>
 
-    <p>Adopting $min|x-D\beta|^2_2$ is time-consuming :</p>
+    <p><strong>Adopting $min|x-D\beta|^2_2$ is time-consuming :</strong></p>
 
     <ul>
       <li>
-        <p><strong>ﬁnd the suitable basis vectors</strong> (with scale $s$) from the dictionary (with scale $q$) to represent testing data $x$)</p>
+        <p><strong>ﬁnd the suitable basis vectors</strong> (with scale $s$) from the dictionary (with scale $q$) to represent testing data $x$</p>
       </li>
       <li>
         <p>Search space is large <strong>( $(^q_s)$ different combinations )</strong></p>
@@ -217,7 +217,8 @@
     </ul>
   </li>
   <li>
-    <p><strong><em>Our contribution</em></strong></p>
+    <p><strong><em><font color="#9932CC">Our contribution</font></em></strong></p>
+
     <ul>
       <li>
         <p>Instead of coding sparsity by ﬁnding an $s$ basis combination from $D$ in $min|x-D\beta|^2_2$, we code it directly <strong>as a set of possible combinations of basis vectors</strong></p>
@@ -231,7 +232,7 @@
 
     <ul>
       <li>
-        <p>Freely selecting $s$ basis vectors from a total of $q$ vectors, the reconstructed structure could deviate from input due to the <strong>large freedom</strong>. However, in our method, <strong>each combination ﬁnds its corresponding input data</strong></p>
+        <p>Freely selecting $s$ basis vectors from a total of $q$ vectors, the reconstructed structure could deviate from input due to the <strong>large freedom</strong>. However, in our method, <strong><font color="#9932CC">each combination ﬁnds its corresponding input data</font></strong></p>
       </li>
       <li>
         <p>It reaches 140∼150 FPS using a desktop with 3.4GHz CPU and 8G memory in MATLAB 2012.</p>
@@ -272,17 +273,25 @@
       </li>
     </ul>
   </li>
-  <li><strong><em>Learning Combinations on Training Data</em></strong>
+  <li>
+    <p><strong><em>Learning Combinations on Training Data</em></strong></p>
+
     <ul>
       <li>
+        <p><strong>3D gradient features</strong> in all frames gathered temporally for training are denoted as <script type="math/tex">X=\{x_1, x_2, ..., x_n\} \in R^{p*n}</script>. Each $x_i$ has $p$ features and there are $n$ $x_i$ in the $X$</p>
+      </li>
+      <li>
+        <p>Our goal is to <strong>find a sparse basis combination set</strong> <script type="math/tex">S=\{S_1, S_2, ..., S_K\}</script> with each $S_i \in R^{p*s}$. Each $S_i$ combines $s$ dictionary basis vectors and each basis vector has $p$ features which correspond to the features in $x_i$. Each $S_i$ belongs to a closed, convex and bounded set, which ensures column-wise unit norm to <strong>prevent over-ﬁtting</strong></p>
+      </li>
+      <li>
         <p><strong>Reconstruction Error</strong>
- <script type="math/tex">t=min_{s,\gamma,\beta}\sum_{j=1}^n\sum_{i=1}^K\gamma_j^i\|x_j-S_i\beta_j^i\|_2^2 \quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}</script></p>
+ 	<script type="math/tex">t=min_{s,\gamma,\beta}\sum_{j=1}^n\sum_{i=1}^K\gamma_j^i\|x_j-S_i\beta_j^i\|_2^2 \quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}</script></p>
       </li>
       <li>
-        <p>Each $\gamma_j^i$ indicates whether or not the $i^{th}%$ combination $S_i$ is chosen for data $x_j$ and <strong>only one combination is selected</strong></p>
+        <p>Each $\gamma_j^i$ indicates whether or not the $i^{th}%$ combination $S_i$ is chosen for data $x_j$ and <strong>only one combination $S_i$ is selected for each $x_j$</strong></p>
       </li>
       <li>
-        <p><strong>$K$ must be small enough</strong> based on redundant surveillance video information because <strong>a very large $K$ could possibly make the reconstruction error $t$ always close to zero</strong>, even for abnormal events</p>
+        <p><strong>$K$ must be small enough</strong> because a very large $K$ could possibly make the reconstruction error $t$ always close to zero<strong>(Don’t understand)</strong>, even for abnormal events. However, we want the errors to be larger for abnormal events</p>
       </li>
     </ul>
   </li>
@@ -291,18 +300,20 @@
 
     <ul>
       <li>
-        <p><strong>Problem : ** **Reducing $K$ could increase reconstruction errors $t$</strong>. And it is not optimal to ﬁx $K$ as well,as content may vary among videos</p>
+        <p><strong>Problem : Reducing $K$ could increase reconstruction errors $t$</strong>. And it is not optimal to ﬁx $K$ as well, as content may vary among videos</p>
       </li>
       <li>
-        <p><strong>Solution : **  A maximum representation strategy. It **automatically ﬁnds $K$ while not wildly increasing the reconstruction error $t$</strong>. In fact, error $t$ for each training feature is upper bounded in our method</p>
+        <p><strong>Solution :</strong>  A maximum representation strategy. It <strong>automatically ﬁnds $K$ while not wildly increasing the reconstruction error $t$</strong>. In fact, error $t$ for each training feature is upper bounded in our method</p>
       </li>
       <li>
-        <p><strong>Updated function</strong>
-   <script type="math/tex">t_j=\sum_{i=1}^K\gamma_j^i \{ \|x_j-S_i\beta_j^i \|_2^2 -\lambda \} \le 0,\quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}</script></p>
+        <p><strong>Updated function</strong></p>
       </li>
-      <li>
-        <p>$\lambda ： $  <strong>Reconstruction error upper bound</strong> uniformly for all elements in $S$. If $t_j$ is smaller than $\lambda$, the coding result is with good quality</p>
-      </li>
+    </ul>
+
+    <script type="math/tex; mode=display">t_j=\sum_{i=1}^K\gamma_j^i \{ \|x_j-S_i\beta_j^i \|_2^2 -\lambda \} \le 0,\quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}</script>
+
+    <ul>
+      <li>$\lambda :$  We obtain a set of combinations with a small $K$ by setting a reconstruction error upper bound $\lambda$ uniformly for each $S_i$. If $t_j$ is smaller than $\lambda$, the coding result is with good quality</li>
     </ul>
   </li>
   <li>

@@ -50,27 +50,29 @@ tags: []
 
 	 $s$ : parameter to control sparsity  
 
-	- abnormal pattern : large error result from $\|x-D\beta\|^2_2$
+	- ***<font color="#9932CC">abnormal pattern</font>***: large error result from $\|x-D\beta\|^2_2$
 
 
-- ***Efficiency problem***
+- ***<font color="#9932CC">Efficiency problem</font>***
 
-	Adopting $min\|x-D\beta\|^2_2$ is time-consuming :  
+	**Adopting $min\|x-D\beta\|^2_2$ is time-consuming :** 
 
-    - **ﬁnd the suitable basis vectors** (with scale $s$) from the dictionary (with scale $q$) to represent testing data $x$)
+    - **ﬁnd the suitable basis vectors** (with scale $s$) from the dictionary (with scale $q$) to represent testing data $x$
 
 	- Search space is large **( $(^q_s)$ different combinations )**
 
-- ***Our contribution***
+
+- ***<font color="#9932CC">Our contribution</font>***
+
 	- Instead of coding sparsity by ﬁnding an $s$ basis combination from $D$ in $min\|x-D\beta\|^2_2$, we code it directly **as a set of possible combinations of basis vectors**
 
-    -  We only need to ﬁnd the most suitable combination by evaluating **the small-scale least square error**
+	-  We only need to ﬁnd the most suitable combination by evaluating **the small-scale least square error**
 
     ![Our testing architecture](/img/3.JPG)
 
-    - Freely selecting $s$ basis vectors from a total of $q$ vectors, the reconstructed structure could deviate from input due to the **large freedom**. However, in our method, **each combination ﬁnds its corresponding input data**
+	- Freely selecting $s$ basis vectors from a total of $q$ vectors, the reconstructed structure could deviate from input due to the **large freedom**. However, in our method, **<font color="#9932CC">each combination ﬁnds its corresponding input data</font>**
 
-    -  It reaches 140∼150 FPS using a desktop with 3.4GHz CPU and 8G memory in MATLAB 2012.
+	-  It reaches 140∼150 FPS using a desktop with 3.4GHz CPU and 8G memory in MATLAB 2012.
 
 ## Methods
 
@@ -92,23 +94,29 @@ tags: []
 	- Features are processed separately according to their spatial coordinates. **Only features at the same spatial location in the video frames are used together** for training and testing.
 
 - ***Learning Combinations on Training Data***
+
+	- **3D gradient features** in all frames gathered temporally for training are denoted as $$X=\{x_1, x_2, ..., x_n\} \in R^{p*n}$$. Each $x_i$ has $p$ features and there are $n$ $x_i$ in the $X$
+
+	- Our goal is to **find a sparse basis combination set** $$S=\{S_1, S_2, ..., S_K\}$$ with each $S_i \in R^{p*s}$. Each $S_i$ combines $s$ dictionary basis vectors and each basis vector has $p$ features which correspond to the features in $x_i$. Each $S_i$ belongs to a closed, convex and bounded set, which ensures column-wise unit norm to **prevent over-ﬁtting**
+
 	- **Reconstruction Error**
- $$t=min_{s,\gamma,\beta}\sum_{j=1}^n\sum_{i=1}^K\gamma_j^i\|x_j-S_i\beta_j^i\|_2^2 \quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}$$
+ 	$$t=min_{s,\gamma,\beta}\sum_{j=1}^n\sum_{i=1}^K\gamma_j^i\|x_j-S_i\beta_j^i\|_2^2 \quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}$$
 
-	- Each $\gamma_j^i$ indicates whether or not the $i^{th}%$ combination $S_i$ is chosen for data $x_j$ and **only one combination is selected**
+	- Each $\gamma_j^i$ indicates whether or not the $i^{th}%$ combination $S_i$ is chosen for data $x_j$ and **only one combination $S_i$ is selected for each $x_j$**
 
-	- **$K$ must be small enough** based on redundant surveillance video information because **a very large $K$ could possibly make the reconstruction error $t$ always close to zero**, even for abnormal events
+	- **$K$ must be small enough** because a very large $K$ could possibly make the reconstruction error $t$ always close to zero**(Don't understand)**, even for abnormal events. However, we want the errors to be larger for abnormal events
 
 - ***Optimization for Training***
 
-	- **Problem : ** **Reducing $K$ could increase reconstruction errors $t$**. And it is not optimal to ﬁx $K$ as well,as content may vary among videos
+	- **Problem : Reducing $K$ could increase reconstruction errors $t$**. And it is not optimal to ﬁx $K$ as well, as content may vary among videos
 
-	- **Solution : **  A maximum representation strategy. It **automatically ﬁnds $K$ while not wildly increasing the reconstruction error $t$**. In fact, error $t$ for each training feature is upper bounded in our method
+	- **Solution :**  A maximum representation strategy. It **automatically ﬁnds $K$ while not wildly increasing the reconstruction error $t$**. In fact, error $t$ for each training feature is upper bounded in our method
 
 	- **Updated function**
+	
 	 $$t_j=\sum_{i=1}^K\gamma_j^i \{ \|x_j-S_i\beta_j^i \|_2^2 -\lambda \} \le 0,\quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}$$
 
-	- $\lambda ： $  **Reconstruction error upper bound** uniformly for all elements in $S$. If $t_j$ is smaller than $\lambda$, the coding result is with good quality
+	- $\lambda :$  We obtain a set of combinations with a small $K$ by setting a reconstruction error upper bound $\lambda$ uniformly for each $S_i$. If $t_j$ is smaller than $\lambda$, the coding result is with good quality
 
 - ***Algorithm***
 
