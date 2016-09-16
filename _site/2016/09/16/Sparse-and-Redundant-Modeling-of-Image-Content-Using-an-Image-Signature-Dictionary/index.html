@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Write your site description here. It will be used as your sites meta description as well!">
 
-    <title>icbcbicc's Blog</title>
+    <title>Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary - icbcbicc's Blog</title>
 
-    <link rel="canonical" href="http://icbcbicc.github.io/">
+    <link rel="canonical" href="http://icbcbicc.github.io/2016/09/16/Sparse-and-Redundant-Modeling-of-Image-Content-Using-an-Image-Signature-Dictionary/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -118,112 +118,190 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/post-bg-02.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>icbcbicc's Blog</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
+                <div class="post-heading">
+                    <h1>Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary</h1>
+                    
+                    <h2 class="subheading">论文笔记</h2>
+                    
+                    <span class="meta">Posted by icbcbicc on September 16, 2016</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/2016/09/16/Sparse-and-Redundant-Modeling-of-Image-Content-Using-an-Image-Signature-Dictionary/">
-        <h2 class="post-title">            Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary
-        </h2>
-        
-        <h3 class="post-subtitle">
-            论文笔记
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by icbcbicc on September 16, 2016</p>
-</div>
-<hr>
+				<h1 id="sparse-and-redundant-modeling-of-image-content-using-an-image-signature-dictionary">Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary</h1>
+<p>Authors: <em>Michal Aharon and Michael Elad</em><br />
+<a href="http://epubs.siam.org/doi/pdf/10.1137/07070156X">PDF</a></p>
 
-<div class="post-preview">
-    <a href="/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/">
-        <h2 class="post-title">            Abnormal Event Detection at 150 FPS in MATLAB
-        </h2>
-        
-        <h3 class="post-subtitle">
-            论文笔记
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by icbcbicc on September 4, 2016</p>
-</div>
-<hr>
+<p><br /></p>
 
-<div class="post-preview">
-    <a href="/2016/07/22/cprimer_note_1/">
-        <h2 class="post-title">            C++ Primer Note 1
-        </h2>
-        
-        <h3 class="post-subtitle">
-            读书笔记
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by icbcbicc on July 22, 2016</p>
-</div>
-<hr>
+<h2 id="introduction-of-sparse-representation">Introduction of Sparse Representation</h2>
 
-<div class="post-preview">
-    <a href="/2016/07/20/machine_learning_zhihua_zhou_notes_01/">
-        <h2 class="post-title">            Machine Learning (Zhihua Zhou) Notes 01
-        </h2>
-        
-        <h3 class="post-subtitle">
-            读书笔记
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by icbcbicc on July 20, 2016</p>
-</div>
-<hr>
+<h4 id="background">Background</h4>
 
-<div class="post-preview">
-    <a href="/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/">
-        <h2 class="post-title">            Learning Spatiotemporal Features with 3D CNN
-        </h2>
-        
-        <h3 class="post-subtitle">
-            论文笔记
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by icbcbicc on July 13, 2016</p>
-</div>
-<hr>
+<ul>
+  <li>
+    <p>In sparse and redundant modeling, a signal $y \in R^n$ is represented as a linear combination of some atoms taken from a dictionary $D \in R^{n*m}$ which contains $m$ atoms $d_i \in R^n$. A representation of the signal $y$ is then any vector $x \in R^n$ satisfying $y = Dx$</p>
+  </li>
+  <li>
+    <p>$m &gt; n$: the representation is <strong><em>redundant</em></strong>.</p>
+  </li>
+  <li>
+    <p>The solutions to $y = Dx$ are infinite and we prefer the sparest one, i.e, <strong><em>the one with the smallest ${||x||}_0$</em></strong></p>
+  </li>
+  <li>
+    <p>The task of <strong><em>computing a representation</em></strong> of a signal can be formly described by</p>
+  </li>
+</ul>
 
+<script type="math/tex; mode=display">min_x{\|x\|}_0 \qquad s.t. \qquad y=Dx</script>
 
-<!-- Pager -->
+<ul>
+  <li>However, the <strong><em>constrait above is often relaxed</em></strong> and replaced by ${||y-Dx||}_2 \le \epsilon$. This allows for additive noise and model deviations</li>
+</ul>
 
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page2">Older Posts &rarr;</a>
-    </li>
-    
+<p><br /></p>
+
+<h4 id="problem">Problem</h4>
+
+<ul>
+  <li>
+    <p>Solving this problem was proved to be an <strong>NP-hard</strong> problem</p>
+  </li>
+  <li>
+    <p><strong>Two approximation techniques :</strong></p>
+
+    <ul>
+      <li>
+        <p>Matching-pursuit (MP) methods that ﬁnd the solution one entry at a time in a greedy way</p>
+      </li>
+      <li>
+        <p>Basis-pursuit (BP) algorithm that replaces the $L_0$ norm by the $L_1$ norm</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Two types of dictionary</strong></p>
+
+    <ul>
+      <li>
+        <p>Prespeciﬁed dictionaries</p>
+      </li>
+      <li>
+        <p>Dictionaries obtained by learning procedure</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="this-paper">This paper</h4>
+
+<ul>
+  <li>
+    <p>The <strong>image-signature-dictionary</strong> (ISD), is an 2D image in which each patch can serve as a representing atom</p>
+  </li>
+  <li>
+    <p>A near shift-invariant property is obtained, due to the <strong>overlap between atoms</strong> extracted from the ISD in nearby locations</p>
+  </li>
+  <li>
+    <p>By <strong>taking patches of varying sizes</strong>, near scale-invariance is potentially obtained and exploited</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="the-structure-of-isd">The Structure of ISD</h2>
+
+<script type="math/tex; mode=display">y = \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}C_{[k,l]}d_s = Dx</script>
+
+<ul>
+  <li>
+    <p>$D_s \in R^{\sqrt{m}*\sqrt{m}} : $ signature dictionary</p>
+  </li>
+  <li>
+    <p>$y’ \in R^{\sqrt{n}*\sqrt{n}} : $ imasge patch and its single column form $y \in R^n$</p>
+  </li>
+  <li>
+    <p>$d_s \in R^m : $  a vector obtained by a column lexicographic ordering of the ISD</p>
+  </li>
+  <li>
+    <p>$C_{[k,l]} : $ the linear operator that extract a patch of size $\sqrt{n}*\sqrt{n}$ from the $D_s$ in location $[k,l]$</p>
+  </li>
+  <li>
+    <p>$C_{[k,l]}d_s : $ the extracted patch as a column vector</p>
+  </li>
+  <li>
+    <p>$x$ is the concatenation of the $m$ coeﬃcients in the array $x_{[k,l]}$</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="isd-training">ISD Training</h2>
+
+<ul>
+  <li>
+    <p>We assume that each patch is represented by a <strong>ﬁxed number of atoms</strong>, L</p>
+  </li>
+  <li>
+    <p>The <strong>energy function</strong> that the ISD is expected to minimize :</p>
+  </li>
+</ul>
+
+<script type="math/tex; mode=display">\hat{d_s} = Arg min_{d_s} \sum_{i=1}^N \epsilon_i^2(d_s)</script>
+
+<p>s.t.</p>
+
+<script type="math/tex; mode=display">\epsilon_i^2(d_s) = min_x {\|y_i-\sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}C_{[k,l]}d_s\|}_2^2</script>
+
+<p>s.t.</p>
+
+<script type="math/tex; mode=display">{\|x\|}_0 \le L,\qquad 1 \le i \le N</script>
+
+<ul>
+  <li>
+    <p><strong><em>Two stages in training</em></strong></p>
+
+    <ul>
+      <li>
+        <p><strong>The sparse coding stage</strong></p>
+      </li>
+      <li>
+        <p><strong>Dictionary update stage</strong></p>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 
-		</div>
-	</div>
-</div>
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/" data-toggle="tooltip" data-placement="top" title="Abnormal Event Detection at 150 FPS in MATLAB">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

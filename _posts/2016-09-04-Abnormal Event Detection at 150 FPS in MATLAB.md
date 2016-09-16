@@ -12,11 +12,13 @@ tags: []
 # Abnormal Event Detection at 150 FPS in MATLAB
 [PDF](http://www.cv-foundation.org/openaccess/content_iccv_2013/papers/Lu_Abnormal_Event_Detection_2013_ICCV_paper.pdf)
 
+<br>
+
 ## Introduction
 
-#### Difficulties in detecting abnormal events based on surveillance videos
+#### Difficulties in detecting abnormal events based on surveillance videos  
 
-- Hard to list all possible negative samples  
+- Hard to list all possible negative samples
 
 #### Traditional method
 
@@ -73,6 +75,8 @@ tags: []
 	- Freely selecting $s$ basis vectors from a total of $q$ vectors, the reconstructed structure could deviate from input due to the **large freedom**. However, in our method, **<font color="#9932CC">each combination ﬁnds its corresponding input data</font>**
 
 	-  It reaches 140∼150 FPS using a desktop with 3.4GHz CPU and 8G memory in MATLAB 2012.
+
+<br>
 
 ## Methods
 
@@ -180,6 +184,8 @@ tags: []
 
 - ***Relation to Subspace Clustering***
 
+<br>
+
 ## Experiments
 
 #### System Settings
@@ -212,5 +218,3 @@ tags: []
 
 	![The distribution of K in 31200 regions from 150 videos](/img/8.JPG)
 	The mean of $K$ is 9.75 and variance is 10.62, indicating 10 combinations are generally enough in our model
-
-- 

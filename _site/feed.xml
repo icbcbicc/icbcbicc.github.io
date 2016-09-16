@@ -1,5 +1,153 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-14T23:47:53+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Abnormal Event Detection at 150 FPS in MATLAB</title><link href="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/" rel="alternate" type="text/html" title="Abnormal Event Detection at 150 FPS in MATLAB" /><published>2016-09-04T00:00:00+08:00</published><updated>2016-09-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/04/Abnormal Event Detection at 150 FPS in MATLAB</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/">&lt;h1 id=&quot;abnormal-event-detection-at-150-fps-in-matlab&quot;&gt;Abnormal Event Detection at 150 FPS in MATLAB&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-16T21:35:50+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary</title><link href="http://icbcbicc.github.io/2016/09/16/Sparse-and-Redundant-Modeling-of-Image-Content-Using-an-Image-Signature-Dictionary/" rel="alternate" type="text/html" title="Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary" /><published>2016-09-16T00:00:00+08:00</published><updated>2016-09-16T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/16/Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/16/Sparse-and-Redundant-Modeling-of-Image-Content-Using-an-Image-Signature-Dictionary/">&lt;h1 id=&quot;sparse-and-redundant-modeling-of-image-content-using-an-image-signature-dictionary&quot;&gt;Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary&lt;/h1&gt;
+&lt;p&gt;Authors: &lt;em&gt;Michal Aharon and Michael Elad&lt;/em&gt;&lt;br /&gt;
+&lt;a href=&quot;http://epubs.siam.org/doi/pdf/10.1137/07070156X&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction-of-sparse-representation&quot;&gt;Introduction of Sparse Representation&lt;/h2&gt;
+
+&lt;h4 id=&quot;background&quot;&gt;Background&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;In sparse and redundant modeling, a signal $y \in R^n$ is represented as a linear combination of some atoms taken from a dictionary $D \in R^{n*m}$ which contains $m$ atoms $d_i \in R^n$. A representation of the signal $y$ is then any vector $x \in R^n$ satisfying $y = Dx$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$m &amp;gt; n$: the representation is &lt;strong&gt;&lt;em&gt;redundant&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The solutions to $y = Dx$ are infinite and we prefer the sparest one, i.e, &lt;strong&gt;&lt;em&gt;the one with the smallest ${||x||}_0$&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The task of &lt;strong&gt;&lt;em&gt;computing a representation&lt;/em&gt;&lt;/strong&gt; of a signal can be formly described by&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;min_x{\|x\|}_0 \qquad s.t. \qquad y=Dx&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;However, the &lt;strong&gt;&lt;em&gt;constrait above is often relaxed&lt;/em&gt;&lt;/strong&gt; and replaced by ${||y-Dx||}_2 \le \epsilon$. This allows for additive noise and model deviations&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;problem&quot;&gt;Problem&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Solving this problem was proved to be an &lt;strong&gt;NP-hard&lt;/strong&gt; problem&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Two approximation techniques :&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Matching-pursuit (MP) methods that ﬁnd the solution one entry at a time in a greedy way&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Basis-pursuit (BP) algorithm that replaces the $L_0$ norm by the $L_1$ norm&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Two types of dictionary&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Prespeciﬁed dictionaries&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Dictionaries obtained by learning procedure&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;this-paper&quot;&gt;This paper&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The &lt;strong&gt;image-signature-dictionary&lt;/strong&gt; (ISD), is an 2D image in which each patch can serve as a representing atom&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A near shift-invariant property is obtained, due to the &lt;strong&gt;overlap between atoms&lt;/strong&gt; extracted from the ISD in nearby locations&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;By &lt;strong&gt;taking patches of varying sizes&lt;/strong&gt;, near scale-invariance is potentially obtained and exploited&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-structure-of-isd&quot;&gt;The Structure of ISD&lt;/h2&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;y = \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}C_{[k,l]}d_s = Dx&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;$D_s \in R^{\sqrt{m}*\sqrt{m}} : $ signature dictionary&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$y’ \in R^{\sqrt{n}*\sqrt{n}} : $ imasge patch and its single column form $y \in R^n$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$d_s \in R^m : $  a vector obtained by a column lexicographic ordering of the ISD&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$C_{[k,l]} : $ the linear operator that extract a patch of size $\sqrt{n}*\sqrt{n}$ from the $D_s$ in location $[k,l]$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$C_{[k,l]}d_s : $ the extracted patch as a column vector&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$x$ is the concatenation of the $m$ coeﬃcients in the array $x_{[k,l]}$&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;isd-training&quot;&gt;ISD Training&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;We assume that each patch is represented by a &lt;strong&gt;ﬁxed number of atoms&lt;/strong&gt;, L&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The &lt;strong&gt;energy function&lt;/strong&gt; that the ISD is expected to minimize :&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{d_s} = Arg min_{d_s} \sum_{i=1}^N \epsilon_i^2(d_s)&lt;/script&gt;
+
+&lt;p&gt;s.t.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\epsilon_i^2(d_s) = min_x {\|y_i-\sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}C_{[k,l]}d_s\|}_2^2&lt;/script&gt;
+
+&lt;p&gt;s.t.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;{\|x\|}_0 \le L,\qquad 1 \le i \le N&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Two stages in training&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;The sparse coding stage&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Dictionary update stage&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary
+Authors: Michal Aharon and Michael Elad
+PDF</summary></entry><entry><title>Abnormal Event Detection at 150 FPS in MATLAB</title><link href="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/" rel="alternate" type="text/html" title="Abnormal Event Detection at 150 FPS in MATLAB" /><published>2016-09-04T00:00:00+08:00</published><updated>2016-09-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/04/Abnormal Event Detection at 150 FPS in MATLAB</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/">&lt;h1 id=&quot;abnormal-event-detection-at-150-fps-in-matlab&quot;&gt;Abnormal Event Detection at 150 FPS in MATLAB&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&quot;http://www.cv-foundation.org/openaccess/content_iccv_2013/papers/Lu_Abnormal_Event_Detection_2013_ICCV_paper.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
@@ -98,6 +246,8 @@
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;methods&quot;&gt;Methods&lt;/h2&gt;
 
@@ -265,6 +415,8 @@
   &lt;li&gt;&lt;strong&gt;&lt;em&gt;Relation to Subspace Clustering&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;
 
 &lt;h4 id=&quot;system-settings&quot;&gt;System Settings&lt;/h4&gt;
@@ -311,7 +463,6 @@
     &lt;p&gt;&lt;img src=&quot;/img/8.JPG&quot; alt=&quot;The distribution of K in 31200 regions from 150 videos&quot; /&gt;
   The mean of $K$ is 9.75 and variance is 10.62, indicating 10 combinations are generally enough in our model&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Abnormal Event Detection at 150 FPS in MATLAB
 PDF</summary></entry><entry><title>C++ Primer Note 1</title><link href="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/" rel="alternate" type="text/html" title="C++ Primer Note 1" /><published>2016-07-22T00:00:00+08:00</published><updated>2016-07-22T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/22/cprimer_note_1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/">&lt;h2 id=&quot;c-primer-4th-edition-notes-chapter-1--2&quot;&gt;C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2&lt;/h2&gt;
 
