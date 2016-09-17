@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Learning Spatiotemporal Features with 3D CNN"
-subtitle:   "论文笔记"
+title:      "Learning Spatio-temporal Features with 3D Convolutional Networks"
+subtitle:   "论文笔记-2015-ICCV-84"
 date:       2016-07-13
 author:     "icbcbicc"
 header-img: "img/post-bg-01.jpg"
@@ -9,7 +9,12 @@ tags: ["machine learning","deep learning","CNN","caffe"]
 ---
 
 # Learning Spatiotemporal Features with 3D CNN
-July 10, 2016 12:56 PM
+
+July 10, 2016 12:56 PM  
+
+Authors: *Du Tran, Lubomir Bourdev, Rob Fergus, Lorenzo Torresani, Manohar Paluri*  
+
+[PDF](http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7410867)
 
 ## 1. Introduction
 - 3 × 3 × 3 convolution kernel for all layers to work best.

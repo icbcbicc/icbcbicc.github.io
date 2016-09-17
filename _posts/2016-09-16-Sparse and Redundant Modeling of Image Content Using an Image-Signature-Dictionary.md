@@ -1,15 +1,14 @@
 ---
 layout:     post
 title:      "Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary"
-subtitle:   "论文笔记"
+subtitle:   "论文笔记-2008-SIAM-109"
 date:       2016-09-16
 author:     "icbcbicc"
 header-img: "img/post-bg-02.jpg"
 tags: []
-
 ---
 
-# Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary
+# Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary  
 Authors: *Michal Aharon and Michael Elad*  
 [PDF](http://epubs.siam.org/doi/pdf/10.1137/07070156X)
 

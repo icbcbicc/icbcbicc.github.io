@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Abnormal Event Detection at 150 FPS in MATLAB"
-subtitle:   "论文笔记"
+subtitle:   "论文笔记-2013-ICCV-52"
 date:       2016-09-04
 author:     "icbcbicc"
 header-img: "img/post-bg-04.jpg"
@@ -10,7 +10,10 @@ tags: []
 ---
 
 # Abnormal Event Detection at 150 FPS in MATLAB
-[PDF](http://www.cv-foundation.org/openaccess/content_iccv_2013/papers/Lu_Abnormal_Event_Detection_2013_ICCV_paper.pdf)
+
+Authors: *Cewu Lu, Jianping Shi, Jiaya Jia*  
+
+[PDF](http://www.cv-foundation.org/openaccess/content_iccv_2013/papers/Lu_Abnormal_Event_Detection_2013_ICCV_paper.pdf)   
 
 <br>
 
