@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-16T21:35:50+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary</title><link href="http://icbcbicc.github.io/2016/09/16/Sparse-and-Redundant-Modeling-of-Image-Content-Using-an-Image-Signature-Dictionary/" rel="alternate" type="text/html" title="Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary" /><published>2016-09-16T00:00:00+08:00</published><updated>2016-09-16T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/16/Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/16/Sparse-and-Redundant-Modeling-of-Image-Content-Using-an-Image-Signature-Dictionary/">&lt;h1 id=&quot;sparse-and-redundant-modeling-of-image-content-using-an-image-signature-dictionary&quot;&gt;Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-17T16:15:44+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary</title><link href="http://icbcbicc.github.io/2016/09/16/Sparse-and-Redundant-Modeling-of-Image-Content-Using-an-Image-Signature-Dictionary/" rel="alternate" type="text/html" title="Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary" /><published>2016-09-16T00:00:00+08:00</published><updated>2016-09-16T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/16/Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/16/Sparse-and-Redundant-Modeling-of-Image-Content-Using-an-Image-Signature-Dictionary/">&lt;h1 id=&quot;sparse-and-redundant-modeling-of-image-content-using-an-image-signature-dictionary&quot;&gt;Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary&lt;/h1&gt;
 &lt;p&gt;Authors: &lt;em&gt;Michal Aharon and Michael Elad&lt;/em&gt;&lt;br /&gt;
 &lt;a href=&quot;http://epubs.siam.org/doi/pdf/10.1137/07070156X&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
 
@@ -110,14 +110,11 @@
 
 &lt;h2 id=&quot;isd-training&quot;&gt;ISD Training&lt;/h2&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;We assume that each patch is represented by a &lt;strong&gt;ﬁxed number of atoms&lt;/strong&gt;, L&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The &lt;strong&gt;energy function&lt;/strong&gt; that the ISD is expected to minimize :&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;energy-function&quot;&gt;Energy Function&lt;/h4&gt;
+
+&lt;p&gt;We assume that each patch is represented by a &lt;strong&gt;ﬁxed number of atoms&lt;/strong&gt;, L. The &lt;strong&gt;energy function&lt;/strong&gt; that the ISD is expected to minimize :&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{d_s} = Arg min_{d_s} \sum_{i=1}^N \epsilon_i^2(d_s)&lt;/script&gt;
 
@@ -129,18 +126,67 @@
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;{\|x\|}_0 \le L,\qquad 1 \le i \le N&lt;/script&gt;
 
+&lt;h4 id=&quot;two-stages-in-training&quot;&gt;Two stages in training&lt;/h4&gt;
+
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Two stages in training&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;The sparse coding stage: find $\hat{x_i}$&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Assuming that $d_s$ is known and ﬁxed, we can solve the &lt;strong&gt;inner optimization problem&lt;/strong&gt; and ﬁnd the sparsest representation $\hat{x_i}$ for each example $y_i$&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{x_i} = Argmin_x {\|y_i-\sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}C_{[k,l]}d_s\|}_2^2 \qquad s.t. \qquad \|x_o\| \le L&lt;/script&gt;
+
+    &lt;p&gt;This problem can be solved by any &lt;strong&gt;pursuit algorithm&lt;/strong&gt;, such as a greedy method——&lt;strong&gt;the orthogonal matching pursuit&lt;/strong&gt; (OMP)&lt;/p&gt;
+
+    &lt;p&gt;The OMP selects at each stage an atom from the dictionary that best resembles the residual. After each such selection, the signal is back-projected onto the set of chosen atoms, and the new residual signal is calculated &lt;strong&gt;&lt;em&gt;(Don’t understand)&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Dictionary update stage: $\hat{d_s}$&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Assuming that the sparse representation vectors $\hat{x_i}$ have been computed, we seek the best ISD $d_s$ to minimize:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;E(d_s) = \sum_{i=1}^N {\|y_i-\sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]}d_s\|}_2^2&lt;/script&gt;
+
+    &lt;p&gt;The &lt;strong&gt;gradient of the error expression&lt;/strong&gt;:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\partial E(d_s)}{\partial d_s} = Rd_s - p&lt;/script&gt;
+
+    &lt;p&gt;where&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;R = \sum_{i=1}^N {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]} \rgroup}^T * {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]} \rgroup} \in R^{m*m}&lt;/script&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;p = \sum_{i=1}^N {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]} \rgroup}^T*y_i \in R^m&lt;/script&gt;
+
+    &lt;p&gt;Thus, the &lt;strong&gt;optimal ISD&lt;/strong&gt; is obtained simply by:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{d_s} = R^{-1}p&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Stochastic gradient appoach (SG)&lt;/strong&gt;&lt;/p&gt;
 
     &lt;ul&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;The sparse coding stage&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;The algorithm above updates the $x_i$ for all examples {y_i}_{i=1}^N and then updates the ISD&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Dictionary update stage&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;Another way is to update the ISD after the computation of each $x_i$ (SG):&lt;/p&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{d_s^{new}} = \hat{d_s^{lod}} - \mu \frac{\partial E(d_s^{lod})}{\partial d_s^{lod}} = \hat{d_s^{lod}} - \mu {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]} \rgroup}^T {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]}\hat{d_s^{old}}-y_i \rgroup}&lt;/script&gt;
+
+    &lt;p&gt;The step-size parameter $\mu$ is typically set as $\mu = \frac{\mu_0}{Iteration}$&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;treatment-of-the-mean&quot;&gt;Treatment of the mean&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Remove the mean in training and testing data&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Redefine the $C_{[k,l]}$ to also remove the mean of the extrated patch&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary
 Authors: Michal Aharon and Michael Elad

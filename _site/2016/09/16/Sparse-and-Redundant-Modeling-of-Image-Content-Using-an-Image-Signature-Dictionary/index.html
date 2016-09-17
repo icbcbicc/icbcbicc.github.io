@@ -252,14 +252,11 @@
 
 <h2 id="isd-training">ISD Training</h2>
 
-<ul>
-  <li>
-    <p>We assume that each patch is represented by a <strong>ﬁxed number of atoms</strong>, L</p>
-  </li>
-  <li>
-    <p>The <strong>energy function</strong> that the ISD is expected to minimize :</p>
-  </li>
-</ul>
+<p><br /></p>
+
+<h4 id="energy-function">Energy Function</h4>
+
+<p>We assume that each patch is represented by a <strong>ﬁxed number of atoms</strong>, L. The <strong>energy function</strong> that the ISD is expected to minimize :</p>
 
 <script type="math/tex; mode=display">\hat{d_s} = Arg min_{d_s} \sum_{i=1}^N \epsilon_i^2(d_s)</script>
 
@@ -271,20 +268,70 @@
 
 <script type="math/tex; mode=display">{\|x\|}_0 \le L,\qquad 1 \le i \le N</script>
 
+<h4 id="two-stages-in-training">Two stages in training</h4>
+
 <ul>
   <li>
-    <p><strong><em>Two stages in training</em></strong></p>
+    <p><strong>The sparse coding stage: find $\hat{x_i}$</strong></p>
+
+    <p>Assuming that $d_s$ is known and ﬁxed, we can solve the <strong>inner optimization problem</strong> and ﬁnd the sparsest representation $\hat{x_i}$ for each example $y_i$</p>
+
+    <script type="math/tex; mode=display">\hat{x_i} = Argmin_x {\|y_i-\sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}C_{[k,l]}d_s\|}_2^2 \qquad s.t. \qquad \|x_o\| \le L</script>
+
+    <p>This problem can be solved by any <strong>pursuit algorithm</strong>, such as a greedy method——<strong>the orthogonal matching pursuit</strong> (OMP)</p>
+
+    <p>The OMP selects at each stage an atom from the dictionary that best resembles the residual. After each such selection, the signal is back-projected onto the set of chosen atoms, and the new residual signal is calculated <strong><em>(Don’t understand)</em></strong></p>
+  </li>
+  <li>
+    <p><strong>Dictionary update stage: $\hat{d_s}$</strong></p>
+
+    <p>Assuming that the sparse representation vectors $\hat{x_i}$ have been computed, we seek the best ISD $d_s$ to minimize:</p>
+
+    <script type="math/tex; mode=display">E(d_s) = \sum_{i=1}^N {\|y_i-\sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]}d_s\|}_2^2</script>
+
+    <p>The <strong>gradient of the error expression</strong>:</p>
+
+    <script type="math/tex; mode=display">\frac{\partial E(d_s)}{\partial d_s} = Rd_s - p</script>
+
+    <p>where</p>
+
+    <script type="math/tex; mode=display">R = \sum_{i=1}^N {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]} \rgroup}^T * {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]} \rgroup} \in R^{m*m}</script>
+
+    <script type="math/tex; mode=display">p = \sum_{i=1}^N {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]} \rgroup}^T*y_i \in R^m</script>
+
+    <p>Thus, the <strong>optimal ISD</strong> is obtained simply by:</p>
+
+    <script type="math/tex; mode=display">\hat{d_s} = R^{-1}p</script>
+  </li>
+  <li>
+    <p><strong>Stochastic gradient appoach (SG)</strong></p>
 
     <ul>
       <li>
-        <p><strong>The sparse coding stage</strong></p>
+        <p>The algorithm above updates the $x_i$ for all examples {y_i}_{i=1}^N and then updates the ISD</p>
       </li>
       <li>
-        <p><strong>Dictionary update stage</strong></p>
+        <p>Another way is to update the ISD after the computation of each $x_i$ (SG):</p>
       </li>
     </ul>
+
+    <script type="math/tex; mode=display">\hat{d_s^{new}} = \hat{d_s^{lod}} - \mu \frac{\partial E(d_s^{lod})}{\partial d_s^{lod}} = \hat{d_s^{lod}} - \mu {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]} \rgroup}^T {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]}\hat{d_s^{old}}-y_i \rgroup}</script>
+
+    <p>The step-size parameter $\mu$ is typically set as $\mu = \frac{\mu_0}{Iteration}$</p>
   </li>
 </ul>
+
+<h4 id="treatment-of-the-mean">Treatment of the mean</h4>
+
+<ul>
+  <li>
+    <p>Remove the mean in training and testing data</p>
+  </li>
+  <li>
+    <p>Redefine the $C_{[k,l]}$ to also remove the mean of the extrated patch</p>
+  </li>
+</ul>
+
 
 
                 <hr>
