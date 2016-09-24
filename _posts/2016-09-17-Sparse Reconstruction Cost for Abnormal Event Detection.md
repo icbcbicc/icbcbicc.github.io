@@ -4,7 +4,7 @@ title:      "Sparse Reconstruction Cost for Abnormal Event Detection"
 subtitle:   "论文笔记-2011-CVPR-225"
 date:       2016-09-17
 author:     "icbcbicc"
-header-img: "img/post-bg-01.jpg"
+header-img: "img/post-bg-20.jpg"
 tags: []
 ---
 

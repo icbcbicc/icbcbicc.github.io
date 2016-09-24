@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-24T10:14:31+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Learning for Matrix Factorization and Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/" rel="alternate" type="text/html" title="Online Learning for Matrix Factorization and Sparse Coding" /><published>2016-09-21T00:00:00+08:00</published><updated>2016-09-21T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/21/Online Learning for Matrix Factorization and Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/">&lt;h1 id=&quot;online-learning-for-matrix-factorization-and-sparse-coding&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-24T11:16:25+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Learning for Matrix Factorization and Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/" rel="alternate" type="text/html" title="Online Learning for Matrix Factorization and Sparse Coding" /><published>2016-09-21T00:00:00+08:00</published><updated>2016-09-21T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/21/Online Learning for Matrix Factorization and Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/">&lt;h1 id=&quot;online-learning-for-matrix-factorization-and-sparse-coding&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/h1&gt;
 &lt;p&gt;Authors: &lt;em&gt;Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro&lt;/em&gt;&lt;br /&gt;
 &lt;a href=&quot;http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
 
@@ -62,13 +62,13 @@
         &lt;p&gt;$D\in R^{m * k}$ :dictionary&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;$m &amp;lt; &amp;lt; n$&lt;/p&gt;
+        &lt;p&gt;$m &amp;lt; &amp;lt; n$: feature nums less than sample nums&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;$k &amp;lt; &amp;lt; n$&lt;/p&gt;
+        &lt;p&gt;$k &amp;lt; &amp;lt; n$: atom nums of dictoinary less than sample nums&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;$k &amp;gt; m$: &lt;strong&gt;&lt;em&gt;Overcomplete dictionary&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;$k &amp;gt; m$: &lt;strong&gt;&lt;em&gt;Overcomplete dictionary&lt;/em&gt;&lt;/strong&gt;: atoms more than feature nums&lt;/p&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;

@@ -3,7 +3,7 @@ layout: post
 title: "Machine Learning (Zhihua Zhou) Notes 01"
 subtitle:   "读书笔记"
 author:     "icbcbicc"
-header-img: "img/post-bg-06.jpg"
+header-img: "img/post-bg-09.jpg"
 tags: ["machine learning"]
 ---
 {% include JB/setup %}

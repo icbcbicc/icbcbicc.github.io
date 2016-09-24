@@ -2,7 +2,7 @@
 layout: post
 title: "C++ Primer Note 1"
 subtitle:   "读书笔记"
-header-img: "img/contact-bg.jpg"
+header-img: "img/post-bg-10.jpg"
 author:     "icbcbicc"
 tags: ["C++"]
 ---

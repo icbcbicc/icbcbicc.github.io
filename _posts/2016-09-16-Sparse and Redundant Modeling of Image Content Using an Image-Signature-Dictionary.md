@@ -4,7 +4,7 @@ title:      "Sparse and Redundant Modeling of Image Content Using an Image-Signa
 subtitle:   "论文笔记-2008-SIAM-109"
 date:       2016-09-16
 author:     "icbcbicc"
-header-img: "img/post-bg-02.jpg"
+header-img: "img/post-bg-12.jpg"
 tags: []
 ---
 

@@ -4,7 +4,7 @@ title:      "Learning Spatio-temporal Features with 3D Convolutional Networks"
 subtitle:   "论文笔记-2015-ICCV-84"
 date:       2016-07-13
 author:     "icbcbicc"
-header-img: "img/post-bg-01.jpg"
+header-img: "img/post-bg-08.jpg"
 tags: ["machine learning","deep learning","CNN","caffe"]
 ---
 

@@ -4,7 +4,7 @@ title:      "Online Learning for Matrix Factorization and Sparse Coding"
 subtitle:   "论文笔记-2001-JMLR-1339"
 date:       2016-09-21
 author:     "icbcbicc"
-header-img: "img/post-bg-02.jpg"
+header-img: "img/post-bg-20.jpg"
 tags: []
 ---
 
@@ -15,7 +15,7 @@ Authors: *Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro*
 <br>
 
 ![mindmap](/img/b5dfacb7-b178-4002-823e-fc5dcfd2d641.png)
-
+	
 <br>
 
 ## Introduction
@@ -52,11 +52,11 @@ Linear decompositon of a matrix using learned dictionary instead of pre-defined 
 
 	- $D\in R^{m * k}$ :dictionary
 
-	- $m < < n$
+	- $m < < n$: feature nums less than sample nums
 
-	- $k < < n$
+	- $k < < n$: atom nums of dictoinary less than sample nums
 
-	- $k > m$: ***Overcomplete dictionary***
+	- $k > m$: ***Overcomplete dictionary***: atoms more than feature nums
 
 
 
