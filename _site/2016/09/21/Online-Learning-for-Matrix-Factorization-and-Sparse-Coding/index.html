@@ -150,7 +150,7 @@
 
 <p><br /></p>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">1. Introduction</h2>
 
 <p><br /></p>
 
@@ -191,7 +191,7 @@
 
 <p><br /></p>
 
-<h2 id="problem-statement">Problem Statement</h2>
+<h2 id="problem-statement">2. Problem Statement</h2>
 
 <ul>
   <li>
@@ -266,13 +266,154 @@
           <li>
             <p>$\delta_t: \quad$ learning rate(good results are obtained using  $\delta_t = \frac{a}{t+b}$ where $a$ and $b$ are chosen depended on the training data)</p>
           </li>
-          <li></li>
         </ol>
       </li>
     </ul>
   </li>
 </ul>
 
+<p><br /></p>
+
+<h2 id="online-dictionary-learning">3. Online Dictionary Learning</h2>
+
+<p><br /></p>
+
+<h4 id="algorithm-outline">3.1 Algorithm Outline</h4>
+
+<ul>
+  <li>
+    <p>Assuming that the training set is composed of <strong><em>i.i.d. samples</em></strong></p>
+  </li>
+  <li>
+    <script type="math/tex; mode=display">f_t(D) = \frac{1}{t}\sum_{i=1}^t l (x_i,D)</script>
+
+    <p>and</p>
+
+    <script type="math/tex; mode=display">\hat{f_t}(D) = \frac{1}{t}\sum_{i=1}^t(\frac{1}{2}\|x_i-D\alpha_i\|_2^2+\lambda\|\alpha_i\|_1)</script>
+
+    <p><strong><em>converge almost surely to the same limit</em></strong>, and thus that $\hat{f_t}$ acts as a surrogate for $f_t$</p>
+  </li>
+  <li>Since $\hat{f_t}$ is close to $\hat{f_{t-1}}$ for large values of $t$, so are $D_t$ and $D_{t−1}$, use $D_{t−1}$ as <strong><em>warm restart</em></strong> for computing $D_t$ can acceerate this algorithm</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="sparse-coding">3.2 Sparse Coding</h4>
+
+<p>This is a <strong><em>$l_1$ regularized linear least-squares problem :</em></strong></p>
+
+<script type="math/tex; mode=display">l_1(x,D) = min\frac{1}{2}{\|x-D\alpha\|}_2^2+\lambda\|\alpha\|_1 \quad s.t. \quad \alpha \in R^k</script>
+
+<ul>
+  <li>
+    <p><strong>Traditional method</strong> (<strong><em>Coordinate descent with soft thresholding</em></strong>)</p>
+
+    <ul>
+      <li>
+        <p>It is efficient when the columns of the dictionary are <strong><em>low correlated</em></strong></p>
+      </li>
+      <li>
+        <p><strong>Problem:</strong> The columns of learned dictionaries are in general <strong><em>highly correlated</em></strong>, which make this method rather slow</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>New method</strong> (<strong><em>LARS-Lasso algorithm</em></strong>)</p>
+
+    <ul>
+      <li>
+        <p>With an efficient Cholesky-based implementation, it is at least as fast as the one above</p>
+      </li>
+      <li>
+        <p>It provides the solution with a <strong><em>higher accuracy</em></strong> and being more robust since it does not require an arbitrary stopping criterion</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/img/9.JPG" alt="Sparse Coding" /></p>
+
+<p><br /></p>
+
+<h4 id="dictionary-update">3.3 Dictionary Update</h4>
+
+<p><img src="/img/10.JPG" alt="Dictionary update" /></p>
+
+<ul>
+  <li>
+    <p>The procedure does not require to store all the vectors $x_i$ and $\alpha_i$, but only $A_t$ and $B_t$</p>
+  </li>
+  <li>
+    <p>Sequentially updates each column of $D$</p>
+  </li>
+  <li>
+    <p>Orthogonal projection on to $C$(the constraint set)</p>
+  </li>
+  <li>
+    <p>In practice, the matrix $A_t$ are often <strong><em>concentrated on the diagonal</em></strong>, which makes the block-coordinate descent more efficient</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="optimizing-the-algorithm">3.4 Optimizing the Algorithm</h4>
+
+<ul>
+  <li>
+    <p>3.4.1 Handling fixed-size data sets</p>
+
+    <ul>
+      <li>
+        <p><strong><em>Problem:</em></strong> When the data sets are predefined and have finite size, the same data points may be examined several times</p>
+      </li>
+      <li>
+        <p><strong><em>Solution:</em></strong> When the training set is small enough, it is possible to further speed up convergence:</p>
+
+        <p>If the sample $x$ has been drawn from the data sets twice in the iteration $t_0$ and $t$, we will replace $\alpha_{t_0}$ by $\alpha_t$ in $A_t$ and $B_t$, that is</p>
+
+        <script type="math/tex; mode=display">A_t = A_{t-1} + \alpha_t\alpha_t^T - \alpha_{t_0}\alpha_{t_0}^T</script>
+
+        <script type="math/tex; mode=display">B_t = B_{t-1} + x_t\alpha_t^T - x_t\alpha_{t_0}^T</script>
+
+        <p>In this setting, we need to store $\alpha_i$ in every iteration and it’s <strong><em>impractical</em></strong></p>
+
+        <p>However, we can sovle this by removing the information from $A_t$ and $B_t$ that is older than two epochs(cycles through the data)</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>3.4.2 Scaling te past data</p>
+
+    <ul>
+      <li>
+        <p><strong><em>Problem:</em></strong> At each iteration, the “new” information $\alpha_t$ that is added to $A_t$ and $B_t$ has the same weight as the “old” one</p>
+      </li>
+      <li>
+        <p><strong><em>Solution:</em></strong> Rescaling the “old” information so that newer coefficients $\alpha_t$ have more weight, which is classical in online learning</p>
+
+        <p>We propose to replace lines 5 and 6 of Algorithm 1 by:</p>
+
+        <script type="math/tex; mode=display">A_t = \beta_t A_{t-1} + \alpha_t\alpha_t^T</script>
+
+        <script type="math/tex; mode=display">B_t = \beta_t B_{t-1} + x_t\alpha_t^T</script>
+
+        <script type="math/tex; mode=display">\beta_t = (1-\frac{1}{t})^\rho</script>
+
+        <p>In this circumstance, we propose</p>
+
+        <script type="math/tex; mode=display">D_t = argmin\frac{1}{\sum_{j=1}^t(j/t)} \sum_{i=1}^t(\frac{i}{t})^\rho(\frac{1}{2}\|x_i-D\alpha_i\|_2^2+\lambda\|\alpha_i\|_1)</script>
+
+        <p>=</p>
+
+        <script type="math/tex; mode=display">argmin\frac{1}{\sum_{j=1}^t(j/t)}(\frac{1}{2}Tr(D^TDA_t)-Tr(D^TB_t))</script>
+
+        <p>When $\rho = 0$, we obtain the original version of the algorithm</p>
+
+        <p><strong><em>In practice, this parameter $\rho$ is only useful for large data sets $(n \ge 100000)$</em></strong></p>
+      </li>
+    </ul>
+  </li>
+</ul>
 
 
                 <hr>

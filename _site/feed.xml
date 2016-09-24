@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-24T11:28:23+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Learning for Matrix Factorization and Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/" rel="alternate" type="text/html" title="Online Learning for Matrix Factorization and Sparse Coding" /><published>2016-09-21T00:00:00+08:00</published><updated>2016-09-21T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/21/Online Learning for Matrix Factorization and Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/">&lt;h1 id=&quot;online-learning-for-matrix-factorization-and-sparse-coding&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-24T15:55:04+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Learning for Matrix Factorization and Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/" rel="alternate" type="text/html" title="Online Learning for Matrix Factorization and Sparse Coding" /><published>2016-09-21T00:00:00+08:00</published><updated>2016-09-21T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/21/Online Learning for Matrix Factorization and Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/">&lt;h1 id=&quot;online-learning-for-matrix-factorization-and-sparse-coding&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/h1&gt;
 &lt;p&gt;Authors: &lt;em&gt;Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro&lt;/em&gt;&lt;br /&gt;
 &lt;a href=&quot;http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
 
@@ -8,7 +8,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;1. Introduction&lt;/h2&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -49,7 +49,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;problem-statement&quot;&gt;Problem Statement&lt;/h2&gt;
+&lt;h2 id=&quot;problem-statement&quot;&gt;2. Problem Statement&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -124,8 +124,150 @@
           &lt;li&gt;
             &lt;p&gt;$\delta_t: \quad$ learning rate(good results are obtained using  $\delta_t = \frac{a}{t+b}$ where $a$ and $b$ are chosen depended on the training data)&lt;/p&gt;
           &lt;/li&gt;
-          &lt;li&gt;&lt;/li&gt;
         &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;online-dictionary-learning&quot;&gt;3. Online Dictionary Learning&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;algorithm-outline&quot;&gt;3.1 Algorithm Outline&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Assuming that the training set is composed of &lt;strong&gt;&lt;em&gt;i.i.d. samples&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;f_t(D) = \frac{1}{t}\sum_{i=1}^t l (x_i,D)&lt;/script&gt;
+
+    &lt;p&gt;and&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{f_t}(D) = \frac{1}{t}\sum_{i=1}^t(\frac{1}{2}\|x_i-D\alpha_i\|_2^2+\lambda\|\alpha_i\|_1)&lt;/script&gt;
+
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;converge almost surely to the same limit&lt;/em&gt;&lt;/strong&gt;, and thus that $\hat{f_t}$ acts as a surrogate for $f_t$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Since $\hat{f_t}$ is close to $\hat{f_{t-1}}$ for large values of $t$, so are $D_t$ and $D_{t−1}$, use $D_{t−1}$ as &lt;strong&gt;&lt;em&gt;warm restart&lt;/em&gt;&lt;/strong&gt; for computing $D_t$ can acceerate this algorithm&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;sparse-coding&quot;&gt;3.2 Sparse Coding&lt;/h4&gt;
+
+&lt;p&gt;This is a &lt;strong&gt;&lt;em&gt;$l_1$ regularized linear least-squares problem :&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;l_1(x,D) = min\frac{1}{2}{\|x-D\alpha\|}_2^2+\lambda\|\alpha\|_1 \quad s.t. \quad \alpha \in R^k&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Traditional method&lt;/strong&gt; (&lt;strong&gt;&lt;em&gt;Coordinate descent with soft thresholding&lt;/em&gt;&lt;/strong&gt;)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;It is efficient when the columns of the dictionary are &lt;strong&gt;&lt;em&gt;low correlated&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; The columns of learned dictionaries are in general &lt;strong&gt;&lt;em&gt;highly correlated&lt;/em&gt;&lt;/strong&gt;, which make this method rather slow&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;New method&lt;/strong&gt; (&lt;strong&gt;&lt;em&gt;LARS-Lasso algorithm&lt;/em&gt;&lt;/strong&gt;)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;With an efficient Cholesky-based implementation, it is at least as fast as the one above&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;It provides the solution with a &lt;strong&gt;&lt;em&gt;higher accuracy&lt;/em&gt;&lt;/strong&gt; and being more robust since it does not require an arbitrary stopping criterion&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/9.JPG&quot; alt=&quot;Sparse Coding&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;dictionary-update&quot;&gt;3.3 Dictionary Update&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/10.JPG&quot; alt=&quot;Dictionary update&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The procedure does not require to store all the vectors $x_i$ and $\alpha_i$, but only $A_t$ and $B_t$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sequentially updates each column of $D$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Orthogonal projection on to $C$(the constraint set)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In practice, the matrix $A_t$ are often &lt;strong&gt;&lt;em&gt;concentrated on the diagonal&lt;/em&gt;&lt;/strong&gt;, which makes the block-coordinate descent more efficient&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;optimizing-the-algorithm&quot;&gt;3.4 Optimizing the Algorithm&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;3.4.1 Handling fixed-size data sets&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;Problem:&lt;/em&gt;&lt;/strong&gt; When the data sets are predefined and have finite size, the same data points may be examined several times&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;Solution:&lt;/em&gt;&lt;/strong&gt; When the training set is small enough, it is possible to further speed up convergence:&lt;/p&gt;
+
+        &lt;p&gt;If the sample $x$ has been drawn from the data sets twice in the iteration $t_0$ and $t$, we will replace $\alpha_{t_0}$ by $\alpha_t$ in $A_t$ and $B_t$, that is&lt;/p&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;A_t = A_{t-1} + \alpha_t\alpha_t^T - \alpha_{t_0}\alpha_{t_0}^T&lt;/script&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;B_t = B_{t-1} + x_t\alpha_t^T - x_t\alpha_{t_0}^T&lt;/script&gt;
+
+        &lt;p&gt;In this setting, we need to store $\alpha_i$ in every iteration and it’s &lt;strong&gt;&lt;em&gt;impractical&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+        &lt;p&gt;However, we can sovle this by removing the information from $A_t$ and $B_t$ that is older than two epochs(cycles through the data)&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;3.4.2 Scaling te past data&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;Problem:&lt;/em&gt;&lt;/strong&gt; At each iteration, the “new” information $\alpha_t$ that is added to $A_t$ and $B_t$ has the same weight as the “old” one&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;Solution:&lt;/em&gt;&lt;/strong&gt; Rescaling the “old” information so that newer coefficients $\alpha_t$ have more weight, which is classical in online learning&lt;/p&gt;
+
+        &lt;p&gt;We propose to replace lines 5 and 6 of Algorithm 1 by:&lt;/p&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;A_t = \beta_t A_{t-1} + \alpha_t\alpha_t^T&lt;/script&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;B_t = \beta_t B_{t-1} + x_t\alpha_t^T&lt;/script&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;\beta_t = (1-\frac{1}{t})^\rho&lt;/script&gt;
+
+        &lt;p&gt;In this circumstance, we propose&lt;/p&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;D_t = argmin\frac{1}{\sum_{j=1}^t(j/t)} \sum_{i=1}^t(\frac{i}{t})^\rho(\frac{1}{2}\|x_i-D\alpha_i\|_2^2+\lambda\|\alpha_i\|_1)&lt;/script&gt;
+
+        &lt;p&gt;=&lt;/p&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;argmin\frac{1}{\sum_{j=1}^t(j/t)}(\frac{1}{2}Tr(D^TDA_t)-Tr(D^TB_t))&lt;/script&gt;
+
+        &lt;p&gt;When $\rho = 0$, we obtain the original version of the algorithm&lt;/p&gt;
+
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;In practice, this parameter $\rho$ is only useful for large data sets $(n \ge 100000)$&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;

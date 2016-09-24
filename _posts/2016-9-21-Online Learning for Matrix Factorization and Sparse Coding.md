@@ -18,7 +18,7 @@ Authors: *Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro*
 	
 <br>
 
-## Introduction
+## 1. Introduction
 
 <br>
 
@@ -44,7 +44,7 @@ Linear decompositon of a matrix using learned dictionary instead of pre-defined 
 
 <br>
 
-## Problem Statement
+## 2. Problem Statement
 
 - Optimize the ***empirical cost function:***
 
@@ -96,5 +96,106 @@ Linear decompositon of a matrix using learned dictionary instead of pre-defined 
 
 		3. $\delta_t: \quad$ learning rate(good results are obtained using  $\delta_t = \frac{a}{t+b}$ where $a$ and $b$ are chosen depended on the training data)
 
-		4. 
+<br>
 
+##  3. Online Dictionary Learning
+
+<br>
+
+#### 3.1 Algorithm Outline
+
+- Assuming that the training set is composed of ***i.i.d. samples***
+
+- 
+	$$f_t(D) = \frac{1}{t}\sum_{i=1}^t l (x_i,D)$$
+
+	and
+
+	$$\hat{f_t}(D) = \frac{1}{t}\sum_{i=1}^t(\frac{1}{2}\|x_i-D\alpha_i\|_2^2+\lambda\|\alpha_i\|_1)$$  
+
+	***converge almost surely to the same limit***, and thus that $\hat{f_t}$ acts as a surrogate for $f_t$
+
+- Since $\hat{f_t}$ is close to $\hat{f_{t-1}}$ for large values of $t$, so are $D_t$ and $D_{t−1}$, use $D_{t−1}$ as ***warm restart*** for computing $D_t$ can acceerate this algorithm
+
+<br>
+
+#### 3.2 Sparse Coding
+
+This is a ***$l_1$ regularized linear least-squares problem :***
+
+$$l_1(x,D) = min\frac{1}{2}{\|x-D\alpha\|}_2^2+\lambda\|\alpha\|_1 \quad s.t. \quad \alpha \in R^k$$
+
+
+- **Traditional method** (***Coordinate descent with soft thresholding***)
+
+	- It is efficient when the columns of the dictionary are ***low correlated***
+
+	- **Problem:** The columns of learned dictionaries are in general ***highly correlated***, which make this method rather slow
+
+- **New method** (***LARS-Lasso algorithm***)
+
+	- With an efficient Cholesky-based implementation, it is at least as fast as the one above
+
+	- It provides the solution with a ***higher accuracy*** and being more robust since it does not require an arbitrary stopping criterion
+
+![Sparse Coding](/img/9.JPG)
+
+<br>
+
+#### 3.3 Dictionary Update
+
+![Dictionary update](/img/10.JPG)
+
+- The procedure does not require to store all the vectors $x_i$ and $\alpha_i$, but only $A_t$ and $B_t$
+
+- Sequentially updates each column of $D$
+
+- Orthogonal projection on to $C$(the constraint set)
+
+- In practice, the matrix $A_t$ are often ***concentrated on the diagonal***, which makes the block-coordinate descent more efficient
+
+<br>
+
+#### 3.4 Optimizing the Algorithm
+
+- 3.4.1 Handling fixed-size data sets
+
+	- ***Problem:*** When the data sets are predefined and have finite size, the same data points may be examined several times
+
+	- ***Solution:*** When the training set is small enough, it is possible to further speed up convergence: 
+
+		If the sample $x$ has been drawn from the data sets twice in the iteration $t_0$ and $t$, we will replace $\alpha_{t_0}$ by $\alpha_t$ in $A_t$ and $B_t$, that is 
+
+		$$A_t = A_{t-1} + \alpha_t\alpha_t^T - \alpha_{t_0}\alpha_{t_0}^T$$
+
+		$$B_t = B_{t-1} + x_t\alpha_t^T - x_t\alpha_{t_0}^T$$
+
+		In this setting, we need to store $\alpha_i$ in every iteration and it's ***impractical***
+
+		However, we can sovle this by removing the information from $A_t$ and $B_t$ that is older than two epochs(cycles through the data)
+
+- 3.4.2 Scaling te past data
+
+	- ***Problem:*** At each iteration, the “new” information $\alpha_t$ that is added to $A_t$ and $B_t$ has the same weight as the “old” one
+
+	- ***Solution:*** Rescaling the “old” information so that newer coefficients $\alpha_t$ have more weight, which is classical in online learning
+
+		We propose to replace lines 5 and 6 of Algorithm 1 by:
+
+		$$A_t = \beta_t A_{t-1} + \alpha_t\alpha_t^T$$
+
+		$$B_t = \beta_t B_{t-1} + x_t\alpha_t^T$$
+
+		$$\beta_t = (1-\frac{1}{t})^\rho$$
+
+		In this circumstance, we propose
+
+		$$D_t = argmin\frac{1}{\sum_{j=1}^t(j/t)} \sum_{i=1}^t(\frac{i}{t})^\rho(\frac{1}{2}\|x_i-D\alpha_i\|_2^2+\lambda\|\alpha_i\|_1)$$
+
+		=
+
+		$$argmin\frac{1}{\sum_{j=1}^t(j/t)}(\frac{1}{2}Tr(D^TDA_t)-Tr(D^TB_t))$$
+
+		When $\rho = 0$, we obtain the original version of the algorithm
+
+		***In practice, this parameter $\rho$ is only useful for large data sets $(n \ge 100000)$***
