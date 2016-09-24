@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Write your site description here. It will be used as your sites meta description as well!">
 
-    <title>Online Detection of Unusual Events in Videos via Dynamic Sparse Coding - icbcbicc's Blog</title>
+    <title>Online Learning for Matrix Factorization and Sparse Coding - icbcbicc's Blog</title>
 
-    <link rel="canonical" href="http://icbcbicc.github.io/2016/09/17/Online-Detection-of-Unusual-Events-in-Videos-via-Dynamic-Sparse-Coding/">
+    <link rel="canonical" href="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -119,16 +119,16 @@
 
 
     <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-05.jpg')">
+<header class="intro-header" style="background-image: url('/img/post-bg-02.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Online Detection of Unusual Events in Videos via Dynamic Sparse Coding</h1>
+                    <h1>Online Learning for Matrix Factorization and Sparse Coding</h1>
                     
-                    <h2 class="subheading">论文笔记-2011-CVPR-139</h2>
+                    <h2 class="subheading">论文笔记-2001-JMLR-1339</h2>
                     
-                    <span class="meta">Posted by icbcbicc on September 17, 2016</span>
+                    <span class="meta">Posted by icbcbicc on September 21, 2016</span>
                 </div>
             </div>
         </div>
@@ -140,15 +140,138 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<h1 id="online-detection-of-unusual-events-in-videos-via-dynamic-sparse-coding">Online Detection of Unusual Events in Videos via Dynamic Sparse Coding</h1>
-<p>Authors: <em>Bin Zhou, Li Fei-Fei, Eric P. Xing</em>
-<a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5995524">PDF</a></p>
+				<h1 id="online-learning-for-matrix-factorization-and-sparse-coding">Online Learning for Matrix Factorization and Sparse Coding</h1>
+<p>Authors: <em>Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro</em><br />
+<a href="http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf">PDF</a></p>
+
+<p><br /></p>
+
+<p><img src="/img/b5dfacb7-b178-4002-823e-fc5dcfd2d641.png" alt="mindmap" /></p>
 
 <p><br /></p>
 
 <h2 id="introduction">Introduction</h2>
 
-<p>####</p>
+<p><br /></p>
+
+<p>Linear decompositon of a matrix using learned dictionary instead of pre-defined one</p>
+
+<p><strong><em>Usage:</em></strong></p>
+
+<ul>
+  <li>
+    <p>low-level: image denoising, texture synthesis, audio processing</p>
+  </li>
+  <li>
+    <p>high-level: image classification</p>
+  </li>
+</ul>
+
+<p><strong><em>Differences between maxtrix factorization and PCA:</em></strong></p>
+
+<ul>
+  <li>
+    <p>It doesn’t impose that the basis vector to be orthogonal</p>
+  </li>
+  <li>
+    <p>Allowing more flexibility to adapt the representation to the data</p>
+  </li>
+</ul>
+
+<p><strong><em>Variants matrix factorization problem:</em></strong></p>
+
+<ul>
+  <li>
+    <p>Non-negtive matrix factorization</p>
+  </li>
+  <li>
+    <p>Sparse PCA</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="problem-statement">Problem Statement</h2>
+
+<ul>
+  <li>
+    <p>Optimize the <strong><em>empirical cost function:</em></strong></p>
+
+    <script type="math/tex; mode=display">f_n(D) = \frac{1}{n}\sum_{i=1}^n l (x_i,D)</script>
+
+    <ul>
+      <li>
+        <p>$D\in R^{m * k}$ :dictionary</p>
+      </li>
+      <li>
+        <p>$m &lt; &lt; n$</p>
+      </li>
+      <li>
+        <p>$k &lt; &lt; n$</p>
+      </li>
+      <li>
+        <p>$k &gt; m$: <strong><em>Overcomplete dictionary</em></strong></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>$l_1$ sparse coding problem (<strong><em>basis pursuit</em></strong>):</p>
+
+    <script type="math/tex; mode=display">l_1(x,D) = min\frac{1}{2}{\|x-D\alpha\|}_2^2+\lambda\|\alpha\|_1 \quad s.t. \quad \alpha \in R^k</script>
+
+    <ul>
+      <li>
+        <p><strong>Disadvantage:</strong></p>
+
+        <p>There is no direct analytic link between the value of $\lambda$ and the corresponding effective sparsity $|\alpha|_0$</p>
+      </li>
+      <li>
+        <p><strong>Solution:</strong></p>
+
+        <p>To prevent $D$ from having arbitrarily large values (which would lead to arbitrarily small values of $\alpha$), it is common to <strong><em>constrain its columns $d_1, . . . ,d_k$ to have an $l_2-norm$</em></strong> less than or equal to 1</p>
+
+        <script type="math/tex; mode=display">C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad d_j^Td_j \le 1\}</script>
+
+        <p>It’s a joint optimization problem with respet to $D$ and $\alpha=[\alpha_1, …, \alpha_k] \in R^{k * n}$, which is <strong><em>not jointly convex</em></strong> but <strong><em>convex with respect to each of the two variables</em></strong> $D$ and $\alpha$ when the other one is fixed</p>
+      </li>
+      <li>
+        <p><strong>Optimization method:</strong></p>
+
+        <ul>
+          <li>
+            <p><strong><em>Alternate between the two variables</em></strong>, minimizing over one while keeping the other one fixed</p>
+          </li>
+          <li>
+            <p>Since the computation of $\alpha$ dominates the cost of each iteration in this <strong><em>block-coordinate descent</em></strong> approach, a <strong><em>second-order optimization</em></strong> technique can be used to accurately estimate $D$ at each step when $\alpha$ is fixed</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p><strong><em>Stochastic gradient</em></strong>, whose rate of convergence is very poor in conventional optimization terms, may in fact in certain settings <strong><em>to be faster in reaching a solution with low expected cost than second-order batch</em></strong></p>
+      </li>
+      <li>
+        <p><strong>Dictionary learning:</strong></p>
+
+        <p>The classical <strong><em>projected first-order projected stochastic gradient descent</em></strong> consists of a sequence of updates of $D$</p>
+
+        <script type="math/tex; mode=display">D_t = \prod [{D_{t-1}-\delta_t \nabla_C l(x_t,D_{t-1})}]</script>
+
+        <ol>
+          <li>
+            <p>$\nabla_C: \quad$ Orthogonal projector onto $C$</p>
+          </li>
+          <li>
+            <p>$x_t: \quad$ i.i.d samples obtained by cycling on a randomly permuted training set</p>
+          </li>
+          <li>
+            <p>$\delta_t: \quad$ learning rate(good results are obtained using  $\delta_t = \frac{a}{t+b}$ where $a$ and $b$ are chosen depended on the training data)</p>
+          </li>
+          <li></li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+</ul>
 
 
 
@@ -157,13 +280,9 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2016/09/17/Sparse-Reconstruction-Cost-for-Abnormal-Event-Detection/" data-toggle="tooltip" data-placement="top" title="Sparse Reconstruction Cost for Abnormal Event Detection">&larr; Previous Post</a>
+                        <a href="/2016/09/17/Online-Detection-of-Unusual-Events-in-Videos-via-Dynamic-Sparse-Coding/" data-toggle="tooltip" data-placement="top" title="Online Detection of Unusual Events in Videos via Dynamic Sparse Coding">&larr; Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/" data-toggle="tooltip" data-placement="top" title="Online Learning for Matrix Factorization and Sparse Coding">Next Post &rarr;</a>
-                    </li>
                     
                 </ul>
 

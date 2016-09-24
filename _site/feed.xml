@@ -1,4 +1,137 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-17T21:02:01+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Detection of Unusual Events in Videos via Dynamic Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/17/Online-Detection-of-Unusual-Events-in-Videos-via-Dynamic-Sparse-Coding/" rel="alternate" type="text/html" title="Online Detection of Unusual Events in Videos via Dynamic Sparse Coding" /><published>2016-09-17T00:00:00+08:00</published><updated>2016-09-17T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/17/Online Detection of Unusual Events in Videos via Dynamic Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/17/Online-Detection-of-Unusual-Events-in-Videos-via-Dynamic-Sparse-Coding/">&lt;h1 id=&quot;online-detection-of-unusual-events-in-videos-via-dynamic-sparse-coding&quot;&gt;Online Detection of Unusual Events in Videos via Dynamic Sparse Coding&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-24T10:14:31+08:00</updated><id>http://icbcbicc.github.io/</id><title>icbcbicc&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Learning for Matrix Factorization and Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/" rel="alternate" type="text/html" title="Online Learning for Matrix Factorization and Sparse Coding" /><published>2016-09-21T00:00:00+08:00</published><updated>2016-09-21T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/21/Online Learning for Matrix Factorization and Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/">&lt;h1 id=&quot;online-learning-for-matrix-factorization-and-sparse-coding&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/h1&gt;
+&lt;p&gt;Authors: &lt;em&gt;Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro&lt;/em&gt;&lt;br /&gt;
+&lt;a href=&quot;http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/b5dfacb7-b178-4002-823e-fc5dcfd2d641.png&quot; alt=&quot;mindmap&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Linear decompositon of a matrix using learned dictionary instead of pre-defined one&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;low-level: image denoising, texture synthesis, audio processing&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;high-level: image classification&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Differences between maxtrix factorization and PCA:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;It doesn’t impose that the basis vector to be orthogonal&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Allowing more flexibility to adapt the representation to the data&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Variants matrix factorization problem:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Non-negtive matrix factorization&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sparse PCA&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;problem-statement&quot;&gt;Problem Statement&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Optimize the &lt;strong&gt;&lt;em&gt;empirical cost function:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;f_n(D) = \frac{1}{n}\sum_{i=1}^n l (x_i,D)&lt;/script&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;$D\in R^{m * k}$ :dictionary&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;$m &amp;lt; &amp;lt; n$&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;$k &amp;lt; &amp;lt; n$&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;$k &amp;gt; m$: &lt;strong&gt;&lt;em&gt;Overcomplete dictionary&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$l_1$ sparse coding problem (&lt;strong&gt;&lt;em&gt;basis pursuit&lt;/em&gt;&lt;/strong&gt;):&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;l_1(x,D) = min\frac{1}{2}{\|x-D\alpha\|}_2^2+\lambda\|\alpha\|_1 \quad s.t. \quad \alpha \in R^k&lt;/script&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Disadvantage:&lt;/strong&gt;&lt;/p&gt;
+
+        &lt;p&gt;There is no direct analytic link between the value of $\lambda$ and the corresponding effective sparsity $|\alpha|_0$&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+
+        &lt;p&gt;To prevent $D$ from having arbitrarily large values (which would lead to arbitrarily small values of $\alpha$), it is common to &lt;strong&gt;&lt;em&gt;constrain its columns $d_1, . . . ,d_k$ to have an $l_2-norm$&lt;/em&gt;&lt;/strong&gt; less than or equal to 1&lt;/p&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad d_j^Td_j \le 1\}&lt;/script&gt;
+
+        &lt;p&gt;It’s a joint optimization problem with respet to $D$ and $\alpha=[\alpha_1, …, \alpha_k] \in R^{k * n}$, which is &lt;strong&gt;&lt;em&gt;not jointly convex&lt;/em&gt;&lt;/strong&gt; but &lt;strong&gt;&lt;em&gt;convex with respect to each of the two variables&lt;/em&gt;&lt;/strong&gt; $D$ and $\alpha$ when the other one is fixed&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Optimization method:&lt;/strong&gt;&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;p&gt;&lt;strong&gt;&lt;em&gt;Alternate between the two variables&lt;/em&gt;&lt;/strong&gt;, minimizing over one while keeping the other one fixed&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;Since the computation of $\alpha$ dominates the cost of each iteration in this &lt;strong&gt;&lt;em&gt;block-coordinate descent&lt;/em&gt;&lt;/strong&gt; approach, a &lt;strong&gt;&lt;em&gt;second-order optimization&lt;/em&gt;&lt;/strong&gt; technique can be used to accurately estimate $D$ at each step when $\alpha$ is fixed&lt;/p&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;Stochastic gradient&lt;/em&gt;&lt;/strong&gt;, whose rate of convergence is very poor in conventional optimization terms, may in fact in certain settings &lt;strong&gt;&lt;em&gt;to be faster in reaching a solution with low expected cost than second-order batch&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Dictionary learning:&lt;/strong&gt;&lt;/p&gt;
+
+        &lt;p&gt;The classical &lt;strong&gt;&lt;em&gt;projected first-order projected stochastic gradient descent&lt;/em&gt;&lt;/strong&gt; consists of a sequence of updates of $D$&lt;/p&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;D_t = \prod [{D_{t-1}-\delta_t \nabla_C l(x_t,D_{t-1})}]&lt;/script&gt;
+
+        &lt;ol&gt;
+          &lt;li&gt;
+            &lt;p&gt;$\nabla_C: \quad$ Orthogonal projector onto $C$&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;$x_t: \quad$ i.i.d samples obtained by cycling on a randomly permuted training set&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;$\delta_t: \quad$ learning rate(good results are obtained using  $\delta_t = \frac{a}{t+b}$ where $a$ and $b$ are chosen depended on the training data)&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Online Learning for Matrix Factorization and Sparse Coding
+Authors: Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro
+PDF</summary></entry><entry><title>Online Detection of Unusual Events in Videos via Dynamic Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/17/Online-Detection-of-Unusual-Events-in-Videos-via-Dynamic-Sparse-Coding/" rel="alternate" type="text/html" title="Online Detection of Unusual Events in Videos via Dynamic Sparse Coding" /><published>2016-09-17T00:00:00+08:00</published><updated>2016-09-17T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/17/Online Detection of Unusual Events in Videos via Dynamic Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/17/Online-Detection-of-Unusual-Events-in-Videos-via-Dynamic-Sparse-Coding/">&lt;h1 id=&quot;online-detection-of-unusual-events-in-videos-via-dynamic-sparse-coding&quot;&gt;Online Detection of Unusual Events in Videos via Dynamic Sparse Coding&lt;/h1&gt;
 &lt;p&gt;Authors: &lt;em&gt;Bin Zhou, Li Fei-Fei, Eric P. Xing&lt;/em&gt;
 &lt;a href=&quot;http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5995524&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
 
@@ -16,7 +149,52 @@ PDF</summary></entry><entry><title>Sparse Reconstruction Cost for Abnormal Event
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
-&lt;p&gt;####&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>Sparse Reconstruction Cost for Abnormal Event Detection
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;conventional-algorithms&quot;&gt;Conventional Algorithms&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Probability Model&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Detect testing sample with lower probability as anormaly by fitting a probability model to the training data. However, the required number of training data increases exponentially with the feature dimension, and it’s unrealistic to collect enough data for density estimation in practice&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;sparse-reconstruction-cost-src&quot;&gt;Sparse Reconstruction Cost (SRC)&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;We propose SRC based on the weighted $l_1$ minimization.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Normal event: generate sparse reconstruction coefficients with a &lt;strong&gt;small SRC&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Abnormal events: generate a dense representation with a &lt;strong&gt;large SRC&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;types-of-abnormal-events&quot;&gt;2 types of abnormal events:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Local abnormal event (LAE)&lt;/p&gt;
+
+    &lt;p&gt;The local behavior is different from its spatio temporal neighborhoods&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Global abnormal event (GAE)&lt;/p&gt;
+
+    &lt;p&gt;The whole scene is abnormal, even though any individual lcoal behavior can be normal&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;New dictionary selection method&lt;/p&gt;
+
+    &lt;p&gt;Reduce the size of the basis set $\phi$ for an efficient reconstruction&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Sparse Reconstruction Cost for Abnormal Event Detection
 Authors: Yang Cong, Junsong Yuan, Ji Liu
 PDF</summary></entry><entry><title>Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary</title><link href="http://icbcbicc.github.io/2016/09/16/Sparse-and-Redundant-Modeling-of-Image-Content-Using-an-Image-Signature-Dictionary/" rel="alternate" type="text/html" title="Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary" /><published>2016-09-16T00:00:00+08:00</published><updated>2016-09-16T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/16/Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/16/Sparse-and-Redundant-Modeling-of-Image-Content-Using-an-Image-Signature-Dictionary/">&lt;h1 id=&quot;sparse-and-redundant-modeling-of-image-content-using-an-image-signature-dictionary&quot;&gt;Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary&lt;/h1&gt;
 &lt;p&gt;Authors: &lt;em&gt;Michal Aharon and Michael Elad&lt;/em&gt;&lt;br /&gt;

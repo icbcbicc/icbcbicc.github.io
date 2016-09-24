@@ -148,7 +148,52 @@
 
 <h2 id="introduction">Introduction</h2>
 
-<p>####</p>
+<p><br /></p>
+
+<h4 id="conventional-algorithms">Conventional Algorithms</h4>
+
+<ul>
+  <li>
+    <p><strong><em>Probability Model</em></strong></p>
+
+    <p>Detect testing sample with lower probability as anormaly by fitting a probability model to the training data. However, the required number of training data increases exponentially with the feature dimension, and it’s unrealistic to collect enough data for density estimation in practice</p>
+  </li>
+</ul>
+
+<h4 id="sparse-reconstruction-cost-src">Sparse Reconstruction Cost (SRC)</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>We propose SRC based on the weighted $l_1$ minimization.
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p>Normal event: generate sparse reconstruction coefficients with a <strong>small SRC</strong></p>
+  </li>
+  <li>
+    <p>Abnormal events: generate a dense representation with a <strong>large SRC</strong></p>
+  </li>
+</ul>
+
+<h4 id="types-of-abnormal-events">2 types of abnormal events:</h4>
+
+<ul>
+  <li>
+    <p>Local abnormal event (LAE)</p>
+
+    <p>The local behavior is different from its spatio temporal neighborhoods</p>
+  </li>
+  <li>
+    <p>Global abnormal event (GAE)</p>
+
+    <p>The whole scene is abnormal, even though any individual lcoal behavior can be normal</p>
+  </li>
+  <li>
+    <p>New dictionary selection method</p>
+
+    <p>Reduce the size of the basis set $\phi$ for an efficient reconstruction</p>
+  </li>
+</ul>
 
 
                 <hr>
