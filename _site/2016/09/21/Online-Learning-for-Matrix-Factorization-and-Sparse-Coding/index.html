@@ -216,57 +216,59 @@
   </li>
   <li>
     <p>$l_1$ sparse coding problem (<strong><em>basis pursuit</em></strong>):</p>
+  </li>
+</ul>
 
-    <script type="math/tex; mode=display">l_1(x,D) = min\frac{1}{2}{\|x-D\alpha\|}_2^2+\lambda\|\alpha\|_1 \quad s.t. \quad \alpha \in R^k</script>
+<script type="math/tex; mode=display">l_1(x,D) = min\frac{1}{2}{\|x-D\alpha\|}_2^2+\lambda\|\alpha\|_1 \quad s.t. \quad \alpha \in R^k</script>
+
+<ul>
+  <li>
+    <p><strong>Disadvantage:</strong></p>
+
+    <p>There is no direct analytic link between the value of $\lambda$ and the corresponding effective sparsity $|\alpha|_0$</p>
+  </li>
+  <li>
+    <p><strong>Solution:</strong></p>
+
+    <p>To prevent $D$ from having arbitrarily large values (which would lead to arbitrarily small values of $\alpha$), it is common to <strong><em>constrain its columns $d_1, . . . ,d_k$ to have an $l_2-norm$</em></strong> less than or equal to 1</p>
+
+    <script type="math/tex; mode=display">C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad d_j^Td_j \le 1\}</script>
+
+    <p>It’s a joint optimization problem with respet to $D$ and $\alpha=[\alpha_1, …, \alpha_k] \in R^{k * n}$, which is <strong><em>not jointly convex</em></strong> but <strong><em>convex with respect to each of the two variables</em></strong> $D$ and $\alpha$ when the other one is fixed</p>
+  </li>
+  <li>
+    <p><strong>Optimization method:</strong></p>
 
     <ul>
       <li>
-        <p><strong>Disadvantage:</strong></p>
-
-        <p>There is no direct analytic link between the value of $\lambda$ and the corresponding effective sparsity $|\alpha|_0$</p>
+        <p><strong><em>Alternate between the two variables</em></strong>, minimizing over one while keeping the other one fixed</p>
       </li>
       <li>
-        <p><strong>Solution:</strong></p>
+        <p>Since the computation of $\alpha$ dominates the cost of each iteration in this <strong><em>block-coordinate descent</em></strong> approach, a <strong><em>second-order optimization</em></strong> technique can be used to accurately estimate $D$ at each step when $\alpha$ is fixed</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong><em>Stochastic gradient</em></strong></p>
 
-        <p>To prevent $D$ from having arbitrarily large values (which would lead to arbitrarily small values of $\alpha$), it is common to <strong><em>constrain its columns $d_1, . . . ,d_k$ to have an $l_2-norm$</em></strong> less than or equal to 1</p>
+    <p>Its rate of convergence is very poor in conventional optimization terms, may in fact in certain settings <strong><em>to be faster in reaching a solution with low expected cost than second-order batch</em></strong></p>
+  </li>
+  <li>
+    <p><strong>Dictionary learning:</strong></p>
 
-        <script type="math/tex; mode=display">C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad d_j^Td_j \le 1\}</script>
+    <p>The classical <strong><em>projected first-order projected stochastic gradient descent</em></strong> consists of a sequence of updates of $D$</p>
 
-        <p>It’s a joint optimization problem with respet to $D$ and $\alpha=[\alpha_1, …, \alpha_k] \in R^{k * n}$, which is <strong><em>not jointly convex</em></strong> but <strong><em>convex with respect to each of the two variables</em></strong> $D$ and $\alpha$ when the other one is fixed</p>
+    <script type="math/tex; mode=display">D_t = \prod [{D_{t-1}-\delta_t \nabla_C l(x_t,D_{t-1})}]</script>
+
+    <ul>
+      <li>
+        <p>$\nabla_C: \quad$ Orthogonal projector onto $C$</p>
       </li>
       <li>
-        <p><strong>Optimization method:</strong></p>
-
-        <ul>
-          <li>
-            <p><strong><em>Alternate between the two variables</em></strong>, minimizing over one while keeping the other one fixed</p>
-          </li>
-          <li>
-            <p>Since the computation of $\alpha$ dominates the cost of each iteration in this <strong><em>block-coordinate descent</em></strong> approach, a <strong><em>second-order optimization</em></strong> technique can be used to accurately estimate $D$ at each step when $\alpha$ is fixed</p>
-          </li>
-        </ul>
+        <p>$x_t: \quad$ i.i.d samples obtained by cycling on a randomly permuted training set</p>
       </li>
       <li>
-        <p><strong><em>Stochastic gradient</em></strong>, whose rate of convergence is very poor in conventional optimization terms, may in fact in certain settings <strong><em>to be faster in reaching a solution with low expected cost than second-order batch</em></strong></p>
-      </li>
-      <li>
-        <p><strong>Dictionary learning:</strong></p>
-
-        <p>The classical <strong><em>projected first-order projected stochastic gradient descent</em></strong> consists of a sequence of updates of $D$</p>
-
-        <script type="math/tex; mode=display">D_t = \prod [{D_{t-1}-\delta_t \nabla_C l(x_t,D_{t-1})}]</script>
-
-        <ol>
-          <li>
-            <p>$\nabla_C: \quad$ Orthogonal projector onto $C$</p>
-          </li>
-          <li>
-            <p>$x_t: \quad$ i.i.d samples obtained by cycling on a randomly permuted training set</p>
-          </li>
-          <li>
-            <p>$\delta_t: \quad$ learning rate(good results are obtained using  $\delta_t = \frac{a}{t+b}$ where $a$ and $b$ are chosen depended on the training data)</p>
-          </li>
-        </ol>
+        <p>$\delta_t: \quad$ learning rate(good results are obtained using  $\delta_t = \frac{a}{t+b}$ where $a$ and $b$ are chosen depended on the training data)</p>
       </li>
     </ul>
   </li>
@@ -360,7 +362,7 @@
 
 <ul>
   <li>
-    <p>3.4.1 Handling fixed-size data sets</p>
+    <p><strong><em>3.4.1</em></strong> Handling fixed-size data sets</p>
 
     <ul>
       <li>
@@ -382,7 +384,7 @@
     </ul>
   </li>
   <li>
-    <p>3.4.2 Scaling te past data</p>
+    <p><strong><em>3.4.2</em></strong> Scaling te past data</p>
 
     <ul>
       <li>
@@ -401,11 +403,11 @@
 
         <p>In this circumstance, we propose</p>
 
-        <script type="math/tex; mode=display">D_t = argmin\frac{1}{\sum_{j=1}^t(j/t)} \sum_{i=1}^t(\frac{i}{t})^\rho(\frac{1}{2}\|x_i-D\alpha_i\|_2^2+\lambda\|\alpha_i\|_1)</script>
+        <script type="math/tex; mode=display">D_t = argmin_{D \in C}\frac{1}{\sum_{j=1}^t(j/t)} \sum_{i=1}^t(\frac{i}{t})^\rho(\frac{1}{2}\|x_i-D\alpha_i\|_2^2+\lambda\|\alpha_i\|_1)</script>
 
         <p>=</p>
 
-        <script type="math/tex; mode=display">argmin\frac{1}{\sum_{j=1}^t(j/t)}(\frac{1}{2}Tr(D^TDA_t)-Tr(D^TB_t))</script>
+        <script type="math/tex; mode=display">argmin_{D \in C}\frac{1}{\sum_{j=1}^t(j/t)}(\frac{1}{2}Tr(D^TDA_t)-Tr(D^TB_t))</script>
 
         <p>When $\rho = 0$, we obtain the original version of the algorithm</p>
 
@@ -413,7 +415,160 @@
       </li>
     </ul>
   </li>
+  <li>
+    <p><strong><em>3.4.3</em></strong> Mini-batch extension</p>
+
+    <ul>
+      <li>
+        <p>The complexity of computing $\eta$ vectors $\alpha_i$ is not linear in $\eta$</p>
+      </li>
+      <li>
+        <p>A <strong><em>Cholesky-based implementation of LARS-Lasso</em></strong> for decomposing one signal has a complexity of $O(kms+ks^2)$, where $s$ is the number of nonzero coefficient</p>
+      </li>
+      <li>
+        <p>When decomposing $\eta$ signals, it is possible to <strong><em>pre-compute the Gram matrix $D^T_tD_t$</em></strong> and the total complexity becomes $O(k^2m+\eta(km+ks^2))$, which is much cheaper than $\eta$ times the previous complexity when $\eta$ is large enough and $s$ is small</p>
+      </li>
+    </ul>
+
+    <p>We propose to replace lines 5 and 6 of Algorithm 1 by:</p>
+
+    <script type="math/tex; mode=display">A_t = A_{t-1} + \frac{1}{\eta}\sum_{i=1}^\eta \alpha_{t,i} \alpha_{t,i}^T</script>
+
+    <script type="math/tex; mode=display">B_t = B_{t-1} + \frac{1}{\eta}\sum_{i=1}^\eta x_{t,i}\alpha_{t,i}^T</script>
+  </li>
+  <li>
+    <p><strong><em>3.4.4</em></strong> Slowing down the first iterations</p>
+
+    <ul>
+      <li><strong><em>Problem:</em></strong></li>
+    </ul>
+
+    <p>The first iterations of our algorithm may update the parameters with large steps, immediately leading to large deviations from the initial dictionary</p>
+
+    <ul>
+      <li><strong><em>solution:</em></strong></li>
+    </ul>
+
+    <p>Use gradient steps of the form $\frac{a}{b+t}$</p>
+
+    <ol>
+      <li>
+        <p>$b$ will slow down the first few steps</p>
+      </li>
+      <li>
+        <p>An initialization of the form $A_0 = t_0I$ and $B_0 = t_0 D_0$ with $t_0 \ge 0$ will also slow down the first steps</p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p><strong><em>3.4.5</em></strong> Puring the dictionary from unused atoms</p>
+
+    <ul>
+      <li><strong><em>Problem:</em></strong></li>
+    </ul>
+
+    <p>Some of the dictionary atoms are never (or very seldom) used, which typically happens with a very bad initialization</p>
+
+    <ul>
+      <li><strong><em>solution:</em></strong></li>
+    </ul>
+
+    <ol>
+      <li>
+        <p>In general cases, replacing these atoms during the optimization by randomly chosen elements of the training set</p>
+      </li>
+      <li>
+        <p>For more difficult and highly regularized cases, choosing a continuation strategy consisting of starting from an easier, less regularized problem, and gradually increasing $\lambda$</p>
+      </li>
+    </ol>
+  </li>
 </ul>
+
+<p><br /></p>
+
+<h4 id="link-with-second-order-stochastic-gradient-descent">3.5 Link with Second-order Stochastic Gradient Descent</h4>
+
+<p><br /></p>
+
+<h2 id="convergence-analysis">4. Convergence Analysis</h2>
+
+<p><br /></p>
+
+<h2 id="extensions-to-matrix-factorization">5. Extensions to Matrix Factorization</h2>
+
+<p><br /></p>
+
+<h4 id="using-different-regularizers-for-alpha">5.1 Using Different Regularizers for $\alpha$</h4>
+
+<p>Different priors for the coefficients $\alpha$ may lead to different regularizers $\Psi(\alpha)$</p>
+
+<ul>
+  <li>
+    <p>Positivity constraints on $\alpha$ that are added to the $l_1-regularization$</p>
+  </li>
+  <li>
+    <p>The Tikhonov regularization $\Psi(\alpha) = \frac{\lambda_1}{2}|\alpha|_2^2$, which doesn’t lead to sparse solutions</p>
+  </li>
+  <li>
+    <p>The elastic net $\Psi(\alpha) = \lambda_1|\alpha|_1 + \frac{\lambda_2}{2}|\alpha|_2^2$</p>
+  </li>
+  <li>
+    <p>The group Lasso $\Psi(\alpha) = \sum_{i=1}^s|\alpha|_2$</p>
+  </li>
+</ul>
+
+<p>There is <strong><em>no theoretical convergence results in exploiting non-convex regularizers</em></strong> such as $l_0$ pseduo-norm and $l_p$ pseduo-norm with $p &lt; 1$</p>
+
+<h4 id="using-different-constraint-sets-for-d">5.2 Using Different Constraint Sets for $D$</h4>
+
+<p>In dictionary learning, we use an $l_2$-regularization on $D$ by forcing its columns to have less than unit $l_2-norm$, and thus the dictionary update step can be solved efficiently using a block-coordinate descent approach</p>
+
+<p>We can use different convex constraint sets $C′$ as long as the constraints are a union of independent constraints on each column of $D$ and the orthogonal projections of the vectors $u_j$ onto $C′$ can be done efficiently</p>
+
+<ul>
+  <li>The “non-negative” constraints</li>
+</ul>
+
+<script type="math/tex; mode=display">C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad \|d_j\|_2 \le 1 \quad and \quad d_j \ge 0\}</script>
+
+<ul>
+  <li>The “elastic-net” constraints</li>
+</ul>
+
+<script type="math/tex; mode=display">C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad \|d_j\|_2^2+\gamma\|d_j\|_1 \le 1\}</script>
+
+<ul>
+  <li>
+    <p>Using the $l_1-norm$ only in such problems lead to trivial solutions when $k$ is large enough</p>
+  </li>
+  <li>
+    <p>The “fused lasso” constraints</p>
+
+    <p>This kind of regularization has proven to be useful for <strong><em>exploiting genomic data</em></strong></p>
+
+    <script type="math/tex; mode=display">C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad \|d_j\|_2^2 + \gamma_1\|d_j\|_1 + \gamma_2FL(d_j) \le 1\}</script>
+
+    <p><script type="math/tex">FL(u) = \sum_{i=2}^m \|u[i]-u[i-1]\|</script> which is the $l_1-norm$ of the consecutive differences of $u$</p>
+  </li>
+</ul>
+
+<p>The <strong><em>orthogonal projection onto the “non negative” ball</em></strong> is simple (additional thresholding)</p>
+
+<p>But <strong><em>the projection onto the two other sets</em></strong> is slightly more involved, however they can also be done efficently using some algorithms</p>
+
+<h4 id="non-negative-matrix-factorization-nmf">5.3 Non Negative Matrix Factorization (NMF)</h4>
+
+<h4 id="sparse-principal-component-analysis-spca">5.4 Sparse Principal Component Analysis (SPCA)</h4>
+
+<h4 id="constrained-sparse-coding">5.5 Constrained Sparse Coding</h4>
+
+<h4 id="simultaneous-sparse-coding">5.6 Simultaneous Sparse Coding</h4>
+
+<p><br /></p>
+
+<h2 id="experimental-validation">6. Experimental Validation</h2>
+
+<p><br /></p>
 
 
                 <hr>

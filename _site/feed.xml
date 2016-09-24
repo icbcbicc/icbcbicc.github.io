@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-24T15:55:04+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Learning for Matrix Factorization and Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/" rel="alternate" type="text/html" title="Online Learning for Matrix Factorization and Sparse Coding" /><published>2016-09-21T00:00:00+08:00</published><updated>2016-09-21T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/21/Online Learning for Matrix Factorization and Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/">&lt;h1 id=&quot;online-learning-for-matrix-factorization-and-sparse-coding&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-24T17:32:24+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Learning for Matrix Factorization and Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/" rel="alternate" type="text/html" title="Online Learning for Matrix Factorization and Sparse Coding" /><published>2016-09-21T00:00:00+08:00</published><updated>2016-09-21T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/21/Online Learning for Matrix Factorization and Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/">&lt;h1 id=&quot;online-learning-for-matrix-factorization-and-sparse-coding&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/h1&gt;
 &lt;p&gt;Authors: &lt;em&gt;Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro&lt;/em&gt;&lt;br /&gt;
 &lt;a href=&quot;http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
 
@@ -74,57 +74,59 @@
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;$l_1$ sparse coding problem (&lt;strong&gt;&lt;em&gt;basis pursuit&lt;/em&gt;&lt;/strong&gt;):&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;l_1(x,D) = min\frac{1}{2}{\|x-D\alpha\|}_2^2+\lambda\|\alpha\|_1 \quad s.t. \quad \alpha \in R^k&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;l_1(x,D) = min\frac{1}{2}{\|x-D\alpha\|}_2^2+\lambda\|\alpha\|_1 \quad s.t. \quad \alpha \in R^k&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Disadvantage:&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;There is no direct analytic link between the value of $\lambda$ and the corresponding effective sparsity $|\alpha|_0$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;To prevent $D$ from having arbitrarily large values (which would lead to arbitrarily small values of $\alpha$), it is common to &lt;strong&gt;&lt;em&gt;constrain its columns $d_1, . . . ,d_k$ to have an $l_2-norm$&lt;/em&gt;&lt;/strong&gt; less than or equal to 1&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad d_j^Td_j \le 1\}&lt;/script&gt;
+
+    &lt;p&gt;It’s a joint optimization problem with respet to $D$ and $\alpha=[\alpha_1, …, \alpha_k] \in R^{k * n}$, which is &lt;strong&gt;&lt;em&gt;not jointly convex&lt;/em&gt;&lt;/strong&gt; but &lt;strong&gt;&lt;em&gt;convex with respect to each of the two variables&lt;/em&gt;&lt;/strong&gt; $D$ and $\alpha$ when the other one is fixed&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Optimization method:&lt;/strong&gt;&lt;/p&gt;
 
     &lt;ul&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Disadvantage:&lt;/strong&gt;&lt;/p&gt;
-
-        &lt;p&gt;There is no direct analytic link between the value of $\lambda$ and the corresponding effective sparsity $|\alpha|_0$&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;Alternate between the two variables&lt;/em&gt;&lt;/strong&gt;, minimizing over one while keeping the other one fixed&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;Since the computation of $\alpha$ dominates the cost of each iteration in this &lt;strong&gt;&lt;em&gt;block-coordinate descent&lt;/em&gt;&lt;/strong&gt; approach, a &lt;strong&gt;&lt;em&gt;second-order optimization&lt;/em&gt;&lt;/strong&gt; technique can be used to accurately estimate $D$ at each step when $\alpha$ is fixed&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Stochastic gradient&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
-        &lt;p&gt;To prevent $D$ from having arbitrarily large values (which would lead to arbitrarily small values of $\alpha$), it is common to &lt;strong&gt;&lt;em&gt;constrain its columns $d_1, . . . ,d_k$ to have an $l_2-norm$&lt;/em&gt;&lt;/strong&gt; less than or equal to 1&lt;/p&gt;
+    &lt;p&gt;Its rate of convergence is very poor in conventional optimization terms, may in fact in certain settings &lt;strong&gt;&lt;em&gt;to be faster in reaching a solution with low expected cost than second-order batch&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Dictionary learning:&lt;/strong&gt;&lt;/p&gt;
 
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad d_j^Td_j \le 1\}&lt;/script&gt;
+    &lt;p&gt;The classical &lt;strong&gt;&lt;em&gt;projected first-order projected stochastic gradient descent&lt;/em&gt;&lt;/strong&gt; consists of a sequence of updates of $D$&lt;/p&gt;
 
-        &lt;p&gt;It’s a joint optimization problem with respet to $D$ and $\alpha=[\alpha_1, …, \alpha_k] \in R^{k * n}$, which is &lt;strong&gt;&lt;em&gt;not jointly convex&lt;/em&gt;&lt;/strong&gt; but &lt;strong&gt;&lt;em&gt;convex with respect to each of the two variables&lt;/em&gt;&lt;/strong&gt; $D$ and $\alpha$ when the other one is fixed&lt;/p&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;D_t = \prod [{D_{t-1}-\delta_t \nabla_C l(x_t,D_{t-1})}]&lt;/script&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;$\nabla_C: \quad$ Orthogonal projector onto $C$&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Optimization method:&lt;/strong&gt;&lt;/p&gt;
-
-        &lt;ul&gt;
-          &lt;li&gt;
-            &lt;p&gt;&lt;strong&gt;&lt;em&gt;Alternate between the two variables&lt;/em&gt;&lt;/strong&gt;, minimizing over one while keeping the other one fixed&lt;/p&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;p&gt;Since the computation of $\alpha$ dominates the cost of each iteration in this &lt;strong&gt;&lt;em&gt;block-coordinate descent&lt;/em&gt;&lt;/strong&gt; approach, a &lt;strong&gt;&lt;em&gt;second-order optimization&lt;/em&gt;&lt;/strong&gt; technique can be used to accurately estimate $D$ at each step when $\alpha$ is fixed&lt;/p&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
+        &lt;p&gt;$x_t: \quad$ i.i.d samples obtained by cycling on a randomly permuted training set&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;&lt;em&gt;Stochastic gradient&lt;/em&gt;&lt;/strong&gt;, whose rate of convergence is very poor in conventional optimization terms, may in fact in certain settings &lt;strong&gt;&lt;em&gt;to be faster in reaching a solution with low expected cost than second-order batch&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Dictionary learning:&lt;/strong&gt;&lt;/p&gt;
-
-        &lt;p&gt;The classical &lt;strong&gt;&lt;em&gt;projected first-order projected stochastic gradient descent&lt;/em&gt;&lt;/strong&gt; consists of a sequence of updates of $D$&lt;/p&gt;
-
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;D_t = \prod [{D_{t-1}-\delta_t \nabla_C l(x_t,D_{t-1})}]&lt;/script&gt;
-
-        &lt;ol&gt;
-          &lt;li&gt;
-            &lt;p&gt;$\nabla_C: \quad$ Orthogonal projector onto $C$&lt;/p&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;p&gt;$x_t: \quad$ i.i.d samples obtained by cycling on a randomly permuted training set&lt;/p&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;p&gt;$\delta_t: \quad$ learning rate(good results are obtained using  $\delta_t = \frac{a}{t+b}$ where $a$ and $b$ are chosen depended on the training data)&lt;/p&gt;
-          &lt;/li&gt;
-        &lt;/ol&gt;
+        &lt;p&gt;$\delta_t: \quad$ learning rate(good results are obtained using  $\delta_t = \frac{a}{t+b}$ where $a$ and $b$ are chosen depended on the training data)&lt;/p&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -218,7 +220,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;3.4.1 Handling fixed-size data sets&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;3.4.1&lt;/em&gt;&lt;/strong&gt; Handling fixed-size data sets&lt;/p&gt;
 
     &lt;ul&gt;
       &lt;li&gt;
@@ -240,7 +242,7 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;3.4.2 Scaling te past data&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;3.4.2&lt;/em&gt;&lt;/strong&gt; Scaling te past data&lt;/p&gt;
 
     &lt;ul&gt;
       &lt;li&gt;
@@ -259,11 +261,11 @@
 
         &lt;p&gt;In this circumstance, we propose&lt;/p&gt;
 
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;D_t = argmin\frac{1}{\sum_{j=1}^t(j/t)} \sum_{i=1}^t(\frac{i}{t})^\rho(\frac{1}{2}\|x_i-D\alpha_i\|_2^2+\lambda\|\alpha_i\|_1)&lt;/script&gt;
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;D_t = argmin_{D \in C}\frac{1}{\sum_{j=1}^t(j/t)} \sum_{i=1}^t(\frac{i}{t})^\rho(\frac{1}{2}\|x_i-D\alpha_i\|_2^2+\lambda\|\alpha_i\|_1)&lt;/script&gt;
 
         &lt;p&gt;=&lt;/p&gt;
 
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;argmin\frac{1}{\sum_{j=1}^t(j/t)}(\frac{1}{2}Tr(D^TDA_t)-Tr(D^TB_t))&lt;/script&gt;
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;argmin_{D \in C}\frac{1}{\sum_{j=1}^t(j/t)}(\frac{1}{2}Tr(D^TDA_t)-Tr(D^TB_t))&lt;/script&gt;
 
         &lt;p&gt;When $\rho = 0$, we obtain the original version of the algorithm&lt;/p&gt;
 
@@ -271,7 +273,160 @@
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Online Learning for Matrix Factorization and Sparse Coding
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;3.4.3&lt;/em&gt;&lt;/strong&gt; Mini-batch extension&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;The complexity of computing $\eta$ vectors $\alpha_i$ is not linear in $\eta$&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;A &lt;strong&gt;&lt;em&gt;Cholesky-based implementation of LARS-Lasso&lt;/em&gt;&lt;/strong&gt; for decomposing one signal has a complexity of $O(kms+ks^2)$, where $s$ is the number of nonzero coefficient&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;When decomposing $\eta$ signals, it is possible to &lt;strong&gt;&lt;em&gt;pre-compute the Gram matrix $D^T_tD_t$&lt;/em&gt;&lt;/strong&gt; and the total complexity becomes $O(k^2m+\eta(km+ks^2))$, which is much cheaper than $\eta$ times the previous complexity when $\eta$ is large enough and $s$ is small&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;We propose to replace lines 5 and 6 of Algorithm 1 by:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;A_t = A_{t-1} + \frac{1}{\eta}\sum_{i=1}^\eta \alpha_{t,i} \alpha_{t,i}^T&lt;/script&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;B_t = B_{t-1} + \frac{1}{\eta}\sum_{i=1}^\eta x_{t,i}\alpha_{t,i}^T&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;3.4.4&lt;/em&gt;&lt;/strong&gt; Slowing down the first iterations&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;&lt;em&gt;Problem:&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The first iterations of our algorithm may update the parameters with large steps, immediately leading to large deviations from the initial dictionary&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;&lt;em&gt;solution:&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Use gradient steps of the form $\frac{a}{b+t}$&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;p&gt;$b$ will slow down the first few steps&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;An initialization of the form $A_0 = t_0I$ and $B_0 = t_0 D_0$ with $t_0 \ge 0$ will also slow down the first steps&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;3.4.5&lt;/em&gt;&lt;/strong&gt; Puring the dictionary from unused atoms&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;&lt;em&gt;Problem:&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Some of the dictionary atoms are never (or very seldom) used, which typically happens with a very bad initialization&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;&lt;em&gt;solution:&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;p&gt;In general cases, replacing these atoms during the optimization by randomly chosen elements of the training set&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;For more difficult and highly regularized cases, choosing a continuation strategy consisting of starting from an easier, less regularized problem, and gradually increasing $\lambda$&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;link-with-second-order-stochastic-gradient-descent&quot;&gt;3.5 Link with Second-order Stochastic Gradient Descent&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;convergence-analysis&quot;&gt;4. Convergence Analysis&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;extensions-to-matrix-factorization&quot;&gt;5. Extensions to Matrix Factorization&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;using-different-regularizers-for-alpha&quot;&gt;5.1 Using Different Regularizers for $\alpha$&lt;/h4&gt;
+
+&lt;p&gt;Different priors for the coefficients $\alpha$ may lead to different regularizers $\Psi(\alpha)$&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Positivity constraints on $\alpha$ that are added to the $l_1-regularization$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The Tikhonov regularization $\Psi(\alpha) = \frac{\lambda_1}{2}|\alpha|_2^2$, which doesn’t lead to sparse solutions&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The elastic net $\Psi(\alpha) = \lambda_1|\alpha|_1 + \frac{\lambda_2}{2}|\alpha|_2^2$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The group Lasso $\Psi(\alpha) = \sum_{i=1}^s|\alpha|_2$&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There is &lt;strong&gt;&lt;em&gt;no theoretical convergence results in exploiting non-convex regularizers&lt;/em&gt;&lt;/strong&gt; such as $l_0$ pseduo-norm and $l_p$ pseduo-norm with $p &amp;lt; 1$&lt;/p&gt;
+
+&lt;h4 id=&quot;using-different-constraint-sets-for-d&quot;&gt;5.2 Using Different Constraint Sets for $D$&lt;/h4&gt;
+
+&lt;p&gt;In dictionary learning, we use an $l_2$-regularization on $D$ by forcing its columns to have less than unit $l_2-norm$, and thus the dictionary update step can be solved efficiently using a block-coordinate descent approach&lt;/p&gt;
+
+&lt;p&gt;We can use different convex constraint sets $C′$ as long as the constraints are a union of independent constraints on each column of $D$ and the orthogonal projections of the vectors $u_j$ onto $C′$ can be done efficiently&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The “non-negative” constraints&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad \|d_j\|_2 \le 1 \quad and \quad d_j \ge 0\}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The “elastic-net” constraints&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad \|d_j\|_2^2+\gamma\|d_j\|_1 \le 1\}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Using the $l_1-norm$ only in such problems lead to trivial solutions when $k$ is large enough&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The “fused lasso” constraints&lt;/p&gt;
+
+    &lt;p&gt;This kind of regularization has proven to be useful for &lt;strong&gt;&lt;em&gt;exploiting genomic data&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad \|d_j\|_2^2 + \gamma_1\|d_j\|_1 + \gamma_2FL(d_j) \le 1\}&lt;/script&gt;
+
+    &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;FL(u) = \sum_{i=2}^m \|u[i]-u[i-1]\|&lt;/script&gt; which is the $l_1-norm$ of the consecutive differences of $u$&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The &lt;strong&gt;&lt;em&gt;orthogonal projection onto the “non negative” ball&lt;/em&gt;&lt;/strong&gt; is simple (additional thresholding)&lt;/p&gt;
+
+&lt;p&gt;But &lt;strong&gt;&lt;em&gt;the projection onto the two other sets&lt;/em&gt;&lt;/strong&gt; is slightly more involved, however they can also be done efficently using some algorithms&lt;/p&gt;
+
+&lt;h4 id=&quot;non-negative-matrix-factorization-nmf&quot;&gt;5.3 Non Negative Matrix Factorization (NMF)&lt;/h4&gt;
+
+&lt;h4 id=&quot;sparse-principal-component-analysis-spca&quot;&gt;5.4 Sparse Principal Component Analysis (SPCA)&lt;/h4&gt;
+
+&lt;h4 id=&quot;constrained-sparse-coding&quot;&gt;5.5 Constrained Sparse Coding&lt;/h4&gt;
+
+&lt;h4 id=&quot;simultaneous-sparse-coding&quot;&gt;5.6 Simultaneous Sparse Coding&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;experimental-validation&quot;&gt;6. Experimental Validation&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>Online Learning for Matrix Factorization and Sparse Coding
 Authors: Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro
 PDF</summary></entry><entry><title>Online Detection of Unusual Events in Videos via Dynamic Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/17/Online-Detection-of-Unusual-Events-in-Videos-via-Dynamic-Sparse-Coding/" rel="alternate" type="text/html" title="Online Detection of Unusual Events in Videos via Dynamic Sparse Coding" /><published>2016-09-17T00:00:00+08:00</published><updated>2016-09-17T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/17/Online Detection of Unusual Events in Videos via Dynamic Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/17/Online-Detection-of-Unusual-Events-in-Videos-via-Dynamic-Sparse-Coding/">&lt;h1 id=&quot;online-detection-of-unusual-events-in-videos-via-dynamic-sparse-coding&quot;&gt;Online Detection of Unusual Events in Videos via Dynamic Sparse Coding&lt;/h1&gt;
 &lt;p&gt;Authors: &lt;em&gt;Bin Zhou, Li Fei-Fei, Eric P. Xing&lt;/em&gt;
