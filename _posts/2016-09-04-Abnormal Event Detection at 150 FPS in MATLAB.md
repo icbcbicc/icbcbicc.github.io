@@ -221,3 +221,74 @@ Authors: *Cewu Lu, Jianping Shi, Jiaya Jia*
 
 	![The distribution of K in 31200 regions from 150 videos](/img/8.JPG)
 	The mean of $K$ is 9.75 and variance is 10.62, indicating 10 combinations are generally enough in our model
+
+<br>
+
+## 说人话
+
+- 假设有一个学习好的$D\in R^{p \times q}$, 稀疏系数$\alpha_i$的0范数小于等于$s$
+
+	也就是每个样本$x_i$最多能用$s$个字典基来表达。因为要稀疏，显然有$s << q$
+
+	对于每个$x_i$，测试时都要从$q$个字典基中找出$s$个来表示，要求使得损失函数最小。
+
+	***因此这种测试方式很花时间（每次都在求解一个优化问题）***
+
+- 这篇文章主要解决了效率问题，提出了新的测试方式（训练$D$的方式也随之改变）：
+
+	预先训练好$K$个稀疏表达$S_1 ... S_K$，每个表达$S_i$都由$D$中的$s$个字典基组成
+
+	测试时，将$x_i$与每个$S_i$计算得到损失函数，选择损失最小的$S_i$即可
+
+- 重点在于得到$K$个$S_i$：
+	
+	设置一个损失函数上限$\lambda$，低于这个上限就认为编码质量好
+
+	每个周期更新一个$S_i$，使其遍历在之前的周期还未被很好表达的$x_i$（也就是说，不论用什么已获得的$S_i$，该$x_i$的损失函数都超过$\lambda$）。
+
+	对于每个周期未被很好表达的$x_i$，都留到下一个周期通过新的$S_i$来表达。如此循环直到所有$x_i$都可以被很好的表达。
+
+- 在每次循环得到新的$S_i$的过程中：
+
+	目标函数为：
+	$$min_{S_i,\gamma,\beta}\sum_{i=1}^K\gamma_j^i ( \|x_j-S_i\beta_j^i \|_2^2 -\lambda ),\quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}$$
+
+
+	***分 2 步解决这个问题***
+
+	- 更新$S_s^i,\beta$ :
+
+		(更新 $\beta$ 时固定 $S_i$ 并且所有 $\gamma_j^i \neq 0$)
+
+		1. $$\beta_j^i=(S_i^TS_i)^{-1}S_i^Tx_j$$  
+
+		2. $$ S_i=\prod[S_i-\delta_t\bigtriangledown_{S_i}L(\beta,S_i)]$$
+
+			$$\delta = 1E-4$$
+
+		详情请见[Online Learning for Matrix Factorization and Sparse Coding](http://127.0.0.1:4001/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/)中的算法1和算法2
+
+		![Algorithm 1](/img/5.JPG)
+
+	- 更新**$\gamma$** :
+
+		$$\gamma_j^i = \left\{
+		\begin{aligned}
+		1 \quad & if \quad \|x_j-S_i\beta_j^i \|_2^2 < \lambda ; \\
+		0 \quad & otherwise ;\\
+		\end{aligned}
+		\right .$$
+
+- 测试
+	
+	对于目标函数：
+	$$min_{\beta^i}\|x_j-S_i\beta_j^i \|_2^2 \quad \forall i= 1, ..., K$$
+
+	最优解为:
+	$$\hat{\beta^i}=(S_i^TS_i)^{-1}S_i^Tx$$
+
+	损失函数可化为：
+	$$\|x_j-S_i\beta_j^i \|_2^2 = \|((S_i^TS_i)^{-1}S_i^T-I_p)x\|_2^2=\|R_ix\|_2^2$$
+
+
+	![Algorithm 2](/img/6.JPG)

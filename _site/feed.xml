@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-24T17:32:24+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Learning for Matrix Factorization and Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/" rel="alternate" type="text/html" title="Online Learning for Matrix Factorization and Sparse Coding" /><published>2016-09-21T00:00:00+08:00</published><updated>2016-09-21T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/21/Online Learning for Matrix Factorization and Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/">&lt;h1 id=&quot;online-learning-for-matrix-factorization-and-sparse-coding&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-29T21:35:55+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Learning for Matrix Factorization and Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/" rel="alternate" type="text/html" title="Online Learning for Matrix Factorization and Sparse Coding" /><published>2016-09-21T00:00:00+08:00</published><updated>2016-09-21T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/21/Online Learning for Matrix Factorization and Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/">&lt;h1 id=&quot;online-learning-for-matrix-factorization-and-sparse-coding&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/h1&gt;
 &lt;p&gt;Authors: &lt;em&gt;Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro&lt;/em&gt;&lt;br /&gt;
 &lt;a href=&quot;http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
 
@@ -1006,6 +1006,94 @@ PDF</summary></entry><entry><title>Abnormal Event Detection at 150 FPS in MATLAB
 
     &lt;p&gt;&lt;img src=&quot;/img/8.JPG&quot; alt=&quot;The distribution of K in 31200 regions from 150 videos&quot; /&gt;
   The mean of $K$ is 9.75 and variance is 10.62, indicating 10 combinations are generally enough in our model&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;说人话&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;假设有一个学习好的$D\in R^{p \times q}$, 稀疏系数$\alpha_i$的0范数小于等于$s$&lt;/p&gt;
+
+    &lt;p&gt;也就是每个样本$x_i$最多能用$s$个字典基来表达。因为要稀疏，显然有$s « q$&lt;/p&gt;
+
+    &lt;p&gt;对于每个$x_i$，测试时都要从$q$个字典基中找出$s$个来表示，要求使得损失函数最小。&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;因此这种测试方式很花时间（每次都在求解一个优化问题）&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;这篇文章主要解决了效率问题，提出了新的测试方式（训练$D$的方式也随之改变）：&lt;/p&gt;
+
+    &lt;p&gt;预先训练好$K$个稀疏表达$S_1 … S_K$，每个表达$S_i$都由$D$中的$s$个字典基组成&lt;/p&gt;
+
+    &lt;p&gt;测试时，将$x_i$与每个$S_i$计算得到损失函数，选择损失最小的$S_i$即可&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;重点在于得到$K$个$S_i$：&lt;/p&gt;
+
+    &lt;p&gt;设置一个损失函数上限$\lambda$，低于这个上限就认为编码质量好&lt;/p&gt;
+
+    &lt;p&gt;每个周期更新一个$S_i$，使其遍历在之前的周期还未被很好表达的$x_i$（也就是说，不论用什么已获得的$S_i$，该$x_i$的损失函数都超过$\lambda$）。&lt;/p&gt;
+
+    &lt;p&gt;对于每个周期未被很好表达的$x_i$，都留到下一个周期通过新的$S_i$来表达。如此循环直到所有$x_i$都可以被很好的表达。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在每次循环得到新的$S_i$的过程中：&lt;/p&gt;
+
+    &lt;p&gt;目标函数为：
+  &lt;script type=&quot;math/tex&quot;&gt;min_{S_i,\gamma,\beta}\sum_{i=1}^K\gamma_j^i ( \|x_j-S_i\beta_j^i \|_2^2 -\lambda ),\quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}&lt;/script&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;分 2 步解决这个问题&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;更新$S_s^i,\beta$ :&lt;/p&gt;
+
+        &lt;p&gt;(更新 $\beta$ 时固定 $S_i$ 并且所有 $\gamma_j^i \neq 0$)&lt;/p&gt;
+
+        &lt;ol&gt;
+          &lt;li&gt;
+            &lt;script type=&quot;math/tex; mode=display&quot;&gt;\beta_j^i=(S_i^TS_i)^{-1}S_i^Tx_j&lt;/script&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;script type=&quot;math/tex; mode=display&quot;&gt;S_i=\prod[S_i-\delta_t\bigtriangledown_{S_i}L(\beta,S_i)]&lt;/script&gt;
+
+            &lt;script type=&quot;math/tex; mode=display&quot;&gt;\delta = 1E-4&lt;/script&gt;
+          &lt;/li&gt;
+        &lt;/ol&gt;
+
+        &lt;p&gt;详情请见&lt;a href=&quot;http://127.0.0.1:4001/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/a&gt;中的算法1和算法2&lt;/p&gt;
+
+        &lt;p&gt;&lt;img src=&quot;/img/5.JPG&quot; alt=&quot;Algorithm 1&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;更新&lt;strong&gt;$\gamma$&lt;/strong&gt; :&lt;/p&gt;
+
+        &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\gamma_j^i = \left\{
+  \begin{aligned}
+  1 \quad &amp; if \quad \|x_j-S_i\beta_j^i \|_2^2 &lt; \lambda ; \\
+  0 \quad &amp; otherwise ;\\
+  \end{aligned}
+  \right . %]]&gt;&lt;/script&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;测试&lt;/p&gt;
+
+    &lt;p&gt;对于目标函数：
+  &lt;script type=&quot;math/tex&quot;&gt;min_{\beta^i}\|x_j-S_i\beta_j^i \|_2^2 \quad \forall i= 1, ..., K&lt;/script&gt;&lt;/p&gt;
+
+    &lt;p&gt;最优解为:
+  &lt;script type=&quot;math/tex&quot;&gt;\hat{\beta^i}=(S_i^TS_i)^{-1}S_i^Tx&lt;/script&gt;&lt;/p&gt;
+
+    &lt;p&gt;损失函数可化为：
+  &lt;script type=&quot;math/tex&quot;&gt;\|x_j-S_i\beta_j^i \|_2^2 = \|((S_i^TS_i)^{-1}S_i^T-I_p)x\|_2^2=\|R_ix\|_2^2&lt;/script&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/img/6.JPG&quot; alt=&quot;Algorithm 2&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Abnormal Event Detection at 150 FPS in MATLAB</summary></entry><entry><title>C++ Primer Note 1</title><link href="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/" rel="alternate" type="text/html" title="C++ Primer Note 1" /><published>2016-07-22T00:00:00+08:00</published><updated>2016-07-22T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/22/cprimer_note_1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/">&lt;h2 id=&quot;c-primer-4th-edition-notes-chapter-1--2&quot;&gt;C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2&lt;/h2&gt;
 
