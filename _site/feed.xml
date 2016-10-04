@@ -1,8 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-10-04T15:51:32+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Detection of Abnormal Events Using Incremental Coding Length</title><link href="http://icbcbicc.github.io/2016/10/04/Online-Detection-of-Abnormal-Events-Using-Incremental-Coding-Length/" rel="alternate" type="text/html" title="Online Detection of Abnormal Events Using Incremental Coding Length" /><published>2016-10-04T00:00:00+08:00</published><updated>2016-10-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/04/Online Detection of Abnormal Events Using Incremental Coding Length</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/04/Online-Detection-of-Abnormal-Events-Using-Incremental-Coding-Length/">&lt;h1 id=&quot;online-detection-of-abnormal-events-using-incremental-coding-length&quot;&gt;Online Detection of Abnormal Events Using Incremental Coding Length&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-10-04T17:36:12+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Detection of Abnormal Events Using Incremental Coding Length</title><link href="http://icbcbicc.github.io/2016/10/04/Online-Detection-of-Abnormal-Events-Using-Incremental-Coding-Length/" rel="alternate" type="text/html" title="Online Detection of Abnormal Events Using Incremental Coding Length" /><published>2016-10-04T00:00:00+08:00</published><updated>2016-10-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/04/Online Detection of Abnormal Events Using Incremental Coding Length</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/04/Online-Detection-of-Abnormal-Events-Using-Incremental-Coding-Length/">&lt;h1 id=&quot;online-detection-of-abnormal-events-using-incremental-coding-length&quot;&gt;Online Detection of Abnormal Events Using Incremental Coding Length&lt;/h1&gt;
 
 &lt;p&gt;Authors: &lt;em&gt;Jatanta K.Dutta, Bonny Banerjee&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://pdfs.semanticscholar.org/83f6/d84389dcdc25a4a1462044d7b1cbc2e75eac.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>Online Detection of Abnormal Events Using Incremental Coding Length</summary></entry><entry><title>The Negative —— Part 2</title><link href="http://icbcbicc.github.io/2016/10/02/The-Negative-Part-2/" rel="alternate" type="text/html" title="The Negative —— Part 2" /><published>2016-10-02T00:00:00+08:00</published><updated>2016-10-02T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/02/The Negative Part 2</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/02/The-Negative-Part-2/">&lt;h2 id=&quot;section&quot;&gt;4. 区域选置&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://pdfs.semanticscholar.org/83f6/d84389dcdc25a4a1462044d7b1cbc2e75eac.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;本文使用稀疏编码进行异常事件检测。数据预处理、特征提取、稀疏编码、字典生成都使用传统方法。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;创新之处在于引进了 Incremental Coding Length (ICL)，它代表了每个特征的熵的增加量。异常事件可以由特征的rarity来定义（罕见的特征意味着异常）。最终，将所有特征的energy按权重相加就可以判断是否有异常了。文中每一个特征的rarity被当作average energy，它是关于ICL的函数。ICL的计算不需要任何参数，也不需要关于数据的先验假设&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;abstract&quot;&gt;1. Abstract&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;事件的异常主要是由2个因素同时决定的:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;在稀疏表达事件的过程中，每个特征使用的频率&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;稀疏表达中特征的系数&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;2. Introduction&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;异常事件的检测面临3个难点：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;无监督的2分类&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;数据量大，无法全部存储&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;数据的分布不恒定&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;related-work&quot;&gt;3. Related Work&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;异常事件检测通常由以下几个步骤组成（以及其常用方法）：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;数据预处理，获得低级表达&lt;/em&gt;
+    &lt;ul&gt;
+      &lt;li&gt;histogram of optical flow (HOF)&lt;/li&gt;
+      &lt;li&gt;spatiotemporal gradient&lt;/li&gt;
+      &lt;li&gt;social force model&lt;/li&gt;
+      &lt;li&gt;chaotic invariant&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;对低级表达进行抽象，得到中级表达
+    &lt;ul&gt;
+      &lt;li&gt;dimensionality reduction(PCA, ICA, clustering)&lt;/li&gt;
+      &lt;li&gt;sparse coding&lt;/li&gt;
+      &lt;li&gt;gaussian mixture model&lt;/li&gt;
+      &lt;li&gt;mixtures of dynamic textures&lt;/li&gt;
+      &lt;li&gt;hiden Markov model&lt;/li&gt;
+      &lt;li&gt;Markov random field&lt;/li&gt;
+      &lt;li&gt;latent Dirichlet allocation&lt;/li&gt;
+      &lt;li&gt;deep learning&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;对这些表达进行评估，检测出异常
+    &lt;ul&gt;
+      &lt;li&gt;reconstruction error&lt;/li&gt;
+      &lt;li&gt;prediction error&lt;/li&gt;
+      &lt;li&gt;rarity index&lt;/li&gt;
+      &lt;li&gt;information content&lt;/li&gt;
+      &lt;li&gt;density-based scoring&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;proposed-framework&quot;&gt;4. Proposed Framework&lt;/h2&gt;
+
+&lt;h3 id=&quot;video-representation&quot;&gt;4.1 Video Representation&lt;/h3&gt;
+
+&lt;p&gt;Spatiotemporal interest point detector&lt;/p&gt;
+
+&lt;h3 id=&quot;online-sparse-dictionary-learning&quot;&gt;4.3 Online Sparse Dictionary Learning&lt;/h3&gt;
+
+&lt;p&gt;Batch Orthogonal Matching Pursuit （Batch OMP）&lt;/p&gt;
+
+&lt;h3 id=&quot;abnoraml-event-detection&quot;&gt;4.3 Abnoraml Event Detection&lt;/h3&gt;
+
+&lt;p&gt;假设对某一时刻的输入数据$X(t) = [x_1(t), …, x_n(t)]$，都有稀疏系数 $\Gamma = [\gamma_1, … , \gamma_n] \in R^{k*n}$&lt;/p&gt;
+
+&lt;p&gt;那么在时刻$t$，对于第 $j$ 个特征的 activity ratio 定义为：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p_j(t) = \frac{\sum_{h=1}^n|\Gamma_{j,h}(t)|}{\sum_{i=1}^k\sum_{h=1}^n|\Gamma_{i,h}(t)|}&lt;/script&gt;
+
+&lt;p&gt;$t$ 时刻的 summary activity ratio 将按照以下方式更新（初始值为$1/k$）：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;q(t) = (1-\alpha(t))q(t-1)+\alpha(t)p(t)&lt;/script&gt;
+
+&lt;p&gt;其中，$\alpha(t)$ 是一个时间的函数。当 $\alpha(t) = 1/t$ , $q(t)$ 就是从开始到现在的平均 activity ratio。当$\alpha(t) = 1/t_1$时， （$t_1$ 是一个正的常数）, $q(t)$ 就是前 $t_1$ 个 activity ratio 的平均值。$\alpha(t) = 1/t_1$ 对于数据分布不稳定的情况很有用。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;ICL(q_j) = \frac{\partial {H(q)} }{\partial {q_j} } = -H(q) - q_j - log q_j - q_j log q_j&lt;/script&gt;
+
+&lt;p&gt;在计算完 ICL 后，就得到了任意 $t$ 时刻的显著特征集（salient feature set）&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;S(t) = \{j | ICL(q_j(t)) &gt; 0\}&lt;/script&gt;
+
+&lt;p&gt;$S(t)$ 中的每一个显著特征的energy表示为：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta_j(t) = \frac{ICL(q_j(t))}{\sum_{i \in S(t)}ICL(q_i(t))} \quad s.t. \quad j \in S(t)&lt;/script&gt;
+
+&lt;p&gt;对于不属于$S(t)$的特征：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta_j(t) = 0 \quad s.t. \quad j \notin S(t)&lt;/script&gt;
+
+&lt;p&gt;$\theta_j(t)$ 表示了用$j$特征来表示输入的罕见程度&lt;/p&gt;
+
+&lt;p&gt;最终，每一个cube的 anomaly score 定义为：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;g = |\gamma|^T\theta&lt;/script&gt;
+
+&lt;p&gt;将连续几帧的所有 cube 的 anomaly score 经过 gaussian filter 处理作为每一帧的 anomaly map&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;experimental-result&quot;&gt;5. Experimental Result&lt;/h2&gt;
+
+&lt;p&gt;略&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>Online Detection of Abnormal Events Using Incremental Coding Length</summary></entry><entry><title>The Negative —— Part 2</title><link href="http://icbcbicc.github.io/2016/10/02/The-Negative-Part-2/" rel="alternate" type="text/html" title="The Negative —— Part 2" /><published>2016-10-02T00:00:00+08:00</published><updated>2016-10-02T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/02/The Negative Part 2</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/02/The-Negative-Part-2/">&lt;h2 id=&quot;section&quot;&gt;4. 区域选置&lt;/h2&gt;
 
 &lt;p&gt;由于区域选置这一概念是基于其他重要概念之上的，因此我们先介绍一些基本概念。&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>4. 区域选置</summary></entry><entry><title>The Negative —— Part 1</title><link href="http://icbcbicc.github.io/2016/10/01/The-Negative-Part-1/" rel="alternate" type="text/html" title="The Negative —— Part 1" /><published>2016-10-01T00:00:00+08:00</published><updated>2016-10-01T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/01/The Negative Part 1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/01/The-Negative-Part-1/">&lt;h2 id=&quot;section&quot;&gt;1. 简介&lt;/h2&gt;
 
