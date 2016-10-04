@@ -1,4 +1,169 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-09-29T21:35:55+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Learning for Matrix Factorization and Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/" rel="alternate" type="text/html" title="Online Learning for Matrix Factorization and Sparse Coding" /><published>2016-09-21T00:00:00+08:00</published><updated>2016-09-21T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/21/Online Learning for Matrix Factorization and Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/">&lt;h1 id=&quot;online-learning-for-matrix-factorization-and-sparse-coding&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-10-04T15:51:32+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Detection of Abnormal Events Using Incremental Coding Length</title><link href="http://icbcbicc.github.io/2016/10/04/Online-Detection-of-Abnormal-Events-Using-Incremental-Coding-Length/" rel="alternate" type="text/html" title="Online Detection of Abnormal Events Using Incremental Coding Length" /><published>2016-10-04T00:00:00+08:00</published><updated>2016-10-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/04/Online Detection of Abnormal Events Using Incremental Coding Length</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/04/Online-Detection-of-Abnormal-Events-Using-Incremental-Coding-Length/">&lt;h1 id=&quot;online-detection-of-abnormal-events-using-incremental-coding-length&quot;&gt;Online Detection of Abnormal Events Using Incremental Coding Length&lt;/h1&gt;
+
+&lt;p&gt;Authors: &lt;em&gt;Jatanta K.Dutta, Bonny Banerjee&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pdfs.semanticscholar.org/83f6/d84389dcdc25a4a1462044d7b1cbc2e75eac.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>Online Detection of Abnormal Events Using Incremental Coding Length</summary></entry><entry><title>The Negative —— Part 2</title><link href="http://icbcbicc.github.io/2016/10/02/The-Negative-Part-2/" rel="alternate" type="text/html" title="The Negative —— Part 2" /><published>2016-10-02T00:00:00+08:00</published><updated>2016-10-02T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/02/The Negative Part 2</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/02/The-Negative-Part-2/">&lt;h2 id=&quot;section&quot;&gt;4. 区域选置&lt;/h2&gt;
+
+&lt;p&gt;由于区域选置这一概念是基于其他重要概念之上的，因此我们先介绍一些基本概念。&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>4. 区域选置</summary></entry><entry><title>The Negative —— Part 1</title><link href="http://icbcbicc.github.io/2016/10/01/The-Negative-Part-1/" rel="alternate" type="text/html" title="The Negative —— Part 1" /><published>2016-10-01T00:00:00+08:00</published><updated>2016-10-01T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/01/The Negative Part 1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/01/The-Negative-Part-1/">&lt;h2 id=&quot;section&quot;&gt;1. 简介&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;最终目标:&lt;/strong&gt; 视觉化&lt;/p&gt;
+
+&lt;p&gt;（摄影的）的工艺与技术尽管很重要，但它们永远是屈从于摄影师的表达观念的。换句话说，它们是必须的而不是主要的。&lt;/p&gt;
+
+&lt;p&gt;有一点值得注意的是：摄影的表达，或者说摄影的创意与现实是没有直接的关系的。我们不会将观察到的事物的内在价值直接复制到照片中。但我们会模仿这些价值，或者将他们呈现在它相关的感情中。很多人认为我的照片是“写实”的。实际上，他们所谓的“现实”只是他们认为自己眼中图像是准确的，这种“现实”是是绝对偏离了真正的现实的。之所以观看者会认为我的作品是写实的，是因为作品的视觉效果很合理和可信。如果将我的作品与其中所表现的事物拿出来直接对比，就会显现出巨大的视觉差异。&lt;/p&gt;
+
+&lt;p&gt;要实现令人满意的视觉化，关键在于在底片上体现合适的信息。&lt;/p&gt;
+
+&lt;p&gt;实现视觉化的第一步是 &lt;strong&gt;图像管理&lt;/strong&gt;，这在此系列的第一本书（&lt;em&gt;The Camera&lt;/em&gt;）中有详细阐述，它涉及到你的观念和相机的调整。在这本书中我们将要讨论 &lt;strong&gt;图像值&lt;/strong&gt; 的控制。它是通过曝光、冲洗和其他一些因素决定的。当然，因为我们的最终目标是得到相片（正像），所以我们会根据最终的正像来讨论负片的控制。第三本书（&lt;em&gt;The Print&lt;/em&gt;）将详细地阐述得到正像和放大的过程。&lt;/p&gt;
+
+&lt;p&gt;尽管我们分不同阶段阐述了视觉化和相关技术，但在实际操作中，我们应该一开始就把整个过程当作以一个整体来考虑。摄影是一个复杂、流动的介质，它的很多因素都不是按顺序执行的，就像杂耍艺人在抛球时要保持几个球同时在空中一样。&lt;/p&gt;
+
+&lt;p&gt;自从1940年以来，分区系统就已经应用在摄影中。它被人们支持过也被反对过。它也有很多种不同的解释方式，但不是所有的解释都是正确的，因为这些解释与感光的原理相矛盾。现在我用的分区系统的值的范围是0到10（原文使用罗马数字，为方便书写，在此使用阿拉伯数字替代），0代表纯黑，10代表纯白。实际上，我们一般使用1和9作为真实亮度的极限，这个范围包含了所有的纹理与元素。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;2. 了解光线&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;2.1 人类的视觉与摄影&lt;/h3&gt;
+
+&lt;p&gt;制作一副高质量的黑白影像，关键在于学会预想彩色场景转化为黑白之后的效果。因此，研究人眼感知能力与摄影捕捉图像的能力之间所存在的差异很重要。人眼所能感知的影调范围比胶片所能记录的范围大得多。人的视觉系统能够接受1000000：1的动态范围，这让人眼可以在深夜或者阳光直射之下看清纸上的字。这意味着我们能够看到20档的动态范围。然而在胶片上，只能捕捉1000：1的动态范围，也就是10档的影调范围。区域系统理论的一个主要目的就是调整胶片的动态范围。&lt;/p&gt;
+
+&lt;p&gt;相比摄影，人眼还具有“色彩自适应”的优点——比如我们看到阴影中的一座白色的房子，虽然它呈现出灰色，但我们还是会把他看成“白色”。然而胶片就没有这种功能，它只能保持动态范围不变。运用区域系统理论进行拍摄与显影，就能使得照片中的景象和看到的一样。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;2.2 光线的性质&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;反射光&lt;/strong&gt;&lt;br /&gt;
+室外场景中，大部分光线都是反射光。被摄对象的材质（光滑程度、颜色深浅）和光线的入射角度都会影响胶片对它的记录。比如白色的墙壁能够将光线反射到其他物体上从而提亮阴影，减少反差。反之，一排影调较深的树木则会吸收环境光，保持阴影不被体谅，从而增加反差。&lt;/p&gt;
+
+    &lt;p&gt;光线都有色彩倾向，它会对反射光的强度造成一定的影响。比如，在日出或者日落时光线偏红，因此绿色物体的反射光就会减弱。同样，阴影处的光线就会偏蓝，并且减少对黄色或者红色物体的反射率。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;直射光&lt;/strong&gt;&lt;br /&gt;
+当某一光源的位置相聚拍摄对象较远时，或者被摄对象相对较小时，所产生的是直射光（硬光）。这种光线会产生较强的反差（明亮的高光与边缘清晰的阴影）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;漫射光&lt;/strong&gt;&lt;br /&gt;
+漫射光所产生的阴影相比直射光更加柔和甚至消失。柔光箱可以制造漫射光源，但如果它离被摄物体较远，就达不到效果。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;要注意的是，光线的性质与光线的强度没有直接的关系。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Sweet Light&lt;/strong&gt;&lt;br /&gt;
+这种光线只存在于日出前的半个小时到一个小时，和日落后的半个小时到一个小时。其时间长短取决于天气的情况。尽管这是一种漫射光，但他的反差范围很大。天空中最明亮的区域位于地平线附近，光线缺乏方向性，会着照亮很多阴影。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;3. 分区尺标&lt;/h2&gt;
+
+&lt;p&gt;分区尺标是区域系统的标志性元素，他也被称做灰阶或区域尺。它是由一系列连续变化的11个影调组成的，分别标记为0区到10区（纯黑到纯白）。分区尺标可以分为3个人部分：暗部区域（0，1，2）、细节区域、高光区域。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/11.JPG&quot; alt=&quot;灰阶&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;以下是几个对影像特征的描述：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;影纹&lt;/strong&gt;：能感受到影调的变化，但是没有图像信息&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;微弱的细节&lt;/strong&gt;：包含信息较少&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;肌理&lt;/strong&gt;：具有一定锐度的重复的影调变化&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;清晰的细节&lt;/strong&gt;：丰富的信息&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;3.1 暗部区域（0-1 区）&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;0区（纯黑）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;对于负片来说，就是没有可用密度。然而并没有一个硬性的规定，要求0区必须占多少比例。黑色为照片的动态范围建立了基础。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1区（近似于纯黑）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这一区域的影调与0区很难区分，在没有0区的对比下，很容易将其误认为0区。这一点是胶片特性曲线直线段的起点，从这个区开始，每增加一档曝光，密度也会增加一个区。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/12.JPG&quot; alt=&quot;胶片与相纸的特性曲线&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2区（有影纹的暗部）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2区是除了表现影调之外还能提供图像信息的最暗的区，它大约有5%的反射率。因为2区位于胶片特征曲线的直线段，所以它是第一个始终可以进行“选置”的区。我们可以用反射式测光表读出数据，在此基础上降低3档曝光来获得2区的曝光参数。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-6&quot;&gt;3.2 细节区域（3-7 区）&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;3区（暗部细节）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;它是我们能看到清晰细节的区域中影调最深的一个。3区确定了影像的基调。3区是确认正确曝光的基本标准。因为如果在曝光时没有在底片上记录下暗部细节，那么无论怎样显影都不会呈现任何影像。因此，我们通常将3区作为暗部测光法的测量区域，也可以作为平均测光法的暗部测光区域。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;4区（影调较深的中灰区域）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;4区是暗部过度到亮部的起始区。它与6区这两个过渡区对于照片的反差起到了决定性的作用。如果过渡区变小，反差就会较大。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;5区（中灰区域）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;它位于整个影调区域的正中间，并处在倒易律范围（2-8区）。5区能反射照射在该区域上的约18%的光线&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;6区（较浅的中灰区）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;它是中间影调向高光区过渡的起始区域。6区是高调影像的基础。当拍摄白人肖像时，可以对其手掌测光获得曝光数值&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;7区（表现高光区域中的细节）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;7区是细节区域中最亮的一个区域，有将近72%的反射率。如果图像大部分都落在这一区域，图像就会很柔美、明亮与轻盈。它被作为平均测光法的亮部测光区。在暗室印放过程中，7区也是检验影响密度是否合适的目标区。因为7区以上的区域的密度变化会受到胶片曲线肩部的影像，形成更宽的影调范围。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;3.3 高光区域（8-10区）&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;8区（有影纹的高光区域）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;8区是最亮的仍然包含有影像信息的区域，8区以上的区域之间已经不再是线性关系。但在测光表读数的基础上增加3档曝光则会精确地落在8区。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;9区（接近纯白）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;只有将10区与9区放在一起才能区分两者。9区位于曲线地肩部终点，也就是说如果测量一张照片的9区，会达到最低密度&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;10区（纯白）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;纸基的白度决定了10区的效果。但在后期处理照片时，很容易污染纯白的相纸。比如安全灯会在相纸上形成轻微的灰雾，过度冲洗会减少氧化钡图层。化学污渍，不完全定影与纸基干燥后影调变深，都会造成照片高光区域的动态范围损失。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;center&gt;============ 接 Part 2 =============&lt;/center&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>1. 简介</summary></entry><entry><title>Online Learning for Matrix Factorization and Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/" rel="alternate" type="text/html" title="Online Learning for Matrix Factorization and Sparse Coding" /><published>2016-09-21T00:00:00+08:00</published><updated>2016-09-21T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/21/Online Learning for Matrix Factorization and Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/">&lt;h1 id=&quot;online-learning-for-matrix-factorization-and-sparse-coding&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/h1&gt;
 &lt;p&gt;Authors: &lt;em&gt;Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro&lt;/em&gt;&lt;br /&gt;
 &lt;a href=&quot;http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
 
@@ -1300,72 +1465,4 @@ zxc&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#ifndef TAG
 #define TAG
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;#endif&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>icbcbicc</name></author><category term="C++" /><summary>C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2</summary></entry><entry><title>Machine Learning (Zhihua Zhou) Notes 01</title><link href="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/" rel="alternate" type="text/html" title="Machine Learning (Zhihua Zhou) Notes 01" /><published>2016-07-20T00:00:00+08:00</published><updated>2016-07-20T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/">&lt;h1 id=&quot;machinelearningzhihuazhounotes-01&quot;&gt;Machine_Learning_Zhihua_Zhou_Notes-01&lt;/h1&gt;</content><author><name>icbcbicc</name></author><category term="machine learning" /><summary></summary></entry><entry><title>Learning Spatio-temporal Features with 3D Convolutional Networks</title><link href="http://icbcbicc.github.io/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/" rel="alternate" type="text/html" title="Learning Spatio-temporal Features with 3D Convolutional Networks" /><published>2016-07-13T00:00:00+08:00</published><updated>2016-07-13T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/13/Learning Spatiotemporal Features with 3D CNN</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/">&lt;h1 id=&quot;learning-spatiotemporal-features-with-3d-cnn&quot;&gt;Learning Spatiotemporal Features with 3D CNN&lt;/h1&gt;
-
-&lt;p&gt;July 10, 2016 12:56 PM&lt;/p&gt;
-
-&lt;p&gt;Authors: &lt;em&gt;Du Tran, Lubomir Bourdev, Rob Fergus, Lorenzo Torresani, Manohar Paluri&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7410867&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;1. Introduction&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;3 × 3 × 3 convolution kernel for all layers to work best.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;related-work&quot;&gt;2. Related Work&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Takes full video frames as inputs&lt;/li&gt;
-  &lt;li&gt;Doesn’t rely on any preprocessing&lt;/li&gt;
-  &lt;li&gt;3D convolutions and 3D pooling&lt;/li&gt;
-  &lt;li&gt;Gradually pooling space and time information and building deeper networks achieves best result&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;learning-features-with-3d-convnets&quot;&gt;3. Learning Features with 3D ConvNets&lt;/h2&gt;
-
-&lt;h4 id=&quot;d-convolution-and-pooling&quot;&gt;3D convolution and pooling&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;2D convolution (lose temporal information)&lt;/li&gt;
-  &lt;li&gt;2D convolution on mutiple frames (lose temporal information)&lt;/li&gt;
-  &lt;li&gt;3D convolution (preserves temporal information)&lt;/li&gt;
-  &lt;li&gt;Small receptive fields of 3×3 conv kernels with deeper architectures yield best result&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;common-network-settings-ucf101-data-set&quot;&gt;Common network settings: UCF101 data set&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;All frames are resized to 128×171&lt;/li&gt;
-  &lt;li&gt;Split into non-overlapped 16-frame clips&lt;/li&gt;
-  &lt;li&gt;Input dimentions: 3×16×128×171 (channels,length in number of frames,height,iwdth)&lt;/li&gt;
-  &lt;li&gt;5 conv layers and 5 pooling layers&lt;/li&gt;
-  &lt;li&gt;2 fully-connected layers and a softmax loss layer&lt;/li&gt;
-  &lt;li&gt;All convolution kernels have a kernel temporal depth&lt;/li&gt;
-  &lt;li&gt;Mini-batches: 30 clips&lt;/li&gt;
-  &lt;li&gt;Learning rate is divided by 10 after every 4 epochs&lt;/li&gt;
-  &lt;li&gt;Training is stopped after 16 epochs&lt;/li&gt;
-  &lt;li&gt;Not to merge the temporal signal too early&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;varying-network-architectures&quot;&gt;Varying network architectures&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Only vary kernal temporal depth d of the convolution layers&lt;/li&gt;
-  &lt;li&gt;depth=1 :2D&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Different kernal temporal depth
-&lt;img src=&quot;/img/1.JPG&quot; alt=&quot;kernal temporal depth&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;homogeneous setting with convolution kernals of depth = 3 is the best option&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;spatiotemporal-feature-learning&quot;&gt;Spatiotemporal feature learning&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;C3D architecture
-&lt;img src=&quot;/img/2.JPG&quot; alt=&quot;C3D architecture&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;All 3D conv layers: 3×3×3 with stride 1×1×1&lt;/li&gt;
-  &lt;li&gt;All 3D pooling layers: 2×2×2 with stride 2×2×2 except for pool-1 (both kernel size and stride: 1×2×2)&lt;/li&gt;
-  &lt;li&gt;Deconvolution method to visualize the features
-&lt;a href=&quot;http://link.springer.com/content/pdf/10.1007%2F978-3-319-10590-1_53.pdf&quot;&gt;M. Zeiler and R. Fergus. Visualizing and understanding convolutional networks. In ECCV, 2014. 5, 6, 9&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>icbcbicc</name></author><category term="machine learning" /><category term="deep learning" /><category term="CNN" /><category term="caffe" /><summary>Learning Spatiotemporal Features with 3D CNN</summary></entry><entry><title>This is my first Blog</title><link href="http://icbcbicc.github.io/2016/07/04/first-test/" rel="alternate" type="text/html" title="This is my first Blog" /><published>2016-07-04T00:00:00+08:00</published><updated>2016-07-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/04/first-test</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/04/first-test/">&lt;h1 id=&quot;first-line&quot;&gt;First line&lt;/h1&gt;
-
-&lt;h3 id=&quot;second-line&quot;&gt;Second line&lt;/h3&gt;</content><author><name>icbcbicc</name></author><summary>First line</summary></entry></feed>
+&lt;span class=&quot;cp&quot;&gt;#endif&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>icbcbicc</name></author><category term="C++" /><summary>C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2</summary></entry><entry><title>Machine Learning (Zhihua Zhou) Notes 01</title><link href="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/" rel="alternate" type="text/html" title="Machine Learning (Zhihua Zhou) Notes 01" /><published>2016-07-20T00:00:00+08:00</published><updated>2016-07-20T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/">&lt;h1 id=&quot;machinelearningzhihuazhounotes-01&quot;&gt;Machine_Learning_Zhihua_Zhou_Notes-01&lt;/h1&gt;</content><author><name>icbcbicc</name></author><category term="machine learning" /><summary></summary></entry></feed>
