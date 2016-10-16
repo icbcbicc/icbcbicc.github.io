@@ -19,7 +19,7 @@ Authors: *Jatanta K.Dutta, Bonny Banerjee*
 
 本文使用稀疏编码进行异常事件检测。数据预处理、特征提取、稀疏编码、字典生成都使用传统方法。
 
-**创新之处在于引进了 Incremental Coding Length (ICL)，它代表了每个特征的熵的增加量。异常事件可以由特征的rarity来定义（罕见的特征意味着异常）。最终，将所有特征的energy按权重相加就可以判断是否有异常了。文中每一个特征的rarity被当作average energy，它是关于ICL的函数。ICL的计算不需要任何参数，也不需要关于数据的先验假设**
+**创新之处在于引进了 Incremental Coding Length (ICL)作为稀疏表达的评价，它代表了每个特征的熵的增加量。异常事件可以由特征的rarity来定义（罕见的特征意味着异常）。最终，将所有特征的energy按权重相加就可以判断是否有异常了。文中将每一个特征的energy作为rarity， 它是关于ICL的函数。ICL的计算不需要任何参数，也不需要关于数据的先验假设**
 
 <br>
 
@@ -65,7 +65,7 @@ Authors: *Jatanta K.Dutta, Bonny Banerjee*
     - latent Dirichlet allocation
     - deep learning
 
-- 对这些表达进行评估，检测出异常
+- 对这些表达进行评估，检测出异常（本文所关注的重点）
     - reconstruction error
     - prediction error
     - rarity index

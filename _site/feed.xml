@@ -1,4 +1,299 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-10-04T17:36:12+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Online Detection of Abnormal Events Using Incremental Coding Length</title><link href="http://icbcbicc.github.io/2016/10/04/Online-Detection-of-Abnormal-Events-Using-Incremental-Coding-Length/" rel="alternate" type="text/html" title="Online Detection of Abnormal Events Using Incremental Coding Length" /><published>2016-10-04T00:00:00+08:00</published><updated>2016-10-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/04/Online Detection of Abnormal Events Using Incremental Coding Length</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/04/Online-Detection-of-Abnormal-Events-Using-Incremental-Coding-Length/">&lt;h1 id=&quot;online-detection-of-abnormal-events-using-incremental-coding-length&quot;&gt;Online Detection of Abnormal Events Using Incremental Coding Length&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-10-15T20:17:51+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Machine Learning (Zhihua Zhou) Notes 02</title><link href="http://icbcbicc.github.io/2016/10/15/machine_learning-_zhihua_zhou_notes_02/" rel="alternate" type="text/html" title="Machine Learning (Zhihua Zhou) Notes 02" /><published>2016-10-15T00:00:00+08:00</published><updated>2016-10-15T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/15/machine_learning _zhihua_zhou_notes_02</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/15/machine_learning-_zhihua_zhou_notes_02/">&lt;h2 id=&quot;section&quot;&gt;3. 线性模型&lt;/h2&gt;</content><author><name>icbcbicc</name></author><category term="machine learning" /><summary>3. 线性模型</summary></entry><entry><title>Machine Learning (Zhihua Zhou) Notes 01</title><link href="http://icbcbicc.github.io/2016/10/14/machine_learning_zhihua_zhou_notes_01/" rel="alternate" type="text/html" title="Machine Learning (Zhihua Zhou) Notes 01" /><published>2016-10-14T00:00:00+08:00</published><updated>2016-10-14T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/14/machine_learning_zhihua_zhou_notes_01</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/14/machine_learning_zhihua_zhou_notes_01/">&lt;h1 id=&quot;section&quot;&gt;周志华《机器学习》笔记-01&lt;/h1&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;2. 模型的评估与选择&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;2.1 经验误差与过拟合&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;三种误差&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;训练误差(training error)、经验误差(empirical error)&lt;/strong&gt;：训练集上的误差，受到欠拟合与过拟合的影响&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;测试误差(testing error)&lt;/strong&gt;：测试集上的误差，通过常作为泛化误差的近似&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;泛化误差(generalization error)&lt;/strong&gt;：在新样本上的误差，无法直接获得&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;欠拟合与过拟合&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;欠拟合易于克服：增加训练轮数&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;过拟合是机器学习面临的关键障碍，无法彻底避免。因为机器学习面临的问题通常是$NP$难甚至更难。然而学习算法必然要在多项式时间完成，要想彻底避免过拟合，就要通过误差最小化直接获得最优解，也就意味着$P=NP$。只要坚信$P\ne NP$，过拟合就不可避免。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;2.2 产生测试集的方法&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;2.2.1 留出法(hold-out)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;方法：将数据集分为互斥的两个集合。采用分层采样(stratified sampling)来保证2个集合的数据分布一致性（也就是训练集和测试集中相同类型样本所占的比例相同）。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;缺陷：&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;由于单次使用留出法得到的结果不够可靠（即使保证相同类别样本比例相同，仍然有多种方式划分），一般采用多次随机划分得到多组{训练集，测试集}进行训练，误差取平均的方式。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;训练集占的多：模型精确，但评估结果不够稳定准确；测试集占的多，模型精度不足。此问题没有完美解决方案，一般选取$\frac{2}{3}$到$\frac{4}{5}$的样本用于训练。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2.2.2 交叉验证法(cross validation)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;方法：
+    &lt;ol&gt;
+      &lt;li&gt;先将数据划为$k$个大小相同，数据分布相同的互斥子集&lt;/li&gt;
+      &lt;li&gt;每次使用$k-1$个子集进行训练，$1$个做测试。一共可获得$k$组{训练集，测试集}的组合。&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;关键：结果的稳定性和真实性很大程度上取决于$k$的选择，因此这个方法被称作“$k$折交叉验证($k$-fold cross validation)”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;缺陷：与留出法相似，将数据划分为$k$组有很多方式，产生了不确定因素。一般采用进行$p$次划分取均值的方法，也就是“$p$次$k$折交叉验证”，一共得到$k \times p$组{训练集，测试集}。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;特例：当$k=样本数$，称为“留一法(Leave-One-Out，LOO)”。此方式不受样本划分的影响，评估较准确，但计算量太大。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2.2.3 自助法(bootstrapping)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;以自助采样法(bootstrapping sampling，亦称“可重复采样/有放回采样”)为基础，&lt;strong&gt;适合数据集小的情况&lt;/strong&gt; 。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;方法：在数据集$D$中有放回的随机取出一个样本，重复$m$次,得到$D’$作为训练集，$D-D’$作为测试集。$D’$中可能有重复的样本。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;当$m$足够大时，一个样本在$m$次选取中不被选中的概率是
+&lt;script type=&quot;math/tex&quot;&gt;$\lim_{m \to \inf}(1-\frac{1}{m})^m \to \frac{1}{e} \approx 0.368&lt;/script&gt;$
+因此$D$中有$36.8\%$的样本不在$D’$中。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;缺陷：改变了初始数据的分布。数据量足够时一般不采用此方法。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2.2.4 调参与最终模型&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;两类参数：
+    &lt;ol&gt;
+      &lt;li&gt;超参数：人工设定算法的参数，数目较少&lt;/li&gt;
+      &lt;li&gt;模型参数：由算法生成的参数，数量可以很多&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;在模型最优化后，应该使用所有数据（包括测试集）再训练一次，得到最终模型。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;2.3 性能度量&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;2.3.2 查准率，查全率与$F$度量&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;混淆矩阵(confusion matrix)：&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt; &lt;/th&gt;
+          &lt;th&gt; &lt;/th&gt;
+          &lt;th&gt;预测结果&lt;/th&gt;
+          &lt;th&gt; &lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt;正例&lt;/td&gt;
+          &lt;td&gt;反例&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;真实情况&lt;/td&gt;
+          &lt;td&gt;正例&lt;/td&gt;
+          &lt;td&gt;TP&lt;/td&gt;
+          &lt;td&gt;FN&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt;反例&lt;/td&gt;
+          &lt;td&gt;FP&lt;/td&gt;
+          &lt;td&gt;TN&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;查准率(precision，亦称准确率)：$P = \frac{TP}{TP+FP}$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;查全率(recall，亦称召回率)：$R = \frac{TP}{TP+FN}$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;查全率与查准率通常是矛盾的&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;P-R曲线
+    &lt;ul&gt;
+      &lt;li&gt;方法：
+        &lt;ol&gt;
+          &lt;li&gt;将测试样本按概率从大到小排序&lt;/li&gt;
+          &lt;li&gt;将前$n$个样本作为正例，得到查准率与查全率&lt;/li&gt;
+          &lt;li&gt;$n = n+1$&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;利用P-R曲线的评估：
+  &lt;img src=&quot;/img/13.png&quot; alt=&quot;P-R curve&quot; /&gt;
+        &lt;ol&gt;
+          &lt;li&gt;曲线下面积越大，则该模型越好。当一个曲线包住了另一个曲线而没有相交，则认为外面的曲线表示的模型更好（比如下图中的蓝色比绿色好）。&lt;/li&gt;
+          &lt;li&gt;$P = R$的点称为平衡点(Break-Even Point, BEP)，也就是曲线与对角线的交点，也可作为评估依据：越大越到。&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$F_1$与$F_\beta$度量&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;F1 = \frac{2 \times P \times R}{P+R}&lt;/script&gt;
+  实际上就是P与R的调和平均。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;F_\beta = \frac{(1+\beta^2) \times P \times R}{(\beta^2 \times P) + R}&lt;/script&gt;
+  实际上就是P与R的加权调和平均。$\beta$决定了查全率和查准率谁更重要：$\beta &amp;gt; 1$时，查全率更重要；$0 &amp;lt; \beta &amp;lt; 1$时，查准率更重要。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;宏查准率，宏查全率，宏$F1$；微查准率，微查全率，微$F1$：略&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2.3.3 ROC与AUC&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;截断点(cut point)的选择：&lt;/p&gt;
+
+    &lt;p&gt;将样本按概率从大到小排序&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;查准率高：截断点靠前&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;查全率高：截断点靠后&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;ROC(Receiver Operating Characteristic，受试者工作特征)
+  &lt;img src=&quot;/img/14.png&quot; alt=&quot;ROC curve&quot; /&gt;&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;纵轴：真正率
+  &lt;script type=&quot;math/tex&quot;&gt;TPR = \frac{TP}{TP+FN}&lt;/script&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;横轴：假正率
+  &lt;script type=&quot;math/tex&quot;&gt;FPR = \frac{FP}{TN+FP}&lt;/script&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;对角线：随机猜测模型&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;评估方式：与P-R曲线相同。曲线下的面积称为AUC（Aera under ROC）&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2.3.4 代价敏感错误率与代价曲线&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;之前的评价方式隐式假设了均等代价，即将错误个数作为代价。在非均等代价下，ROC曲线不能反映出总体代价，此时应该使用代价曲线。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;代价曲线(cost surve)&lt;/strong&gt;
+  &lt;img src=&quot;/img/15.png&quot; alt=&quot;cost curve&quot; /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;横轴：正例概率代价
+  &lt;script type=&quot;math/tex&quot;&gt;P(+)cost = \frac{p \times cost_{01}}{p \times cost_{01}+(1-p) \times cost_{10}}&lt;/script&gt;
+其中，$p$为正例的概率；$cost_{01}$为假反率代价；$cost_{10}$为假正率代价。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;纵轴：归一化代价
+  &lt;script type=&quot;math/tex&quot;&gt;cost_{norm} = \frac{(1-TPR) \times p \times cost_{01}+FPR \times (1-p) \times cost_{10}}{p \times cost_{01}+(1-p) \times cost_{10}}&lt;/script&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;在ROC曲线上取一点(FPR, TPR)，在代价曲线上将左纵轴上的(0,FPR)与右纵轴上的(1，1-TPR)2点连成线段。所有线段围成的部分面积为&lt;strong&gt;期望总体代价&lt;/strong&gt;。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;2.4 比较检验&lt;/h3&gt;
+&lt;p&gt;用于度量模型在测试集上的性能有多大概率是泛化性能，暂略&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2.4.1 假设检验&lt;/strong&gt;
+&lt;strong&gt;2.4.2 价差验证t检验&lt;/strong&gt;
+&lt;strong&gt;2.4.3 McNemar检验&lt;/strong&gt;
+&lt;strong&gt;2.4.4 Friedman检验与Nemenyi后续检验&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;2.5 偏差与方差&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;基于均方误差的回归任务的泛化误差可分解为偏差、方差、噪声之和&lt;/strong&gt;。&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;偏差：标记与真实类别的偏差。表明了在当前任务上任何学习算法所能达到的期望泛化误差的最小值，是任务本身的属性。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;方差：同样大小的训练集变化所导致的性能变化，即数据扰动造成的影响。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;偏差：算法本身的拟合能力。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;偏差-方差窘境(bias-variance dilemma)&lt;/p&gt;
+
+    &lt;p&gt;偏差与方差一般都是冲突的。&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;训练刚开始：拟合能力不足，受数据扰动的影响较小。偏差主导了泛化错误率。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;训练充足：拟合能力很强，受数据扰动的影响大。方差主导了泛化错误率。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Attention：对于分类任务，由于0/1损失函数的跳变性，偏差-方差分解很困难。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>icbcbicc</name></author><category term="machine learning" /><summary>周志华《机器学习》笔记-01</summary></entry><entry><title>Online Detection of Abnormal Events Using Incremental Coding Length</title><link href="http://icbcbicc.github.io/2016/10/04/Online-Detection-of-Abnormal-Events-Using-Incremental-Coding-Length/" rel="alternate" type="text/html" title="Online Detection of Abnormal Events Using Incremental Coding Length" /><published>2016-10-04T00:00:00+08:00</published><updated>2016-10-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/04/Online Detection of Abnormal Events Using Incremental Coding Length</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/04/Online-Detection-of-Abnormal-Events-Using-Incremental-Coding-Length/">&lt;h1 id=&quot;online-detection-of-abnormal-events-using-incremental-coding-length&quot;&gt;Online Detection of Abnormal Events Using Incremental Coding Length&lt;/h1&gt;
 
 &lt;p&gt;Authors: &lt;em&gt;Jatanta K.Dutta, Bonny Banerjee&lt;/em&gt;&lt;/p&gt;
 
@@ -8,7 +303,7 @@
 
 &lt;p&gt;本文使用稀疏编码进行异常事件检测。数据预处理、特征提取、稀疏编码、字典生成都使用传统方法。&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;创新之处在于引进了 Incremental Coding Length (ICL)，它代表了每个特征的熵的增加量。异常事件可以由特征的rarity来定义（罕见的特征意味着异常）。最终，将所有特征的energy按权重相加就可以判断是否有异常了。文中每一个特征的rarity被当作average energy，它是关于ICL的函数。ICL的计算不需要任何参数，也不需要关于数据的先验假设&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;创新之处在于引进了 Incremental Coding Length (ICL)作为稀疏表达的评价，它代表了每个特征的熵的增加量。异常事件可以由特征的rarity来定义（罕见的特征意味着异常）。最终，将所有特征的energy按权重相加就可以判断是否有异常了。文中将每一个特征的energy作为rarity， 它是关于ICL的函数。ICL的计算不需要任何参数，也不需要关于数据的先验假设&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -70,7 +365,7 @@
       &lt;li&gt;deep learning&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;对这些表达进行评估，检测出异常
+  &lt;li&gt;对这些表达进行评估，检测出异常（本文所关注的重点）
     &lt;ul&gt;
       &lt;li&gt;reconstruction error&lt;/li&gt;
       &lt;li&gt;prediction error&lt;/li&gt;
@@ -1391,209 +1686,4 @@ PDF</summary></entry><entry><title>Abnormal Event Detection at 150 FPS in MATLAB
 
     &lt;p&gt;&lt;img src=&quot;/img/6.JPG&quot; alt=&quot;Algorithm 2&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Abnormal Event Detection at 150 FPS in MATLAB</summary></entry><entry><title>C++ Primer Note 1</title><link href="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/" rel="alternate" type="text/html" title="C++ Primer Note 1" /><published>2016-07-22T00:00:00+08:00</published><updated>2016-07-22T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/22/cprimer_note_1</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/22/cprimer_note_1/">&lt;h2 id=&quot;c-primer-4th-edition-notes-chapter-1--2&quot;&gt;C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2&lt;/h2&gt;
-
-&lt;h3 id=&quot;chapter-1&quot;&gt;chapter 1&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;返回值必须是&lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;类型&lt;/li&gt;
-  &lt;li&gt;返回值0表示&lt;code class=&quot;highlighter-rouge&quot;&gt;main&lt;/code&gt;函数成功执行完毕，非0返回值的含义由各个OS自行定义&lt;/li&gt;
-  &lt;li&gt;编译
-    &lt;ul&gt;
-      &lt;li&gt;Linux: &lt;code class=&quot;highlighter-rouge&quot;&gt;g++ a.cpp -o a&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Windows: &lt;code class=&quot;highlighter-rouge&quot;&gt;cl -GX a.cpp&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;C++后缀与具体编译器有关：&lt;code class=&quot;highlighter-rouge&quot;&gt;.cc .ccx .cpp .cp .c&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;查看main的返回值
-    &lt;ul&gt;
-      &lt;li&gt;Linux: &lt;code class=&quot;highlighter-rouge&quot;&gt;echo $?&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Windows: &lt;code class=&quot;highlighter-rouge&quot;&gt;echo %ERRORLEVEL%&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;iostream
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cin&lt;/code&gt;: 标准输入&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cout&lt;/code&gt;: 标准输出&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cerr, clog&lt;/code&gt;: 标准错误&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include&amp;lt;iostream&amp;gt;
-&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Enter 2 nums:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;std:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;&amp;lt;&lt;/code&gt;: 输出操作符，返回左操作数&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&amp;gt;&lt;/code&gt;: 输入操作符，返回左操作数&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;endl&lt;/code&gt;: 操纵符，可以换行并且flush缓冲区&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;std::cin &amp;gt;&amp;gt; v1 &amp;gt;&amp;gt; v2;&lt;/code&gt;
-  可以转换为&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;std:cout &amp;lt;&amp;lt; v1+v2 &amp;lt;&amp;lt; std::endl;&lt;/code&gt;
-可以转换为&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;读入未知数目的输入&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    	&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   
-	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;输入文件结束符
-    &lt;ul&gt;
-      &lt;li&gt;Linux: &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+D&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Windows: &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+Z&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;注释对&lt;code class=&quot;highlighter-rouge&quot;&gt;/* */&lt;/code&gt;不能嵌套&lt;/li&gt;
-  &lt;li&gt;在&lt;code class=&quot;highlighter-rouge&quot;&gt;for(int count = 0;count&amp;lt;10;count++)&lt;/code&gt;循环中的&lt;code class=&quot;highlighter-rouge&quot;&gt;count&lt;/code&gt;在循环外不可访问(推荐使用，防止意外访问)&lt;/li&gt;
-  &lt;li&gt;use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt; &amp;gt;&lt;/code&gt; to include standard lib, use &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot; &quot;&lt;/code&gt; top include non-standard lib (personal lib)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;chapter-2&quot;&gt;chapter 2&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;2 kinds of character
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;char&lt;/code&gt;: 8 bits&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wchar_t&lt;/code&gt;: 16 bits&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Do not use &lt;code class=&quot;highlighter-rouge&quot;&gt;char&lt;/code&gt; as a computational type, it may results in some problems&lt;/li&gt;
-  &lt;li&gt;In many circumstances, &lt;code class=&quot;highlighter-rouge&quot;&gt;double&lt;/code&gt; runs much more faster than &lt;code class=&quot;highlighter-rouge&quot;&gt;float&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Usually, &lt;code class=&quot;highlighter-rouge&quot;&gt;long double&lt;/code&gt; is too time-consuming and not neccessary&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;short&lt;/code&gt; may leads to some wrap around false&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;long&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;short&lt;/code&gt; represent &lt;code class=&quot;highlighter-rouge&quot;&gt;signed *&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;unsigned int&lt;/code&gt; can be simply spelled as &lt;code class=&quot;highlighter-rouge&quot;&gt;unsigned&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;All characters , including all unprintable characters, can be represented as &lt;code class=&quot;highlighter-rouge&quot;&gt;\obbb&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;\xddd&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;bbb&lt;/code&gt; are 3 octal numbers and &lt;code class=&quot;highlighter-rouge&quot;&gt;ddd&lt;/code&gt; are 3 hexadecimal numbers.&lt;/li&gt;
-  &lt;li&gt;Every string in C++ will be added with an null character(&lt;code class=&quot;highlighter-rouge&quot;&gt;\0&lt;/code&gt;) at the end of the string. For example, &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;A&quot;&lt;/code&gt; includes an &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;A&#39;&lt;/code&gt; and a &lt;code class=&quot;highlighter-rouge&quot;&gt;\0&lt;/code&gt;, but &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;A&#39;&lt;/code&gt; only contains a &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;A&#39;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;wide char: &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;L&#39;&#39;A&#39;&lt;/code&gt;, wide string: &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;L&#39;&quot;A&quot;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Concatenate strings(they shoulde be the same kind of string): &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;A&quot; &quot;B&quot;&lt;/code&gt;. Join wide string and normal string may causes problpems(Undefinded operation)&lt;/li&gt;
-  &lt;li&gt;Use &lt;code class=&quot;highlighter-rouge&quot;&gt;\&lt;/code&gt; to split one line into two, but there is no need doing this if you wanna separate a string into more sub-strings. For example:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;s&quot;&gt;&quot;asd&quot;&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;&quot;zxc&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;same&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;with&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;&quot;asd \
-zxc&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;All characters(including space or tabs) after the &lt;code class=&quot;highlighter-rouge&quot;&gt;\&lt;/code&gt; in the folowing line will be treated as part of the string, so the indent after &lt;code class=&quot;highlighter-rouge&quot;&gt;\&lt;/code&gt; may be incorrect&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;初始化:
-    &lt;ul&gt;
-      &lt;li&gt;复制初始化 &lt;code class=&quot;highlighter-rouge&quot;&gt;int val = 1024;&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;直接初始化 &lt;code class=&quot;highlighter-rouge&quot;&gt;int val(1024);&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;这两种初始化方法差别微妙，但是直接初始化语法更加灵活并且高效&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;对内置类型来说，两种初始化几乎没有差别&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;对类型对象来说，有些初始化只能用直接初始化完成。有多个初始化式时不能使用复制初始化（即直接初始化需要多个参数时无法用复制初始化）。
-例如：&lt;code class=&quot;highlighter-rouge&quot;&gt;std::string a(4,&#39;9&#39;);&lt;/code&gt; : &lt;code class=&quot;highlighter-rouge&quot;&gt;a = “9999”&lt;/code&gt;
-        &lt;ul&gt;
-          &lt;li&gt;在函数体外定义的内置类型会自动初始化为0，在函数内定义的内置函数不初始化&lt;/li&gt;
-          &lt;li&gt;未初始化的变量事实上都有一个值&lt;/li&gt;
-          &lt;li&gt;对于没有提供默认构造函数的类，必须在定义的时候显示地提供初始化式&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;声明与定义
-    &lt;ul&gt;
-      &lt;li&gt;定义：分配空间，指定初始值。一个程序中，一个变量有且只有一个定义（赋值可有多个）&lt;/li&gt;
-      &lt;li&gt;声明：向程序表明变量的类型和名字，变量可声明多次。&lt;/li&gt;
-      &lt;li&gt;定义属于声明，但声明不总是定义 
-  例如：&lt;code class=&quot;highlighter-rouge&quot;&gt;extern&lt;/code&gt;关键字可用于声明而不定义（也可用于声明并且定义），只有&lt;code class=&quot;highlighter-rouge&quot;&gt;extern&lt;/code&gt;位于函数外部时，才能含有初始化式（声明并且定义）&lt;/li&gt;
-      &lt;li&gt;在多个文件中使用的变量都需要有与定义分离的声明。一个文件含有定义，使用这个变量的其他文件则包含声明&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;限定符：定义常量。因为常量定义后无法修改，因此定义时必须初始化&lt;/li&gt;
-      &lt;li&gt;非&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;变量默认为&lt;code class=&quot;highlighter-rouge&quot;&gt;extern&lt;/code&gt;，但要使&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;变量能在其他文件中访问，必须显示指定其为&lt;code class=&quot;highlighter-rouge&quot;&gt;extern const&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;引用
-    &lt;ul&gt;
-      &lt;li&gt;引用是复合类型，是指用其他类型定义的类型。&lt;/li&gt;
-      &lt;li&gt;不能定义引用类型的引用&lt;/li&gt;
-      &lt;li&gt;引用必须用与该引用 相关联类型的对象（不能是常数） 来初始化（&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;引用除外）&lt;/li&gt;
-      &lt;li&gt;引用只是一个别名，对引用的所有操作都是作用在该引用绑定的对象上&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;引用：可以读取但无法修改，可以绑定其他类型的对象（值可能会发生变化）或者常量&lt;/li&gt;
-      &lt;li&gt;将&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;对象绑定到非&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;引用是非法的&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;typedef&lt;/code&gt;定义类型的同义词
-  -例如： &lt;code class=&quot;highlighter-rouge&quot;&gt;typedef int exam_score&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;exam_score&lt;/code&gt;就可以当做&lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;使用&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;枚举(&lt;code class=&quot;highlighter-rouge&quot;&gt;enumeration&lt;/code&gt;)
-    &lt;ul&gt;
-      &lt;li&gt;关键字: &lt;code class=&quot;highlighter-rouge&quot;&gt;enum&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;例如：&lt;code class=&quot;highlighter-rouge&quot;&gt;enum modes {input,output,append}&lt;/code&gt;。&lt;code class=&quot;highlighter-rouge&quot;&gt;modes&lt;/code&gt;式枚举类型名称。默认第一个枚举成员&lt;code class=&quot;highlighter-rouge&quot;&gt;input&lt;/code&gt;的值为1，后面每个枚举成员的值比前面一个大1。&lt;/li&gt;
-      &lt;li&gt;可以定义枚举成员的初值，例如&lt;code class=&quot;highlighter-rouge&quot;&gt;enum modes {input=2,output,append}&lt;/code&gt;，其后每个成员依次加1&lt;/li&gt;
-      &lt;li&gt;枚举成员的值可以不唯一。但都是常量，无法修改&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;enum&lt;/code&gt;定义了一个新的类型，可以定义和初始化其中的枚举成员&lt;br /&gt;
-  例如： &lt;code class=&quot;highlighter-rouge&quot;&gt;modes delete = append&lt;/code&gt;&lt;br /&gt;
-  但只能用枚举成员或者同一枚举类型的其他对象来初始化，不能使用常数&lt;br /&gt;
-  例如： &lt;code class=&quot;highlighter-rouge&quot;&gt;modes delete = 3&lt;/code&gt;是错误的&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;与&lt;code class=&quot;highlighter-rouge&quot;&gt;struct&lt;/code&gt;唯一区别在于默认访问级别
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;：每一个成员都默认为&lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;struct&lt;/code&gt;：每一个成员都默认为&lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;头文件一般包含
-    &lt;ul&gt;
-      &lt;li&gt;类的定义&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;extern&lt;/code&gt;变量的声明&lt;/li&gt;
-      &lt;li&gt;函数的声明&lt;/li&gt;
-      &lt;li&gt;由常量初始化的&lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;变量&lt;/li&gt;
-      &lt;li&gt;例如：&lt;code class=&quot;highlighter-rouge&quot;&gt;extern int a = 10;&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;double b;&lt;/code&gt;都属于定义，不应该出现在头文件中（头文件包含在多个源文件中，直接定义容易产生多重定义错误）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;编译时将&lt;code class=&quot;highlighter-rouge&quot;&gt;#include&amp;lt;头文件&amp;gt;&lt;/code&gt;替换为头文件的内容，因此头文件内的变量声明不用&lt;code class=&quot;highlighter-rouge&quot;&gt;extern&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;设计头文件时应该保证多次包含同一头文件不会引起多次定义，可以通过使用 头文件保护符 让头文件安全&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;预处理器变量
-    &lt;ul&gt;
-      &lt;li&gt;通常全部大写，在程序中必须唯一&lt;/li&gt;
-      &lt;li&gt;使用类名来命名预处理器变量可以避免预处理器变量重名&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#define&lt;/code&gt;用于指定一个名字为预处理器变量&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#ifndef&lt;/code&gt;用于检测指定的预处理器变量是否未定义，如果未定义，则处理其后所有指令直到&lt;code class=&quot;highlighter-rouge&quot;&gt;#endif&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#define&lt;/code&gt;写在&lt;code class=&quot;highlighter-rouge&quot;&gt;#ifndef&lt;/code&gt;与&lt;code class=&quot;highlighter-rouge&quot;&gt;#endif&lt;/code&gt;之间即可保证头文件不被多次包含
-&lt;br /&gt;例如：&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#ifndef TAG
-#define TAG
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;#endif&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>icbcbicc</name></author><category term="C++" /><summary>C++ Primer 4th Edition Notes Chapter 1 &amp;amp; 2</summary></entry><entry><title>Machine Learning (Zhihua Zhou) Notes 01</title><link href="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/" rel="alternate" type="text/html" title="Machine Learning (Zhihua Zhou) Notes 01" /><published>2016-07-20T00:00:00+08:00</published><updated>2016-07-20T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01</id><content type="html" xml:base="http://icbcbicc.github.io/2016/07/20/machine_learning_zhihua_zhou_notes_01/">&lt;h1 id=&quot;machinelearningzhihuazhounotes-01&quot;&gt;Machine_Learning_Zhihua_Zhou_Notes-01&lt;/h1&gt;</content><author><name>icbcbicc</name></author><category term="machine learning" /><summary></summary></entry></feed>
+&lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Abnormal Event Detection at 150 FPS in MATLAB</summary></entry></feed>

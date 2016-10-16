@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Write your site description here. It will be used as your sites meta description as well!">
+
+    <title>Machine Learning (Zhihua Zhou) Notes 01 - Jam's Blog</title>
+
+    <link rel="canonical" href="http://icbcbicc.github.io/2016/10/14/machine_learning_zhihua_zhou_notes_01/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://icbcbicc.github.io/feed.xml" title="Jam's Blog" />
+
+</head>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Jam's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/about/">About Me</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/archives/">archives</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contact/">Contact</a>
+                </li>
+				
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/post-bg-09.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Machine Learning (Zhihua Zhou) Notes 01</h1>
+                    
+                    <h2 class="subheading">读书笔记</h2>
+                    
+                    <span class="meta">Posted by icbcbicc on October 14, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h1 id="section">周志华《机器学习》笔记-01</h1>
+
+<h2 id="section-1">2. 模型的评估与选择</h2>
+
+<h3 id="section-2">2.1 经验误差与过拟合</h3>
+
+<ul>
+  <li>
+    <p><strong>三种误差</strong></p>
+
+    <ul>
+      <li>
+        <p><strong>训练误差(training error)、经验误差(empirical error)</strong>：训练集上的误差，受到欠拟合与过拟合的影响</p>
+      </li>
+      <li>
+        <p><strong>测试误差(testing error)</strong>：测试集上的误差，通过常作为泛化误差的近似</p>
+      </li>
+      <li>
+        <p><strong>泛化误差(generalization error)</strong>：在新样本上的误差，无法直接获得</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>欠拟合与过拟合</strong></p>
+
+    <ul>
+      <li>
+        <p>欠拟合易于克服：增加训练轮数</p>
+      </li>
+      <li>
+        <p>过拟合是机器学习面临的关键障碍，无法彻底避免。因为机器学习面临的问题通常是$NP$难甚至更难。然而学习算法必然要在多项式时间完成，要想彻底避免过拟合，就要通过误差最小化直接获得最优解，也就意味着$P=NP$。只要坚信$P\ne NP$，过拟合就不可避免。</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="section-3">2.2 产生测试集的方法</h3>
+
+<p><strong>2.2.1 留出法(hold-out)</strong></p>
+
+<ul>
+  <li>
+    <p>方法：将数据集分为互斥的两个集合。采用分层采样(stratified sampling)来保证2个集合的数据分布一致性（也就是训练集和测试集中相同类型样本所占的比例相同）。</p>
+  </li>
+  <li>
+    <p>缺陷：</p>
+    <ul>
+      <li>
+        <p>由于单次使用留出法得到的结果不够可靠（即使保证相同类别样本比例相同，仍然有多种方式划分），一般采用多次随机划分得到多组{训练集，测试集}进行训练，误差取平均的方式。</p>
+      </li>
+      <li>
+        <p>训练集占的多：模型精确，但评估结果不够稳定准确；测试集占的多，模型精度不足。此问题没有完美解决方案，一般选取$\frac{2}{3}$到$\frac{4}{5}$的样本用于训练。</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>2.2.2 交叉验证法(cross validation)</strong></p>
+
+<ul>
+  <li>方法：
+    <ol>
+      <li>先将数据划为$k$个大小相同，数据分布相同的互斥子集</li>
+      <li>每次使用$k-1$个子集进行训练，$1$个做测试。一共可获得$k$组{训练集，测试集}的组合。</li>
+      <li></li>
+    </ol>
+  </li>
+  <li>
+    <p>关键：结果的稳定性和真实性很大程度上取决于$k$的选择，因此这个方法被称作“$k$折交叉验证($k$-fold cross validation)”</p>
+  </li>
+  <li>
+    <p>缺陷：与留出法相似，将数据划分为$k$组有很多方式，产生了不确定因素。一般采用进行$p$次划分取均值的方法，也就是“$p$次$k$折交叉验证”，一共得到$k \times p$组{训练集，测试集}。</p>
+  </li>
+  <li>特例：当$k=样本数$，称为“留一法(Leave-One-Out，LOO)”。此方式不受样本划分的影响，评估较准确，但计算量太大。</li>
+</ul>
+
+<p><strong>2.2.3 自助法(bootstrapping)</strong></p>
+
+<p>以自助采样法(bootstrapping sampling，亦称“可重复采样/有放回采样”)为基础，<strong>适合数据集小的情况</strong> 。</p>
+
+<ul>
+  <li>
+    <p>方法：在数据集$D$中有放回的随机取出一个样本，重复$m$次,得到$D’$作为训练集，$D-D’$作为测试集。$D’$中可能有重复的样本。</p>
+  </li>
+  <li>
+    <p>当$m$足够大时，一个样本在$m$次选取中不被选中的概率是
+<script type="math/tex">$\lim_{m \to \inf}(1-\frac{1}{m})^m \to \frac{1}{e} \approx 0.368</script>$
+因此$D$中有$36.8\%$的样本不在$D’$中。</p>
+  </li>
+  <li>
+    <p>缺陷：改变了初始数据的分布。数据量足够时一般不采用此方法。</p>
+  </li>
+</ul>
+
+<p><strong>2.2.4 调参与最终模型</strong></p>
+
+<ul>
+  <li>两类参数：
+    <ol>
+      <li>超参数：人工设定算法的参数，数目较少</li>
+      <li>模型参数：由算法生成的参数，数量可以很多</li>
+    </ol>
+  </li>
+  <li>在模型最优化后，应该使用所有数据（包括测试集）再训练一次，得到最终模型。</li>
+</ul>
+
+<h3 id="section-4">2.3 性能度量</h3>
+
+<p><strong>2.3.2 查准率，查全率与$F$度量</strong></p>
+
+<ul>
+  <li>
+    <p>混淆矩阵(confusion matrix)：</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th> </th>
+          <th> </th>
+          <th>预测结果</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td>正例</td>
+          <td>反例</td>
+        </tr>
+        <tr>
+          <td>真实情况</td>
+          <td>正例</td>
+          <td>TP</td>
+          <td>FN</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td>反例</td>
+          <td>FP</td>
+          <td>TN</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>查准率(precision，亦称准确率)：$P = \frac{TP}{TP+FP}$</p>
+  </li>
+  <li>
+    <p>查全率(recall，亦称召回率)：$R = \frac{TP}{TP+FN}$</p>
+  </li>
+  <li>
+    <p>查全率与查准率通常是矛盾的</p>
+  </li>
+  <li>P-R曲线
+    <ul>
+      <li>方法：
+        <ol>
+          <li>将测试样本按概率从大到小排序</li>
+          <li>将前$n$个样本作为正例，得到查准率与查全率</li>
+          <li>$n = n+1$</li>
+        </ol>
+      </li>
+      <li>利用P-R曲线的评估：
+  <img src="/img/13.png" alt="P-R curve" />
+        <ol>
+          <li>曲线下面积越大，则该模型越好。当一个曲线包住了另一个曲线而没有相交，则认为外面的曲线表示的模型更好（比如下图中的蓝色比绿色好）。</li>
+          <li>$P = R$的点称为平衡点(Break-Even Point, BEP)，也就是曲线与对角线的交点，也可作为评估依据：越大越到。</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>$F_1$与$F_\beta$度量</p>
+
+    <ul>
+      <li>
+        <p><script type="math/tex">F1 = \frac{2 \times P \times R}{P+R}</script>
+  实际上就是P与R的调和平均。</p>
+      </li>
+      <li>
+        <p><script type="math/tex">F_\beta = \frac{(1+\beta^2) \times P \times R}{(\beta^2 \times P) + R}</script>
+  实际上就是P与R的加权调和平均。$\beta$决定了查全率和查准率谁更重要：$\beta &gt; 1$时，查全率更重要；$0 &lt; \beta &lt; 1$时，查准率更重要。</p>
+      </li>
+    </ul>
+  </li>
+  <li>宏查准率，宏查全率，宏$F1$；微查准率，微查全率，微$F1$：略</li>
+</ul>
+
+<p><strong>2.3.3 ROC与AUC</strong></p>
+
+<ul>
+  <li>
+    <p>截断点(cut point)的选择：</p>
+
+    <p>将样本按概率从大到小排序</p>
+
+    <ul>
+      <li>
+        <p>查准率高：截断点靠前</p>
+      </li>
+      <li>
+        <p>查全率高：截断点靠后</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>ROC(Receiver Operating Characteristic，受试者工作特征)
+  <img src="/img/14.png" alt="ROC curve" /></p>
+    <ul>
+      <li>
+        <p>纵轴：真正率
+  <script type="math/tex">TPR = \frac{TP}{TP+FN}</script></p>
+      </li>
+      <li>
+        <p>横轴：假正率
+  <script type="math/tex">FPR = \frac{FP}{TN+FP}</script></p>
+      </li>
+      <li>
+        <p>对角线：随机猜测模型</p>
+      </li>
+      <li>
+        <p>评估方式：与P-R曲线相同。曲线下的面积称为AUC（Aera under ROC）</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>2.3.4 代价敏感错误率与代价曲线</strong></p>
+
+<p>之前的评价方式隐式假设了均等代价，即将错误个数作为代价。在非均等代价下，ROC曲线不能反映出总体代价，此时应该使用代价曲线。</p>
+
+<ul>
+  <li><strong>代价曲线(cost surve)</strong>
+  <img src="/img/15.png" alt="cost curve" />
+    <ul>
+      <li>
+        <p>横轴：正例概率代价
+  <script type="math/tex">P(+)cost = \frac{p \times cost_{01}}{p \times cost_{01}+(1-p) \times cost_{10}}</script>
+其中，$p$为正例的概率；$cost_{01}$为假反率代价；$cost_{10}$为假正率代价。</p>
+      </li>
+      <li>
+        <p>纵轴：归一化代价
+  <script type="math/tex">cost_{norm} = \frac{(1-TPR) \times p \times cost_{01}+FPR \times (1-p) \times cost_{10}}{p \times cost_{01}+(1-p) \times cost_{10}}</script></p>
+      </li>
+      <li>
+        <p>在ROC曲线上取一点(FPR, TPR)，在代价曲线上将左纵轴上的(0,FPR)与右纵轴上的(1，1-TPR)2点连成线段。所有线段围成的部分面积为<strong>期望总体代价</strong>。</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="section-5">2.4 比较检验</h3>
+<p>用于度量模型在测试集上的性能有多大概率是泛化性能，暂略</p>
+
+<p><strong>2.4.1 假设检验</strong>
+<strong>2.4.2 价差验证t检验</strong>
+<strong>2.4.3 McNemar检验</strong>
+<strong>2.4.4 Friedman检验与Nemenyi后续检验</strong></p>
+
+<h3 id="section-6">2.5 偏差与方差</h3>
+
+<ul>
+  <li>
+    <p><strong>基于均方误差的回归任务的泛化误差可分解为偏差、方差、噪声之和</strong>。</p>
+
+    <ul>
+      <li>
+        <p>偏差：标记与真实类别的偏差。表明了在当前任务上任何学习算法所能达到的期望泛化误差的最小值，是任务本身的属性。</p>
+      </li>
+      <li>
+        <p>方差：同样大小的训练集变化所导致的性能变化，即数据扰动造成的影响。</p>
+      </li>
+      <li>
+        <p>偏差：算法本身的拟合能力。</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>偏差-方差窘境(bias-variance dilemma)</p>
+
+    <p>偏差与方差一般都是冲突的。</p>
+
+    <ul>
+      <li>
+        <p>训练刚开始：拟合能力不足，受数据扰动的影响较小。偏差主导了泛化错误率。</p>
+      </li>
+      <li>
+        <p>训练充足：拟合能力很强，受数据扰动的影响大。方差主导了泛化错误率。</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Attention：对于分类任务，由于0/1损失函数的跳变性，偏差-方差分解很困难。</p>
+  </li>
+</ul>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/10/04/Online-Detection-of-Abnormal-Events-Using-Incremental-Coding-Length/" data-toggle="tooltip" data-placement="top" title="Online Detection of Abnormal Events Using Incremental Coding Length">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2016/10/15/machine_learning-_zhihua_zhou_notes_02/" data-toggle="tooltip" data-placement="top" title="Machine Learning (Zhihua Zhou) Notes 02">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/icbcbicc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="mailto:icbcbicc@hotmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; Jam's Blog 2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+
+    
+
+
+</body>
+
+</html>
