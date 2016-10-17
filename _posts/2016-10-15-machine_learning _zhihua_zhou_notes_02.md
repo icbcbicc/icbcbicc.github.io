@@ -3,11 +3,10 @@ layout: post
 title: "Machine Learning (Zhihua Zhou) Notes 02"
 subtitle:   "读书笔记"
 author:     "icbcbicc"
-header-img: "img/post-bg-19.jpg"
+header-img: "img/post-bg-07.jpg"
 tags: ["machine learning"]
 ---
 
-<<<<<<< HEAD
 ## 3. 线性模型
 
 ### 3.2 线性回归
@@ -146,6 +145,3 @@ tags: ["machine learning"]
 ## 4.决策树
 
 TODO：信息增益、增益率、基尼指数、剪枝、连续值处理、多变量决策树（斜划分）
-=======
-## 3. 线性模型
->>>>>>> 4990ff15cf7e3e837ccb48ebafa06fe3db13542f
