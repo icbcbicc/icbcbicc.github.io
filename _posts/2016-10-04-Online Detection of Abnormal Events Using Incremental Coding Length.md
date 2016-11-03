@@ -50,27 +50,57 @@ Authors: *Jatanta K.Dutta, Bonny Banerjee*
 **异常事件检测通常由以下几个步骤组成（以及其常用方法）：**
 
 - *数据预处理，获得低级表达*
-    - histogram of optical flow (HOF)
-    - spatiotemporal gradient
-    - social force model
-    - chaotic invariant
+    - Histogram of optical flow (HOF)
+    - Muti-scale histogram of optical flow (MHOF)
+    - Histogram of optical flow orientation (HOFO)
+    - Spatio-temporal gradient
+    - 3D Spatio-temporal foreground mask
+    - Binary features
+    - Backgroud segregation (Foreground detection)
+    - 
+    - Mixure of optical flow (MPPCA, temporal features)
+    - MPPCA+SF
+    - Mixtures of dynamic textures (MDT, spatial and temporal features)
+    - Chaotic invariant
+    - Social force model (SF, spatial features)
 
 - 对低级表达进行抽象，得到中级表达
-    - dimensionality reduction(PCA, ICA, clustering)
-    - sparse coding
-    - gaussian mixture model
-    - mixtures of dynamic textures
-    - hiden Markov model
-    - Markov random field
-    - latent Dirichlet allocation
-    - deep learning
+    - Sparse coding
+	    1. Low rank dictoinary (SparseLR)
+		2. Compact regularization (SparseCR)
+		3. LR+CR
+		4. Weighted sparse representation (SparseW)
+		5. Sparse combination learning (SCL, 150fps matlab)
+		6. Large scale dictionary selection (LSDS)
+	- 
+    - Hiden Markov model (HMM)
+    - Markov random field (MRF, Saligrama)
+    - Mixture of probabilistic principle component analysis(MPPCA)
+	- Dimensionality reduction(PCA, ICA, clustering)
+    - Gaussian mixture model
+    - Latent Dirichlet allocation
+    - Deep learning
 
 - 对这些表达进行评估，检测出异常（本文所关注的重点）
-    - reconstruction error
-    - prediction error
-    - rarity index
-    - information content
-    - density-based scoring
+    - Sparse rconstruction error (SRC)
+    - Incremental coding lenth (ICL, entropy gain)
+    - 
+    - Prediction error
+    - Rarity index
+    - Information content
+    - Density-based scoring
+
+
+**按使用场景分类 (TODO)**
+
+- Crowded scenario
+	- Binary features based on back ground model
+	- 3D Spatio-temporal foreground mask fusing Markov Random Field
+	- Trajectory-based approaches
+
+- Uncrowded scenario
+	- Local abnormal event
+	- Global abnormal event
 
 <br>
 

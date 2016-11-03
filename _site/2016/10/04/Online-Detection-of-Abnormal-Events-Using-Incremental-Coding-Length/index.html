@@ -194,31 +194,70 @@
 <ul>
   <li><em>数据预处理，获得低级表达</em>
     <ul>
-      <li>histogram of optical flow (HOF)</li>
-      <li>spatiotemporal gradient</li>
-      <li>social force model</li>
-      <li>chaotic invariant</li>
+      <li>Histogram of optical flow (HOF)</li>
+      <li>Muti-scale histogram of optical flow (MHOF)</li>
+      <li>Histogram of optical flow orientation (HOFO)</li>
+      <li>Spatio-temporal gradient</li>
+      <li>3D Spatio-temporal foreground mask</li>
+      <li>Binary features</li>
+      <li>Backgroud segregation (Foreground detection)</li>
+      <li></li>
+      <li>Mixure of optical flow (MPPCA, temporal features)</li>
+      <li>MPPCA+SF</li>
+      <li>Mixtures of dynamic textures (MDT, spatial and temporal features)</li>
+      <li>Chaotic invariant</li>
+      <li>Social force model (SF, spatial features)</li>
     </ul>
   </li>
   <li>对低级表达进行抽象，得到中级表达
     <ul>
-      <li>dimensionality reduction(PCA, ICA, clustering)</li>
-      <li>sparse coding</li>
-      <li>gaussian mixture model</li>
-      <li>mixtures of dynamic textures</li>
-      <li>hiden Markov model</li>
-      <li>Markov random field</li>
-      <li>latent Dirichlet allocation</li>
-      <li>deep learning</li>
+      <li>Sparse coding
+        <ol>
+          <li>Low rank dictoinary (SparseLR)</li>
+          <li>Compact regularization (SparseCR)</li>
+          <li>LR+CR</li>
+          <li>Weighted sparse representation (SparseW)</li>
+          <li>Sparse combination learning (SCL, 150fps matlab)</li>
+          <li>Large scale dictionary selection (LSDS)</li>
+        </ol>
+      </li>
+      <li></li>
+      <li>Hiden Markov model (HMM)</li>
+      <li>Markov random field (MRF, Saligrama)</li>
+      <li>Mixture of probabilistic principle component analysis(MPPCA)</li>
+      <li>Dimensionality reduction(PCA, ICA, clustering)</li>
+      <li>Gaussian mixture model</li>
+      <li>Latent Dirichlet allocation</li>
+      <li>Deep learning</li>
     </ul>
   </li>
   <li>对这些表达进行评估，检测出异常（本文所关注的重点）
     <ul>
-      <li>reconstruction error</li>
-      <li>prediction error</li>
-      <li>rarity index</li>
-      <li>information content</li>
-      <li>density-based scoring</li>
+      <li>Sparse rconstruction error (SRC)</li>
+      <li>Incremental coding lenth (ICL, entropy gain)</li>
+      <li></li>
+      <li>Prediction error</li>
+      <li>Rarity index</li>
+      <li>Information content</li>
+      <li>Density-based scoring</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>按使用场景分类 (TODO)</strong></p>
+
+<ul>
+  <li>Crowded scenario
+    <ul>
+      <li>Binary features based on back ground model</li>
+      <li>3D Spatio-temporal foreground mask fusing Markov Random Field</li>
+      <li>Trajectory-based approaches</li>
+    </ul>
+  </li>
+  <li>Uncrowded scenario
+    <ul>
+      <li>Local abnormal event</li>
+      <li>Global abnormal event</li>
     </ul>
   </li>
 </ul>

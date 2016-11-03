@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Write your site description here. It will be used as your sites meta description as well!">
 
-    <title>Jam's Blog</title>
+    <title>Sparse Reconstruction Cost for Abnormal Event Detection - Jam's Blog</title>
 
-    <link rel="canonical" href="http://icbcbicc.github.io/page3/">
+    <link rel="canonical" href="http://icbcbicc.github.io/2016/10/23/Sparse-Reconstruction-Cost-for-Abnormal-Event-Detection/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -118,112 +118,103 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-19.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/post-bg-20.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Jam's Blog</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
+                <div class="post-heading">
+                    <h1>Sparse Reconstruction Cost for Abnormal Event Detection</h1>
+                    
+                    <h2 class="subheading">论文笔记-2011-CVPR-225</h2>
+                    
+                    <span class="meta">Posted by icbcbicc on October 23, 2016</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/2016/09/16/Sparse-and-Redundant-Modeling-of-Image-Content-Using-an-Image-Signature-Dictionary/">
-        <h2 class="post-title">            Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary
-        </h2>
-        
-        <h3 class="post-subtitle">
-            论文笔记-2008-SIAM-109
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by icbcbicc on September 16, 2016</p>
+				<h1 id="sparse-reconstruction-cost-for-abnormal-event-detection">Sparse Reconstruction Cost for Abnormal Event Detection</h1>
+<p>Authors: <em>Yang Cong, Junsong Yuan, Ji Liu</em><br />
+<a href="http://www.cs.rochester.edu/~jliu/paper/Cong-Yuan-CVPR11.pdf">PDF</a></p>
+
+<p><br /></p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p><br /></p>
+
+<h4 id="conventional-algorithms">Conventional Algorithms</h4>
+
+<ul>
+  <li>
+    <p><strong><em>Probability Model</em></strong></p>
+
+    <p>Detect testing sample with lower probability as anormaly by fitting a probability model to the training data. However, the required number of training data increases exponentially with the feature dimension, and it’s unrealistic to collect enough data for density estimation in practice</p>
+  </li>
+</ul>
+
+<h4 id="sparse-reconstruction-cost-src">Sparse Reconstruction Cost (SRC)</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>We propose SRC based on the weighted $l_1$ minimization.
+</code></pre>
 </div>
-<hr>
 
-<div class="post-preview">
-    <a href="/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/">
-        <h2 class="post-title">            Abnormal Event Detection at 150 FPS in MATLAB
-        </h2>
-        
-        <h3 class="post-subtitle">
-            论文笔记-2013-ICCV-52
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by icbcbicc on September 4, 2016</p>
-</div>
-<hr>
+<ul>
+  <li>
+    <p>Normal event: generate sparse reconstruction coefficients with a <strong>small SRC</strong></p>
+  </li>
+  <li>
+    <p>Abnormal events: generate a dense representation with a <strong>large SRC</strong></p>
+  </li>
+</ul>
 
-<div class="post-preview">
-    <a href="/2016/07/22/cprimer_note_1/">
-        <h2 class="post-title">            C++ Primer Note 1
-        </h2>
-        
-        <h3 class="post-subtitle">
-            读书笔记
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by icbcbicc on July 22, 2016</p>
-</div>
-<hr>
+<h4 id="types-of-abnormal-events">2 types of abnormal events:</h4>
 
-<div class="post-preview">
-    <a href="/2016/07/13/Learning-Spatiotemporal-Features-with-3D-CNN/">
-        <h2 class="post-title">            Learning Spatio-temporal Features with 3D Convolutional Networks
-        </h2>
-        
-        <h3 class="post-subtitle">
-            论文笔记-2015-ICCV-84
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by icbcbicc on July 13, 2016</p>
-</div>
-<hr>
+<ul>
+  <li>
+    <p>Local abnormal event (LAE)</p>
 
-<div class="post-preview">
-    <a href="/2016/07/04/first-test/">
-        <h2 class="post-title">            This is my first Blog
-        </h2>
-        
-        <h3 class="post-subtitle">
-            For Test
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by icbcbicc on July 4, 2016</p>
-</div>
-<hr>
+    <p>The local behavior is different from its spatio temporal neighborhoods</p>
+  </li>
+  <li>
+    <p>Global abnormal event (GAE)</p>
 
+    <p>The whole scene is abnormal, even though any individual lcoal behavior can be normal</p>
+  </li>
+  <li>
+    <p>New dictionary selection method</p>
 
-<!-- Pager -->
-
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page2">&larr; Newer Posts</a>
-    </li>
-    
-    
+    <p>Reduce the size of the basis set $\phi$ for an efficient reconstruction</p>
+  </li>
 </ul>
 
 
-		</div>
-	</div>
-</div>
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/10/16/machine_learning-_zhihua_zhou_notes_03/" data-toggle="tooltip" data-placement="top" title="Machine Learning (Zhihua Zhou) Notes 03">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2016/11/02/DCP_ruleset/" data-toggle="tooltip" data-placement="top" title="The DCP Ruleset">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

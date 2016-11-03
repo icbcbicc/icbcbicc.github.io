@@ -1,4 +1,500 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-10-15T20:17:51+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Machine Learning (Zhihua Zhou) Notes 02</title><link href="http://icbcbicc.github.io/2016/10/15/machine_learning-_zhihua_zhou_notes_02/" rel="alternate" type="text/html" title="Machine Learning (Zhihua Zhou) Notes 02" /><published>2016-10-15T00:00:00+08:00</published><updated>2016-10-15T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/15/machine_learning _zhihua_zhou_notes_02</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/15/machine_learning-_zhihua_zhou_notes_02/">&lt;h2 id=&quot;section&quot;&gt;3. 线性模型&lt;/h2&gt;</content><author><name>icbcbicc</name></author><category term="machine learning" /><summary>3. 线性模型</summary></entry><entry><title>Machine Learning (Zhihua Zhou) Notes 01</title><link href="http://icbcbicc.github.io/2016/10/14/machine_learning_zhihua_zhou_notes_01/" rel="alternate" type="text/html" title="Machine Learning (Zhihua Zhou) Notes 01" /><published>2016-10-14T00:00:00+08:00</published><updated>2016-10-14T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/14/machine_learning_zhihua_zhou_notes_01</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/14/machine_learning_zhihua_zhou_notes_01/">&lt;h1 id=&quot;section&quot;&gt;周志华《机器学习》笔记-01&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-11-03T20:03:09+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>The DCP Ruleset</title><link href="http://icbcbicc.github.io/2016/11/02/DCP_ruleset/" rel="alternate" type="text/html" title="The DCP Ruleset" /><published>2016-11-02T00:00:00+08:00</published><updated>2016-11-02T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/11/02/DCP_ruleset</id><content type="html" xml:base="http://icbcbicc.github.io/2016/11/02/DCP_ruleset/">&lt;h2 id=&quot;the-dcp-ruleset&quot;&gt;The DCP Ruleset&lt;/h2&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;1. 函数的分类&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;常量&lt;/li&gt;
+  &lt;li&gt;仿射&lt;/li&gt;
+  &lt;li&gt;凸&lt;/li&gt;
+  &lt;li&gt;凹&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;定义：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/13.JPG&quot; alt=&quot;A taxonomy of curvature&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这几个分类是有&lt;strong&gt;重叠&lt;/strong&gt;的：比如常量属于仿射，仿射既属于凸也属于凹。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;2. 最主要的规则&lt;/h3&gt;
+
+&lt;p&gt;CVX支持以下3种DCP&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;最小化问题
+    &lt;ol&gt;
+      &lt;li&gt;目标函数为凸&lt;/li&gt;
+      &lt;li&gt;约束条件可以有任意个&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;最大化问题
+ 	1. 目标函数为凹
+ 	2. 约束条件可以有任意个&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;可行性问题
+ 	1. 没有目标函数
+ 	2. 有1个或以上的约束条件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;3. 约束条件&lt;/h3&gt;
+
+&lt;p&gt;CVX支持以下3种约束条件&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;$=$ : 两侧都必须是仿射&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$\preceq$：左侧为凸，右侧为凹&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$\succeq$：左侧为凹，右侧为凸&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;3.1 具体要求&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;不支持$!=$或者$~=$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;复数
+    &lt;ul&gt;
+      &lt;li&gt;等式约束的两侧可以是复数，可以分解为2个实数的约束。&lt;/li&gt;
+      &lt;li&gt;不等式约束的两侧不能有复数&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;集合元素：集合元素的约束必须是等式，且等式两侧必须为仿射&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;严格不等（strict inequalities）
+    &lt;ul&gt;
+      &lt;li&gt;$\prec$&lt;/li&gt;
+      &lt;li&gt;$\succ$&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;因为一些数学原理和凸优化算法的原因，CVX不能保证不等式被严格遵守，因此应该尽量不使用严格不等。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;如果模型中必须用到严格不等，可以使用以下方法 &lt;em&gt;消除严格不等&lt;/em&gt; :&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;采用 &lt;strong&gt;正规化&lt;/strong&gt; 的方法来使其符合CVX的要求。&lt;/p&gt;
+
+    &lt;p&gt;例如：&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;A x = 0, \quad C x \preceq 0, \quad x \succ 0&lt;/script&gt;
+
+    &lt;p&gt;可以转化为&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;A x = 0, \quad C x \preceq 0, \quad x \succeq 0, \quad \mathbf{1}^T x = 1&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;添加一个 &lt;strong&gt;偏差(offset)&lt;/strong&gt; 将原式变为非严格不等。&lt;/p&gt;
+
+    &lt;p&gt;例如:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;x &gt; 0 转化为 x \ge 1e-4&lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;4. 表达式规则&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;常量表达式： 可以产生有限结果的表达式&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;仿射表达式：
+    &lt;ul&gt;
+      &lt;li&gt;常量表达式&lt;/li&gt;
+      &lt;li&gt;已声明的变量&lt;/li&gt;
+      &lt;li&gt;可产生有限结果的函数调用&lt;/li&gt;
+      &lt;li&gt;仿射表达式的加减组合&lt;/li&gt;
+      &lt;li&gt;常量和仿射表达式的乘积&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;凸表达式
+    &lt;ul&gt;
+      &lt;li&gt;常量或者仿射表达式&lt;/li&gt;
+      &lt;li&gt;可产生凸结果的函数调用&lt;/li&gt;
+      &lt;li&gt;仿射标量的偶数次方（不包括0次方）&lt;/li&gt;
+      &lt;li&gt;2次凸标量&lt;/li&gt;
+      &lt;li&gt;多个凸表达式的和&lt;/li&gt;
+      &lt;li&gt;凸表达式和凹表达式的差&lt;/li&gt;
+      &lt;li&gt;非负常量和凸表达式的乘积&lt;/li&gt;
+      &lt;li&gt;非正常量和凹表达式的乘积&lt;/li&gt;
+      &lt;li&gt;凹表达式取反&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;凹表达式
+    &lt;ul&gt;
+      &lt;li&gt;常量或者仿射表达式&lt;/li&gt;
+      &lt;li&gt;可产生凹结果的函数调用&lt;/li&gt;
+      &lt;li&gt;凹标量的$p$次方($0&amp;lt; p &amp;lt; 1$)&lt;/li&gt;
+      &lt;li&gt;2次凹标量&lt;/li&gt;
+      &lt;li&gt;多个凹表达式的和&lt;/li&gt;
+      &lt;li&gt;凹表达式和凸表达式的差&lt;/li&gt;
+      &lt;li&gt;非负常量和凹表达式的乘积&lt;/li&gt;
+      &lt;li&gt;非正常量和凸表达式的乘积&lt;/li&gt;
+      &lt;li&gt;凸表达式取反&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;任何不符合以上规则的表达式都会被CVX禁止，尽管它可能是凸的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;涉及到矩阵时以其中的元素作为考量。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;不支持非标量之间的乘法&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;例如： &lt;code class=&quot;highlighter-rouge&quot;&gt;x*sqrt{x}&lt;/code&gt; 不被接受，但可以用 &lt;code class=&quot;highlighter-rouge&quot;&gt;pow_p(x, 3/2)&lt;/code&gt; 替代。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;5. 函数&lt;/h3&gt;
+
+&lt;p&gt;CVX中的函数有2个特征：曲度(curvature)和单调性。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;变量必须在函数的隐含定义域中。只需定义用户自定的定义域。
+  例如，不用为添加$x\ge0$的约束。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CVX判断凹凸时不考虑隐含的定义域或者自定的定义域，在定义域外为$+\inf$的被认为是凸，反之为凹。&lt;/p&gt;
+
+    &lt;p&gt;例如：$\frac{1}{x} \quad s.t. x \ge 1$ 不被CVX认为是凸的，尽管它事实上是。解决方法是将$x &amp;lt; 0$ 的区域的函数值定义为$+\inf$，可以用CVX的函数 &lt;code class=&quot;highlighter-rouge&quot;&gt;inv_pos(x)&lt;/code&gt; 来完成。反之， &lt;code class=&quot;highlighter-rouge&quot;&gt;-inv_pos(-x)&lt;/code&gt; 将表示凹的版本。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CVX判断单调性时不考虑定义域，比如$\sqrt{x}$在$x &amp;lt; 0$的区域任然被认为是非减的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;多元函数的凹凸性是由所有变量联合决定的，但单调性可以按每个变量来讨论。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;有些多元函数仅对一部分参数是凸的，凹的，仿射的，此时其他参数必须设为常数。比如：&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;norm(x, p) \quad s.t. \quad p \ge 1&lt;/script&gt;
+
+    &lt;p&gt;仅仅对$x$是凸的，因此在CVX中$p$必须设为常数。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;函数嵌套：&lt;/p&gt;
+
+    &lt;p&gt;凸函数、凹函数、仿射函数可以接受一个仿射表达式，结果相应为凸、凹、仿射的。&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;当已知 &lt;em&gt;函数为凸&lt;/em&gt; 和函数对于各个参数的单调性时：&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;函数对于某参数不减：这个参数必须是凸的&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;函数对于某参数不增：这个参数必须是凹的&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;函数对于某参数不减不增：这个参数必须是仿射的&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;当每个参数都满足以上条件，这个函数就是凸的并且可以被CVX接受。函数为凹时第1，2条相反，第3条相同。&lt;/p&gt;
+
+    &lt;p&gt;例如：&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;max(abs(x))&lt;/code&gt;，其中&lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;时向量。&lt;code class=&quot;highlighter-rouge&quot;&gt;max&lt;/code&gt;函数是凸的并且对于任一参数不减，并且&lt;code class=&quot;highlighter-rouge&quot;&gt;abs&lt;/code&gt;函数也是凸的，因此整体是凸的。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sum(sqrt(x))&lt;/code&gt;，因为&lt;code class=&quot;highlighter-rouge&quot;&gt;sum&lt;/code&gt;函数是仿射且不减的，而&lt;code class=&quot;highlighter-rouge&quot;&gt;sqrt&lt;/code&gt;是凹的，因此整体为凹。同理&lt;code class=&quot;highlighter-rouge&quot;&gt;sum(square(x))&lt;/code&gt;是凸的。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;非线性嵌套的单调性&lt;/p&gt;
+
+    &lt;p&gt;因为很多凸函数在定义域上没有单调性，因此不能直接使用（自行定义定义域也不行）。CVX的很多函数有2种形式，一种是原始的，一种是在固定定义域有单调性的。例如：
+  &lt;code class=&quot;highlighter-rouge&quot;&gt;square_pos()&lt;/code&gt;
+  &lt;code class=&quot;highlighter-rouge&quot;&gt;sum_square_pos()&lt;/code&gt;
+  &lt;code class=&quot;highlighter-rouge&quot;&gt;quad_pos_over_lin()&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;关于平方&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;事实上，CVX原本并不支持平方表达式，但CVX将自动识别以下几种边的表达式&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;$x . * x$&lt;/li&gt;
+  &lt;li&gt;$conj( x ) . * x$&lt;/li&gt;
+  &lt;li&gt;$y’ * y$&lt;/li&gt;
+  &lt;li&gt;$(A * x - b)’ * Q * (Ax-b)$&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;并将其转为相应的可接受的形式：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sum_square_abs( y )&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sum_square_abs( y )&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sum_square_abs( y )&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;quad_form( A * x - b, Q )&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;CVX建议尽量少用平方，因为平方是平滑的，它一般是作为非平滑的真实目标函数的替代，然而CVX本身支持很多的非平滑函数。因此使用非平方可以更加精确。例如： &lt;code class=&quot;highlighter-rouge&quot;&gt;sum( ( A * x - b ) . ^ 2 ) &amp;lt;= 1&lt;/code&gt; 可以用 &lt;code class=&quot;highlighter-rouge&quot;&gt;norm( A * x - b )&amp;lt;= 1&lt;/code&gt; 替代，也就是欧式范数。&lt;/p&gt;</content><author><name>icbcbicc</name></author><category term="convex optimization" /><summary>The DCP Ruleset</summary></entry><entry><title>Sparse Reconstruction Cost for Abnormal Event Detection</title><link href="http://icbcbicc.github.io/2016/10/23/Sparse-Reconstruction-Cost-for-Abnormal-Event-Detection/" rel="alternate" type="text/html" title="Sparse Reconstruction Cost for Abnormal Event Detection" /><published>2016-10-23T00:00:00+08:00</published><updated>2016-10-23T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/23/Sparse Reconstruction Cost for Abnormal Event Detection</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/23/Sparse-Reconstruction-Cost-for-Abnormal-Event-Detection/">&lt;h1 id=&quot;sparse-reconstruction-cost-for-abnormal-event-detection&quot;&gt;Sparse Reconstruction Cost for Abnormal Event Detection&lt;/h1&gt;
+&lt;p&gt;Authors: &lt;em&gt;Yang Cong, Junsong Yuan, Ji Liu&lt;/em&gt;&lt;br /&gt;
+&lt;a href=&quot;http://www.cs.rochester.edu/~jliu/paper/Cong-Yuan-CVPR11.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;conventional-algorithms&quot;&gt;Conventional Algorithms&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Probability Model&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Detect testing sample with lower probability as anormaly by fitting a probability model to the training data. However, the required number of training data increases exponentially with the feature dimension, and it’s unrealistic to collect enough data for density estimation in practice&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;sparse-reconstruction-cost-src&quot;&gt;Sparse Reconstruction Cost (SRC)&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;We propose SRC based on the weighted $l_1$ minimization.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Normal event: generate sparse reconstruction coefficients with a &lt;strong&gt;small SRC&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Abnormal events: generate a dense representation with a &lt;strong&gt;large SRC&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;types-of-abnormal-events&quot;&gt;2 types of abnormal events:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Local abnormal event (LAE)&lt;/p&gt;
+
+    &lt;p&gt;The local behavior is different from its spatio temporal neighborhoods&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Global abnormal event (GAE)&lt;/p&gt;
+
+    &lt;p&gt;The whole scene is abnormal, even though any individual lcoal behavior can be normal&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;New dictionary selection method&lt;/p&gt;
+
+    &lt;p&gt;Reduce the size of the basis set $\phi$ for an efficient reconstruction&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Sparse Reconstruction Cost for Abnormal Event Detection
+Authors: Yang Cong, Junsong Yuan, Ji Liu
+PDF</summary></entry><entry><title>Machine Learning (Zhihua Zhou) Notes 03</title><link href="http://icbcbicc.github.io/2016/10/16/machine_learning-_zhihua_zhou_notes_03/" rel="alternate" type="text/html" title="Machine Learning (Zhihua Zhou) Notes 03" /><published>2016-10-16T00:00:00+08:00</published><updated>2016-10-16T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/16/machine_learning _zhihua_zhou_notes_03</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/16/machine_learning-_zhihua_zhou_notes_03/"></content><author><name>icbcbicc</name></author><category term="machine learning" /><summary></summary></entry><entry><title>Machine Learning (Zhihua Zhou) Notes 02</title><link href="http://icbcbicc.github.io/2016/10/15/machine_learning-_zhihua_zhou_notes_02/" rel="alternate" type="text/html" title="Machine Learning (Zhihua Zhou) Notes 02" /><published>2016-10-15T00:00:00+08:00</published><updated>2016-10-15T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/15/machine_learning _zhihua_zhou_notes_02</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/15/machine_learning-_zhihua_zhou_notes_02/">&lt;h2 id=&quot;section&quot;&gt;3. 线性模型&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;3.2 线性回归&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;基本概念&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;线性回归：用线性模型拟合目标函数。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;均方误差：线性回归中常用的性能度量，它的几何意义是欧几里得距离(Euclidean distance)。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;最小二乘法(least square method)：基于均方误差最小化来求解模型的方法。几何意义是在目标空间中找到一个超平面，使样本点到该平面的欧式距离之和最小。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;多元线性回归(multivariate linear regression)&lt;/p&gt;
+
+    &lt;p&gt;求最优$\hat{\omega}$使目标函数$E_\hat{\omega}$最小:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;E_\hat{\omega} = (y-X\hat{\omega})^T(y-X\hat{\omega})&lt;/script&gt;
+
+    &lt;p&gt;对$\hat{\omega}$求导：&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\partial E_{\hat{\omega}}}{\partial \hat{\omega}} = 2X^T(X\hat{\omega}-y)&lt;/script&gt;
+
+    &lt;p&gt;当$X^TX$是满秩矩阵(full-rank matrix)或正定矩阵(positive definite matrix)时，可直接求得最优解：&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{\omega} = (X^TX)^{-1}X^Ty&lt;/script&gt;
+
+    &lt;p&gt;最终模型：&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x_i) = x_i^T(X^TX)^{-1}X^Ty&lt;/script&gt;
+
+    &lt;p&gt;然而当$X^TX$不是满秩矩阵时，$X$的列数多于行数，也就是特征数比样本数多。此时方程有多个最优解，需要引入正则化(regularization)来选择一个$\hat{\omega}$。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;广义线性模型(generalized linear model)&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;y = g^{-1}(\omega^Tx+b)&lt;/script&gt;
+
+    &lt;p&gt;其中，$g(.)$是单调可微函数。称之为联系函数(link function)&lt;/p&gt;
+
+    &lt;p&gt;较长用的联系函数是$ln(.)$，此时称之为对数线性回归(log-linear regression)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对数几率回归(logistic regression)&lt;/p&gt;
+
+    &lt;p&gt;用于分类任务，将输出映射到${0,1}$的集合上。&lt;/p&gt;
+
+    &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;y = \frac{1}{1+e^{-(\omega^Tx+b)}}&lt;/script&gt;
+  $\to$
+  &lt;script type=&quot;math/tex&quot;&gt;ln\frac{y}{1-y} = \omega^Tx+b&lt;/script&gt;&lt;/p&gt;
+
+    &lt;p&gt;若将$y$视为取正例的概率，则$1-y$为取反例的概率。&lt;/p&gt;
+
+    &lt;p&gt;$\frac{y}{1-y}$称为&lt;strong&gt;几率(odds)&lt;/strong&gt;，反映了相对可能性。&lt;/p&gt;
+
+    &lt;p&gt;$ln\frac{y}{1-y}$称为&lt;strong&gt;对数几率(logit)&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;可通过&lt;strong&gt;极大似然法(maximum likeihood method)&lt;/strong&gt;估计最优解：&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;l(\omega,b) = \sum_{i=1}^{m}ln\{p(y_i|x_i;\omega;b)\}&lt;/script&gt;
+
+    &lt;p&gt;$=$&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i=1}^{m}ln\{y_ip(y=1|x_i;\omega;b)+(1-y_i)p(y=0|x_i;\omega;b)\}&lt;/script&gt;
+
+    &lt;p&gt;$=$&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i=1}^{m}(-y_i(\omega;b)^Tx_i+ln(1+e^{(\omega;b)^T}x_i))&lt;/script&gt;
+
+    &lt;p&gt;此式为关于$(\omega;b)$高阶可导连续凸函数。可用&lt;strong&gt;梯度下降、牛顿法&lt;/strong&gt;进行求解。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;linear-discriminant-analysisldafisher&quot;&gt;3.4 线性判别分析(Linear Discriminant Analysis，LDA，亦称Fisher判别分析)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;主要思想：将共有$N$类的样本投影到一个$N-1$维的空间，使同类的投影点接近，不同类的投影点相互远离。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;指标&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;$X_i,\mu_i,\Sigma_i$分别为第$i$类的样本点、均值向量、协方差矩阵。$\mu$为所有样本的均值向量。假设共$N$类，第$i$类有$m_i$个样本，共$m$个样本。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;全局散度矩阵：&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;S_t = S_b+S_w = \sum_{i=1}^m (x_i-\mu)(x_i-\mu)^T&lt;/script&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;类内散度矩阵：&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;S_w = \sum_{i=1}^N S_{w_i} = \sum_{i=1}^N \sum_{x\in X_i}(x-\mu)(x-\mu)^T&lt;/script&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;类间散度矩阵：&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;S_b = S_t-S_w = \sum_{i=1}^N m_i(\mu_i-\mu)(\mu_i-\mu)^T&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;优化：&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;可使用$S_t,S_w,S_b$中的任意2个指标进行优化。常用的优化目标是：&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;max\frac{tr(W^TS_bW)}{tr(W^TS_wW)} \quad s.t. \quad W \in R^{d \times (N-1)}&lt;/script&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;此式可以通过&lt;strong&gt;拉格朗日乘子法&lt;/strong&gt;转化为广义特征值问题：&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;S_bW = \lambda S_wW&lt;/script&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;$W$的闭式解：&lt;strong&gt;$S_w^{-1}S_b$的$N-1$个最大广义特征值所对应的特征向量&lt;/strong&gt;组成的矩阵。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;3.5 多分类学习&lt;/h3&gt;
+
+&lt;p&gt;将多分类任务拆分为多个2分类任务&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;拆分策略&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;一对一(One vs. One, OvO)：共$N(N-1)/2$个分类器&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;一对多(One vs. Rest, OvR)：共$N$个分类器。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;多对多(Many vs. Many, MvM)&lt;/p&gt;
+
+    &lt;p&gt;用、纠错输出码(Error Correcting Output Codes, EOOC)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;对数据进行$M$次划分，得到$M$组{训练集，测试集}，从而得到$M$个分类器。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;对每个样本，分别用$M$个分类器分类，这些预测标记组成一个编码序列。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;将预测编码与每个类别自己的编码(One-hot码)比较，距离(海明距离，欧氏距离)最近的为最终预测结果。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;EOOC对与分类器的错误有一定容忍和修正能力。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;3.6 类别不平衡问题&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;解决方案&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;再缩放(rescaling)：$\frac{y}{1-y}&amp;gt;\frac{m^+}{m+-}$：预测为正例。其中$m^+,m^-$分别为正例、反例的数目。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;欠采样(undersampling):去除一部分样本使得样本平衡&lt;/p&gt;
+
+    &lt;p&gt;将类别较多的样本划分为几个集合，形成多组{训练集，测试集}分别学习。虽然每组是欠采样，但全局上却没有欠采样，充分利用了数据。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;过采样(oversampling):增加一部分样本使得样本平衡&lt;/p&gt;
+
+    &lt;p&gt;不能直接对原有样本进行重复采样，否则将会出现严重的过拟合。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;4.决策树&lt;/h2&gt;
+
+&lt;p&gt;TODO：信息增益、增益率、基尼指数、剪枝、连续值处理、多变量决策树（斜划分）&lt;/p&gt;</content><author><name>icbcbicc</name></author><category term="machine learning" /><summary>3. 线性模型</summary></entry><entry><title>Machine Learning (Zhihua Zhou) Notes 01</title><link href="http://icbcbicc.github.io/2016/10/14/machine_learning_zhihua_zhou_notes_01/" rel="alternate" type="text/html" title="Machine Learning (Zhihua Zhou) Notes 01" /><published>2016-10-14T00:00:00+08:00</published><updated>2016-10-14T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/10/14/machine_learning_zhihua_zhou_notes_01</id><content type="html" xml:base="http://icbcbicc.github.io/2016/10/14/machine_learning_zhihua_zhou_notes_01/">&lt;h1 id=&quot;section&quot;&gt;周志华《机器学习》笔记-01&lt;/h1&gt;
 
 &lt;h2 id=&quot;section-1&quot;&gt;2. 模型的评估与选择&lt;/h2&gt;
 
@@ -347,31 +843,70 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;em&gt;数据预处理，获得低级表达&lt;/em&gt;
     &lt;ul&gt;
-      &lt;li&gt;histogram of optical flow (HOF)&lt;/li&gt;
-      &lt;li&gt;spatiotemporal gradient&lt;/li&gt;
-      &lt;li&gt;social force model&lt;/li&gt;
-      &lt;li&gt;chaotic invariant&lt;/li&gt;
+      &lt;li&gt;Histogram of optical flow (HOF)&lt;/li&gt;
+      &lt;li&gt;Muti-scale histogram of optical flow (MHOF)&lt;/li&gt;
+      &lt;li&gt;Histogram of optical flow orientation (HOFO)&lt;/li&gt;
+      &lt;li&gt;Spatio-temporal gradient&lt;/li&gt;
+      &lt;li&gt;3D Spatio-temporal foreground mask&lt;/li&gt;
+      &lt;li&gt;Binary features&lt;/li&gt;
+      &lt;li&gt;Backgroud segregation (Foreground detection)&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;Mixure of optical flow (MPPCA, temporal features)&lt;/li&gt;
+      &lt;li&gt;MPPCA+SF&lt;/li&gt;
+      &lt;li&gt;Mixtures of dynamic textures (MDT, spatial and temporal features)&lt;/li&gt;
+      &lt;li&gt;Chaotic invariant&lt;/li&gt;
+      &lt;li&gt;Social force model (SF, spatial features)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;对低级表达进行抽象，得到中级表达
     &lt;ul&gt;
-      &lt;li&gt;dimensionality reduction(PCA, ICA, clustering)&lt;/li&gt;
-      &lt;li&gt;sparse coding&lt;/li&gt;
-      &lt;li&gt;gaussian mixture model&lt;/li&gt;
-      &lt;li&gt;mixtures of dynamic textures&lt;/li&gt;
-      &lt;li&gt;hiden Markov model&lt;/li&gt;
-      &lt;li&gt;Markov random field&lt;/li&gt;
-      &lt;li&gt;latent Dirichlet allocation&lt;/li&gt;
-      &lt;li&gt;deep learning&lt;/li&gt;
+      &lt;li&gt;Sparse coding
+        &lt;ol&gt;
+          &lt;li&gt;Low rank dictoinary (SparseLR)&lt;/li&gt;
+          &lt;li&gt;Compact regularization (SparseCR)&lt;/li&gt;
+          &lt;li&gt;LR+CR&lt;/li&gt;
+          &lt;li&gt;Weighted sparse representation (SparseW)&lt;/li&gt;
+          &lt;li&gt;Sparse combination learning (SCL, 150fps matlab)&lt;/li&gt;
+          &lt;li&gt;Large scale dictionary selection (LSDS)&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;Hiden Markov model (HMM)&lt;/li&gt;
+      &lt;li&gt;Markov random field (MRF, Saligrama)&lt;/li&gt;
+      &lt;li&gt;Mixture of probabilistic principle component analysis(MPPCA)&lt;/li&gt;
+      &lt;li&gt;Dimensionality reduction(PCA, ICA, clustering)&lt;/li&gt;
+      &lt;li&gt;Gaussian mixture model&lt;/li&gt;
+      &lt;li&gt;Latent Dirichlet allocation&lt;/li&gt;
+      &lt;li&gt;Deep learning&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;对这些表达进行评估，检测出异常（本文所关注的重点）
     &lt;ul&gt;
-      &lt;li&gt;reconstruction error&lt;/li&gt;
-      &lt;li&gt;prediction error&lt;/li&gt;
-      &lt;li&gt;rarity index&lt;/li&gt;
-      &lt;li&gt;information content&lt;/li&gt;
-      &lt;li&gt;density-based scoring&lt;/li&gt;
+      &lt;li&gt;Sparse rconstruction error (SRC)&lt;/li&gt;
+      &lt;li&gt;Incremental coding lenth (ICL, entropy gain)&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;Prediction error&lt;/li&gt;
+      &lt;li&gt;Rarity index&lt;/li&gt;
+      &lt;li&gt;Information content&lt;/li&gt;
+      &lt;li&gt;Density-based scoring&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;按使用场景分类 (TODO)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Crowded scenario
+    &lt;ul&gt;
+      &lt;li&gt;Binary features based on back ground model&lt;/li&gt;
+      &lt;li&gt;3D Spatio-temporal foreground mask fusing Markov Random Field&lt;/li&gt;
+      &lt;li&gt;Trajectory-based approaches&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Uncrowded scenario
+    &lt;ul&gt;
+      &lt;li&gt;Local abnormal event&lt;/li&gt;
+      &lt;li&gt;Global abnormal event&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -1029,661 +1564,4 @@ PDF</summary></entry><entry><title>Online Detection of Unusual Events in Videos 
 
 &lt;p&gt;####&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>Online Detection of Unusual Events in Videos via Dynamic Sparse Coding
 Authors: Bin Zhou, Li Fei-Fei, Eric P. Xing
-PDF</summary></entry><entry><title>Sparse Reconstruction Cost for Abnormal Event Detection</title><link href="http://icbcbicc.github.io/2016/09/17/Sparse-Reconstruction-Cost-for-Abnormal-Event-Detection/" rel="alternate" type="text/html" title="Sparse Reconstruction Cost for Abnormal Event Detection" /><published>2016-09-17T00:00:00+08:00</published><updated>2016-09-17T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/17/Sparse Reconstruction Cost for Abnormal Event Detection</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/17/Sparse-Reconstruction-Cost-for-Abnormal-Event-Detection/">&lt;h1 id=&quot;sparse-reconstruction-cost-for-abnormal-event-detection&quot;&gt;Sparse Reconstruction Cost for Abnormal Event Detection&lt;/h1&gt;
-&lt;p&gt;Authors: &lt;em&gt;Yang Cong, Junsong Yuan, Ji Liu&lt;/em&gt;&lt;br /&gt;
-&lt;a href=&quot;http://www.cs.rochester.edu/~jliu/paper/Cong-Yuan-CVPR11.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;conventional-algorithms&quot;&gt;Conventional Algorithms&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Probability Model&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;Detect testing sample with lower probability as anormaly by fitting a probability model to the training data. However, the required number of training data increases exponentially with the feature dimension, and it’s unrealistic to collect enough data for density estimation in practice&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;sparse-reconstruction-cost-src&quot;&gt;Sparse Reconstruction Cost (SRC)&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;We propose SRC based on the weighted $l_1$ minimization.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Normal event: generate sparse reconstruction coefficients with a &lt;strong&gt;small SRC&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Abnormal events: generate a dense representation with a &lt;strong&gt;large SRC&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;types-of-abnormal-events&quot;&gt;2 types of abnormal events:&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Local abnormal event (LAE)&lt;/p&gt;
-
-    &lt;p&gt;The local behavior is different from its spatio temporal neighborhoods&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Global abnormal event (GAE)&lt;/p&gt;
-
-    &lt;p&gt;The whole scene is abnormal, even though any individual lcoal behavior can be normal&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;New dictionary selection method&lt;/p&gt;
-
-    &lt;p&gt;Reduce the size of the basis set $\phi$ for an efficient reconstruction&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Sparse Reconstruction Cost for Abnormal Event Detection
-Authors: Yang Cong, Junsong Yuan, Ji Liu
-PDF</summary></entry><entry><title>Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary</title><link href="http://icbcbicc.github.io/2016/09/16/Sparse-and-Redundant-Modeling-of-Image-Content-Using-an-Image-Signature-Dictionary/" rel="alternate" type="text/html" title="Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary" /><published>2016-09-16T00:00:00+08:00</published><updated>2016-09-16T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/16/Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/16/Sparse-and-Redundant-Modeling-of-Image-Content-Using-an-Image-Signature-Dictionary/">&lt;h1 id=&quot;sparse-and-redundant-modeling-of-image-content-using-an-image-signature-dictionary&quot;&gt;Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary&lt;/h1&gt;
-&lt;p&gt;Authors: &lt;em&gt;Michal Aharon and Michael Elad&lt;/em&gt;&lt;br /&gt;
-&lt;a href=&quot;http://epubs.siam.org/doi/pdf/10.1137/07070156X&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;introduction-of-sparse-representation&quot;&gt;Introduction of Sparse Representation&lt;/h2&gt;
-
-&lt;h4 id=&quot;background&quot;&gt;Background&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;In sparse and redundant modeling, a signal $y \in R^n$ is represented as a linear combination of some atoms taken from a dictionary $D \in R^{n*m}$ which contains $m$ atoms $d_i \in R^n$. A representation of the signal $y$ is then any vector $x \in R^n$ satisfying $y = Dx$&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;$m &amp;gt; n$: the representation is &lt;strong&gt;&lt;em&gt;redundant&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The solutions to $y = Dx$ are infinite and we prefer the sparest one, i.e, &lt;strong&gt;&lt;em&gt;the one with the smallest ${||x||}_0$&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The task of &lt;strong&gt;&lt;em&gt;computing a representation&lt;/em&gt;&lt;/strong&gt; of a signal can be formly described by&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;min_x{\|x\|}_0 \qquad s.t. \qquad y=Dx&lt;/script&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;However, the &lt;strong&gt;&lt;em&gt;constrait above is often relaxed&lt;/em&gt;&lt;/strong&gt; and replaced by ${||y-Dx||}_2 \le \epsilon$. This allows for additive noise and model deviations&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;problem&quot;&gt;Problem&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Solving this problem was proved to be an &lt;strong&gt;NP-hard&lt;/strong&gt; problem&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Two approximation techniques :&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Matching-pursuit (MP) methods that ﬁnd the solution one entry at a time in a greedy way&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Basis-pursuit (BP) algorithm that replaces the $L_0$ norm by the $L_1$ norm&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Two types of dictionary&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Prespeciﬁed dictionaries&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Dictionaries obtained by learning procedure&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;this-paper&quot;&gt;This paper&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;The &lt;strong&gt;image-signature-dictionary&lt;/strong&gt; (ISD), is an 2D image in which each patch can serve as a representing atom&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;A near shift-invariant property is obtained, due to the &lt;strong&gt;overlap between atoms&lt;/strong&gt; extracted from the ISD in nearby locations&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;By &lt;strong&gt;taking patches of varying sizes&lt;/strong&gt;, near scale-invariance is potentially obtained and exploited&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;the-structure-of-isd&quot;&gt;The Structure of ISD&lt;/h2&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;y = \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}C_{[k,l]}d_s = Dx&lt;/script&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;$D_s \in R^{\sqrt{m}*\sqrt{m}} : $ signature dictionary&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;$y’ \in R^{\sqrt{n}*\sqrt{n}} : $ imasge patch and its single column form $y \in R^n$&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;$d_s \in R^m : $  a vector obtained by a column lexicographic ordering of the ISD&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;$C_{[k,l]} : $ the linear operator that extract a patch of size $\sqrt{n}*\sqrt{n}$ from the $D_s$ in location $[k,l]$&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;$C_{[k,l]}d_s : $ the extracted patch as a column vector&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;$x$ is the concatenation of the $m$ coeﬃcients in the array $x_{[k,l]}$&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;isd-training&quot;&gt;ISD Training&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;energy-function&quot;&gt;Energy Function&lt;/h4&gt;
-
-&lt;p&gt;We assume that each patch is represented by a &lt;strong&gt;ﬁxed number of atoms&lt;/strong&gt;, L. The &lt;strong&gt;energy function&lt;/strong&gt; that the ISD is expected to minimize :&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{d_s} = Arg min_{d_s} \sum_{i=1}^N \epsilon_i^2(d_s)&lt;/script&gt;
-
-&lt;p&gt;s.t.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\epsilon_i^2(d_s) = min_x {\|y_i-\sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}C_{[k,l]}d_s\|}_2^2&lt;/script&gt;
-
-&lt;p&gt;s.t.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;{\|x\|}_0 \le L,\qquad 1 \le i \le N&lt;/script&gt;
-
-&lt;h4 id=&quot;two-stages-in-training&quot;&gt;Two stages in training&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;The sparse coding stage: find $\hat{x_i}$&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;Assuming that $d_s$ is known and ﬁxed, we can solve the &lt;strong&gt;inner optimization problem&lt;/strong&gt; and ﬁnd the sparsest representation $\hat{x_i}$ for each example $y_i$&lt;/p&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{x_i} = Argmin_x {\|y_i-\sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}C_{[k,l]}d_s\|}_2^2 \qquad s.t. \qquad \|x_o\| \le L&lt;/script&gt;
-
-    &lt;p&gt;This problem can be solved by any &lt;strong&gt;pursuit algorithm&lt;/strong&gt;, such as a greedy method——&lt;strong&gt;the orthogonal matching pursuit&lt;/strong&gt; (OMP)&lt;/p&gt;
-
-    &lt;p&gt;The OMP selects at each stage an atom from the dictionary that best resembles the residual. After each such selection, the signal is back-projected onto the set of chosen atoms, and the new residual signal is calculated &lt;strong&gt;&lt;em&gt;(Don’t understand)&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Dictionary update stage: $\hat{d_s}$&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;Assuming that the sparse representation vectors $\hat{x_i}$ have been computed, we seek the best ISD $d_s$ to minimize:&lt;/p&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;E(d_s) = \sum_{i=1}^N {\|y_i-\sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]}d_s\|}_2^2&lt;/script&gt;
-
-    &lt;p&gt;The &lt;strong&gt;gradient of the error expression&lt;/strong&gt;:&lt;/p&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\partial E(d_s)}{\partial d_s} = Rd_s - p&lt;/script&gt;
-
-    &lt;p&gt;where&lt;/p&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;R = \sum_{i=1}^N {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]} \rgroup}^T * {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]} \rgroup} \in R^{m*m}&lt;/script&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;p = \sum_{i=1}^N {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]} \rgroup}^T*y_i \in R^m&lt;/script&gt;
-
-    &lt;p&gt;Thus, the &lt;strong&gt;optimal ISD&lt;/strong&gt; is obtained simply by:&lt;/p&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{d_s} = R^{-1}p&lt;/script&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Stochastic gradient appoach (SG)&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;The algorithm above updates the $x_i$ for all examples {y_i}_{i=1}^N and then updates the ISD&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Another way is to update the ISD after the computation of each $x_i$ (SG):&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{d_s^{new}} = \hat{d_s^{lod}} - \mu \frac{\partial E(d_s^{lod})}{\partial d_s^{lod}} = \hat{d_s^{lod}} - \mu {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]} \rgroup}^T {\lgroup \sum_{k=1}^{\sqrt{m}}\sum_{l=1}^{\sqrt{m}}x_{[k,l]}^iC_{[k,l]}\hat{d_s^{old}}-y_i \rgroup}&lt;/script&gt;
-
-    &lt;p&gt;The step-size parameter $\mu$ is typically set as $\mu = \frac{\mu_0}{Iteration}$&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;treatment-of-the-mean&quot;&gt;Treatment of the mean&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Remove the mean in training and testing data&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Redefine the $C_{[k,l]}$ to also remove the mean of the extrated patch&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Sparse and Redundant Modeling of Image Content Using an Image-Signature-Dictionary
-Authors: Michal Aharon and Michael Elad
-PDF</summary></entry><entry><title>Abnormal Event Detection at 150 FPS in MATLAB</title><link href="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/" rel="alternate" type="text/html" title="Abnormal Event Detection at 150 FPS in MATLAB" /><published>2016-09-04T00:00:00+08:00</published><updated>2016-09-04T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/04/Abnormal Event Detection at 150 FPS in MATLAB</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/04/Abnormal-Event-Detection-at-150-FPS-in-MATLAB/">&lt;h1 id=&quot;abnormal-event-detection-at-150-fps-in-matlab&quot;&gt;Abnormal Event Detection at 150 FPS in MATLAB&lt;/h1&gt;
-
-&lt;p&gt;Authors: &lt;em&gt;Cewu Lu, Jianping Shi, Jiaya Jia&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.cv-foundation.org/openaccess/content_iccv_2013/papers/Lu_Abnormal_Event_Detection_2013_ICCV_paper.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;h4 id=&quot;difficulties-in-detecting-abnormal-events-based-on-surveillance-videos&quot;&gt;Difficulties in detecting abnormal events based on surveillance videos&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Hard to list all possible negative samples&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;traditional-method&quot;&gt;Traditional method&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Normal patterns are learned from training&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;And then the patterns are used to detect events deviated from this representation&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;other-methods&quot;&gt;Other methods&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Trajectories extracted from object-of-interest are used as normal patterns&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Learn normal low-level video feature distributions(exponential, multivariate Gaussian mixture, clustering)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Graph model normal event representations which use co-occurrence patterns&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;sparsity-based model(not fast enough for realtime processing due to the inherently intensive computation to build sparse representation)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;sparsity-based-abnormality-detection&quot;&gt;Sparsity Based Abnormality Detection&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Sparsity:  A general constraint to model normal event patterns as a linear combination of a set of basis atoms&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Computationally expensive&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;min\|x-D\beta\|^2_2 \qquad s.t. \qquad \|\beta\|_0 \le s&lt;/script&gt;
-
-    &lt;p&gt;$\beta$ : parse coefficients&lt;/p&gt;
-
-    &lt;p&gt;$|x-D\beta|^2_2 $ :data fitting term&lt;/p&gt;
-
-    &lt;p&gt;$|\beta|_0$ : sparsity regulization term&lt;/p&gt;
-
-    &lt;p&gt;$s$ : parameter to control sparsity&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;&lt;em&gt;&lt;font color=&quot;#9932CC&quot;&gt;abnormal pattern&lt;/font&gt;&lt;/em&gt;&lt;/strong&gt;: large error result from $|x-D\beta|^2_2$&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;font color=&quot;#9932CC&quot;&gt;Efficiency problem&lt;/font&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Adopting $min|x-D\beta|^2_2$ is time-consuming :&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;ﬁnd the suitable basis vectors&lt;/strong&gt; (with scale $s$) from the dictionary (with scale $q$) to represent testing data $x$&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Search space is large &lt;strong&gt;( $(^q_s)$ different combinations )&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;font color=&quot;#9932CC&quot;&gt;Our contribution&lt;/font&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Instead of coding sparsity by ﬁnding an $s$ basis combination from $D$ in $min|x-D\beta|^2_2$, we code it directly &lt;strong&gt;as a set of possible combinations of basis vectors&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;We only need to ﬁnd the most suitable combination by evaluating &lt;strong&gt;the small-scale least square error&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/img/3.JPG&quot; alt=&quot;Our testing architecture&quot; /&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Freely selecting $s$ basis vectors from a total of $q$ vectors, the reconstructed structure could deviate from input due to the &lt;strong&gt;large freedom&lt;/strong&gt;. However, in our method, &lt;strong&gt;&lt;font color=&quot;#9932CC&quot;&gt;each combination ﬁnds its corresponding input data&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;It reaches 140∼150 FPS using a desktop with 3.4GHz CPU and 8G memory in MATLAB 2012.&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;methods&quot;&gt;Methods&lt;/h2&gt;
-
-&lt;h4 id=&quot;learning-combinations-on-training-data&quot;&gt;Learning Combinations on Training Data&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Preprocess&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Resize each frame into different scales as “&lt;a href=&quot;http://101.110.118.63/www3.ntu.edu.sg/home/jsyuan/index_files/papers/Cong-Yuan-CVPR11.pdf&quot;&gt;Sparse Reconstruction Cost for Abnormal Event Detection&lt;/a&gt;”&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Uniformly partition each layer to a set of non-overlapping patches. All patches have the same size&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Corresponding regions in 5 continuous frames are stacked together to form a spatial-temporal cube.&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;img src=&quot;/img/4.JPG&quot; alt=&quot;Resize&quot; /&gt;&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;This pyramid involves &lt;strong&gt;local information&lt;/strong&gt; in ﬁne-scale layers and more &lt;strong&gt;global structures&lt;/strong&gt; in small-resolution ones.&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;With the spatial-temporal cubes, we compute &lt;strong&gt;3D gradient features&lt;/strong&gt; on each of them following “&lt;a href=&quot;https://www.cs.drexel.edu/~kon/publication/LKratz_CVPR09.pdf&quot;&gt;Anomaly Detection in Extremely Crowded Scenes Using Spatio-Temporal Motion Pattern Models&lt;/a&gt;”&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Features are processed separately according to their spatial coordinates. &lt;strong&gt;Only features at the same spatial location in the video frames are used together&lt;/strong&gt; for training and testing.&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Learning Combinations on Training Data&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;3D gradient features&lt;/strong&gt; in all frames gathered temporally for training are denoted as &lt;script type=&quot;math/tex&quot;&gt;X=\{x_1, x_2, ..., x_n\} \in R^{p*n}&lt;/script&gt;. Each $x_i$ has $p$ features and there are $n$ $x_i$ in the $X$&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Our goal is to &lt;strong&gt;find a sparse basis combination set&lt;/strong&gt; &lt;script type=&quot;math/tex&quot;&gt;S=\{S_1, S_2, ..., S_K\}&lt;/script&gt; with each $S_i \in R^{p*s}$. Each $S_i$ combines $s$ dictionary basis vectors and each basis vector has $p$ features which correspond to the features in $x_i$. Each $S_i$ belongs to a closed, convex and bounded set, which ensures column-wise unit norm to &lt;strong&gt;prevent over-ﬁtting&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Reconstruction Error&lt;/strong&gt;
- 	&lt;script type=&quot;math/tex&quot;&gt;t=min_{s,\gamma,\beta}\sum_{j=1}^n\sum_{i=1}^K\gamma_j^i\|x_j-S_i\beta_j^i\|_2^2 \quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}&lt;/script&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Each $\gamma_j^i$ indicates whether or not the $i^{th}%$ combination $S_i$ is chosen for data $x_j$ and &lt;strong&gt;only one combination $S_i$ is selected for each $x_j$&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;$K$ must be small enough&lt;/strong&gt; because a very large $K$ could possibly make the reconstruction error $t$ always close to zero&lt;strong&gt;(Don’t understand)&lt;/strong&gt;, even for abnormal events. However, we want the errors to be larger for abnormal events&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Optimization for Training&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Problem : Reducing $K$ could increase reconstruction errors $t$&lt;/strong&gt;. And it is not optimal to ﬁx $K$ as well, as content may vary among videos&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Solution :&lt;/strong&gt;  A maximum representation strategy. It &lt;strong&gt;automatically ﬁnds $K$ while not wildly increasing the reconstruction error $t$&lt;/strong&gt;. In fact, error $t$ for each training feature is upper bounded in our method&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Updated function&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;t_j=\sum_{i=1}^K\gamma_j^i \{ \|x_j-S_i\beta_j^i \|_2^2 -\lambda \} \le 0,\quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}&lt;/script&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;$\lambda :$  We obtain a set of combinations with a small $K$ by setting a reconstruction error upper bound $\lambda$ uniformly for each $S_i$. If $t_j$ is smaller than $\lambda$, the coding result is with good quality&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Algorithm&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;In each pass, we update only one combination&lt;/strong&gt;, making it represent as many training data as possible&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;This process can &lt;strong&gt;quickly ﬁnd the dominating combinations encoding important and most common features&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Remaining training cube features that cannot be well represented by this combination are &lt;strong&gt;sent to the next round to gather residual maximum commonness&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;This process &lt;strong&gt;ends until all training data are computed and bounded&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;The size of combination $K$ reﬂects how informative the training data are&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;In each pass, we &lt;strong&gt;solve the equation above by interatively update ${S_s^i,\beta}$ and $\lambda$&lt;/strong&gt;&lt;/p&gt;
-        &lt;ol&gt;
-          &lt;li&gt;&lt;strong&gt;Update ${S_s^i,\beta}$&lt;/strong&gt; :&lt;/li&gt;
-        &lt;/ol&gt;
-
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;L(\beta,S_i)=\sum_{j \in \Omega_c}\gamma_j^i \{ \|x_j-S_i\beta_j^i \|_2^2 \}&lt;/script&gt;
-
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;\beta_j^i=(S_i^TS_i)^{-1}S_i^Tx_j&lt;/script&gt;
-
-        &lt;p&gt;(Optimize $\beta$ while ﬁxing $S_i$ for all $\gamma_j^i \neq 0$)&lt;/p&gt;
-
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;S_i=\prod[S_i-\delta_t\bigtriangledown_{S_i}L(\beta,S_i)]&lt;/script&gt;
-
-        &lt;p&gt;( Using &lt;strong&gt;block-coordinate descent&lt;/strong&gt;( &lt;a href=&quot;http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf&quot;&gt;Online learning for matrix factorization and sparse coding&lt;/a&gt; and set $\delta = 1E-4$)&lt;/p&gt;
-
-        &lt;ol&gt;
-          &lt;li&gt;&lt;strong&gt;Update $\gamma$&lt;/strong&gt; :&lt;/li&gt;
-        &lt;/ol&gt;
-
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\gamma_j^i = \left\{
-  \begin{aligned}
-  1 \quad &amp; if \quad \|x_j-S_i\beta_j^i \|_2^2 &lt; \lambda ; \\
-  0 \quad &amp; otherwise ;\\
-  \end{aligned}
-  \right . %]]&gt;&lt;/script&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/img/5.JPG&quot; alt=&quot;Algorithm 1&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;The algorithm is controlled by $\lambda$, Reducing it could lead to a larger $K$&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Testing&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;With the learned sparse combinations $S = {S_1, …, S_K}$, in the testing phase with new data $x$, we checki f there exists a combination in $S$ ﬁtting the $\lambda$. It can be quickly achieved by checking the least square error for each $S_i$&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;min_{\beta^i}\|x_j-S_i\beta_j^i \|_2^2 \quad \forall i= 1, ..., K&lt;/script&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;optimal solution :&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{\beta^i}=(S_i^TS_i)^{-1}S_i^Tx&lt;/script&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Reconstruction error in $S_i$ :&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\|x_j-S_i\beta_j^i \|_2^2 = \|((S_i^TS_i)^{-1}S_i^T-I_p)x\|_2^2=\|R_ix\|_2^2&lt;/script&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/img/6.JPG&quot; alt=&quot;Algorithm 2&quot; /&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;It is noted that the ﬁrst a few dominating combinations represent the largest number of normal event features.&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Easy to parallel to achieve $O(1)$ complexity&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Average combination checking ratio $= \frac{The\  number\ of\ combinations\ checked}{The\ total\ number\ K}$&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Relation to Subspace Clustering&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;
-
-&lt;h4 id=&quot;system-settings&quot;&gt;System Settings&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Resize each frame to 3 scales&lt;/strong&gt;: $20*20, 30*40, 120*160$ pixels respectively&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Uniformly &lt;strong&gt;partition each layer to a set of non-overlapping 10×10 patches&lt;/strong&gt; (totaly 208 sub-regions for each frame $\frac{20*30+30*40+120*160}{10*10}=208$ )&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/img/7.JPG&quot; alt=&quot;Patches in 3 scales, each region corresponds to a K&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Corresponding sub-regions in 5 continuous frames are stacked together to form a spatial temporal cube with resolution $10*10*5$&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Compute 3D gradient features&lt;/strong&gt; on each cube and concatenate them into a 1500-dimension feature vector&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Reduce the feature vector to 100 dimensions via &lt;strong&gt;PCA&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Normalize&lt;/strong&gt; the reduced feature vector to make it mean 0 and variance 1&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;For each frame, we compute an &lt;strong&gt;abnormal indicator $V$&lt;/strong&gt; by summing the number of cubes in each scale with weights&lt;/p&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;V=\sum_{i=1}^n 2^{n-i}v_i&lt;/script&gt;
-
-    &lt;p&gt;$v_i$ : the number of abnormal cubes in scale $i$, the top scale is with index $1$ while the bottom one is with $n$.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;verification-of-sparse-combinations&quot;&gt;Verification of Sparse Combinations&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Each video contains 208 regions and each region correspond to a cube and there are 6000-12000 features in each sube&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The features are used to &lt;strong&gt;verify the combination model&lt;/strong&gt;. The number of combinations for each region is $K$&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/img/8.JPG&quot; alt=&quot;The distribution of K in 31200 regions from 150 videos&quot; /&gt;
-  The mean of $K$ is 9.75 and variance is 10.62, indicating 10 combinations are generally enough in our model&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;说人话&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;假设有一个学习好的$D\in R^{p \times q}$, 稀疏系数$\alpha_i$的0范数小于等于$s$&lt;/p&gt;
-
-    &lt;p&gt;也就是每个样本$x_i$最多能用$s$个字典基来表达。因为要稀疏，显然有$s « q$&lt;/p&gt;
-
-    &lt;p&gt;对于每个$x_i$，测试时都要从$q$个字典基中找出$s$个来表示，要求使得损失函数最小。&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;因此这种测试方式很花时间（每次都在求解一个优化问题）&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;这篇文章主要解决了效率问题，提出了新的测试方式（训练$D$的方式也随之改变）：&lt;/p&gt;
-
-    &lt;p&gt;预先训练好$K$个稀疏表达$S_1 … S_K$，每个表达$S_i$都由$D$中的$s$个字典基组成&lt;/p&gt;
-
-    &lt;p&gt;测试时，将$x_i$与每个$S_i$计算得到损失函数，选择损失最小的$S_i$即可&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;重点在于得到$K$个$S_i$：&lt;/p&gt;
-
-    &lt;p&gt;设置一个损失函数上限$\lambda$，低于这个上限就认为编码质量好&lt;/p&gt;
-
-    &lt;p&gt;每个周期更新一个$S_i$，使其遍历在之前的周期还未被很好表达的$x_i$（也就是说，不论用什么已获得的$S_i$，该$x_i$的损失函数都超过$\lambda$）。&lt;/p&gt;
-
-    &lt;p&gt;对于每个周期未被很好表达的$x_i$，都留到下一个周期通过新的$S_i$来表达。如此循环直到所有$x_i$都可以被很好的表达。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;在每次循环得到新的$S_i$的过程中：&lt;/p&gt;
-
-    &lt;p&gt;目标函数为：
-  &lt;script type=&quot;math/tex&quot;&gt;min_{S_i,\gamma,\beta}\sum_{i=1}^K\gamma_j^i ( \|x_j-S_i\beta_j^i \|_2^2 -\lambda ),\quad s.t. \sum_{i=1}^K\gamma_j^i=1,\gamma_j^i=\{0,1\}&lt;/script&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;分 2 步解决这个问题&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;更新$S_s^i,\beta$ :&lt;/p&gt;
-
-        &lt;p&gt;(更新 $\beta$ 时固定 $S_i$ 并且所有 $\gamma_j^i \neq 0$)&lt;/p&gt;
-
-        &lt;ol&gt;
-          &lt;li&gt;
-            &lt;script type=&quot;math/tex; mode=display&quot;&gt;\beta_j^i=(S_i^TS_i)^{-1}S_i^Tx_j&lt;/script&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;script type=&quot;math/tex; mode=display&quot;&gt;S_i=\prod[S_i-\delta_t\bigtriangledown_{S_i}L(\beta,S_i)]&lt;/script&gt;
-
-            &lt;script type=&quot;math/tex; mode=display&quot;&gt;\delta = 1E-4&lt;/script&gt;
-          &lt;/li&gt;
-        &lt;/ol&gt;
-
-        &lt;p&gt;详情请见&lt;a href=&quot;http://127.0.0.1:4001/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/a&gt;中的算法1和算法2&lt;/p&gt;
-
-        &lt;p&gt;&lt;img src=&quot;/img/5.JPG&quot; alt=&quot;Algorithm 1&quot; /&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;更新&lt;strong&gt;$\gamma$&lt;/strong&gt; :&lt;/p&gt;
-
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\gamma_j^i = \left\{
-  \begin{aligned}
-  1 \quad &amp; if \quad \|x_j-S_i\beta_j^i \|_2^2 &lt; \lambda ; \\
-  0 \quad &amp; otherwise ;\\
-  \end{aligned}
-  \right . %]]&gt;&lt;/script&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;测试&lt;/p&gt;
-
-    &lt;p&gt;对于目标函数：
-  &lt;script type=&quot;math/tex&quot;&gt;min_{\beta^i}\|x_j-S_i\beta_j^i \|_2^2 \quad \forall i= 1, ..., K&lt;/script&gt;&lt;/p&gt;
-
-    &lt;p&gt;最优解为:
-  &lt;script type=&quot;math/tex&quot;&gt;\hat{\beta^i}=(S_i^TS_i)^{-1}S_i^Tx&lt;/script&gt;&lt;/p&gt;
-
-    &lt;p&gt;损失函数可化为：
-  &lt;script type=&quot;math/tex&quot;&gt;\|x_j-S_i\beta_j^i \|_2^2 = \|((S_i^TS_i)^{-1}S_i^T-I_p)x\|_2^2=\|R_ix\|_2^2&lt;/script&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/img/6.JPG&quot; alt=&quot;Algorithm 2&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>icbcbicc</name></author><summary>Abnormal Event Detection at 150 FPS in MATLAB</summary></entry></feed>
+PDF</summary></entry></feed>
