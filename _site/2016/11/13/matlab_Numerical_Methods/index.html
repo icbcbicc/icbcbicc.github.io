@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Write your site description here. It will be used as your sites meta description as well!">
+
+    <title>Matlab数值计算 - Jam's Blog</title>
+
+    <link rel="canonical" href="http://icbcbicc.github.io/2016/11/13/Matlab_Numerical_Methods/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://icbcbicc.github.io/feed.xml" title="Jam's Blog" />
+
+</head>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Jam's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/about/">About Me</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/archives/">archives</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contact/">Contact</a>
+                </li>
+				
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/post-bg-24.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Matlab数值计算</h1>
+                    
+                    <h2 class="subheading">读书笔记</h2>
+                    
+                    <span class="meta">Posted by icbcbicc on November 13, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h2 id="matlab">Matlab数值计算</h2>
+
+<h3 id="matlab-1">1. Matlab常用函数补充</h3>
+
+<p>其他</p>
+
+<ul>
+  <li><code class="highlighter-rouge"> ... </code> 表示一行未结束，换行。</li>
+</ul>
+
+<p>数据结构</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">cell</code>创建元胞，访问元胞用<code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="p">}</span></code>。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">struct</code>创建结构体，它是有名字的元胞。</p>
+  </li>
+</ul>
+
+<p>矩阵</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">A(end)</code> 可以访问数组最后的一个元素。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">rand</code>，<code class="highlighter-rouge">randn</code>，<code class="highlighter-rouge">randi</code> 产生的随机数分别为均匀随机分布、正态随机分布、均匀随机分布整数。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">diag</code> 对角矩阵，<code class="highlighter-rouge">blkdiag</code> 对角块矩阵。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">sqrtm</code> 矩阵的主平方根。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">hilb</code>希尔伯特矩阵。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">hadamard</code>阿达马(Hadamard)矩阵。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">wilkinson</code>威尔金森(Wilkinson)矩阵。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">gallery</code>可用于生成多种特殊的矩阵。</p>
+  </li>
+</ul>
+
+<p>字符串</p>
+
+<ul>
+  <li><code class="highlighter-rouge">findstr</code>，<code class="highlighter-rouge">strrep</code> 分别为字符串种查找字串、替换字串。</li>
+</ul>
+
+<p>2维绘图</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">fplot</code> 画图时自动确定采样频率。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">y=@(t) sin(x.^3)</code> 定义了一个匿名函数。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">xlim</code>，<code class="highlighter-rouge">ylim</code> 限制了坐标轴的显示范围，常用于看图像的局部。</p>
+  </li>
+</ul>
+
+<p>3维绘图</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">meshgrid</code> 生成一个2维的完全点集。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">surfl</code>，<code class="highlighter-rouge">contour</code>，<code class="highlighter-rouge">contourf</code> 分别表示曲面、三维等高线、2维填充等高线。</p>
+  </li>
+</ul>
+
+<h3 id="section">2. 线性方程组和特征系统</h3>
+
+<p>线性方程组$Ax=b$</p>
+
+<ul>
+  <li>
+    <p>可用<code class="highlighter-rouge">x = A\b</code>求解，相当于<code class="highlighter-rouge">x=b/A</code>或者<code class="highlighter-rouge">x=inv(A)*b</code>。<code class="highlighter-rouge">\</code>或<code class="highlighter-rouge">/</code>运算符会根据矩阵的特征采用不同的算法，可以求欠定、正定、超定等等各种方程。</p>
+  </li>
+  <li>
+    <p>利用<code class="highlighter-rouge">inv(A) = adj(A) / |A|</code>来求逆的效率很低，尽量少用。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">b=0</code> 则为 <strong>齐次</strong> 方程组。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">|A| = 0</code> 表示矩阵<code class="highlighter-rouge">A</code>是 <strong>奇异</strong> 的，他的逆矩阵不存在，此时方程组无解或者有无穷多解。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">rank(A)</code>表示矩阵<code class="highlighter-rouge">A</code>的 <strong>秩</strong>，它代表了矩阵中线性无关的行(或列)的个数，同时也是 <strong>约化阶梯矩阵</strong><code class="highlighter-rouge">rref(A)</code>非零行的个数。</p>
+  </li>
+  <li>
+    <p>当<code class="highlighter-rouge">size(A) = [m,n]</code>，<code class="highlighter-rouge">rank(A) = min(m,n)</code>表示<code class="highlighter-rouge">A</code><strong>满秩</strong>，也就是方程有唯一解。</p>
+  </li>
+  <li>
+    <p><strong>超定</strong>：方程个数大于未知数个数。</p>
+  </li>
+  <li>
+    <p><strong>病态方程组</strong> 是指<code class="highlighter-rouge">A</code>中元素微小的变化都会导致解的巨大变化，在近似解时会很大的影响精度。
+可用<code class="highlighter-rouge">cond</code>或<code class="highlighter-rouge">rcond</code>来判断矩阵的良态。
+前者的范围是 1 到正无穷，1 表示完美良态。
+后者从 0 到 1 ，0 表示完美良态。<code class="highlighter-rouge">rcond</code>的计算比较不准确，但速度快。
+希尔伯特矩阵是非常病态的。</p>
+  </li>
+  <li>
+    <p>当<code class="highlighter-rouge">A</code>不是方阵，无法求逆。可以使用 <strong>伪逆</strong>$A^+$<br />
+$A^+=(A^TA)^{-1}A^T \quad m&gt;n$<br />
+$A^+=A^T(AA^T)^{-1} \quad m&lt;n$，此公式要求A是满秩的。<br />
+当然不满秩也能求，$A^+=VS^TSV^T \quad s.t. \quad [U,S,V]= svd(A)$。<br />
+使用<code class="highlighter-rouge">pinv</code>即可自动求伪逆而不用关心是否满秩和m、n的大小。<br />
+伪逆常用于求解超定或者欠定方程组，但其实<code class="highlighter-rouge">\</code>符号已经包括了这个功能。<br />
+要求非负的解可用<code class="highlighter-rouge">lsqnonneg</code>，这是一个非负的最小二乘问题。</p>
+  </li>
+  <li>
+    <p>稀疏矩阵</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">sparse(A)</code>将<code class="highlighter-rouge">A</code>转化为稀疏形式，当然前提是<code class="highlighter-rouge">A</code>本身是稀疏的。<code class="highlighter-rouge">full</code>是逆过程。</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">issparse</code>可判断函数是否稀疏。</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">nnz</code>给出矩阵中非0元素个数。</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">sprandn</code>、<code class="highlighter-rouge">sprandsys</code>、<code class="highlighter-rouge">sprandn</code>分别生成稀疏正态分布随机矩阵、稀疏随机对称矩阵、稀疏正态分布随机整数矩阵。</p>
+      </li>
+      <li>
+        <p>利用稀疏矩阵能极大加速运算。</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">eig</code>用于求特征值。<code class="highlighter-rouge">eigs</code>求部分特征值。</p>
+  </li>
+</ul>
+
+<h3 id="section-1">3. 非线性方程组的解</h3>
+
+<ul>
+  <li>
+    <p>二分法</p>
+  </li>
+  <li>
+    <p>不动点（迭代）法</p>
+  </li>
+  <li>
+    <p>牛顿法 <code class="highlighter-rouge">fnewton</code></p>
+  </li>
+  <li>
+    <p>贝尔斯托法 <code class="highlighter-rouge">bairstow</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">roots</code></p>
+  </li>
+  <li>
+    <p>施罗德法 <code class="highlighter-rouge">schroder</code></p>
+  </li>
+  <li>
+    <p>布罗伊登法 <code class="highlighter-rouge">broyden</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">fzero</code></p>
+  </li>
+</ul>
+
+<p>TODO：各种方法的适用场景</p>
+
+<h3 id="section-2">4. 函数拟合</h3>
+
+<ul>
+  <li></li>
+</ul>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/11/02/DCP_ruleset/" data-toggle="tooltip" data-placement="top" title="The DCP Ruleset">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/icbcbicc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="mailto:icbcbicc@hotmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; Jam's Blog 2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+
+    
+
+
+</body>
+
+</html>

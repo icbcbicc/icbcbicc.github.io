@@ -1,4 +1,188 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-11-03T20:03:09+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>The DCP Ruleset</title><link href="http://icbcbicc.github.io/2016/11/02/DCP_ruleset/" rel="alternate" type="text/html" title="The DCP Ruleset" /><published>2016-11-02T00:00:00+08:00</published><updated>2016-11-02T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/11/02/DCP_ruleset</id><content type="html" xml:base="http://icbcbicc.github.io/2016/11/02/DCP_ruleset/">&lt;h2 id=&quot;the-dcp-ruleset&quot;&gt;The DCP Ruleset&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-11-13T12:38:16+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Matlab数值计算</title><link href="http://icbcbicc.github.io/2016/11/13/Matlab_Numerical_Methods/" rel="alternate" type="text/html" title="Matlab数值计算" /><published>2016-11-13T00:00:00+08:00</published><updated>2016-11-13T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/11/13/Matlab_Numerical_Methods</id><content type="html" xml:base="http://icbcbicc.github.io/2016/11/13/Matlab_Numerical_Methods/">&lt;h2 id=&quot;matlab&quot;&gt;Matlab数值计算&lt;/h2&gt;
+
+&lt;h3 id=&quot;matlab-1&quot;&gt;1. Matlab常用函数补充&lt;/h3&gt;
+
+&lt;p&gt;其他&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; ... &lt;/code&gt; 表示一行未结束，换行。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;数据结构&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cell&lt;/code&gt;创建元胞，访问元胞用&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;struct&lt;/code&gt;创建结构体，它是有名字的元胞。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;矩阵&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;A(end)&lt;/code&gt; 可以访问数组最后的一个元素。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rand&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;randn&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;randi&lt;/code&gt; 产生的随机数分别为均匀随机分布、正态随机分布、均匀随机分布整数。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;diag&lt;/code&gt; 对角矩阵，&lt;code class=&quot;highlighter-rouge&quot;&gt;blkdiag&lt;/code&gt; 对角块矩阵。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sqrtm&lt;/code&gt; 矩阵的主平方根。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;hilb&lt;/code&gt;希尔伯特矩阵。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;hadamard&lt;/code&gt;阿达马(Hadamard)矩阵。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wilkinson&lt;/code&gt;威尔金森(Wilkinson)矩阵。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gallery&lt;/code&gt;可用于生成多种特殊的矩阵。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;字符串&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;findstr&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;strrep&lt;/code&gt; 分别为字符串种查找字串、替换字串。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2维绘图&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fplot&lt;/code&gt; 画图时自动确定采样频率。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;y=@(t) sin(x.^3)&lt;/code&gt; 定义了一个匿名函数。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;xlim&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;ylim&lt;/code&gt; 限制了坐标轴的显示范围，常用于看图像的局部。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3维绘图&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;meshgrid&lt;/code&gt; 生成一个2维的完全点集。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;surfl&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;contour&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;contourf&lt;/code&gt; 分别表示曲面、三维等高线、2维填充等高线。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;2. 线性方程组和特征系统&lt;/h3&gt;
+
+&lt;p&gt;线性方程组$Ax=b$&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;可用&lt;code class=&quot;highlighter-rouge&quot;&gt;x = A\b&lt;/code&gt;求解，相当于&lt;code class=&quot;highlighter-rouge&quot;&gt;x=b/A&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;x=inv(A)*b&lt;/code&gt;。&lt;code class=&quot;highlighter-rouge&quot;&gt;\&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;/&lt;/code&gt;运算符会根据矩阵的特征采用不同的算法，可以求欠定、正定、超定等等各种方程。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;利用&lt;code class=&quot;highlighter-rouge&quot;&gt;inv(A) = adj(A) / |A|&lt;/code&gt;来求逆的效率很低，尽量少用。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;b=0&lt;/code&gt; 则为 &lt;strong&gt;齐次&lt;/strong&gt; 方程组。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;|A| = 0&lt;/code&gt; 表示矩阵&lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt;是 &lt;strong&gt;奇异&lt;/strong&gt; 的，他的逆矩阵不存在，此时方程组无解或者有无穷多解。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rank(A)&lt;/code&gt;表示矩阵&lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt;的 &lt;strong&gt;秩&lt;/strong&gt;，它代表了矩阵中线性无关的行(或列)的个数，同时也是 &lt;strong&gt;约化阶梯矩阵&lt;/strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rref(A)&lt;/code&gt;非零行的个数。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;当&lt;code class=&quot;highlighter-rouge&quot;&gt;size(A) = [m,n]&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;rank(A) = min(m,n)&lt;/code&gt;表示&lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt;&lt;strong&gt;满秩&lt;/strong&gt;，也就是方程有唯一解。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;超定&lt;/strong&gt;：方程个数大于未知数个数。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;病态方程组&lt;/strong&gt; 是指&lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt;中元素微小的变化都会导致解的巨大变化，在近似解时会很大的影响精度。
+可用&lt;code class=&quot;highlighter-rouge&quot;&gt;cond&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;rcond&lt;/code&gt;来判断矩阵的良态。
+前者的范围是 1 到正无穷，1 表示完美良态。
+后者从 0 到 1 ，0 表示完美良态。&lt;code class=&quot;highlighter-rouge&quot;&gt;rcond&lt;/code&gt;的计算比较不准确，但速度快。
+希尔伯特矩阵是非常病态的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;当&lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt;不是方阵，无法求逆。可以使用 &lt;strong&gt;伪逆&lt;/strong&gt;$A^+$&lt;br /&gt;
+$A^+=(A^TA)^{-1}A^T \quad m&amp;gt;n$&lt;br /&gt;
+$A^+=A^T(AA^T)^{-1} \quad m&amp;lt;n$，此公式要求A是满秩的。&lt;br /&gt;
+当然不满秩也能求，$A^+=VS^TSV^T \quad s.t. \quad [U,S,V]= svd(A)$。&lt;br /&gt;
+使用&lt;code class=&quot;highlighter-rouge&quot;&gt;pinv&lt;/code&gt;即可自动求伪逆而不用关心是否满秩和m、n的大小。&lt;br /&gt;
+伪逆常用于求解超定或者欠定方程组，但其实&lt;code class=&quot;highlighter-rouge&quot;&gt;\&lt;/code&gt;符号已经包括了这个功能。&lt;br /&gt;
+要求非负的解可用&lt;code class=&quot;highlighter-rouge&quot;&gt;lsqnonneg&lt;/code&gt;，这是一个非负的最小二乘问题。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;稀疏矩阵&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sparse(A)&lt;/code&gt;将&lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt;转化为稀疏形式，当然前提是&lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt;本身是稀疏的。&lt;code class=&quot;highlighter-rouge&quot;&gt;full&lt;/code&gt;是逆过程。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;issparse&lt;/code&gt;可判断函数是否稀疏。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;nnz&lt;/code&gt;给出矩阵中非0元素个数。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sprandn&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;sprandsys&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;sprandn&lt;/code&gt;分别生成稀疏正态分布随机矩阵、稀疏随机对称矩阵、稀疏正态分布随机整数矩阵。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;利用稀疏矩阵能极大加速运算。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;eig&lt;/code&gt;用于求特征值。&lt;code class=&quot;highlighter-rouge&quot;&gt;eigs&lt;/code&gt;求部分特征值。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;3. 非线性方程组的解&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;二分法&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;不动点（迭代）法&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;牛顿法 &lt;code class=&quot;highlighter-rouge&quot;&gt;fnewton&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;贝尔斯托法 &lt;code class=&quot;highlighter-rouge&quot;&gt;bairstow&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;roots&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;施罗德法 &lt;code class=&quot;highlighter-rouge&quot;&gt;schroder&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;布罗伊登法 &lt;code class=&quot;highlighter-rouge&quot;&gt;broyden&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fzero&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;TODO：各种方法的适用场景&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;4. 函数拟合&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>icbcbicc</name></author><category term="matlab" /><summary>Matlab数值计算</summary></entry><entry><title>The DCP Ruleset</title><link href="http://icbcbicc.github.io/2016/11/02/DCP_ruleset/" rel="alternate" type="text/html" title="The DCP Ruleset" /><published>2016-11-02T00:00:00+08:00</published><updated>2016-11-02T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/11/02/DCP_ruleset</id><content type="html" xml:base="http://icbcbicc.github.io/2016/11/02/DCP_ruleset/">&lt;h2 id=&quot;the-dcp-ruleset&quot;&gt;The DCP Ruleset&lt;/h2&gt;
 
 &lt;h3 id=&quot;section&quot;&gt;1. 函数的分类&lt;/h3&gt;
 &lt;ul&gt;
@@ -59,7 +243,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;不支持$!=$或者$~=$&lt;/p&gt;
+    &lt;p&gt;不支持&lt;code class=&quot;highlighter-rouge&quot;&gt;!=&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;~=&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;复数
     &lt;ul&gt;
@@ -1554,14 +1738,4 @@ PDF</summary></entry><entry><title>Machine Learning (Zhihua Zhou) Notes 03</titl
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>Online Learning for Matrix Factorization and Sparse Coding
 Authors: Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro
-PDF</summary></entry><entry><title>Online Detection of Unusual Events in Videos via Dynamic Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/17/Online-Detection-of-Unusual-Events-in-Videos-via-Dynamic-Sparse-Coding/" rel="alternate" type="text/html" title="Online Detection of Unusual Events in Videos via Dynamic Sparse Coding" /><published>2016-09-17T00:00:00+08:00</published><updated>2016-09-17T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/17/Online Detection of Unusual Events in Videos via Dynamic Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/17/Online-Detection-of-Unusual-Events-in-Videos-via-Dynamic-Sparse-Coding/">&lt;h1 id=&quot;online-detection-of-unusual-events-in-videos-via-dynamic-sparse-coding&quot;&gt;Online Detection of Unusual Events in Videos via Dynamic Sparse Coding&lt;/h1&gt;
-&lt;p&gt;Authors: &lt;em&gt;Bin Zhou, Li Fei-Fei, Eric P. Xing&lt;/em&gt;
-&lt;a href=&quot;http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5995524&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;####&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>Online Detection of Unusual Events in Videos via Dynamic Sparse Coding
-Authors: Bin Zhou, Li Fei-Fei, Eric P. Xing
 PDF</summary></entry></feed>
