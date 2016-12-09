@@ -1,4 +1,156 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-11-13T12:38:16+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>Matlab数值计算</title><link href="http://icbcbicc.github.io/2016/11/13/Matlab_Numerical_Methods/" rel="alternate" type="text/html" title="Matlab数值计算" /><published>2016-11-13T00:00:00+08:00</published><updated>2016-11-13T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/11/13/Matlab_Numerical_Methods</id><content type="html" xml:base="http://icbcbicc.github.io/2016/11/13/Matlab_Numerical_Methods/">&lt;h2 id=&quot;matlab&quot;&gt;Matlab数值计算&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-12-08T00:07:59+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>State-of-the-art in Visual Attention Modeling</title><link href="http://icbcbicc.github.io/2016/12/06/State-of-the-art-in-Visual-Attention-Modeling/" rel="alternate" type="text/html" title="State-of-the-art in Visual Attention Modeling" /><published>2016-12-06T00:00:00+08:00</published><updated>2016-12-06T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/12/06/State-of-the-art in Visual Attention Modeling</id><content type="html" xml:base="http://icbcbicc.github.io/2016/12/06/State-of-the-art-in-Visual-Attention-Modeling/">&lt;h2 id=&quot;state-of-the-art-in-visual-attention-modeling&quot;&gt;State-of-the-art in Visual Attention Modeling&lt;/h2&gt;
+
+&lt;p&gt;Authors: Borji, Ali, Itti, Laurent&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://ieeexplore.ieee.org/document/6180177/?arnumber=6180177&amp;amp;tag=1&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;introduction&quot;&gt;1. INTRODUCTION&lt;/h3&gt;
+
+&lt;h4 id=&quot;definition&quot;&gt;1.1 Definition&lt;/h4&gt;
+
+&lt;h4 id=&quot;origins&quot;&gt;1.2 Origins&lt;/h4&gt;
+
+&lt;h4 id=&quot;empirical-foundations&quot;&gt;1.3 Empirical Foundations&lt;/h4&gt;
+
+&lt;h4 id=&quot;applications&quot;&gt;1.4 Applications&lt;/h4&gt;
+
+&lt;h3 id=&quot;categorization-factors&quot;&gt;2. CATEGORIZATION FACTORS&lt;/h3&gt;
+
+&lt;h4 id=&quot;bottom-up-vs-top-down-models&quot;&gt;2.1 Bottom-up vs. Top-down Models&lt;/h4&gt;
+
+&lt;h4 id=&quot;spatial-vs-spatio-temporal-models&quot;&gt;2.2 Spatial vs. Spatio-temporal Models&lt;/h4&gt;
+
+&lt;h4 id=&quot;overt-vs-covert-attention&quot;&gt;2.3 Overt vs. Covert attention&lt;/h4&gt;
+
+&lt;h4 id=&quot;space-based-vs-object-based-models&quot;&gt;2.4 Space-based vs. Object-based Models&lt;/h4&gt;
+
+&lt;h4 id=&quot;features&quot;&gt;2.5 Features&lt;/h4&gt;
+
+&lt;p&gt;显著性的计算模型主要使用了3种特征：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;intensity（intensity contrast，luminance contrast）&lt;/p&gt;
+
+    &lt;p&gt;通常用3个颜色通道的平均值表示，并使用center-surround处理。这种处理模仿了lateral geniculate nucleus（LGN）和V1 cortex中神经元的反馈。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;color&lt;/p&gt;
+
+    &lt;p&gt;用红-绿通道、蓝-黄通道实现，或者用其他色彩空间也行，比如HSV或者Lab。这模仿了V1 cortex中color-opponent neurons的行为。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;orientation&lt;/p&gt;
+
+    &lt;p&gt;通常用oriented Gabor filters实现的卷积来实现，或者用oriented masks来实现。这个特征的灵感源于从MT和MST区域中的对方向和动作有选择作用的神经元。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;stimuli-and-task-type&quot;&gt;2.6 Stimuli and Task Type&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;刺激有2种分类方式：&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;静态的和动态的&lt;/li&gt;
+      &lt;li&gt;人造的和自然的&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;任务通常可以分为3类&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Free viewing tasks&lt;/li&gt;
+      &lt;li&gt;Visual search tasks&lt;/li&gt;
+      &lt;li&gt;Interactive  tasks&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;evaluation-measures&quot;&gt;2.7 Evaluation Measures&lt;/h4&gt;
+
+&lt;p&gt;将算法输出的saliency map（S）与眼动数据（G）比对。&lt;/p&gt;
+
+&lt;p&gt;可以将评估方式划分为3类：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;基于点&lt;/li&gt;
+  &lt;li&gt;基于区域&lt;/li&gt;
+  &lt;li&gt;主观评价（好、可接受、坏）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以下是几种常见的评估方式：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;概率分布模型（&lt;strong&gt;Kullback-Leibler (KL) Divergence&lt;/strong&gt;）&lt;/p&gt;
+
+    &lt;p&gt;KL通常用于测量2个概率分布之间的距离。对于saliency评价，一般将预测出的saliency map与随机眼动数据进行比较，KL偏差越大，则表示模型有更好的预测性能。因为人一般关注图像中的很小的局部，这部分有较高的反馈值，而对于大多数区域，反馈值较低。&lt;/p&gt;
+
+    &lt;p&gt;这种评价方式有以下几种好处：&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;KL对概率分布的各种区别都比较敏感。&lt;/li&gt;
+      &lt;li&gt;KL对reparameterizations有不变性，比如对分布使用连续单调的非线性函数而不影响评价。&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;p&gt;当然KL也有劣势：KL没有一个上界，当2个分布完全不重合时，KL偏差将为无穷大。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2分类模型（&lt;strong&gt;Area Under Curve (AUC)&lt;/strong&gt;）&lt;/p&gt;
+
+    &lt;p&gt;当作2分类问题，针对saliency map中的每个像素，设置不同的threshold画出ROC曲线，用AUC来评估分类器性能。对reparameterizations有不变性。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;随机变量模型&lt;/p&gt;
+
+    &lt;p&gt;将S和G当作随机变量&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Normalized Scanpath Saliency (NSS)&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;对reparameterizations有不变性&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Linear Correlation Coefficient (CC)&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;此方法计算2个变量之间的线性关系的强度，常用与评估2张图像之间的关联。当CC值为+1或-1时，2个变量有完美的线性关系。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;String Editing Distance&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;datasets&quot;&gt;2.8 Datasets&lt;/h4&gt;
+
+&lt;p&gt;眼动数据包含了图像（用于研究静止注意力）和视频（用于研究动态注意力）。有时候可以用鼠标的追踪来预测眼动，因为这2者有一定的关联，尽管鼠标的追踪有较多的噪声。&lt;/p&gt;
+
+&lt;h3 id=&quot;attention-models&quot;&gt;3. ATTENTION MODELS&lt;/h3&gt;
+
+&lt;p&gt;以下模型的重点在于saliency而不是saliency detection。以下模型按事件先后顺序列出。&lt;/p&gt;
+
+&lt;h4 id=&quot;cognitive-models&quot;&gt;3.1 Cognitive Models&lt;/h4&gt;
+
+&lt;h4 id=&quot;bayesian-models&quot;&gt;3.2 Bayesian Models&lt;/h4&gt;
+
+&lt;h4 id=&quot;decision-theoretic-models&quot;&gt;3.3 Decision Theoretic Models&lt;/h4&gt;
+
+&lt;h4 id=&quot;information-theoretic-models&quot;&gt;3.4 Information Theoretic Models&lt;/h4&gt;
+
+&lt;h4 id=&quot;graphical-models&quot;&gt;3.5 Graphical Models&lt;/h4&gt;
+
+&lt;h4 id=&quot;spectral-analysis-models&quot;&gt;3.6 Spectral Analysis Models&lt;/h4&gt;
+
+&lt;h4 id=&quot;pattern-classification-models&quot;&gt;3.7 Pattern Classification Models&lt;/h4&gt;
+
+&lt;h4 id=&quot;other-models&quot;&gt;3.8 Other Models&lt;/h4&gt;
+
+&lt;h3 id=&quot;discussion&quot;&gt;4. Discussion&lt;/h3&gt;
+
+&lt;h3 id=&quot;summary-and-conclusion&quot;&gt;5. SUMMARY AND CONCLUSION&lt;/h3&gt;</content><author><name>icbcbicc</name></author><category term="saliency" /><summary>State-of-the-art in Visual Attention Modeling</summary></entry><entry><title>Matlab数值计算</title><link href="http://icbcbicc.github.io/2016/11/13/Matlab_Numerical_Methods/" rel="alternate" type="text/html" title="Matlab数值计算" /><published>2016-11-13T00:00:00+08:00</published><updated>2016-11-13T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/11/13/Matlab_Numerical_Methods</id><content type="html" xml:base="http://icbcbicc.github.io/2016/11/13/Matlab_Numerical_Methods/">&lt;h2 id=&quot;matlab&quot;&gt;Matlab数值计算&lt;/h2&gt;
 
 &lt;h3 id=&quot;matlab-1&quot;&gt;1. Matlab常用函数补充&lt;/h3&gt;
 
@@ -1308,434 +1460,4 @@ PDF</summary></entry><entry><title>Machine Learning (Zhihua Zhou) Notes 03</titl
 
 &lt;p&gt;&lt;strong&gt;&lt;center&gt;============ 接 Part 2 =============&lt;/center&gt;&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>1. 简介</summary></entry><entry><title>Online Learning for Matrix Factorization and Sparse Coding</title><link href="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/" rel="alternate" type="text/html" title="Online Learning for Matrix Factorization and Sparse Coding" /><published>2016-09-21T00:00:00+08:00</published><updated>2016-09-21T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/09/21/Online Learning for Matrix Factorization and Sparse Coding</id><content type="html" xml:base="http://icbcbicc.github.io/2016/09/21/Online-Learning-for-Matrix-Factorization-and-Sparse-Coding/">&lt;h1 id=&quot;online-learning-for-matrix-factorization-and-sparse-coding&quot;&gt;Online Learning for Matrix Factorization and Sparse Coding&lt;/h1&gt;
-&lt;p&gt;Authors: &lt;em&gt;Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro&lt;/em&gt;&lt;br /&gt;
-&lt;a href=&quot;http://www.jmlr.org/papers/volume11/mairal10a/mairal10a.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/b5dfacb7-b178-4002-823e-fc5dcfd2d641.png&quot; alt=&quot;mindmap&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;1. Introduction&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Linear decompositon of a matrix using learned dictionary instead of pre-defined one&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;low-level: image denoising, texture synthesis, audio processing&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;high-level: image classification&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Differences between maxtrix factorization and PCA:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;It doesn’t impose that the basis vector to be orthogonal&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Allowing more flexibility to adapt the representation to the data&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Variants matrix factorization problem:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Non-negtive matrix factorization&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Sparse PCA&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;problem-statement&quot;&gt;2. Problem Statement&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Optimize the &lt;strong&gt;&lt;em&gt;empirical cost function:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;f_n(D) = \frac{1}{n}\sum_{i=1}^n l (x_i,D)&lt;/script&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;$D\in R^{m * k}$ :dictionary&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;$m &amp;lt; &amp;lt; n$: feature nums less than sample nums&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;$k &amp;lt; &amp;lt; n$: atom nums of dictoinary less than sample nums&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;$k &amp;gt; m$: &lt;strong&gt;&lt;em&gt;Overcomplete dictionary&lt;/em&gt;&lt;/strong&gt;: atoms more than feature nums&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;$l_1$ sparse coding problem (&lt;strong&gt;&lt;em&gt;basis pursuit&lt;/em&gt;&lt;/strong&gt;):&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;l_1(x,D) = min\frac{1}{2}{\|x-D\alpha\|}_2^2+\lambda\|\alpha\|_1 \quad s.t. \quad \alpha \in R^k&lt;/script&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Disadvantage:&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;There is no direct analytic link between the value of $\lambda$ and the corresponding effective sparsity $|\alpha|_0$&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;To prevent $D$ from having arbitrarily large values (which would lead to arbitrarily small values of $\alpha$), it is common to &lt;strong&gt;&lt;em&gt;constrain its columns $d_1, . . . ,d_k$ to have an $l_2-norm$&lt;/em&gt;&lt;/strong&gt; less than or equal to 1&lt;/p&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad d_j^Td_j \le 1\}&lt;/script&gt;
-
-    &lt;p&gt;It’s a joint optimization problem with respet to $D$ and $\alpha=[\alpha_1, …, \alpha_k] \in R^{k * n}$, which is &lt;strong&gt;&lt;em&gt;not jointly convex&lt;/em&gt;&lt;/strong&gt; but &lt;strong&gt;&lt;em&gt;convex with respect to each of the two variables&lt;/em&gt;&lt;/strong&gt; $D$ and $\alpha$ when the other one is fixed&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Optimization method:&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;&lt;em&gt;Alternate between the two variables&lt;/em&gt;&lt;/strong&gt;, minimizing over one while keeping the other one fixed&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Since the computation of $\alpha$ dominates the cost of each iteration in this &lt;strong&gt;&lt;em&gt;block-coordinate descent&lt;/em&gt;&lt;/strong&gt; approach, a &lt;strong&gt;&lt;em&gt;second-order optimization&lt;/em&gt;&lt;/strong&gt; technique can be used to accurately estimate $D$ at each step when $\alpha$ is fixed&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;Stochastic gradient&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;Its rate of convergence is very poor in conventional optimization terms, may in fact in certain settings &lt;strong&gt;&lt;em&gt;to be faster in reaching a solution with low expected cost than second-order batch&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Dictionary learning:&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;The classical &lt;strong&gt;&lt;em&gt;projected first-order projected stochastic gradient descent&lt;/em&gt;&lt;/strong&gt; consists of a sequence of updates of $D$&lt;/p&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;D_t = \prod [{D_{t-1}-\delta_t \nabla_C l(x_t,D_{t-1})}]&lt;/script&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;$\nabla_C: \quad$ Orthogonal projector onto $C$&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;$x_t: \quad$ i.i.d samples obtained by cycling on a randomly permuted training set&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;$\delta_t: \quad$ learning rate(good results are obtained using  $\delta_t = \frac{a}{t+b}$ where $a$ and $b$ are chosen depended on the training data)&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;online-dictionary-learning&quot;&gt;3. Online Dictionary Learning&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;algorithm-outline&quot;&gt;3.1 Algorithm Outline&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Assuming that the training set is composed of &lt;strong&gt;&lt;em&gt;i.i.d. samples&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;f_t(D) = \frac{1}{t}\sum_{i=1}^t l (x_i,D)&lt;/script&gt;
-
-    &lt;p&gt;and&lt;/p&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{f_t}(D) = \frac{1}{t}\sum_{i=1}^t(\frac{1}{2}\|x_i-D\alpha_i\|_2^2+\lambda\|\alpha_i\|_1)&lt;/script&gt;
-
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;converge almost surely to the same limit&lt;/em&gt;&lt;/strong&gt;, and thus that $\hat{f_t}$ acts as a surrogate for $f_t$&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Since $\hat{f_t}$ is close to $\hat{f_{t-1}}$ for large values of $t$, so are $D_t$ and $D_{t−1}$, use $D_{t−1}$ as &lt;strong&gt;&lt;em&gt;warm restart&lt;/em&gt;&lt;/strong&gt; for computing $D_t$ can acceerate this algorithm&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;sparse-coding&quot;&gt;3.2 Sparse Coding&lt;/h4&gt;
-
-&lt;p&gt;This is a &lt;strong&gt;&lt;em&gt;$l_1$ regularized linear least-squares problem :&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;l_1(x,D) = min\frac{1}{2}{\|x-D\alpha\|}_2^2+\lambda\|\alpha\|_1 \quad s.t. \quad \alpha \in R^k&lt;/script&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Traditional method&lt;/strong&gt; (&lt;strong&gt;&lt;em&gt;Coordinate descent with soft thresholding&lt;/em&gt;&lt;/strong&gt;)&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;It is efficient when the columns of the dictionary are &lt;strong&gt;&lt;em&gt;low correlated&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; The columns of learned dictionaries are in general &lt;strong&gt;&lt;em&gt;highly correlated&lt;/em&gt;&lt;/strong&gt;, which make this method rather slow&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;New method&lt;/strong&gt; (&lt;strong&gt;&lt;em&gt;LARS-Lasso algorithm&lt;/em&gt;&lt;/strong&gt;)&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;With an efficient Cholesky-based implementation, it is at least as fast as the one above&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;It provides the solution with a &lt;strong&gt;&lt;em&gt;higher accuracy&lt;/em&gt;&lt;/strong&gt; and being more robust since it does not require an arbitrary stopping criterion&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/9.JPG&quot; alt=&quot;Sparse Coding&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;dictionary-update&quot;&gt;3.3 Dictionary Update&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/10.JPG&quot; alt=&quot;Dictionary update&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;The procedure does not require to store all the vectors $x_i$ and $\alpha_i$, but only $A_t$ and $B_t$&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Sequentially updates each column of $D$&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Orthogonal projection on to $C$(the constraint set)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;In practice, the matrix $A_t$ are often &lt;strong&gt;&lt;em&gt;concentrated on the diagonal&lt;/em&gt;&lt;/strong&gt;, which makes the block-coordinate descent more efficient&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;optimizing-the-algorithm&quot;&gt;3.4 Optimizing the Algorithm&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;3.4.1&lt;/em&gt;&lt;/strong&gt; Handling fixed-size data sets&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;&lt;em&gt;Problem:&lt;/em&gt;&lt;/strong&gt; When the data sets are predefined and have finite size, the same data points may be examined several times&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;&lt;em&gt;Solution:&lt;/em&gt;&lt;/strong&gt; When the training set is small enough, it is possible to further speed up convergence:&lt;/p&gt;
-
-        &lt;p&gt;If the sample $x$ has been drawn from the data sets twice in the iteration $t_0$ and $t$, we will replace $\alpha_{t_0}$ by $\alpha_t$ in $A_t$ and $B_t$, that is&lt;/p&gt;
-
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;A_t = A_{t-1} + \alpha_t\alpha_t^T - \alpha_{t_0}\alpha_{t_0}^T&lt;/script&gt;
-
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;B_t = B_{t-1} + x_t\alpha_t^T - x_t\alpha_{t_0}^T&lt;/script&gt;
-
-        &lt;p&gt;In this setting, we need to store $\alpha_i$ in every iteration and it’s &lt;strong&gt;&lt;em&gt;impractical&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-        &lt;p&gt;However, we can sovle this by removing the information from $A_t$ and $B_t$ that is older than two epochs(cycles through the data)&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;3.4.2&lt;/em&gt;&lt;/strong&gt; Scaling te past data&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;&lt;em&gt;Problem:&lt;/em&gt;&lt;/strong&gt; At each iteration, the “new” information $\alpha_t$ that is added to $A_t$ and $B_t$ has the same weight as the “old” one&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;&lt;em&gt;Solution:&lt;/em&gt;&lt;/strong&gt; Rescaling the “old” information so that newer coefficients $\alpha_t$ have more weight, which is classical in online learning&lt;/p&gt;
-
-        &lt;p&gt;We propose to replace lines 5 and 6 of Algorithm 1 by:&lt;/p&gt;
-
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;A_t = \beta_t A_{t-1} + \alpha_t\alpha_t^T&lt;/script&gt;
-
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;B_t = \beta_t B_{t-1} + x_t\alpha_t^T&lt;/script&gt;
-
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;\beta_t = (1-\frac{1}{t})^\rho&lt;/script&gt;
-
-        &lt;p&gt;In this circumstance, we propose&lt;/p&gt;
-
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;D_t = argmin_{D \in C}\frac{1}{\sum_{j=1}^t(j/t)} \sum_{i=1}^t(\frac{i}{t})^\rho(\frac{1}{2}\|x_i-D\alpha_i\|_2^2+\lambda\|\alpha_i\|_1)&lt;/script&gt;
-
-        &lt;p&gt;=&lt;/p&gt;
-
-        &lt;script type=&quot;math/tex; mode=display&quot;&gt;argmin_{D \in C}\frac{1}{\sum_{j=1}^t(j/t)}(\frac{1}{2}Tr(D^TDA_t)-Tr(D^TB_t))&lt;/script&gt;
-
-        &lt;p&gt;When $\rho = 0$, we obtain the original version of the algorithm&lt;/p&gt;
-
-        &lt;p&gt;&lt;strong&gt;&lt;em&gt;In practice, this parameter $\rho$ is only useful for large data sets $(n \ge 100000)$&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;3.4.3&lt;/em&gt;&lt;/strong&gt; Mini-batch extension&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;The complexity of computing $\eta$ vectors $\alpha_i$ is not linear in $\eta$&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;A &lt;strong&gt;&lt;em&gt;Cholesky-based implementation of LARS-Lasso&lt;/em&gt;&lt;/strong&gt; for decomposing one signal has a complexity of $O(kms+ks^2)$, where $s$ is the number of nonzero coefficient&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;When decomposing $\eta$ signals, it is possible to &lt;strong&gt;&lt;em&gt;pre-compute the Gram matrix $D^T_tD_t$&lt;/em&gt;&lt;/strong&gt; and the total complexity becomes $O(k^2m+\eta(km+ks^2))$, which is much cheaper than $\eta$ times the previous complexity when $\eta$ is large enough and $s$ is small&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;We propose to replace lines 5 and 6 of Algorithm 1 by:&lt;/p&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;A_t = A_{t-1} + \frac{1}{\eta}\sum_{i=1}^\eta \alpha_{t,i} \alpha_{t,i}^T&lt;/script&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;B_t = B_{t-1} + \frac{1}{\eta}\sum_{i=1}^\eta x_{t,i}\alpha_{t,i}^T&lt;/script&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;3.4.4&lt;/em&gt;&lt;/strong&gt; Slowing down the first iterations&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;&lt;em&gt;Problem:&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;The first iterations of our algorithm may update the parameters with large steps, immediately leading to large deviations from the initial dictionary&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;&lt;em&gt;solution:&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;Use gradient steps of the form $\frac{a}{b+t}$&lt;/p&gt;
-
-    &lt;ol&gt;
-      &lt;li&gt;
-        &lt;p&gt;$b$ will slow down the first few steps&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;An initialization of the form $A_0 = t_0I$ and $B_0 = t_0 D_0$ with $t_0 \ge 0$ will also slow down the first steps&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;3.4.5&lt;/em&gt;&lt;/strong&gt; Puring the dictionary from unused atoms&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;&lt;em&gt;Problem:&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;Some of the dictionary atoms are never (or very seldom) used, which typically happens with a very bad initialization&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;&lt;em&gt;solution:&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;ol&gt;
-      &lt;li&gt;
-        &lt;p&gt;In general cases, replacing these atoms during the optimization by randomly chosen elements of the training set&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;For more difficult and highly regularized cases, choosing a continuation strategy consisting of starting from an easier, less regularized problem, and gradually increasing $\lambda$&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;link-with-second-order-stochastic-gradient-descent&quot;&gt;3.5 Link with Second-order Stochastic Gradient Descent&lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;convergence-analysis&quot;&gt;4. Convergence Analysis&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;extensions-to-matrix-factorization&quot;&gt;5. Extensions to Matrix Factorization&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;using-different-regularizers-for-alpha&quot;&gt;5.1 Using Different Regularizers for $\alpha$&lt;/h4&gt;
-
-&lt;p&gt;Different priors for the coefficients $\alpha$ may lead to different regularizers $\Psi(\alpha)$&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Positivity constraints on $\alpha$ that are added to the $l_1-regularization$&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The Tikhonov regularization $\Psi(\alpha) = \frac{\lambda_1}{2}|\alpha|_2^2$, which doesn’t lead to sparse solutions&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The elastic net $\Psi(\alpha) = \lambda_1|\alpha|_1 + \frac{\lambda_2}{2}|\alpha|_2^2$&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The group Lasso $\Psi(\alpha) = \sum_{i=1}^s|\alpha|_2$&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;There is &lt;strong&gt;&lt;em&gt;no theoretical convergence results in exploiting non-convex regularizers&lt;/em&gt;&lt;/strong&gt; such as $l_0$ pseduo-norm and $l_p$ pseduo-norm with $p &amp;lt; 1$&lt;/p&gt;
-
-&lt;h4 id=&quot;using-different-constraint-sets-for-d&quot;&gt;5.2 Using Different Constraint Sets for $D$&lt;/h4&gt;
-
-&lt;p&gt;In dictionary learning, we use an $l_2$-regularization on $D$ by forcing its columns to have less than unit $l_2-norm$, and thus the dictionary update step can be solved efficiently using a block-coordinate descent approach&lt;/p&gt;
-
-&lt;p&gt;We can use different convex constraint sets $C′$ as long as the constraints are a union of independent constraints on each column of $D$ and the orthogonal projections of the vectors $u_j$ onto $C′$ can be done efficiently&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The “non-negative” constraints&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad \|d_j\|_2 \le 1 \quad and \quad d_j \ge 0\}&lt;/script&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The “elastic-net” constraints&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad \|d_j\|_2^2+\gamma\|d_j\|_1 \le 1\}&lt;/script&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Using the $l_1-norm$ only in such problems lead to trivial solutions when $k$ is large enough&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The “fused lasso” constraints&lt;/p&gt;
-
-    &lt;p&gt;This kind of regularization has proven to be useful for &lt;strong&gt;&lt;em&gt;exploiting genomic data&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;C = \{D \in R^{m * k}\quad s.t. \quad \forall j=1, ... ,k \quad \|d_j\|_2^2 + \gamma_1\|d_j\|_1 + \gamma_2FL(d_j) \le 1\}&lt;/script&gt;
-
-    &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;FL(u) = \sum_{i=2}^m \|u[i]-u[i-1]\|&lt;/script&gt; which is the $l_1-norm$ of the consecutive differences of $u$&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The &lt;strong&gt;&lt;em&gt;orthogonal projection onto the “non negative” ball&lt;/em&gt;&lt;/strong&gt; is simple (additional thresholding)&lt;/p&gt;
-
-&lt;p&gt;But &lt;strong&gt;&lt;em&gt;the projection onto the two other sets&lt;/em&gt;&lt;/strong&gt; is slightly more involved, however they can also be done efficently using some algorithms&lt;/p&gt;
-
-&lt;h4 id=&quot;non-negative-matrix-factorization-nmf&quot;&gt;5.3 Non Negative Matrix Factorization (NMF)&lt;/h4&gt;
-
-&lt;h4 id=&quot;sparse-principal-component-analysis-spca&quot;&gt;5.4 Sparse Principal Component Analysis (SPCA)&lt;/h4&gt;
-
-&lt;h4 id=&quot;constrained-sparse-coding&quot;&gt;5.5 Constrained Sparse Coding&lt;/h4&gt;
-
-&lt;h4 id=&quot;simultaneous-sparse-coding&quot;&gt;5.6 Simultaneous Sparse Coding&lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;experimental-validation&quot;&gt;6. Experimental Validation&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>Online Learning for Matrix Factorization and Sparse Coding
-Authors: Julien Mairal, Francis Bach, Jean Ponce, Guillermo Sapiro
-PDF</summary></entry></feed>
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>icbcbicc</name></author><summary>1. 简介</summary></entry></feed>
