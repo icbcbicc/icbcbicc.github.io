@@ -1,6 +1,4 @@
-﻿State-of-the-art in Visual Attention Modeling
-
----
+﻿---
 
 layout: post
 
