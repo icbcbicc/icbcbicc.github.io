@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-12-08T00:07:59+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>State-of-the-art in Visual Attention Modeling</title><link href="http://icbcbicc.github.io/2016/12/06/State-of-the-art-in-Visual-Attention-Modeling/" rel="alternate" type="text/html" title="State-of-the-art in Visual Attention Modeling" /><published>2016-12-06T00:00:00+08:00</published><updated>2016-12-06T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/12/06/State-of-the-art in Visual Attention Modeling</id><content type="html" xml:base="http://icbcbicc.github.io/2016/12/06/State-of-the-art-in-Visual-Attention-Modeling/">&lt;h2 id=&quot;state-of-the-art-in-visual-attention-modeling&quot;&gt;State-of-the-art in Visual Attention Modeling&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://icbcbicc.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://icbcbicc.github.io/" rel="alternate" type="text/html" /><updated>2016-12-10T19:45:56+08:00</updated><id>http://icbcbicc.github.io/</id><title>Jam&#39;s Blog</title><subtitle>Write your site description here. It will be used as your sites meta description as well!</subtitle><entry><title>State-of-the-art in Visual Attention Modeling</title><link href="http://icbcbicc.github.io/2016/12/06/State-of-the-art-in-Visual-Attention-Modeling/" rel="alternate" type="text/html" title="State-of-the-art in Visual Attention Modeling" /><published>2016-12-06T00:00:00+08:00</published><updated>2016-12-06T00:00:00+08:00</updated><id>http://icbcbicc.github.io/2016/12/06/State-of-the-art in Visual Attention Modeling</id><content type="html" xml:base="http://icbcbicc.github.io/2016/12/06/State-of-the-art-in-Visual-Attention-Modeling/">&lt;h2 id=&quot;state-of-the-art-in-visual-attention-modeling&quot;&gt;State-of-the-art in Visual Attention Modeling&lt;/h2&gt;
 
 &lt;p&gt;Authors: Borji, Ali, Itti, Laurent&lt;/p&gt;
 
@@ -53,17 +53,27 @@
     &lt;p&gt;刺激有2种分类方式：&lt;/p&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;静态的和动态的&lt;/li&gt;
-      &lt;li&gt;人造的和自然的&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;静态的和动态的&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;人造的和自然的&lt;/p&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;任务通常可以分为3类&lt;/p&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;Free viewing tasks&lt;/li&gt;
-      &lt;li&gt;Visual search tasks&lt;/li&gt;
-      &lt;li&gt;Interactive  tasks&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Free viewing tasks&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Visual search tasks&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Interactive tasks&lt;/p&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -75,9 +85,15 @@
 &lt;p&gt;可以将评估方式划分为3类：&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;基于点&lt;/li&gt;
-  &lt;li&gt;基于区域&lt;/li&gt;
-  &lt;li&gt;主观评价（好、可接受、坏）&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;基于点&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;基于区域&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;主观评价（好、可接受、坏）&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;以下是几种常见的评估方式：&lt;/p&gt;
@@ -91,8 +107,12 @@
     &lt;p&gt;这种评价方式有以下几种好处：&lt;/p&gt;
 
     &lt;ol&gt;
-      &lt;li&gt;KL对概率分布的各种区别都比较敏感。&lt;/li&gt;
-      &lt;li&gt;KL对reparameterizations有不变性，比如对分布使用连续单调的非线性函数而不影响评价。&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;KL对概率分布的各种区别都比较敏感。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;KL对reparameterizations有不变性，比如对分布使用连续单调的非线性函数而不影响评价。&lt;/p&gt;
+      &lt;/li&gt;
     &lt;/ol&gt;
 
     &lt;p&gt;当然KL也有劣势：KL没有一个上界，当2个分布完全不重合时，KL偏差将为无穷大。&lt;/p&gt;
@@ -130,23 +150,50 @@
 
 &lt;h3 id=&quot;attention-models&quot;&gt;3. ATTENTION MODELS&lt;/h3&gt;
 
-&lt;p&gt;以下模型的重点在于saliency而不是saliency detection。以下模型按事件先后顺序列出。&lt;/p&gt;
+&lt;p&gt;我们的重点在于saliency的模型，也就是解释attention behavior。而不是saliency detection，也就是检测分割最显著的区域，尽管这类问题在最初的阶段也使用了saliency operator。&lt;/p&gt;
+
+&lt;p&gt;以下模型按事件先后顺序列出。&lt;/p&gt;
 
 &lt;h4 id=&quot;cognitive-models&quot;&gt;3.1 Cognitive Models&lt;/h4&gt;
 
+&lt;p&gt;Cognitive模型是基于生物原理的，，几乎所有的模型都直接或者间接地受到了它的影响。最初的模型（Itti et al.）使用了颜色、强度、方向作为3个基本的特征通道。这个模型后来也成为了benchmark。此模型主要由以下几个步骤组成：&lt;/p&gt;
+
+&lt;p&gt;将原图像下采样为Gaussian pyramid，其中每一层都由Red(&lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt;)\Green(&lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt;), Blue(&lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt;)\Yellow(&lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt;), Intensity(&lt;script type=&quot;math/tex&quot;&gt;I&lt;/script&gt;), local orientations(&lt;script type=&quot;math/tex&quot;&gt;O_\theta&lt;/script&gt;) 这些通道组成。&lt;/p&gt;
+
+&lt;p&gt;对patch的每一个通道计算特征并normalize，得出feature map。&lt;/p&gt;
+
+&lt;p&gt;将patch的feature map按照不同的feature分别相加，normalize，得出conspicuity maps。&lt;/p&gt;
+
+&lt;p&gt;将不同feature的conspicuity maps相加，得到saliency map。&lt;/p&gt;
+
 &lt;h4 id=&quot;bayesian-models&quot;&gt;3.2 Bayesian Models&lt;/h4&gt;
+
+&lt;p&gt;基本原理是基于贝叶斯概率模型，将sensory evidence和prior knowledge结合。&lt;/p&gt;
 
 &lt;h4 id=&quot;decision-theoretic-models&quot;&gt;3.3 Decision Theoretic Models&lt;/h4&gt;
 
 &lt;h4 id=&quot;information-theoretic-models&quot;&gt;3.4 Information Theoretic Models&lt;/h4&gt;
 
+&lt;p&gt;有点像检测不常见的特征。&lt;/p&gt;
+
 &lt;h4 id=&quot;graphical-models&quot;&gt;3.5 Graphical Models&lt;/h4&gt;
+
+&lt;p&gt;概率图模型&lt;/p&gt;
 
 &lt;h4 id=&quot;spectral-analysis-models&quot;&gt;3.6 Spectral Analysis Models&lt;/h4&gt;
 
+&lt;p&gt;频率分析模型。暂时缺乏生物学上的解释。&lt;/p&gt;
+
 &lt;h4 id=&quot;pattern-classification-models&quot;&gt;3.7 Pattern Classification Models&lt;/h4&gt;
 
+&lt;p&gt;使用机器学习。&lt;/p&gt;
+
 &lt;h4 id=&quot;other-models&quot;&gt;3.8 Other Models&lt;/h4&gt;
+
+&lt;p&gt;下图展示了上述7种模型的发展过程。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/15.JPG&quot; alt=&quot;Hierarchical illustration 1&quot; /&gt;
+&lt;img src=&quot;/img/16.JPG&quot; alt=&quot;Hierarchical illustration 2&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;discussion&quot;&gt;4. Discussion&lt;/h3&gt;
 

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title: "State-of-the-art in Visual Attention Modeling"
 subtitle:  "论文笔记-2013-TPAMI-701"
@@ -27,13 +27,37 @@ Authors: Borji, Ali, Itti, Laurent
 
 ### 2. CATEGORIZATION FACTORS
 
-#### 2.1 Bottom-up vs. Top-down Models
+#### 2.1 Bottom-up（f1） vs. Top-down Models（f2）
 
-#### 2.2 Spatial vs. Spatio-temporal Models
+模型一般分为这2类，一种流行的说法是这两者共同作用引导了我们的注意力。
+
+- bottom-up一般是基于场景的特征，也就是（stimulus-driven）。
+
+  能吸引注意力的特征一般都是能够和周围环境明显区分开的。这种模型速度快，一般是feed-forward的，不需feedback。然而这种模型只能解释一部分眼动的现象，因为很多的眼动都是task-driven的。
+
+- top-down一般是基于认知的，比如知识、预期、目标、回报等，也就是（goal-driven）的。
+
+  这种模型速度慢，需要feedback和训练，一般针对某种特定的问题。给定不同的任务去观察同一幅图像，眼动数据差别很大。
+
+  那么在top-down模型下，我们怎么决定眼动呢？一般有一下3种特征我们需要关注。
+
+  1. Object Features
+
+    我们想要寻找的目标的特征，这就是target-driven attention guidance。Guided search theory 指出对不同的目标的attention是有区别的，这可以通过调整不同特征对attention的贡献的权重来实现。
+
+  2. Scene context
+
+    人通过很短时间（少于80ms）观察一幅图像可以获得一些很模糊的基本信息（gist）。尽管不能观察到很多细节，但这些信息可用于比较粗糙的场景区分（不是语义（semantic）上的分类）。这种方式对于大规模的场景搜索很有用。
+
+  3. Task demands
+
+    任务和眼动的关系非常紧密。
+
+#### 2.2 Spatial vs. Spatio-temporal Models （f3）
 
 #### 2.3 Overt vs. Covert attention
 
-#### 2.4 Space-based vs. Object-based Models
+#### 2.4 Space-based vs. Object-based Models （f9）
 
 #### 2.5 Features
 
@@ -157,5 +181,33 @@ Cognitive模型是基于生物原理的，，几乎所有的模型都直接或�
 #### 3.8 Other Models
 
 ### 4. Discussion
+
+此部分就现有模型都应该关注的几个问题进行了讨论。
+
+#### 1. 判断模型是否有生物学理论的支撑
+
+历史上还没有能够直接判断的依据，不过一般来说有生物学理论支撑的模型都有更好的效果，比如Decision theoretic 和 AWS model。因此建立一个用于判断 模型在生物学上的可解释性、合理性 的标准是很重要的。
+
+#### 2. 模型的评价标准
+
+- 不同模型对图像边缘的不同的处理会对最终结果造成很大的影响，因此应该尽可能消除这种影响。
+
+- 一般来说人的注意力都是偏向中心的（很多数据集也是），因此一些有中心偏向（center-bias）的模型一定会比其他模型效果好，比如说trivail Gaussian blob model。因此消除这种不平等的因素也很重要。
+
+#### 3. covert attention研究的缺失。
+
+目前的数据集只能显示出overt attention，比如说眼动数据，然而人眼没有特意去关注的物体也有可能被人covertly施加了关注。
+
+#### 4. 在interactive 环境下 multimodal 数据集的缺失
+
+#### 5. top-down模型的缺失
+
+尽管top-down的特征对于注意力很重要，但现在大部分的模型都是bottom-up的。前向（feed-forward）bottom-up模型一般不需要训练，比较简单。而top-down模型普遍需要回馈（feedback），也需要进行训练来适应某种特定的任务，比较复杂。
+
+#### 6. 不同模型需要的参数数量差别很大
+
+基于Gabor 或者 DOG filters的模型需要大量参数。
+
+spectral saliency 模型需要很少的参数。
 
 ### 5. SUMMARY AND CONCLUSION
