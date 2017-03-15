@@ -8,10 +8,13 @@ header-img: "img/gray.png"
 
 ## Open source face alignment resource
 
+<p align:"center">
+
 *Happy coding ~*
 
+**LAYOUT: language-lib-stars**
 
-<center> **LAYOUT: language-lib-stars** </center>
+</p>
 
 ### DNN-based
 
