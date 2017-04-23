@@ -9,11 +9,15 @@ header-img: "img/gray.png"
 
 ### Tensorflow太难用了，目前发现的缺点如下（不分先后）
 
-1. if/else语句很不好写，必须用tf.case，而且还没有找到通过它来调用函数的方法。这导致没有办法在使用同一段网络结构代码的情况下通过区分training和validation。
+1. if/else语句很不好写，必须用tf.case，而且还没有找到通过它来调用函数的方法。这导致没有办法在使用同一段网络结构代码的情况下区分training和validation。
 
     - Q: tf区分不了，但只要人能够区分就行了，也就是说在training时输入validation的数据，得到结果后注明一下是val再输出就好了。
 
     - A: 然并卵，虽然能输出val的结果。但我需要在tensorboard中分别画出train和val的相关信息，这就不得不在网络结构中明确区分两者。但我又不想把几乎完全相同的网络写2遍。
+
+    - Q: 就算是这样，你只用重新写一个val的summary，又不用全部重新写。
+
+    - A: 你再仔细想想。
 
 2. 修改tensor的值，必须用tf.assign。局部修改1维tensor，有相应的函数。局部修改多维tensor，呵呵，难如上青天。
 
