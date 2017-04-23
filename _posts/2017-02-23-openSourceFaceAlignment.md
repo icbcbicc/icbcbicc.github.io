@@ -12,6 +12,7 @@ header-img: "img/gray.png"
 
 **<center> LAYOUT: language-lib-stars </center>**
 
+Note: the number of stars of each repository is recorded on 2017-02-03
 
 ### DNN-based
 
