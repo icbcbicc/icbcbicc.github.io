@@ -44,5 +44,5 @@ header-img: "img/gray.png"
 
 ### 最后，我想说
 
-我还是滚去用pytorch吧，动态图就是叼。当初入tf的坑主要是被它【骚黄色的官网/充实的教程/详细的文档/直观方便的tensorboard】所诱惑，当然还有google爸爸撑腰。最后事实证明，起确实中看不中用啊。目前打算把之前的几个项目迁移到pytorch上，就当是熟悉一下pytorch了。
+我还是滚去用pytorch吧，动态图就是叼。当初入tf的坑主要是被它【骚黄色的官网/充实的教程/详细的文档/直观方便的tensorboard】所诱惑，当然还有google爸爸撑腰。最后事实证明，确实是中看不中用啊。目前打算把之前的几个项目迁移到pytorch上，就当是熟悉一下pytorch了。
 听说google也在开发tf的动态图版本Tensorflow fold，但目前看起来没啥人用，先观望一段时间再说。
