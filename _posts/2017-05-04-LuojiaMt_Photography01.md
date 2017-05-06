@@ -8,6 +8,7 @@ header-img: "https://ooo.0o0.ooo/2017/04/25/58ff0fb96b038.jpg"
 
 
 ## Mar, 2017
+
 ### By ILFORD HP5 and Mamiya C33
 
 <br>
@@ -55,6 +56,7 @@ header-img: "https://ooo.0o0.ooo/2017/04/25/58ff0fb96b038.jpg"
 <br>
 
 ## Mar, 2017
+
 ### By KODAK TRIX400 and Mamiya C33
 
 <br>
@@ -73,7 +75,7 @@ header-img: "https://ooo.0o0.ooo/2017/04/25/58ff0fb96b038.jpg"
 <br>
 <br>
 
-<img src="https://ooo.0o0.ooo/2017/04/25/58ff0fff97424.jpg" alt"22480002-1.jpg" title="22480002-1.jpg" />
+<img src="https://ooo.0o0.ooo/2017/04/25/58ff0fff97424.jpg" alt="22480002-1.jpg" title="22480002-1.jpg" />
 
 <br>
 <br>
